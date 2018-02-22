@@ -106,11 +106,13 @@
                 
                   <li> <a class="main-nav-link" href="/archives">Archives</a> </li>
                 
-                  <li> <a class="main-nav-link" href="/categories">Categories</a> </li>
+                  <li> <a class="main-nav-link" href="/categories">about themes</a> </li>
                 
                   <li> <a class="main-nav-link" href="/tags">Tags</a> </li>
                 
                   <li> <a class="main-nav-link" href="/about">About</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/book">my book</a> </li>
                 
                   <li><div id="search-form-wrap">
 
@@ -203,30 +205,29 @@
     </div>
     <footer class="article-footer">
       
+
       
         
-	<div id="comment">
-		<!-- 来必力City版安装代码 -->
-		<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQ4MS82MDQ5">
-		<script type="text/javascript">
-		   (function(d, s) {
-		       var j, e = d.getElementsByTagName(s)[0];
-
-		       if (typeof LivereTower === 'function') { return; }
-
-		       j = d.createElement(s);
-		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-		       j.async = true;
-
-		       e.parentNode.insertBefore(j, e);
-		   })(document, 'script');
+	  <!-- Gitment START! Deploy by Z4HD -->
+	<div id="comments"></div>
+		<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+		<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+		<script>
+		var gitment = new Gitment({
+			id: 'http://yoursite.com/2011/11/23/计算机要从娃娃抓起/',
+			owner: 'JoeJoeyMa',
+ 			repo: 'https://github.com/JoeJoeyMa/joey.git',
+			oauth: {
+				client_id: 'b16fd2b48371378f485f',
+				client_secret: 'a3d12c33716206b031ba0d95fade9927e31dbb46',
+			},
+		})
+		gitment.render('comments')
 		</script>
-		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
-		</div>
-		<!-- City版安装代码已完成 -->
-	</div>
-
-
+		<!-- Gitment 自定义样式表 -->
+		<link rel="stylesheet" href="/css/comment-gitment.css">
+		<!-- Gitment END! -->
+	 
 
       
       
@@ -314,11 +315,13 @@
   
     <a href="/archives" class="mobile-nav-link">Archives</a>
   
-    <a href="/categories" class="mobile-nav-link">Categories</a>
+    <a href="/categories" class="mobile-nav-link">About themes</a>
   
     <a href="/tags" class="mobile-nav-link">Tags</a>
   
     <a href="/about" class="mobile-nav-link">About</a>
+  
+    <a href="/book" class="mobile-nav-link">My Book</a>
   
 </nav> -->
     
