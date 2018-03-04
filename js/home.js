@@ -11,9 +11,19 @@ function scrollHandler(e) {
 	 var event = e || window.event,
 	     target = event.target || event.srcElement;
 	 var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-	 if (scrollTop > h - navbar.offsetHeight) {
-	     navbar.classList.add("fixed");
-	 } else {
-	     navbar.classList.remove("fixed");
-	 }
+
+}
+
+
+window.onscroll = function() {myFunction()};
+
+
+var sticky = navbar.offsetTop;
+
+function myFunction() {
+  if (window.pageYOffset >= sticky) {
+    navbar.classList.add("sticky")
+  } else {
+    navbar.classList.remove("sticky");
+  }
 }

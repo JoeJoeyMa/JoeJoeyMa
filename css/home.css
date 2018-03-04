@@ -50,12 +50,13 @@ html{
     padding-bottom: 10px;
 	text-align: center;
 	border-bottom: 1px solid #eef1f8;
-	background: none;
+	background-attachment: fixed;
 	-moz-user-select: none;
     -webkit-user-select: none;
     -ms-user-select: none;
     -khtml-user-select: none;
-    user-select: none;
+	user-select: none;
+	z-index: 99;
 }
 /*.intro-logo:before{
     content: "";
@@ -82,18 +83,18 @@ html{
     position: fixed;
     top: 0;
     bottom: inherit;
-    z-index: 99;
+    z-index: 95;
     background: rgba(255,255,255,.95);
     transition: background 2s;
 }
 .navigater-list{
-	font-family: "Microsoft YaHei","微软雅黑",Arial,simsun,"宋体";
+	font-family: "Snell Roundhand, cursive";
 	color:#444444;
 	font-weight: 100;
 	font-size: 1.2em;
 }
 .navigater-list>a {
-	color: #ffff;
+	color: bisque;
 	padding: 25px 20px 25px 20px;
 	line-height: 60px;
 }
@@ -263,4 +264,16 @@ footer>.container>.row>p>a:hover  {
 		font-weight: bold;
 		letter-spacing: 4px;
 	}
+}
+
+.sticky {
+  position: fixed;
+  top: auto;
+  width: 100%;
+  background: rgba(1, 1, 1, .5);
+  bottom: 92%;
+}
+
+.sticky + .content {
+  padding-top: 60px;
 }
