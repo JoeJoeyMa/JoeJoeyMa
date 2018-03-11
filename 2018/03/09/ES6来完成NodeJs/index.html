@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>es6来完成nodejs | To change is to be better to change often is to change perfect</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="CSS前端JavaScriptES6ReactVueDomAngularNodeJs" />
+  
+  
+    <meta name="google-site-verification" content="zeeMq378QFdIk20wn4KhRFwp7IhLaosjf7Kf7o9Zcfs" />
+  
+  
+  
+  <meta name="description" content="ES2015&amp;#x6216;ES6&amp;#x662F;&amp;#x6307;JavaScript&amp;#x6700;&amp;#x65B0;&amp;#x7684;&amp;#x7A33;&amp;#x5B9A;&amp;#x7684;&amp;#x8FED;&amp;#x4EE3;&amp;#x7248;&amp;#x672C;&amp;#x3002; ES6&amp;#x662F;JavaScript&amp;#x7684;&amp;#x91CD;&amp;#x5927;&amp;#x66F4;&amp;#x65B0;&amp;#xFF0C">
+<meta name="keywords" content="CSS,前端,JavaScript,ES6,React,Vue,Dom,Angular,NodeJs">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ES6来完成NodeJs">
+<meta property="og:url" content="http://yoursite.com/2018/03/09/ES6来完成NodeJs/index.html">
+<meta property="og:site_name" content="To change is to be better to change often is to change perfect">
+<meta property="og:description" content="ES2015&amp;#x6216;ES6&amp;#x662F;&amp;#x6307;JavaScript&amp;#x6700;&amp;#x65B0;&amp;#x7684;&amp;#x7A33;&amp;#x5B9A;&amp;#x7684;&amp;#x8FED;&amp;#x4EE3;&amp;#x7248;&amp;#x672C;&amp;#x3002; ES6&amp;#x662F;JavaScript&amp;#x7684;&amp;#x91CD;&amp;#x5927;&amp;#x66F4;&amp;#x65B0;&amp;#xFF0C">
+<meta property="og:updated_time" content="2018-03-09T06:29:31.362Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ES6来完成NodeJs">
+<meta name="twitter:description" content="ES2015&amp;#x6216;ES6&amp;#x662F;&amp;#x6307;JavaScript&amp;#x6700;&amp;#x65B0;&amp;#x7684;&amp;#x7A33;&amp;#x5B9A;&amp;#x7684;&amp;#x8FED;&amp;#x4EE3;&amp;#x7248;&amp;#x672C;&amp;#x3002; ES6&amp;#x662F;JavaScript&amp;#x7684;&amp;#x91CD;&amp;#x5927;&amp;#x66F4;&amp;#x65B0;&amp;#xFF0C">
+  
+    <link rel="alternate" href="/atom.xml" title="To change is to be better to change often is to change perfect" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/css/images/mylogo.jpg">
+  <link rel="apple-touch-icon" href="/css/images/mylogo.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery-3.1.1.min.js"></script>
+  <script src="/js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="/css/dialog.css">
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css" >
+  
+
+  
+  
+  
+
+</head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        
+
+<header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/mylogo.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">Home</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">Archives</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/categories">about themes</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/tags">Tags</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/about">About</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/book">📓</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-ES6来完成NodeJs" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      ES6来完成NodeJs
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2018/03/09/ES6来完成NodeJs/" class="article-date">
+	  <time datetime="2018-03-09T06:28:01.000Z" itemprop="datePublished">2018-03-09</time>
+	</a>
+
+      
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		PV:<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>ES2015&#x6216;ES6&#x662F;&#x6307;JavaScript&#x6700;&#x65B0;&#x7684;&#x7A33;&#x5B9A;&#x7684;&#x8FED;&#x4EE3;&#x7248;&#x672C;&#x3002;</p>
+<p>ES6&#x662F;JavaScript&#x7684;&#x91CD;&#x5927;&#x66F4;&#x65B0;&#xFF0C;&#x4E5F;&#x662F;&#x81EA;2009&#x5E74;ES5&#x6807;&#x51C6;&#x5316;&#x4E4B;&#x540E;&#x7684;&#x7B2C;&#x4E00;&#x6B21;&#x66F4;&#x65B0;&#x3002;&#x8FD9;&#x6B21;&#x66F4;&#x65B0;&#x5305;&#x62EC;&#x4E86;&#x4E00;&#x4E9B;&#x65B0;&#x7684;&#x8BED;&#x8A00;&#x8BED;&#x6CD5;&#xFF0C;&#x5176;&#x4E2D;&#x6709;&#x4E00;&#x90E8;&#x5206;&#x88AB;&#x770B;&#x505A;&#x662F;&#x8BED;&#x6CD5;&#x7CD6;&#x3002;</p>
+<p>&#x76EE;&#x524D;&#x4E3B;&#x6D41;JavaScript&#x5F15;&#x64CE;&#x8FD8;&#x6CA1;&#x6709;&#x5B8C;&#x5168;&#x5B9E;&#x73B0;&#x8FD9;&#x4E9B;&#x65B0;&#x529F;&#x80FD;&#xFF0C;&#x9700;&#x8981;&#x8FDB;&#x884C;&#x4E00;&#x4E9B;&#x8F6C;&#x6362;&#x624D;&#x80FD;&#x5728;&#x65E7;&#x7684;JavaScript&#x4E2D;&#x4F7F;&#x7528;&#x8FD9;&#x4E9B;&#x65B0;&#x529F;&#x80FD;&#x3002;</p>
+<p>&#x5728;&#x672C;&#x6559;&#x7A0B;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x5C06;&#x4F7F;&#x7528;ES6&#x521B;&#x5EFA;&#x4E00;&#x4E2A;<a href="https://expressjs.com/" target="_blank" rel="noopener">Express</a>&#x5E94;&#x7528;&#x3002;&#x6211;&#x4EEC;&#x5C06;&#x4F1A;&#x4F7F;&#x7528;Babel&#x7F16;&#x8BD1;&#x5668;&#x5C06;ES6&#x4EE3;&#x7801;&#x7F16;&#x8BD1;&#x4E3A;ES5&#x3002;</p>
+<p>&#x7528;Babel&#x7F16;&#x8BD1;&#x5668;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5728;Express&#x5E94;&#x7528;&#x4E2D;&#x4F7F;&#x7528;JavaScript&#x7684;&#x65B0;&#x7279;&#x6027;&#x3002;&#x5F53;&#x7136;&#x4F60;&#x4E5F;&#x9700;&#x8981;&#x6CBB;&#x7597;JavaScript&#x7684;&#x57FA;&#x7840;&#x77E5;&#x8BC6;&#x624D;&#x80FD;&#x591F;&#x6210;&#x529F;&#x5B8C;&#x6210;&#x672C;&#x6559;&#x7A0B;&#x4E2D;&#x7684;&#x5185;&#x5BB9;&#x3002;</p>
+<p>&#x6839;&#x636E;Babel&#x7684;&#x5B98;&#x7F51;&#x6765;&#x770B;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x7528;&#x5B83;&#x6765;&#x4F7F;&#x7528;&#x4E0B;&#x4E00;&#x4EE3;JavaScript&#x3001;</p>
+<p>&#x672C;&#x6559;&#x7A0B;&#x5047;&#x8BBE;&#x4F60;&#x5DF2;&#x7ECF;&#x5B89;&#x88C5;&#x4E86; Node Package Manager(<a href="http://blog.npmjs.org/post/85484771375/how-to-install-npm" target="_blank" rel="noopener">NPM</a>)&#x548C; <a href="https://docs.npmjs.com/getting-started/installing-node" target="_blank" rel="noopener">NodeJS &#x5F15;&#x64CE;</a>&#x3002;</p>
+<p>&#x5B66;&#x4E60;&#x672C;&#x6559;&#x7A0B;&#x7684;&#x65F6;&#x5019;&#x6700;&#x597D;&#x4F7F;&#x7528; linux &#x6216;&#x8005; mac Os &#x7CFB;&#x7EDF;&#x3002;&#x5F53;&#x7136;&#xFF0C;&#x4F7F;&#x7528; windows &#x7CFB;&#x7EDF;&#x4E5F;&#x53EF;&#x4EE5;&#x6B63;&#x5E38;&#x8FDB;&#x884C;&#x3002;</p>
+<h2 id="&#x7B2C;&#x4E00;&#x6B65;&#xFF1A;&#x5B89;&#x88C5;&#x9879;&#x76EE;&#x6587;&#x4EF6;&#x5939;"><a href="#&#x7B2C;&#x4E00;&#x6B65;&#xFF1A;&#x5B89;&#x88C5;&#x9879;&#x76EE;&#x6587;&#x4EF6;&#x5939;" class="headerlink" title="&#x7B2C;&#x4E00;&#x6B65;&#xFF1A;&#x5B89;&#x88C5;&#x9879;&#x76EE;&#x6587;&#x4EF6;&#x5939;"></a>&#x7B2C;&#x4E00;&#x6B65;&#xFF1A;&#x5B89;&#x88C5;&#x9879;&#x76EE;&#x6587;&#x4EF6;&#x5939;</h2><ul>
+<li>&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x6587;&#x4EF6;&#x5939;</li>
+<li><a href="https://askubuntu.com/questions/375867/how-to-access-a-folder-through-the-terminal" target="_blank" rel="noopener">&#x7528;terminal&#x8FDB;&#x5165;&#x8FD9;&#x4E2A;&#x6587;&#x4EF6;&#x5939;</a></li>
+<li>&#x8FD0;&#x884C;&#x4EE5;&#x4E0B;&#x547D;&#x4EE4;&#x6765;&#x521D;&#x59CB;&#x5316;&#x4F60;&#x7684;&#x9879;&#x76EE;<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">npm</span> init -y</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>&#x8FD9;&#x5C06;&#x4F1A;&#x5E2E;&#x4F60;&#x5728;&#x4F60;&#x7684;&#x9879;&#x76EE;&#x4E2D;&#x521B;&#x5EFA;&#x4E00;&#x4E2A; package.json &#x6587;&#x4EF6;&#x3002;&#x5728;&#x8FD9;&#x4E00;&#x6B65;&#x4E2D;&#xFF0C;&#x4F60;&#x7684; package.json &#x6587;&#x4EF6;&#x5E94;&#x8BE5;&#x4E0E;&#x4E0B;&#x9762;&#x8FD9;&#x4E2A;&#x4F8B;&#x5B50;&#x975E;&#x5E38;&#x76F8;&#x4F3C;&#xFF1A;</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">{</span><br><span class="line">  <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;es6express&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;version&quot;</span>: <span class="string">&quot;1.0.0&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;description&quot;</span>: <span class="string">&quot;&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;main&quot;</span>: <span class="string">&quot;index.js&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;scripts&quot;</span>: {</span><br><span class="line">    <span class="attr">&quot;test&quot;</span>: <span class="string">&quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;</span></span><br><span class="line">  },</span><br><span class="line">  <span class="attr">&quot;author&quot;</span>: <span class="string">&quot;&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;license&quot;</span>: <span class="string">&quot;ISC&quot;</span></span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<h2 id="&#x7B2C;&#x4E8C;&#x6B65;&#xFF1A;&#x521B;&#x5EFA;&#x7A0B;&#x5E8F;&#x5165;&#x53E3;"><a href="#&#x7B2C;&#x4E8C;&#x6B65;&#xFF1A;&#x521B;&#x5EFA;&#x7A0B;&#x5E8F;&#x5165;&#x53E3;" class="headerlink" title="&#x7B2C;&#x4E8C;&#x6B65;&#xFF1A;&#x521B;&#x5EFA;&#x7A0B;&#x5E8F;&#x5165;&#x53E3;"></a>&#x7B2C;&#x4E8C;&#x6B65;&#xFF1A;&#x521B;&#x5EFA;&#x7A0B;&#x5E8F;&#x5165;&#x53E3;</h2><ul>
+<li>&#x5728;&#x4F60;&#x9879;&#x76EE;&#x7684;&#x6839;&#x76EE;&#x5F55;&#x4E0B;&#xFF0C;&#x521B;&#x5EFA; index.js &#x6587;&#x4EF6;</li>
+</ul>
+<h2 id="&#x7B2C;&#x4E09;&#x6B65;&#xFF1A;&#x5B89;&#x88C5;&#x9700;&#x8981;&#x7684;&#x6A21;&#x5757;&#xFF08;dependencies-devDependencies-&#xFF09;"><a href="#&#x7B2C;&#x4E09;&#x6B65;&#xFF1A;&#x5B89;&#x88C5;&#x9700;&#x8981;&#x7684;&#x6A21;&#x5757;&#xFF08;dependencies-devDependencies-&#xFF09;" class="headerlink" title="&#x7B2C;&#x4E09;&#x6B65;&#xFF1A;&#x5B89;&#x88C5;&#x9700;&#x8981;&#x7684;&#x6A21;&#x5757;&#xFF08;dependencies/devDependencies &#xFF09;"></a>&#x7B2C;&#x4E09;&#x6B65;&#xFF1A;&#x5B89;&#x88C5;&#x9700;&#x8981;&#x7684;&#x6A21;&#x5757;&#xFF08;dependencies/devDependencies &#xFF09;</h2><p>&#x5728;&#x8FD9;&#x4E00;&#x6B65;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x5C06;&#x4F1A;&#x5B89;&#x88C5; express &#x5E94;&#x7528;&#x9700;&#x8981;&#x7684;&#x6A21;&#x5757;&#x3002;</p>
+<h3 id="Dependencies"><a href="#Dependencies" class="headerlink" title="Dependencies"></a>Dependencies</h3><p>&#x6CE8;&#x610F;&#x8FD9;&#x4E9B;&#x4F9D;&#x8D56;&#x662F;&#x53EF;&#x9009;&#x7684;&#xFF0C;&#x53EA;&#x662F;&#x56E0;&#x4E3A;&#x6211;&#x4EEC;&#x521B;&#x5EFA; express &#x5E94;&#x7528;&#x624D;&#x9700;&#x8981;&#x3002;</p>
+<ul>
+<li><a href="https://expressjs.com/" target="_blank" rel="noopener">express</a>&#xFF1A;&#x4E00;&#x4E2A;&#x5FEB;&#x901F;&#x7684;&#x3001;&#x65E0;&#x9650;&#x5236;&#x7684;&#x3001;&#x7B80;&#x7EA6;&#x7684; NodeJS web &#x6846;&#x67B6;</li>
+<li><a href="https://github.com/expressjs/morgan" target="_blank" rel="noopener">margan</a>&#xFF1A;NodeJS &#x7684; http &#x8BF7;&#x6C42;&#x8BB0;&#x5F55;&#x4E2D;&#x95F4;&#x4EF6;</li>
+</ul>
+<p>&#x8981;&#x5B89;&#x88C5;&#x8FD9;&#x4E9B;&#x4F9D;&#x8D56;&#xFF0C;&#x5728;&#x4F60;&#x9879;&#x76EE;&#x4E2D;&#x95F4;&#x5939;&#x4E2D;&#x6253;&#x5F00; terminal&#xFF0C;&#x8FD0;&#x884C;&#x4EE5;&#x4E0B;&#x547D;&#x4EE4;&#xFF1A;</p>
+<figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --<span class="built_in">save</span> <span class="built_in">express</span> morgan</span><br></pre></td></tr></table></figure>
+<p>&#x5728;&#x8FD9;&#x4E00;&#x6B65;&#xFF0C;&#x4F60;&#x7684;&#x9879;&#x76EE;&#x76EE;&#x5F55;&#x4E2D;&#x5E94;&#x8BE5;&#x4F1A;&#x6709;&#x4E00;&#x4E2A; node_modules &#x6587;&#x4EF6;&#x5939;&#xFF0C;&#x4F60;&#x7684; package.json &#x6587;&#x4EF6;&#x5E94;&#x8BE5;&#x4E0E;&#x4E0B;&#x9762;&#x7684;&#x8FD9;&#x4E2A;&#x4F8B;&#x5B50;&#x7C7B;&#x4F3C;&#xFF1A;</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">{</span><br><span class="line">  <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;es6express&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;version&quot;</span>: <span class="string">&quot;1.0.0&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;description&quot;</span>: <span class="string">&quot;&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;main&quot;</span>: <span class="string">&quot;index.js&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;scripts&quot;</span>: {</span><br><span class="line">    <span class="attr">&quot;test&quot;</span>: <span class="string">&quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;</span></span><br><span class="line">  },</span><br><span class="line">  <span class="attr">&quot;author&quot;</span>: <span class="string">&quot;&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;license&quot;</span>: <span class="string">&quot;ISC&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;dependencies&quot;</span>: {</span><br><span class="line">    <span class="attr">&quot;express&quot;</span>: <span class="string">&quot;^4.15.2&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;morgan&quot;</span>: <span class="string">&quot;^1.8.1&quot;</span></span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<h3 id="Development-Dependencies"><a href="#Development-Dependencies" class="headerlink" title="Development Dependencies"></a>Development Dependencies</h3><p>&#x8FD9;&#x4E9B;&#x4F9D;&#x8D56;&#x662F;&#x7528;&#x4E8E;&#x5728;&#x6211;&#x4EEC;&#x9879;&#x76EE;&#x4E2D;&#x4F7F;&#x7528; babel &#x7F16;&#x8BD1;&#x5668;&#x7684;&#xFF1A;</p>
+<ul>
+<li><a href="https://babeljs.io/docs/usage/cli/" target="_blank" rel="noopener">babel-cli</a>&#xFF1A;&#x4F7F;&#x7528; babel &#x547D;&#x4EE4;&#x884C;&#x7F16;&#x8BD1;&#x6587;&#x4EF6;</li>
+<li><a href="https://www.npmjs.com/package/babel-preset-es2015" target="_blank" rel="noopener">babel-preset-es2015 </a>&#xFF1A;Babel &#x4E3A;ES2015&#x9884;&#x8BBE;&#x7684;&#x63D2;&#x4EF6;</li>
+<li><a href="https://github.com/isaacs/rimraf" target="_blank" rel="noopener">rimraf</a>&#xFF1A;&#x5728; NodeJS &#x4E2D;&#x4F7F;&#x7528; unix &#x547D;&#x4EE4; rm -rf</li>
+</ul>
+<p>&#x5728;&#x8FD9;&#x4E00;&#x6B65;&#xFF0C;&#x4F60;&#x7684; package.json &#x6587;&#x4EF6;&#x5E94;&#x8BE5;&#x4E0E;&#x4E0B;&#x9762;&#x8FD9;&#x4E2A;&#x4F8B;&#x5B50;&#x7C7B;&#x4F3C;&#xFF1A;</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">{</span><br><span class="line">  <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;es6express&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;version&quot;</span>: <span class="string">&quot;1.0.0&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;description&quot;</span>: <span class="string">&quot;&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;main&quot;</span>: <span class="string">&quot;index.js&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;scripts&quot;</span>: {</span><br><span class="line">    <span class="attr">&quot;test&quot;</span>: <span class="string">&quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;</span></span><br><span class="line">  },</span><br><span class="line">  <span class="attr">&quot;author&quot;</span>: <span class="string">&quot;&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;license&quot;</span>: <span class="string">&quot;ISC&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;dependencies&quot;</span>: {</span><br><span class="line">    <span class="attr">&quot;express&quot;</span>: <span class="string">&quot;^4.15.2&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;morgan&quot;</span>: <span class="string">&quot;^1.8.1&quot;</span></span><br><span class="line">  },</span><br><span class="line">  <span class="attr">&quot;devDependencies&quot;</span>: {</span><br><span class="line">    <span class="attr">&quot;babel-cli&quot;</span>: <span class="string">&quot;^6.24.0&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;babel-preset-es2015&quot;</span>: <span class="string">&quot;^6.24.0&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;rimraf&quot;</span>: <span class="string">&quot;^2.6.1&quot;</span></span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<h2 id="&#x7B2C;&#x56DB;&#x6B65;&#xFF1A;&#x5728;&#x4F60;&#x9879;&#x76EE;&#x7684;&#x6839;&#x76EE;&#x5F55;&#x4E0B;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;-Babel-&#x914D;&#x7F6E;&#x6587;&#x4EF6;"><a href="#&#x7B2C;&#x56DB;&#x6B65;&#xFF1A;&#x5728;&#x4F60;&#x9879;&#x76EE;&#x7684;&#x6839;&#x76EE;&#x5F55;&#x4E0B;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;-Babel-&#x914D;&#x7F6E;&#x6587;&#x4EF6;" class="headerlink" title="&#x7B2C;&#x56DB;&#x6B65;&#xFF1A;&#x5728;&#x4F60;&#x9879;&#x76EE;&#x7684;&#x6839;&#x76EE;&#x5F55;&#x4E0B;&#x521B;&#x5EFA;&#x4E00;&#x4E2A; Babel &#x914D;&#x7F6E;&#x6587;&#x4EF6;"></a>&#x7B2C;&#x56DB;&#x6B65;&#xFF1A;&#x5728;&#x4F60;&#x9879;&#x76EE;&#x7684;&#x6839;&#x76EE;&#x5F55;&#x4E0B;&#x521B;&#x5EFA;&#x4E00;&#x4E2A; Babel &#x914D;&#x7F6E;&#x6587;&#x4EF6;</h2><ul>
+<li>&#x8FD0;&#x884C;&#x4EE5;&#x4E0B;&#x547D;&#x4EE4;&#x6765;&#x521B;&#x5EFA;&#x4E00;&#x4E2A; babel &#x914D;&#x7F6E;&#x6587;&#x4EF6;</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">touch</span> <span class="selector-class">.babelrc</span></span><br></pre></td></tr></table></figure>
+<p>&#x8FD9;&#x4E2A;&#x6587;&#x4EF6;&#x662F;&#x7528;&#x6765;&#x544A;&#x8BC9; babel &#x5982;&#x4F55;&#x8F6C;&#x6362;&#x4F60;&#x7684; JavaScript &#x6587;&#x4EF6;&#x3002;&#x6211;&#x4EEC;&#x5C06;&#x4F1A;&#x628A;&#x6211;&#x4EEC;&#x7684;ES6&#x4EE3;&#x7801;&#x8F6C;&#x6362;&#x4E3A;ES5&#x4EE3;&#x7801;&#x3002;</p>
+<ul>
+<li>&#x6253;&#x5F00;&#x4F60;&#x7684; .babelrc&#x6587;&#x4EF6;&#xFF0C;&#x628A;&#x4EE5;&#x4E0B;&#x4EE3;&#x7801;&#x6BB5;&#x590D;&#x5236;&#x5230;&#x4F60;&#x7684;&#x6587;&#x4EF6;&#x4E2D;&#xFF0C;&#x5E76;&#x4FDD;&#x5B58;&#x3002;</li>
+</ul>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">{</span><br><span class="line">  <span class="attr">&quot;presets&quot;</span>: [<span class="string">&quot;es2015&quot;</span>]</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<h2 id="&#x7B2C;&#x4E94;&#x6B65;&#xFF1A;&#x4F7F;&#x7528;-Babel-&#x6765;&#x7F16;&#x8BD1;&#x6211;&#x4EEC;&#x7684;-JavaScript-&#x6587;&#x4EF6;"><a href="#&#x7B2C;&#x4E94;&#x6B65;&#xFF1A;&#x4F7F;&#x7528;-Babel-&#x6765;&#x7F16;&#x8BD1;&#x6211;&#x4EEC;&#x7684;-JavaScript-&#x6587;&#x4EF6;" class="headerlink" title="&#x7B2C;&#x4E94;&#x6B65;&#xFF1A;&#x4F7F;&#x7528; Babel &#x6765;&#x7F16;&#x8BD1;&#x6211;&#x4EEC;&#x7684; JavaScript &#x6587;&#x4EF6;"></a>&#x7B2C;&#x4E94;&#x6B65;&#xFF1A;&#x4F7F;&#x7528; Babel &#x6765;&#x7F16;&#x8BD1;&#x6211;&#x4EEC;&#x7684; JavaScript &#x6587;&#x4EF6;</h2><p>&#x6211;&#x4EEC;&#x8981;&#x505A;&#x7684;&#x4E0B;&#x4E00;&#x6B65;&#x5C31;&#x662F;&#x4F7F;&#x7528; babel &#x628A;&#x6211;&#x4EEC;&#x7684; JavaScript &#x4EE3;&#x7801;&#x4ECE;ES6&#x7F16;&#x8BD1;&#x4E3A;ES5&#xFF08;&#x6211;&#x4EEC;&#x73B0;&#x5728;&#x8FD8;&#x6CA1;&#x6709;&#x5199;&#x4EC0;&#x4E48; JavaScript &#x4EE3;&#x7801;&#xFF09;&#x3002;</p>
+<ul>
+<li>&#x5728;&#x4F60;&#x7684; package.json &#x6587;&#x4EF6;&#x4E2D;&#xFF0C;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A; start &#x548C; build &#x547D;&#x4EE4;&#x3002;&#x4F60;&#x7684; package.json &#x6587;&#x4EF6;&#x5E94;&#x8BE5;&#x4E0E;&#x4E0B;&#x9762;&#x4F8B;&#x5B50;&#x7C7B;&#x4F3C;&#xFF1A;</li>
+</ul>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">{</span><br><span class="line">  <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;es6express&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;version&quot;</span>: <span class="string">&quot;1.0.0&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;description&quot;</span>: <span class="string">&quot;&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;main&quot;</span>: <span class="string">&quot;index.js&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;scripts&quot;</span>: {</span><br><span class="line">    <span class="attr">&quot;test&quot;</span>: <span class="string">&quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;build&quot;</span>: <span class="string">&quot;rimraf dist/ &amp;&amp; babel ./ --out-dir dist/ --ignore ./node_modules,./.babelrc,./package.json,./npm-debug.log --copy-files&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;start&quot;</span>: <span class="string">&quot;npm run build &amp;&amp; node dist/index.js&quot;</span></span><br><span class="line">  },</span><br><span class="line">  <span class="attr">&quot;author&quot;</span>: <span class="string">&quot;&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;license&quot;</span>: <span class="string">&quot;ISC&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;dependencies&quot;</span>: {</span><br><span class="line">    <span class="attr">&quot;express&quot;</span>: <span class="string">&quot;^4.15.2&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;morgan&quot;</span>: <span class="string">&quot;^1.8.1&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;rimraf&quot;</span>: <span class="string">&quot;^2.6.1&quot;</span></span><br><span class="line">  },</span><br><span class="line">  <span class="attr">&quot;devDependencies&quot;</span>: {</span><br><span class="line">    <span class="attr">&quot;babel-cli&quot;</span>: <span class="string">&quot;^6.24.0&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;babel-preset-es2015&quot;</span>: <span class="string">&quot;^6.24.0&quot;</span></span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>&#x606D;&#x559C;&#x4F60;&#xFF01;&#x4F60;&#x73B0;&#x5728;&#x5DF2;&#x7ECF;&#x53EF;&#x4EE5;&#x5728;&#x4F60;&#x7684; express &#x4E2D;&#x4F7F;&#x7528; JavaScript &#x7684;&#x65B0;&#x7279;&#x6027;&#x4E86;&#x3002;</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+
+      
+        
+	  <!-- Gitment START! Deploy by Z4HD -->
+	<div id="comments"></div>
+		<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+		<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+		<script>
+		var gitment = new Gitment({
+			id: 'http://yoursite.com/2018/03/09/ES6来完成NodeJs/',
+			owner: 'JoeJoeyMa',
+ 			repo: 'JoeJoeyMa.github.io',
+			oauth: {
+				client_id: 'b16fd2b48371378f485f',
+				client_secret: 'a3d12c33716206b031ba0d95fade9927e31dbb46',
+			},
+		})
+		gitment.render('comments')
+		</script>
+		<!-- Gitment 自定义样式表 -->
+		<link rel="stylesheet" href="/css/comment-gitment.css">
+		<!-- Gitment END! -->
+	 
+
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Angular/">Angular</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Dom/">Dom</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ES6/">ES6</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NodeJs/">NodeJs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vue/">Vue</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/03/12/React-vue/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">React/vue</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#第一步：安装项目文件夹"><span class="nav-number">1.</span> <span class="nav-text">第一步：安装项目文件夹</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二步：创建程序入口"><span class="nav-number">2.</span> <span class="nav-text">第二步：创建程序入口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第三步：安装需要的模块（dependencies-devDependencies-）"><span class="nav-number">3.</span> <span class="nav-text">第三步：安装需要的模块（dependencies/devDependencies ）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Dependencies"><span class="nav-number">3.1.</span> <span class="nav-text">Dependencies</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Development-Dependencies"><span class="nav-number">3.2.</span> <span class="nav-text">Development Dependencies</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第四步：在你项目的根目录下创建一个-Babel-配置文件"><span class="nav-number">4.</span> <span class="nav-text">第四步：在你项目的根目录下创建一个 Babel 配置文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第五步：使用-Babel-来编译我们的-JavaScript-文件"><span class="nav-number">5.</span> <span class="nav-text">第五步：使用 Babel 来编译我们的 JavaScript 文件</span></a></li></ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/JoeJoeyMa/JoeJoeyMa.github.io" target="_blank">Hexo-theme-Joejoey</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2018 To change is to be better to change often is to change perfect All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				UV : <span id="busuanzi_value_site_uv"></span> |  
+				PV : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">About themes</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+    <a href="/book" class="mobile-nav-link">📓</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/scripts.js"></script>
+
+
+
+
+  <script src="/js/dialog.js"></script>
+
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-114383200-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            To change is to be better to change often is to change perfect
+          </div>
+          <div class="panel-body">
+            Copyright © 2018 To change is to be better to change often is to change perfect All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>
