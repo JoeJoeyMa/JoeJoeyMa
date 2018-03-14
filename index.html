@@ -326,9 +326,9 @@
   <div class="intro-navigate">
       <p class="navigater-list">
         
-          <a id="beautifont" class="main-nav-link" href="/">Home</a>
+          <a id="beautifont" class="main-nav-link" href="/">Startseite</a>
         
-          <a id="beautifont" class="main-nav-link" href="/archives">Archives</a>
+          <a id="beautifont" class="main-nav-link" href="/archives">Archive</a>
         
           <a id="beautifont" class="main-nav-link" href="/categories">about themes</a>
         
@@ -437,6 +437,81 @@
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Angular/">Angular</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Dom/">Dom</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ES6/">ES6</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NodeJs/">NodeJs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vue/">Vue</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-Installing-the-Docker-client-on-Windows-Subsystem-for-Linux-Ubuntu"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/09/25/Installing-the-Docker-client-on-Windows-Subsystem-for-Linux-Ubuntu/">Installing the Docker client on Windows Subsystem for Linux (Ubuntu)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/09/25/Installing-the-Docker-client-on-Windows-Subsystem-for-Linux-Ubuntu/" class="article-date">
+	  <time datetime="2017-09-25T12:09:25.000Z" itemprop="datePublished">2017-09-25</time>
+	</a>
+
+      
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <img src="/2017/09/25/Installing-the-Docker-client-on-Windows-Subsystem-for-Linux-Ubuntu/1.png">
+<p>I&#x2019;m a PC guy, I have always been. I played around a little bit with Linux back in the university days, but that was it.</p>
+<p>But now, Windows brought Linux a little closer. I don&#x2019;t have to do anything complicated like dual booting or having another computer set up just to experience the Linux (non GUI) environment.</p>
+<p>As a Windows Insider, I tried the Windows Subsystem for Linux since day 1 and I really enjoyed it.</p>
+<p>Now that Falls Creators Update is out, I&#x2019;m using the Ubuntu distro from the store, and the first thing I want to do is having the Docker client installed.. It is not rocket science, but I did have some bumps on the road (because of my pretty low knowledge of Linux), so I thought I&#x2019;d write what I&#x2019;ve done to achieve that, in case it could be useful to somebody else.</p>
+<p>There&#x2019;s something you need to understand first. The Docker Engine does not run on WSL, you HAVE to have Docker For Windows installed on your host machine. What we&#x2019;ll end up with at the end of this document is the Docker client running on Linux (WSL) sending commands to your Docker Engine daemon installed on Windows.</p>
+<p>So, open you Ubuntu bash console, the first thing is to install the client. In order to do that you have to use apt-get, which is Ubuntu&#x2019;s package manager (more info about apt here).</p>
+<p>Update the apt package index:<br>$ sudo apt-get update</p>
+<h2 id="2-Install-packages-to-allow-apt-to-use-a-repository-over-HTTPS"><a href="#2-Install-packages-to-allow-apt-to-use-a-repository-over-HTTPS" class="headerlink" title="2. Install packages to allow apt to use a repository over HTTPS:"></a>2. Install packages to allow apt to use a repository over HTTPS:</h2><p>  $ sudo apt-get install \<br>  apt-transport-https \<br>  ca-certificates \<br>  curl \<br>  software-properties-common</p>
+<h2 id="3-Add-Docker&#x2019;s-official-GPG-key"><a href="#3-Add-Docker&#x2019;s-official-GPG-key" class="headerlink" title="3. Add Docker&#x2019;s official GPG key:"></a>3. Add Docker&#x2019;s official GPG key:</h2><p>  $ curl -fsSL <a href="https://download.docker.com/linux/ubuntu/gpg" target="_blank" rel="noopener">https://download.docker.com/linux/ubuntu/gpg</a> | sudo apt-key add -</p>
+<p>Verify that you now have the key with the fingerprint 9DC8 5822 9FC7 DD38 854A E2D8 8D81 803C 0EBF CD88, by searching for the last 8 characters of the fingerprint.</p>
+<p>  $ sudo apt-key fingerprint 0EBFCD88</p>
+<p>pub 4096R/0EBFCD88 2017&#x2013;02&#x2013;22<br> Key fingerprint = 9DC8 5822 9FC7 DD38 854A E2D8 8D81 803C 0EBF CD88<br>uid Docker Release (CE deb) <a href="mailto:docker@docker.com" target="_blank" rel="noopener">docker@docker.com</a><br>sub 4096R/F273FCD8 2017&#x2013;02&#x2013;22</p>
+<h2 id="4-Use-the-following-command-to-set-up-the-stable-repository-You-always-need-the-stable-repository-even-if-you-want-to-install-builds-from-the-edge-or-test-repositories-as-well-To-add-the-edge-or-test-repository-add-the-word-edge-or-test-or-both-after-the-word-stable-in-the-commands-below"><a href="#4-Use-the-following-command-to-set-up-the-stable-repository-You-always-need-the-stable-repository-even-if-you-want-to-install-builds-from-the-edge-or-test-repositories-as-well-To-add-the-edge-or-test-repository-add-the-word-edge-or-test-or-both-after-the-word-stable-in-the-commands-below" class="headerlink" title="4. Use the following command to set up the stable repository. You always need the stable repository, even if you want to install builds from the edge or test repositories as well. To add the edge or test repository, add the word edge or test (or both) after the word stable in the commands below."></a>4. Use the following command to set up the stable repository. You always need the stable repository, even if you want to install builds from the edge or test repositories as well. To add the edge or test repository, add the word edge or test (or both) after the word stable in the commands below.</h2><p>  $ sudo add-apt-repository \<br>  &#x201C;deb [arch=amd64] <a href="https://download.docker.com/linux/ubuntu" target="_blank" rel="noopener">https://download.docker.com/linux/ubuntu</a> \<br>  $(lsb_release -cs) \<br>  stable&#x201D;</p>
+<p>Now we&#x2019;re ready to install Docker Community Edition</p>
+<h2 id="5-Update-the-apt-package-index-again"><a href="#5-Update-the-apt-package-index-again" class="headerlink" title="5. Update the apt package index again"></a>5. Update the apt package index again</h2><p>  $ sudo apt-get update</p>
+<h2 id="6-And-install-Docker-CE"><a href="#6-And-install-Docker-CE" class="headerlink" title="6. And install Docker CE"></a>6. And install Docker CE</h2><p>  $ sudo apt-get install docker-ce</p>
+<p>When that finishes, you&#x2019;ll end up having everything installed in Linux, but as I mentioned before, the Docker Engine does not run in WSL so if you write any command like docker images, you&#x2019;ll see a message like this one:</p>
+<p>Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?<br>No, it is not running and it&#x2019;ll never be, at least for now.</p>
+<p>You need to tell the Docker client where the Docker host is, and you can do that by using the -H option as follows:</p>
+<p>  $ docker -H localhost:2375 images</p>
+<p>If you don&#x2019;t want to type the host every time, you can set up and environment variable called DOCKER_HOST to localhost:2375</p>
+<p>  $ export DOCKER_HOST=localhost:2375</p>
+<p>Now just running docker images will show the images in your host environment.</p>
+<p>But, that environment variable will last only as long as the session does. You would have to set it every time you open bash. So, in order to avoid that, you set that variable in a file called .bash_profile in your home directory, like this:</p>
+<p>  $ echo &#x201C;export DOCKER_HOST=localhost:2375&#x201D; &gt;&gt; ~/.bash_profile</p>
+<p>Restart the bash console and the DOCKER_HOST variable should be there, just type docker images to check everything is there.</p>
+<p>I hope this post will help other, if it does, let me know.</p>
+<p>EDIT: Make sure you expose the daemon on Windows, otherwise it won&#x2019;t work.<br><img src="/2017/09/25/Installing-the-Docker-client-on-Windows-Subsystem-for-Linux-Ubuntu/2.png"></p>
+<p>References: Get Docker CE for Ubuntu</p>
+<p>Special thanks to Rich Turner for his kindness and patience.</p>
+<p>EDIT: I recently learned there&#x2019;s an official, more complicated but secure, way of achieving the same, so I thought I&#x2019;d share it here: WSL Interoperability with Docker</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Docker/">Docker</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ubutun/">Ubutun</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VPS/">VPS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/WSL/">WSL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Window-10/">Window 10</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/部署/">部署</a></li></ul>
 
     </footer>
   </div>
@@ -1143,61 +1218,11 @@ import os
 <!-- Table of Contents -->
 
   
-    <article id="post-hexo"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2013/07/13/hexo/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2013/07/13/hexo/" class="article-date">
-	  <time datetime="2013-07-13T12:46:25.000Z" itemprop="datePublished">2013-07-13</time>
-	</a>
-
-      
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      
-
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
 
 
   <nav id="page-nav">
     
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">weiter &raquo;</a>
   </nav>
 
 </section>
