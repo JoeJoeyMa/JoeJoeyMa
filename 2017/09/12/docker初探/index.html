@@ -13,13 +13,13 @@
   
   
   
-  <meta name="description" content="Docker CE &amp;#x8FD8;&amp;#x662F; Docker EEDocker&amp;#x5728;2016&amp;#x5E74;&amp;#x5F88;&amp;#x65E9;&amp;#x7684;&amp;#x65F6;&amp;#x5019;&amp;#x5C31;&amp;#x660E;&amp;#x786E;&amp;#x4E86;&amp;#x5C06;&amp;#x4F1A;&amp;#x5728;&amp;#x4F01;&amp;#x4E1A;&amp;#x7EA7;&amp;#x65B9;&amp;#x9762;&amp;#">
+  <meta name="description" content="Docker CE 还是 Docker EEDocker在2016年很早的时候就明确了将会在企业级方面重点跟进。而在短短的一年时间之内推出的1.12和1.13的版本在功能上确实是很大的进步。而在2017年的3月1号之后，Docker的版本命名开始发生变化，同时将CE版本和EE版本进行分开，而这些也是突然发现docker1.13的安装脚本不好用了才发现的，一起简单来看一下具体情况吧。 平台支持目前d">
 <meta name="keywords" content="VPS,docker,Linux,虚拟机,搭建,管理">
 <meta property="og:type" content="article">
 <meta property="og:title" content="docker初探">
 <meta property="og:url" content="http://yoursite.com/2017/09/12/docker初探/index.html">
 <meta property="og:site_name" content="To change is to be better to change often is to change perfect">
-<meta property="og:description" content="Docker CE &amp;#x8FD8;&amp;#x662F; Docker EEDocker&amp;#x5728;2016&amp;#x5E74;&amp;#x5F88;&amp;#x65E9;&amp;#x7684;&amp;#x65F6;&amp;#x5019;&amp;#x5C31;&amp;#x660E;&amp;#x786E;&amp;#x4E86;&amp;#x5C06;&amp;#x4F1A;&amp;#x5728;&amp;#x4F01;&amp;#x4E1A;&amp;#x7EA7;&amp;#x65B9;&amp;#x9762;&amp;#">
+<meta property="og:description" content="Docker CE 还是 Docker EEDocker在2016年很早的时候就明确了将会在企业级方面重点跟进。而在短短的一年时间之内推出的1.12和1.13的版本在功能上确实是很大的进步。而在2017年的3月1号之后，Docker的版本命名开始发生变化，同时将CE版本和EE版本进行分开，而这些也是突然发现docker1.13的安装脚本不好用了才发现的，一起简单来看一下具体情况吧。 平台支持目前d">
 <meta property="og:image" content="http://yoursite.com/2017/09/12/docker初探/1.JPG">
 <meta property="og:image" content="http://yoursite.com/2017/09/12/docker初探/2.png">
 <meta property="og:image" content="http://yoursite.com/2017/09/12/docker初探/2.JPG">
@@ -27,7 +27,7 @@
 <meta property="og:updated_time" content="2018-03-12T14:04:34.316Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="docker初探">
-<meta name="twitter:description" content="Docker CE &amp;#x8FD8;&amp;#x662F; Docker EEDocker&amp;#x5728;2016&amp;#x5E74;&amp;#x5F88;&amp;#x65E9;&amp;#x7684;&amp;#x65F6;&amp;#x5019;&amp;#x5C31;&amp;#x660E;&amp;#x786E;&amp;#x4E86;&amp;#x5C06;&amp;#x4F1A;&amp;#x5728;&amp;#x4F01;&amp;#x4E1A;&amp;#x7EA7;&amp;#x65B9;&amp;#x9762;&amp;#">
+<meta name="twitter:description" content="Docker CE 还是 Docker EEDocker在2016年很早的时候就明确了将会在企业级方面重点跟进。而在短短的一年时间之内推出的1.12和1.13的版本在功能上确实是很大的进步。而在2017年的3月1号之后，Docker的版本命名开始发生变化，同时将CE版本和EE版本进行分开，而这些也是突然发现docker1.13的安装脚本不好用了才发现的，一起简单来看一下具体情况吧。 平台支持目前d">
 <meta name="twitter:image" content="http://yoursite.com/2017/09/12/docker初探/1.JPG">
   
     <link rel="alternate" href="/atom.xml" title="To change is to be better to change often is to change perfect" type="application/atom+xml">
@@ -201,8 +201,8 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Docker-CE-&#x8FD8;&#x662F;-Docker-EE"><a href="#Docker-CE-&#x8FD8;&#x662F;-Docker-EE" class="headerlink" title="Docker CE &#x8FD8;&#x662F; Docker EE"></a>Docker CE &#x8FD8;&#x662F; Docker EE</h2><p>Docker&#x5728;2016&#x5E74;&#x5F88;&#x65E9;&#x7684;&#x65F6;&#x5019;&#x5C31;&#x660E;&#x786E;&#x4E86;&#x5C06;&#x4F1A;&#x5728;&#x4F01;&#x4E1A;&#x7EA7;&#x65B9;&#x9762;&#x91CD;&#x70B9;&#x8DDF;&#x8FDB;&#x3002;&#x800C;&#x5728;&#x77ED;&#x77ED;&#x7684;&#x4E00;&#x5E74;&#x65F6;&#x95F4;&#x4E4B;&#x5185;&#x63A8;&#x51FA;&#x7684;1.12&#x548C;1.13&#x7684;&#x7248;&#x672C;&#x5728;&#x529F;&#x80FD;&#x4E0A;&#x786E;&#x5B9E;&#x662F;&#x5F88;&#x5927;&#x7684;&#x8FDB;&#x6B65;&#x3002;&#x800C;&#x5728;2017&#x5E74;&#x7684;3&#x6708;1&#x53F7;&#x4E4B;&#x540E;&#xFF0C;Docker&#x7684;&#x7248;&#x672C;&#x547D;&#x540D;&#x5F00;&#x59CB;&#x53D1;&#x751F;&#x53D8;&#x5316;&#xFF0C;&#x540C;&#x65F6;&#x5C06;CE&#x7248;&#x672C;&#x548C;EE&#x7248;&#x672C;&#x8FDB;&#x884C;&#x5206;&#x5F00;&#xFF0C;&#x800C;&#x8FD9;&#x4E9B;&#x4E5F;&#x662F;&#x7A81;&#x7136;&#x53D1;&#x73B0;docker1.13&#x7684;&#x5B89;&#x88C5;&#x811A;&#x672C;&#x4E0D;&#x597D;&#x7528;&#x4E86;&#x624D;&#x53D1;&#x73B0;&#x7684;&#xFF0C;&#x4E00;&#x8D77;&#x7B80;&#x5355;&#x6765;&#x770B;&#x4E00;&#x4E0B;&#x5177;&#x4F53;&#x60C5;&#x51B5;&#x5427;&#x3002;</p>
-<h2 id="&#x5E73;&#x53F0;&#x652F;&#x6301;"><a href="#&#x5E73;&#x53F0;&#x652F;&#x6301;" class="headerlink" title="&#x5E73;&#x53F0;&#x652F;&#x6301;"></a>&#x5E73;&#x53F0;&#x652F;&#x6301;</h2><p>&#x76EE;&#x524D;docker&#x7684;CE&#x548C;EE&#x6240;&#x652F;&#x6301;&#x7684;&#x5E73;&#x53F0;&#x60C5;&#x51B5;&#x5982;&#x4E0B;&#x6240;&#x793A;&#xFF0C;&#x5927;&#x5BB6;&#x6240;&#x949F;&#x60C5;&#x7684;Ubuntu&#x548C;CentOS&#x4F5C;&#x4E3A;Linux&#x53D1;&#x884C;&#x7248;&#x6240;&#x652F;&#x6301;&#x7684;CE&#x548C;EE&#x5747;&#x652F;&#x6301;&#x7684;&#x3002;<br><img src="/2017/09/12/docker&#x521D;&#x63A2;/1.JPG"></p>
+        <h2 id="Docker-CE-还是-Docker-EE"><a href="#Docker-CE-还是-Docker-EE" class="headerlink" title="Docker CE 还是 Docker EE"></a>Docker CE 还是 Docker EE</h2><p>Docker在2016年很早的时候就明确了将会在企业级方面重点跟进。而在短短的一年时间之内推出的1.12和1.13的版本在功能上确实是很大的进步。而在2017年的3月1号之后，Docker的版本命名开始发生变化，同时将CE版本和EE版本进行分开，而这些也是突然发现docker1.13的安装脚本不好用了才发现的，一起简单来看一下具体情况吧。</p>
+<h2 id="平台支持"><a href="#平台支持" class="headerlink" title="平台支持"></a>平台支持</h2><p>目前docker的CE和EE所支持的平台情况如下所示，大家所钟情的Ubuntu和CentOS作为Linux发行版所支持的CE和EE均支持的。<br><img src="/2017/09/12/docker初探/1.JPG"></p>
 <h2 id="Get-Started-Part-1-Orientation-and-setup"><a href="#Get-Started-Part-1-Orientation-and-setup" class="headerlink" title="Get Started, Part 1: Orientation and setup"></a>Get Started, Part 1: Orientation and setup</h2><p>Welcome! We are excited that you want to learn Docker. The <em>Docker Get Started Tutorial</em><br>teaches you how to:</p>
 <ol>
 <li>Set up your Docker environment (on this page)</li>
@@ -222,15 +222,15 @@
 <li>Scalable: You can increase and automatically distribute container replicas.</li>
 <li>Stackable: You can stack services vertically and on-the-fly.</li>
 </ul>
-<img src="/2017/09/12/docker&#x521D;&#x63A2;/2.png">
-<h3 id="Images-and-containers"><a href="#Images-and-containers" class="headerlink" title="Images and containers"></a>Images and containers</h3><p>A container is launched by running an image. An <strong>image</strong> is an executable<br>package that includes everything needed to run an application&#x2013;the code, a<br>runtime, libraries, environment variables, and configuration files.</p>
-<p>A <strong>container</strong> is a runtime instance of an image&#x2013;what the image becomes in<br>memory when executed (that is, an image with state, or a user process). You can<br>see a list of your running containers with the command, <code>docker ps</code>, just as you<br>would in Linux.</p>
+<img src="/2017/09/12/docker初探/2.png">
+<h3 id="Images-and-containers"><a href="#Images-and-containers" class="headerlink" title="Images and containers"></a>Images and containers</h3><p>A container is launched by running an image. An <strong>image</strong> is an executable<br>package that includes everything needed to run an application–the code, a<br>runtime, libraries, environment variables, and configuration files.</p>
+<p>A <strong>container</strong> is a runtime instance of an image–what the image becomes in<br>memory when executed (that is, an image with state, or a user process). You can<br>see a list of your running containers with the command, <code>docker ps</code>, just as you<br>would in Linux.</p>
 <h3 id="Containers-and-virtual-machines"><a href="#Containers-and-virtual-machines" class="headerlink" title="Containers and virtual machines"></a>Containers and virtual machines</h3><p>A <strong>container</strong> runs <em>natively</em> on Linux and shares the kernel of the host<br>machine with other containers. It runs a discrete process, taking no more memory<br>than any other executable, making it lightweight.</p>
-<p>By contrast, a <strong>virtual machine</strong> (VM) runs a full-blown &#x201C;guest&#x201D; operating<br>system with <em>virtual</em> access to host resources through a hypervisor. In general,<br>VMs provide an environment with more resources than most applications need.</p>
+<p>By contrast, a <strong>virtual machine</strong> (VM) runs a full-blown “guest” operating<br>system with <em>virtual</em> access to host resources through a hypervisor. In general,<br>VMs provide an environment with more resources than most applications need.</p>
 <h2 id="Prepare-your-Docker-environment"><a href="#Prepare-your-Docker-environment" class="headerlink" title="Prepare your Docker environment"></a>Prepare your Docker environment</h2><p>Install a maintained version of Docker Community Edition (CE) or Enterprise Edition (EE) on a supported platform.</p>
 <p>Ensure that you have a supported version of Docker:</p>
-<p>&#x2018;&#x2019;&#x2019;$ docker &#x2013;version<br>Docker version 17.12.0-ce, build c97c6d6</p>
-<p>&#x2018;&#x2019;&#x2019;<br><img src="/2017/09/12/docker&#x521D;&#x63A2;/2.JPG"><br><img src="/2017/09/12/docker&#x521D;&#x63A2;/3.JPG"></p>
+<p>‘’’$ docker –version<br>Docker version 17.12.0-ce, build c97c6d6</p>
+<p>‘’’<br><img src="/2017/09/12/docker初探/2.JPG"><br><img src="/2017/09/12/docker初探/3.JPG"></p>
 
       
     </div>
