@@ -326,9 +326,9 @@
   <div class="intro-navigate">
       <p class="navigater-list">
         
-          <a id="beautifont" class="main-nav-link" href="/">Home</a>
+          <a id="beautifont" class="main-nav-link" href="/">Startseite</a>
         
-          <a id="beautifont" class="main-nav-link" href="/archives">Archives</a>
+          <a id="beautifont" class="main-nav-link" href="/archives">Archive</a>
         
           <a id="beautifont" class="main-nav-link" href="/categories">about themes</a>
         
@@ -350,6 +350,78 @@
       <div id="content" class="outer">
         
           <section id="main" style="float:none;">
+  
+    <article id="post-JavaScript中的this"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2016/03/09/JavaScript中的this/">JavaScript中的this</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2016/03/09/JavaScript中的this/" class="article-date">
+	  <time datetime="2016-03-09T06:17:06.000Z" itemprop="datePublished">2016-03-09</time>
+	</a>
+
+      
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="JavaScript中的this"><a href="#JavaScript中的this" class="headerlink" title="JavaScript中的this"></a>JavaScript中的this</h1><p>this是函数内部的一个特殊对象，它引用的是函数据以执行的环境对象。</p>
+<h2 id="全局环境下的this"><a href="#全局环境下的this" class="headerlink" title="全局环境下的this"></a>全局环境下的this</h2><p>当在网页的全局作用域中调用函数时，this对象引用的就是window。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="keyword">this</span>);<span class="comment">//Window</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br><span class="line">f();<span class="comment">//Window</span></span><br></pre></td></tr></table></figure>
+<p>函数f()定义在全局作用域中，引用了this对象，调用函数之前，this的值并不确定，可能会在代码执行过程中引用不同的对象。在全局环境中调用函数f()时，this引用的就是全局对象Window。</p>
+<h2 id="对象中的this"><a href="#对象中的this" class="headerlink" title="对象中的this"></a>对象中的this</h2><p>将一个函数赋给对象，通过对象调用这个函数，它们的this是调用该函数的对象。<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> o = &#123;</span><br><span class="line">    color: <span class="string">"blue"</span>,</span><br><span class="line">    sayColor: <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.color;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">o.sayColor();<span class="comment">//blue</span></span><br></pre></td></tr></table></figure></p>
+<p>将函数sayColor赋给对象o，o.sayColor()被调用时，函数内部的this被绑定到o<br>我们也可以用如下方法：</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> o = &#123; color: <span class="string">"blue"</span> &#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayColor</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.color;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">o.sayColor = sayColor;</span><br><span class="line">o.sayColor();<span class="comment">//blue</span></span><br></pre></td></tr></table></figure>
+<p>函数的名字仅仅是一个包含指针的变量，在何处定义调用函数不会影响到this的行为，全局的sayColor()与o.sayColor()指向的是同一个函数。</p>
+<h2 id="构造函数中的this"><a href="#构造函数中的this" class="headerlink" title="构造函数中的this"></a>构造函数中的this</h2><p>函数或方法之前带有关键字new，它就构成了构造函数调用。通过构造函数生成一个新的对象，this指向新对象、</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">person</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = <span class="string">"Jack"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> o = <span class="keyword">new</span> person();</span><br><span class="line"><span class="built_in">console</span>.log(o.name);<span class="comment">//Jack</span></span><br></pre></td></tr></table></figure>
+<h2 id="apply和call"><a href="#apply和call" class="headerlink" title="apply和call"></a>apply和call</h2><p>每个函数都包含两个非继承而来的方法，apply()和call()。这两个方法的用途都是在特定的作用域中调用函数，实际上等于设置函数体内this对象的值。首先apply()方法接收两个参数：一个是在其中运行函数的作用域，另一个是参数数组。其中，第二个参数可以是Array实例，也可以是 arguments对象。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">num1, num2</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> num1 + num2;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">callSum1</span>(<span class="params">num1, num2</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> sum.apply(<span class="keyword">this</span>, <span class="built_in">arguments</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">callSum2</span>(<span class="params">num1, num2</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> sum.apply(<span class="keyword">this</span>, [num1, num2]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(callSum1(<span class="number">10</span>, <span class="number">10</span>));<span class="comment">//20</span></span><br><span class="line"><span class="built_in">console</span>.log(callSum2(<span class="number">10</span>, <span class="number">10</span>));<span class="comment">//20</span></span><br></pre></td></tr></table></figure>
+<p>上边这个例子中，callSum1()在执行sum()函数时传入了this作为this值（在作用域中调用的，传入的就是window对象）和arguments对象。而callSum2()也调用了sum()函数，但传入的是this和一个参数数组。</p>
+<p>注：在严格模式下，未指定环境对象而调用函数，则this值不会被转型为window，除非明确把函数添加到某个对象或者调用apply()或call()，否则this值是undefined。</p>
+<p>call()与apply()方法作用相同，区别仅仅在于接收参数方式不同，对call()而言，第一个参数是this没有变化，不同的是其余参数都直接传递给函数。换句话说，在使用call()方法时，传递给函数的参数必须逐个列举出来。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">num1, num2</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> num1 + num2;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">callSum</span>(<span class="params">num1, num2</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> sum.call(<span class="keyword">this</span>, num1, num2);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(callSum(<span class="number">10</span>, <span class="number">10</span>));<span class="comment">//20</span></span><br></pre></td></tr></table></figure>
+<p>call()和apply()真正强大的地方在于能扩充函数赖以运行的作用域。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.color = <span class="string">"red"</span>;</span><br><span class="line"><span class="keyword">var</span> o = &#123; <span class="attr">color</span>: <span class="string">"blue"</span> &#125;;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayColor</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.color);</span><br><span class="line">&#125;</span><br><span class="line">sayColor();<span class="comment">//red</span></span><br><span class="line">sayColor.call(<span class="keyword">this</span>);<span class="comment">//red</span></span><br><span class="line">sayColor.call(<span class="built_in">window</span>);<span class="comment">//red</span></span><br><span class="line">sayColor.call(o);<span class="comment">//blue</span></span><br></pre></td></tr></table></figure>
+<p>使用call()或者apply()扩充作用域最大的好处，就是对象不需要与方法有任何耦合关系。</p>
+<h2 id="bind"><a href="#bind" class="headerlink" title="bind"></a>bind</h2><p>ES5还定义了bind,这个方法会创建一个函数的实例，其this值会被绑定传给bind()函数的值</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.color = <span class="string">"red"</span>;</span><br><span class="line"><span class="keyword">var</span> o = &#123; <span class="attr">color</span>: <span class="string">"blue"</span> &#125;;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayColor</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.color);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> objectSayColor = sayColor.bind(o);</span><br><span class="line">objectSayColor();<span class="comment">//blue</span></span><br></pre></td></tr></table></figure>
+<p>在sayColor()调用bind()并传入对象o，创建了objectSayColor()函数,该函数的this值等于o因此即使在全局作用域中调用这个函数，也会看到“blue”。</p>
+<h2 id="闭包中的this"><a href="#闭包中的this" class="headerlink" title="闭包中的this"></a>闭包中的this</h2><p>闭包中使用this对象可能会导致一些问题，this对象在运行时是基于函数的执行环境对象的：在全局函数中，this等于window，而当函数被作为某个对象方法调用时，this等于那个对象。匿名函数的执行环境具有全局性，因此其this对象通常指向window。</p>
+<figure class="highlight qml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> <span class="built_in">color</span> = <span class="string">"red"</span>;</span><br><span class="line"><span class="keyword">var</span> o = &#123;</span><br><span class="line">    <span class="attribute">name</span>: <span class="string">"blue"</span>,</span><br><span class="line">    <span class="attribute">sayColor</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">this</span>.color;</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(o.sayColor()());<span class="comment">//red</span></span><br><span class="line"><span class="comment">//改进</span></span><br><span class="line"><span class="keyword">var</span> o = &#123;</span><br><span class="line">    <span class="attribute">color</span>: <span class="string">"blue"</span>,</span><br><span class="line">    <span class="attribute">sayColor</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> that = <span class="keyword">this</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> that.color;</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(o.sayColor()());<span class="comment">//blue</span></span><br></pre></td></tr></table></figure>
+<h2 id="ES6中箭头函数中的this"><a href="#ES6中箭头函数中的this" class="headerlink" title="ES6中箭头函数中的this"></a>ES6中箭头函数中的this</h2><p>this引用的是函数据以执行的环境对象。但是在使用箭头函数时，函数体内的this对象，就是定义时所在的对象，而不是使用时所在的对象。箭头函数的使用可参考链接<br><a href="http://es6.ruanyifeng.com/#docs/function" target="_blank" rel="noopener">http://es6.ruanyifeng.com/#docs/function</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'id:'</span>, <span class="keyword">this</span>.id);</span><br><span class="line">    &#125;, <span class="number">100</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> id = <span class="number">21</span>;</span><br><span class="line">foo.call(&#123; <span class="attr">id</span>: <span class="number">42</span> &#125;);<span class="comment">//id：42</span></span><br></pre></td></tr></table></figure>
+<p>箭头函数中的this指向foo的this，箭头函数中也不存在arguments，指向外层函数foo对象的arguments。</p>
+<p>由于箭头函数没有自己的this，所以也不能用call()、apply()、bind()改变this的指向。</p>
+<h2 id="绑定this"><a href="#绑定this" class="headerlink" title="绑定this"></a>绑定this</h2><p>函数绑定运算符是::，双冒号是左边是一个对象，右边是一个函数。该运算符会自动将左边的对象作为上下文环境（this对象），绑定到右边函数上。详细可参考链接<br><a href="http://es6.ruanyifeng.com/#docs/function" target="_blank" rel="noopener">http://es6.ruanyifeng.com/#docs/function</a></p>
+<figure class="highlight gauss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">foo::<span class="built_in">bar</span>;</span><br><span class="line"><span class="comment">//等同于</span></span><br><span class="line"><span class="built_in">bar</span>.bind(foo);</span><br></pre></td></tr></table></figure>
+<p>在判断this指向时，要记住，在没有绑定this的情况下，this动态绑定，指向运行时的环境，而非代码中的位置，只有箭头函数才是静态绑定，将this绑定到代码中的位置。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
   
     <article id="post-css布局十八般武艺都在这里了"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
@@ -776,7 +848,7 @@ import os
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    <a class="extend prev" rel="prev" href="/">&laquo; zurück</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
   </nav>
 
 </section>
