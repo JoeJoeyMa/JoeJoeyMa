@@ -110,9 +110,9 @@
             <div class="navbar-collapse collapse">
               <ul class="hnav navbar-nav">
                 
-                  <li> <a class="main-nav-link" href="/">Home</a> </li>
+                  <li> <a class="main-nav-link" href="/">Startseite</a> </li>
                 
-                  <li> <a class="main-nav-link" href="/archives">Archives</a> </li>
+                  <li> <a class="main-nav-link" href="/archives">Archive</a> </li>
                 
                   <li> <a class="main-nav-link" href="/categories">about themes</a> </li>
                 
@@ -132,7 +132,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <input type="text" class="ins-search-input" placeholder="Schreib etwas..." />
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -144,11 +144,11 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Posts',
-            PAGES: 'Pages',
-            CATEGORIES: 'Categories',
+            POSTS: 'Beiträge',
+            PAGES: 'Seiten',
+            CATEGORIES: 'Kategorien',
             TAGS: 'Tags',
-            UNTITLED: '(Untitled)',
+            UNTITLED: '(Unbenannt)',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',
@@ -444,7 +444,7 @@
 
   <aside id="toc-sidebar">
     <div id="toc" class="toc-article">
-    <strong class="toc-title">Contents</strong>
+    <strong class="toc-title">Inhalt</strong>
     
         <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#技术栈："><span class="nav-number">1.</span> <span class="nav-text">技术栈：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运行项目（nodejs-6-0-）"><span class="nav-number">2.</span> <span class="nav-text">运行项目（nodejs 6.0+）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#说明"><span class="nav-number">3.</span> <span class="nav-text">说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#演示"><span class="nav-number">4.</span> <span class="nav-text">演示</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#移动端扫描下方二维码"><span class="nav-number">4.1.</span> <span class="nav-text">移动端扫描下方二维码</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#个人感悟"><span class="nav-number"></span> <span class="nav-text">个人感悟</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#做React需要会什么？"><span class="nav-number">1.</span> <span class="nav-text">做React需要会什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#React-是什么"><span class="nav-number">2.</span> <span class="nav-text">React 是什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#React的组件化"><span class="nav-number">3.</span> <span class="nav-text">React的组件化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#React的-Diff算法"><span class="nav-number">4.</span> <span class="nav-text">React的 Diff算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#React组件是怎么来的"><span class="nav-number">5.</span> <span class="nav-text">React组件是怎么来的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#组件的生命周期"><span class="nav-number">6.</span> <span class="nav-text">组件的生命周期</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#React-Router路由"><span class="nav-number">7.</span> <span class="nav-text">React-Router路由</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#组件之间的通信"><span class="nav-number">8.</span> <span class="nav-text">组件之间的通信</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redux"><span class="nav-number">9.</span> <span class="nav-text">Redux</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#流程是这个样子的："><span class="nav-number">9.0.1.</span> <span class="nav-text">流程是这个样子的：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#接下来具体分析一下，redux以及react-redux到底是怎么实现的。"><span class="nav-number">9.0.2.</span> <span class="nav-text">接下来具体分析一下，redux以及react-redux到底是怎么实现的。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#先上一张图"><span class="nav-number">9.0.3.</span> <span class="nav-text">先上一张图</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#先说说redux："><span class="nav-number">9.1.</span> <span class="nav-text">先说说redux：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#redux主要由三部分组成：store，reducer，action。"><span class="nav-number">9.1.1.</span> <span class="nav-text">redux主要由三部分组成：store，reducer，action。</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#React-Redux"><span class="nav-number">10.</span> <span class="nav-text">React-Redux</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#下面是一个完整的-react-–-gt-redux-–-gt-react-流程："><span class="nav-number">10.1.</span> <span class="nav-text">下面是一个完整的 react –&gt; redux –&gt; react 流程：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#项目搭建"><span class="nav-number">11.</span> <span class="nav-text">项目搭建</span></a></li></ol>
     
@@ -460,7 +460,7 @@
   <div class="container">
       	<div class="row">
 	      <p> Construido por <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/JoeJoeyMa/JoeJoeyMa.github.io" target="_blank">Hexo-theme-Joejoey</a> </p>
-	      <p id="copyRightEn">Copyright &copy; 2013 - 2018 To change is to be better to change often is to change perfect All Rights Reserved.</p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2019 To change is to be better to change often is to change perfect All Rights Reserved.</p>
 	      
 	      
     		<p class="busuanzi_uv">
@@ -629,7 +629,7 @@ ga('send', 'pageview');
             To change is to be better to change often is to change perfect
           </div>
           <div class="panel-body">
-            Copyright © 2018 To change is to be better to change often is to change perfect All Rights Reserved.
+            Copyright © 2019 To change is to be better to change often is to change perfect All Rights Reserved.
           </div>
         </div>
       </div>

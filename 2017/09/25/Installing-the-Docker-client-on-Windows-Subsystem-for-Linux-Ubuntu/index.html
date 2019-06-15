@@ -6,7 +6,7 @@
   <title>installing the docker client on windows subsystem for linux (ubuntu) | To change is to be better to change often is to change perfect</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="keywords" content="Docker部署VPSUbutunWSLWindow 10" />
+  <meta name="keywords" content="VPSDocker部署UbutunWSLWindow 10" />
   
   
     <meta name="google-site-verification" content="zeeMq378QFdIk20wn4KhRFwp7IhLaosjf7Kf7o9Zcfs" />
@@ -14,7 +14,7 @@
   
   
   <meta name="description" content="I’m a PC guy, I have always been. I played around a little bit with Linux back in the university days, but that was it. But now, Windows brought Linux a little closer. I don’t have to do anything com">
-<meta name="keywords" content="Docker,部署,VPS,Ubutun,WSL,Window 10">
+<meta name="keywords" content="VPS,Docker,部署,Ubutun,WSL,Window 10">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Installing the Docker client on Windows Subsystem for Linux (Ubuntu)">
 <meta property="og:url" content="http://yoursite.com/2017/09/25/Installing-the-Docker-client-on-Windows-Subsystem-for-Linux-Ubuntu/index.html">
@@ -105,9 +105,9 @@
             <div class="navbar-collapse collapse">
               <ul class="hnav navbar-nav">
                 
-                  <li> <a class="main-nav-link" href="/">Home</a> </li>
+                  <li> <a class="main-nav-link" href="/">Startseite</a> </li>
                 
-                  <li> <a class="main-nav-link" href="/archives">Archives</a> </li>
+                  <li> <a class="main-nav-link" href="/archives">Archive</a> </li>
                 
                   <li> <a class="main-nav-link" href="/categories">about themes</a> </li>
                 
@@ -127,7 +127,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <input type="text" class="ins-search-input" placeholder="Schreib etwas..." />
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -139,11 +139,11 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Posts',
-            PAGES: 'Pages',
-            CATEGORIES: 'Categories',
+            POSTS: 'Beiträge',
+            PAGES: 'Seiten',
+            CATEGORIES: 'Kategorien',
             TAGS: 'Tags',
-            UNTITLED: '(Untitled)',
+            UNTITLED: '(Unbenannt)',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',
@@ -211,7 +211,7 @@
 <h2 id="3-Add-Docker’s-official-GPG-key"><a href="#3-Add-Docker’s-official-GPG-key" class="headerlink" title="3. Add Docker’s official GPG key:"></a>3. Add Docker’s official GPG key:</h2><p>  $ curl -fsSL <a href="https://download.docker.com/linux/ubuntu/gpg" target="_blank" rel="noopener">https://download.docker.com/linux/ubuntu/gpg</a> | sudo apt-key add -</p>
 <p>Verify that you now have the key with the fingerprint 9DC8 5822 9FC7 DD38 854A E2D8 8D81 803C 0EBF CD88, by searching for the last 8 characters of the fingerprint.</p>
 <p>  $ sudo apt-key fingerprint 0EBFCD88</p>
-<p>pub 4096R/0EBFCD88 2017–02–22<br> Key fingerprint = 9DC8 5822 9FC7 DD38 854A E2D8 8D81 803C 0EBF CD88<br>uid Docker Release (CE deb) <a href="mailto:&#x64;&#111;&#99;&#107;&#101;&#x72;&#x40;&#x64;&#111;&#99;&#x6b;&#x65;&#114;&#x2e;&#99;&#111;&#109;" target="_blank" rel="noopener">&#x64;&#111;&#99;&#107;&#101;&#x72;&#x40;&#x64;&#111;&#99;&#x6b;&#x65;&#114;&#x2e;&#99;&#111;&#109;</a><br>sub 4096R/F273FCD8 2017–02–22</p>
+<p>pub 4096R/0EBFCD88 2017–02–22<br> Key fingerprint = 9DC8 5822 9FC7 DD38 854A E2D8 8D81 803C 0EBF CD88<br>uid Docker Release (CE deb) <a href="mailto:&#x64;&#111;&#99;&#107;&#x65;&#x72;&#64;&#x64;&#111;&#x63;&#x6b;&#x65;&#114;&#46;&#x63;&#111;&#109;" target="_blank" rel="noopener">&#x64;&#111;&#99;&#107;&#x65;&#x72;&#64;&#x64;&#111;&#x63;&#x6b;&#x65;&#114;&#46;&#x63;&#111;&#109;</a><br>sub 4096R/F273FCD8 2017–02–22</p>
 <h2 id="4-Use-the-following-command-to-set-up-the-stable-repository-You-always-need-the-stable-repository-even-if-you-want-to-install-builds-from-the-edge-or-test-repositories-as-well-To-add-the-edge-or-test-repository-add-the-word-edge-or-test-or-both-after-the-word-stable-in-the-commands-below"><a href="#4-Use-the-following-command-to-set-up-the-stable-repository-You-always-need-the-stable-repository-even-if-you-want-to-install-builds-from-the-edge-or-test-repositories-as-well-To-add-the-edge-or-test-repository-add-the-word-edge-or-test-or-both-after-the-word-stable-in-the-commands-below" class="headerlink" title="4. Use the following command to set up the stable repository. You always need the stable repository, even if you want to install builds from the edge or test repositories as well. To add the edge or test repository, add the word edge or test (or both) after the word stable in the commands below."></a>4. Use the following command to set up the stable repository. You always need the stable repository, even if you want to install builds from the edge or test repositories as well. To add the edge or test repository, add the word edge or test (or both) after the word stable in the commands below.</h2><p>  $ sudo add-apt-repository \<br>  “deb [arch=amd64] <a href="https://download.docker.com/linux/ubuntu" target="_blank" rel="noopener">https://download.docker.com/linux/ubuntu</a> \<br>  $(lsb_release -cs) \<br>  stable”</p>
 <p>Now we’re ready to install Docker Community Edition</p>
 <h2 id="5-Update-the-apt-package-index-again"><a href="#5-Update-the-apt-package-index-again" class="headerlink" title="5. Update the apt package index again"></a>5. Update the apt package index again</h2><p>  $ sudo apt-get update</p>
@@ -294,7 +294,7 @@
 
   <aside id="toc-sidebar">
     <div id="toc" class="toc-article">
-    <strong class="toc-title">Contents</strong>
+    <strong class="toc-title">Inhalt</strong>
     
         <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Install-packages-to-allow-apt-to-use-a-repository-over-HTTPS"><span class="nav-number">1.</span> <span class="nav-text">2. Install packages to allow apt to use a repository over HTTPS:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Add-Docker’s-official-GPG-key"><span class="nav-number">2.</span> <span class="nav-text">3. Add Docker’s official GPG key:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-Use-the-following-command-to-set-up-the-stable-repository-You-always-need-the-stable-repository-even-if-you-want-to-install-builds-from-the-edge-or-test-repositories-as-well-To-add-the-edge-or-test-repository-add-the-word-edge-or-test-or-both-after-the-word-stable-in-the-commands-below"><span class="nav-number">3.</span> <span class="nav-text">4. Use the following command to set up the stable repository. You always need the stable repository, even if you want to install builds from the edge or test repositories as well. To add the edge or test repository, add the word edge or test (or both) after the word stable in the commands below.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-Update-the-apt-package-index-again"><span class="nav-number">4.</span> <span class="nav-text">5. Update the apt package index again</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-And-install-Docker-CE"><span class="nav-number">5.</span> <span class="nav-text">6. And install Docker CE</span></a></li></ol>
     
@@ -310,7 +310,7 @@
   <div class="container">
       	<div class="row">
 	      <p> Construido por <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/JoeJoeyMa/JoeJoeyMa.github.io" target="_blank">Hexo-theme-Joejoey</a> </p>
-	      <p id="copyRightEn">Copyright &copy; 2013 - 2018 To change is to be better to change often is to change perfect All Rights Reserved.</p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2019 To change is to be better to change often is to change perfect All Rights Reserved.</p>
 	      
 	      
     		<p class="busuanzi_uv">
@@ -479,7 +479,7 @@ ga('send', 'pageview');
             To change is to be better to change often is to change perfect
           </div>
           <div class="panel-body">
-            Copyright © 2018 To change is to be better to change often is to change perfect All Rights Reserved.
+            Copyright © 2019 To change is to be better to change often is to change perfect All Rights Reserved.
           </div>
         </div>
       </div>
