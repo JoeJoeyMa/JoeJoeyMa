@@ -79,7 +79,7 @@ tagTwitter:
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy: 
-  repo: https://github.com/JoeJoeyMa/JoeJoeyMa.github.io.git
+  repo: git@github.com:JoeJoeyMa/JoeJoeyMa.github.io.git
   type: git
   Branch: master
   
