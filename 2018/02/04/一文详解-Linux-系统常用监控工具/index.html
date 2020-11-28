@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>一文详解 linux 系统常用监控工具 | To change is to be better to change often is to change perfect</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="Linuxtopiftophtop" />
+  
+  
+    <meta name="google-site-verification" content="zeeMq378QFdIk20wn4KhRFwp7IhLaosjf7Kf7o9Zcfs" />
+  
+  
+  
+  <meta name="description" content=".. _top: top linux&amp;#x4E0B;&amp;#x7684;&amp;#x4EFB;&amp;#x52A1;&amp;#x7BA1;&amp;#x7406;&amp;#x5668;top&amp;#x547D;&amp;#x4EE4;&amp;#x662F;Linux&amp;#x4E0B;&amp;#x5E38;&amp;#x7528;&amp;#x7684;&amp;#x6027;&amp;#x80FD;&amp;#x5206;&amp;#x6790;&amp;#x5DE5;&amp;#x5177;&amp;#xFF0C;&amp;#x80F">
+<meta name="keywords" content="Linux,top,iftop,htop">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一文详解 Linux 系统常用监控工具">
+<meta property="og:url" content="http://yoursite.com/2018/02/04/一文详解-Linux-系统常用监控工具/index.html">
+<meta property="og:site_name" content="To change is to be better to change often is to change perfect">
+<meta property="og:description" content=".. _top: top linux&amp;#x4E0B;&amp;#x7684;&amp;#x4EFB;&amp;#x52A1;&amp;#x7BA1;&amp;#x7406;&amp;#x5668;top&amp;#x547D;&amp;#x4EE4;&amp;#x662F;Linux&amp;#x4E0B;&amp;#x5E38;&amp;#x7528;&amp;#x7684;&amp;#x6027;&amp;#x80FD;&amp;#x5206;&amp;#x6790;&amp;#x5DE5;&amp;#x5177;&amp;#xFF0C;&amp;#x80F">
+<meta property="og:updated_time" content="2020-11-25T12:52:29.030Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="一文详解 Linux 系统常用监控工具">
+<meta name="twitter:description" content=".. _top: top linux&amp;#x4E0B;&amp;#x7684;&amp;#x4EFB;&amp;#x52A1;&amp;#x7BA1;&amp;#x7406;&amp;#x5668;top&amp;#x547D;&amp;#x4EE4;&amp;#x662F;Linux&amp;#x4E0B;&amp;#x5E38;&amp;#x7528;&amp;#x7684;&amp;#x6027;&amp;#x80FD;&amp;#x5206;&amp;#x6790;&amp;#x5DE5;&amp;#x5177;&amp;#xFF0C;&amp;#x80F">
+  
+    <link rel="alternate" href="/atom.xml" title="To change is to be better to change often is to change perfect" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/css/images/mylogo.jpg">
+  <link rel="apple-touch-icon" href="/css/images/mylogo.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery-3.1.1.min.js"></script>
+  <script src="/js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="/css/dialog.css">
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css" >
+  
+
+  
+  
+  
+
+</head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        
+
+<header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/mylogo.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">Startseite</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">Archive</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/categories">about themes</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/tags">Tags</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/about">About</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/book">📓</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Schreib etwas..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Beiträge',
+            PAGES: 'Seiten',
+            CATEGORIES: 'Kategorien',
+            TAGS: 'Tags',
+            UNTITLED: '(Unbenannt)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-一文详解-Linux-系统常用监控工具" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      一文详解 Linux 系统常用监控工具
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2018/02/04/一文详解-Linux-系统常用监控工具/" class="article-date">
+	  <time datetime="2018-02-04T12:19:29.000Z" itemprop="datePublished">2018-02-04</time>
+	</a>
+
+      
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		PV:<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>.. _top:</p>
+<h1 id="top-linux&#x4E0B;&#x7684;&#x4EFB;&#x52A1;&#x7BA1;&#x7406;&#x5668;"><a href="#top-linux&#x4E0B;&#x7684;&#x4EFB;&#x52A1;&#x7BA1;&#x7406;&#x5668;" class="headerlink" title="top linux&#x4E0B;&#x7684;&#x4EFB;&#x52A1;&#x7BA1;&#x7406;&#x5668;"></a>top linux&#x4E0B;&#x7684;&#x4EFB;&#x52A1;&#x7BA1;&#x7406;&#x5668;</h1><p>top&#x547D;&#x4EE4;&#x662F;Linux&#x4E0B;&#x5E38;&#x7528;&#x7684;&#x6027;&#x80FD;&#x5206;&#x6790;&#x5DE5;&#x5177;&#xFF0C;&#x80FD;&#x591F;&#x5B9E;&#x65F6;&#x663E;&#x793A;&#x7CFB;&#x7EDF;&#x4E2D;&#x5404;&#x4E2A;&#x8FDB;&#x7A0B;&#x7684;&#x8D44;&#x6E90;&#x5360;&#x7528;&#x72B6;&#x51B5;&#xFF0C;&#x7C7B;&#x4F3C;&#x4E8E;Windows&#x7684;&#x4EFB;&#x52A1;&#x7BA1;&#x7406;&#x5668;&#x3002;top&#x662F;&#x4E00;&#x4E2A;&#x52A8;&#x6001;&#x663E;&#x793A;&#x8FC7;&#x7A0B;,&#x5373;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x7528;&#x6237;&#x6309;&#x952E;&#x6765;&#x4E0D;&#x65AD;&#x5237;&#x65B0;&#x5F53;&#x524D;&#x72B6;&#x6001;.&#x5982;&#x679C;&#x5728;&#x524D;&#x53F0;&#x6267;&#x884C;&#x8BE5;&#x547D;&#x4EE4;,&#x5B83;&#x5C06;&#x72EC;&#x5360;&#x524D;&#x53F0;,&#x76F4;&#x5230;&#x7528;&#x6237;&#x7EC8;&#x6B62;&#x8BE5;&#x7A0B;&#x5E8F;&#x4E3A;&#x6B62;.&#x6BD4;&#x8F83;&#x51C6;&#x786E;&#x7684;&#x8BF4;,top&#x547D;&#x4EE4;&#x63D0;&#x4F9B;&#x4E86;&#x5B9E;&#x65F6;&#x7684;&#x5BF9;&#x7CFB;&#x7EDF;&#x5904;&#x7406;&#x5668;&#x7684;&#x72B6;&#x6001;&#x76D1;&#x89C6;.&#x5B83;&#x5C06;&#x663E;&#x793A;&#x7CFB;&#x7EDF;&#x4E2D;CPU&#x6700;&#x201C;&#x654F;&#x611F;&#x201D;&#x7684;&#x4EFB;&#x52A1;&#x5217;&#x8868;.&#x8BE5;&#x547D;&#x4EE4;&#x53EF;&#x4EE5;&#x6309;CPU&#x4F7F;&#x7528;.&#x5185;&#x5B58;&#x4F7F;&#x7528;&#x548C;&#x6267;&#x884C;&#x65F6;&#x95F4;&#x5BF9;&#x4EFB;&#x52A1;&#x8FDB;&#x884C;&#x6392;&#x5E8F;&#xFF1B;&#x800C;&#x4E14;&#x8BE5;&#x547D;&#x4EE4;&#x7684;&#x5F88;&#x591A;&#x7279;&#x6027;&#x90FD;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x4EA4;&#x4E92;&#x5F0F;&#x547D;&#x4EE4;&#x6216;&#x8005;&#x5728;&#x4E2A;&#x4EBA;&#x5B9A;&#x5236;&#x6587;&#x4EF6;&#x4E2D;&#x8FDB;&#x884C;&#x8BBE;&#x5B9A;&#x3002;</p>
+<p>::</p>
+<pre><code>$top
+top - 09:14:56 up 264 days, 20:56,  1 user,  load average: 0.02, 0.04, 0.00
+Tasks:  87 total,   1 running,  86 sleeping,   0 stopped,   0 zombie
+Cpu(s):  0.0%us,  0.2%sy,  0.0%ni, 99.7%id,  0.0%wa,  0.0%hi,  0.0%si,  0.2%st
+Mem:    377672k total,   322332k used,    55340k free,    32592k buffers
+Swap:   397308k total,    67192k used,   330116k free,    71900k cached
+PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND
+1 root      20   0  2856  656  388 S  0.0  0.2   0:49.40 init
+2 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kthreadd
+3 root      20   0     0    0    0 S  0.0  0.0   7:15.20 ksoftirqd/0
+4 root      RT   0     0    0    0 S  0.0  0.0   0:00.00 migration/0
+</code></pre><ul>
+<li><p>&#x7B2C;&#x4E00;&#x884C;</p>
+<ul>
+<li>09:14:56 &#xFF1A;     &#x7CFB;&#x7EDF;&#x5F53;&#x524D;&#x65F6;&#x95F4;</li>
+<li>264 days, 20:56 &#xFF1A;   &#x7CFB;&#x7EDF;&#x5F00;&#x673A;&#x5230;&#x73B0;&#x5728;&#x7ECF;&#x8FC7;&#x4E86;&#x591A;&#x5C11;&#x65F6;&#x95F4;</li>
+<li>1 users  &#xFF1A;            &#x5F53;&#x524D;2&#x7528;&#x6237;&#x5728;&#x7EBF;</li>
+<li>load average: 0.02, 0.04, 0.00&#xFF1A;        &#x7CFB;&#x7EDF;1&#x5206;&#x949F;&#x3001;5&#x5206;&#x949F;&#x3001;15&#x5206;&#x949F;&#x7684;CPU&#x8D1F;&#x8F7D;&#x4FE1;&#x606F;</li>
+</ul>
+</li>
+<li><p>&#x7B2C;&#x4E8C;&#x884C;</p>
+<ul>
+<li>Tasks&#xFF1A;&#x4EFB;&#x52A1;;</li>
+<li>87 total&#xFF1A;&#x5F88;&#x597D;&#x7406;&#x89E3;&#xFF0C;&#x5C31;&#x662F;&#x5F53;&#x524D;&#x6709;87&#x4E2A;&#x4EFB;&#x52A1;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;87&#x4E2A;&#x8FDB;&#x7A0B;&#x3002;</li>
+<li>1 running&#xFF1A;1&#x4E2A;&#x8FDB;&#x7A0B;&#x6B63;&#x5728;&#x8FD0;&#x884C;</li>
+<li>86 sleeping&#xFF1A;86&#x4E2A;&#x8FDB;&#x7A0B;&#x7761;&#x7720;</li>
+<li>0 stopped&#xFF1A;&#x505C;&#x6B62;&#x7684;&#x8FDB;&#x7A0B;&#x6570;</li>
+<li>0 zombie&#xFF1A;&#x50F5;&#x6B7B;&#x7684;&#x8FDB;&#x7A0B;&#x6570;</li>
+</ul>
+</li>
+<li><p>&#x7B2C;&#x4E09;&#x884C;</p>
+<ul>
+<li>Cpu(s)&#xFF1A;&#x8868;&#x793A;&#x8FD9;&#x4E00;&#x884C;&#x663E;&#x793A;CPU&#x603B;&#x4F53;&#x4FE1;&#x606F;</li>
+<li>0.0%us&#xFF1A;&#x7528;&#x6237;&#x6001;&#x8FDB;&#x7A0B;&#x5360;&#x7528;CPU&#x65F6;&#x95F4;&#x767E;&#x5206;&#x6BD4;&#xFF0C;&#x4E0D;&#x5305;&#x542B;renice&#x503C;&#x4E3A;&#x8D1F;&#x7684;&#x4EFB;&#x52A1;&#x5360;&#x7528;&#x7684;CPU&#x7684;&#x65F6;&#x95F4;&#x3002;</li>
+<li>0.7%sy&#xFF1A;&#x5185;&#x6838;&#x5360;&#x7528;CPU&#x65F6;&#x95F4;&#x767E;&#x5206;&#x6BD4;</li>
+<li>0.0%ni&#xFF1A;&#x6539;&#x53D8;&#x8FC7;&#x4F18;&#x5148;&#x7EA7;&#x7684;&#x8FDB;&#x7A0B;&#x5360;&#x7528;CPU&#x7684;&#x767E;&#x5206;&#x6BD4;</li>
+<li>99.3%id&#xFF1A;&#x7A7A;&#x95F2;CPU&#x65F6;&#x95F4;&#x767E;&#x5206;&#x6BD4;</li>
+<li>0.0%wa&#xFF1A;&#x7B49;&#x5F85;I/O&#x7684;CPU&#x65F6;&#x95F4;&#x767E;&#x5206;&#x6BD4;</li>
+<li>0.0%hi&#xFF1A;CPU&#x786C;&#x4E2D;&#x65AD;&#x65F6;&#x95F4;&#x767E;&#x5206;&#x6BD4;</li>
+<li>0.0%si&#xFF1A;CPU&#x8F6F;&#x4E2D;&#x65AD;&#x65F6;&#x95F4;&#x767E;&#x5206;&#x6BD4;</li>
+<li>&#x6CE8;&#xFF1A;&#x8FD9;&#x91CC;&#x663E;&#x793A;&#x6570;&#x636E;&#x662F;&#x6240;&#x6709;cpu&#x7684;&#x5E73;&#x5747;&#x503C;&#xFF0C;&#x5982;&#x679C;&#x60F3;&#x770B;&#x6BCF;&#x4E00;&#x4E2A;cpu&#x7684;&#x5904;&#x7406;&#x60C5;&#x51B5;&#xFF0C;&#x6309;1&#x5373;&#x53EF;&#xFF1B;&#x6298;&#x53E0;&#xFF0C;&#x518D;&#x6B21;&#x6309;1&#xFF1B;</li>
+</ul>
+</li>
+<li><p>&#x7B2C;&#x56DB;&#x884C;</p>
+<ul>
+<li>Men&#xFF1A;&#x5185;&#x5B58;&#x7684;&#x610F;&#x601D;</li>
+<li>8175320kk total&#xFF1A;&#x7269;&#x7406;&#x5185;&#x5B58;&#x603B;&#x91CF;</li>
+<li>8058868k used&#xFF1A;&#x4F7F;&#x7528;&#x7684;&#x7269;&#x7406;&#x5185;&#x5B58;&#x91CF;</li>
+<li>116452k free&#xFF1A;&#x7A7A;&#x95F2;&#x7684;&#x7269;&#x7406;&#x5185;&#x5B58;&#x91CF;</li>
+<li>283084k buffers&#xFF1A;&#x7528;&#x4F5C;&#x5185;&#x6838;&#x7F13;&#x5B58;&#x7684;&#x7269;&#x7406;&#x5185;&#x5B58;&#x91CF;</li>
+</ul>
+</li>
+<li><p>&#x7B2C;&#x4E94;&#x884C;</p>
+<ul>
+<li>Swap&#xFF1A;&#x4EA4;&#x6362;&#x7A7A;&#x95F4;</li>
+<li>6881272k total&#xFF1A;&#x4EA4;&#x6362;&#x533A;&#x603B;&#x91CF;</li>
+<li>4010444k used&#xFF1A;&#x4F7F;&#x7528;&#x7684;&#x4EA4;&#x6362;&#x533A;&#x91CF;</li>
+<li>2870828k free&#xFF1A;&#x7A7A;&#x95F2;&#x7684;&#x4EA4;&#x6362;&#x533A;&#x91CF;</li>
+<li>4336992k cached&#xFF1A;&#x7F13;&#x51B2;&#x4EA4;&#x6362;&#x533A;&#x603B;&#x91CF;</li>
+</ul>
+</li>
+<li><p>&#x8FDB;&#x7A0B;&#x4FE1;&#x606F;</p>
+<ul>
+<li>&#x518D;&#x4E0B;&#x9762;&#x5C31;&#x662F;&#x8FDB;&#x7A0B;&#x4FE1;&#x606F;&#xFF1A;</li>
+<li>PID&#xFF1A;&#x8FDB;&#x7A0B;&#x7684;ID</li>
+<li>USER&#xFF1A;&#x8FDB;&#x7A0B;&#x6240;&#x6709;&#x8005;</li>
+<li>PR&#xFF1A;&#x8FDB;&#x7A0B;&#x7684;&#x4F18;&#x5148;&#x7EA7;&#x522B;&#xFF0C;&#x8D8A;&#x5C0F;&#x8D8A;&#x4F18;&#x5148;&#x88AB;&#x6267;&#x884C;</li>
+<li>NInice&#xFF1A;&#x503C;</li>
+<li>VIRT&#xFF1A;&#x8FDB;&#x7A0B;&#x5360;&#x7528;&#x7684;&#x865A;&#x62DF;&#x5185;&#x5B58;</li>
+<li>RES&#xFF1A;&#x8FDB;&#x7A0B;&#x5360;&#x7528;&#x7684;&#x7269;&#x7406;&#x5185;&#x5B58;</li>
+<li>SHR&#xFF1A;&#x8FDB;&#x7A0B;&#x4F7F;&#x7528;&#x7684;&#x5171;&#x4EAB;&#x5185;&#x5B58;</li>
+<li>S&#xFF1A;&#x8FDB;&#x7A0B;&#x7684;&#x72B6;&#x6001;&#x3002;S&#x8868;&#x793A;&#x4F11;&#x7720;&#xFF0C;R&#x8868;&#x793A;&#x6B63;&#x5728;&#x8FD0;&#x884C;&#xFF0C;Z&#x8868;&#x793A;&#x50F5;&#x6B7B;&#x72B6;&#x6001;&#xFF0C;N&#x8868;&#x793A;&#x8BE5;&#x8FDB;&#x7A0B;&#x4F18;&#x5148;&#x503C;&#x4E3A;&#x8D1F;&#x6570;</li>
+<li>%CPU&#xFF1A;&#x8FDB;&#x7A0B;&#x5360;&#x7528;CPU&#x7684;&#x4F7F;&#x7528;&#x7387;</li>
+<li>%MEM&#xFF1A;&#x8FDB;&#x7A0B;&#x4F7F;&#x7528;&#x7684;&#x7269;&#x7406;&#x5185;&#x5B58;&#x548C;&#x603B;&#x5185;&#x5B58;&#x7684;&#x767E;&#x5206;&#x6BD4;</li>
+<li>TIME+&#xFF1A;&#x8BE5;&#x8FDB;&#x7A0B;&#x542F;&#x52A8;&#x540E;&#x5360;&#x7528;&#x7684;&#x603B;&#x7684;CPU&#x65F6;&#x95F4;&#xFF0C;&#x5373;&#x5360;&#x7528;CPU&#x4F7F;&#x7528;&#x65F6;&#x95F4;&#x7684;&#x7D2F;&#x52A0;&#x503C;&#x3002;</li>
+<li>COMMAND&#xFF1A;&#x8FDB;&#x7A0B;&#x542F;&#x52A8;&#x547D;&#x4EE4;&#x540D;&#x79F0;</li>
+</ul>
+</li>
+</ul>
+<h2 id="top&#x547D;&#x4EE4;&#x4EA4;&#x4E92;&#x64CD;&#x4F5C;&#x6307;&#x4EE4;"><a href="#top&#x547D;&#x4EE4;&#x4EA4;&#x4E92;&#x64CD;&#x4F5C;&#x6307;&#x4EE4;" class="headerlink" title="top&#x547D;&#x4EE4;&#x4EA4;&#x4E92;&#x64CD;&#x4F5C;&#x6307;&#x4EE4;"></a>top&#x547D;&#x4EE4;&#x4EA4;&#x4E92;&#x64CD;&#x4F5C;&#x6307;&#x4EE4;</h2><p>&#x4E0B;&#x9762;&#x5217;&#x51FA;&#x4E00;&#x4E9B;&#x5E38;&#x7528;&#x7684; top&#x547D;&#x4EE4;&#x64CD;&#x4F5C;&#x6307;&#x4EE4;</p>
+<pre><code>* q&#xFF1A;&#x9000;&#x51FA;top&#x547D;&#x4EE4;
+* &lt;Space&gt;&#xFF1A;&#x7ACB;&#x5373;&#x5237;&#x65B0;
+* s&#xFF1A;&#x8BBE;&#x7F6E;&#x5237;&#x65B0;&#x65F6;&#x95F4;&#x95F4;&#x9694;
+* c&#xFF1A;&#x663E;&#x793A;&#x547D;&#x4EE4;&#x5B8C;&#x5168;&#x6A21;&#x5F0F;
+* t:&#xFF1A;&#x663E;&#x793A;&#x6216;&#x9690;&#x85CF;&#x8FDB;&#x7A0B;&#x548C;CPU&#x72B6;&#x6001;&#x4FE1;&#x606F;
+* m&#xFF1A;&#x663E;&#x793A;&#x6216;&#x9690;&#x85CF;&#x5185;&#x5B58;&#x72B6;&#x6001;&#x4FE1;&#x606F;
+* l&#xFF1A;&#x663E;&#x793A;&#x6216;&#x9690;&#x85CF;uptime&#x4FE1;&#x606F;
+* f&#xFF1A;&#x589E;&#x52A0;&#x6216;&#x51CF;&#x5C11;&#x8FDB;&#x7A0B;&#x663E;&#x793A;&#x6807;&#x5FD7;
+* S&#xFF1A;&#x7D2F;&#x8BA1;&#x6A21;&#x5F0F;&#xFF0C;&#x4F1A;&#x628A;&#x5DF2;&#x5B8C;&#x6210;&#x6216;&#x9000;&#x51FA;&#x7684;&#x5B50;&#x8FDB;&#x7A0B;&#x5360;&#x7528;&#x7684;CPU&#x65F6;&#x95F4;&#x7D2F;&#x8BA1;&#x5230;&#x7236;&#x8FDB;&#x7A0B;&#x7684;MITE+
+* P&#xFF1A;&#x6309;%CPU&#x4F7F;&#x7528;&#x7387;&#x6392;&#x884C;
+* T&#xFF1A;&#x6309;MITE+&#x6392;&#x884C;
+* M&#xFF1A;&#x6309;%MEM&#x6392;&#x884C;
+* u&#xFF1A;&#x6307;&#x5B9A;&#x663E;&#x793A;&#x7528;&#x6237;&#x8FDB;&#x7A0B;
+* r&#xFF1A;&#x4FEE;&#x6539;&#x8FDB;&#x7A0B;renice&#x503C;
+* kkill&#xFF1A;&#x8FDB;&#x7A0B;
+* i&#xFF1A;&#x53EA;&#x663E;&#x793A;&#x6B63;&#x5728;&#x8FD0;&#x884C;&#x7684;&#x8FDB;&#x7A0B;
+* W&#xFF1A;&#x4FDD;&#x5B58;&#x5BF9;top&#x7684;&#x8BBE;&#x7F6E;&#x5230;&#x6587;&#x4EF6;^/.toprc&#xFF0C;&#x4E0B;&#x6B21;&#x542F;&#x52A8;&#x5C06;&#x81EA;&#x52A8;&#x8C03;&#x7528;toprc&#x6587;&#x4EF6;&#x7684;&#x8BBE;&#x7F6E;&#x3002;
+* h&#xFF1A;&#x5E2E;&#x52A9;&#x547D;&#x4EE4;&#x3002;
+* q&#xFF1A;&#x9000;&#x51FA;
+</code></pre><p>&#x6CE8;&#xFF1A;&#x5F3A;&#x8C03;&#x4E00;&#x4E0B;&#xFF0C;&#x4F7F;&#x7528;&#x9891;&#x7387;&#x6700;&#x9AD8;&#x7684;&#x662F;P&#x3001;T&#x3001;M&#xFF0C;&#x56E0;&#x4E3A;&#x901A;&#x5E38;&#x4F7F;&#x7528;top&#xFF0C;&#x6211;&#x4EEC;&#x5C31;&#x60F3;&#x770B;&#x770B;&#x662F;&#x54EA;&#x4E9B;&#x8FDB;&#x7A0B;&#x6700;&#x8017;cpu&#x8D44;&#x6E90;&#x3001;&#x5360;&#x7528;&#x7684;&#x5185;&#x5B58;&#x6700;&#x591A;&#xFF1B;<br>&#x6CE8;&#xFF1A;&#x901A;&#x8FC7;&#x201D;shift + &gt;&#x201D;&#x6216;&#x201D;shift + &lt;&#x201D;&#x53EF;&#x4EE5;&#x5411;&#x53F3;&#x6216;&#x5DE6;&#x6539;&#x53D8;&#x6392;&#x5E8F;&#x5217;<br>&#x5982;&#x679C;&#x53EA;&#x9700;&#x8981;&#x67E5;&#x770B;&#x5185;&#x5B58;&#xFF1A;&#x53EF;&#x7528;free&#x547D;&#x4EE4;&#x3002;&#x53EA;&#x67E5;&#x770B;uptime&#x4FE1;&#x606F;&#xFF08;&#x7B2C;&#x4E00;&#x884C;&#xFF09;&#xFF0C;&#x53EF;&#x7528;uptime&#x547D;&#x4EE4;&#xFF1B;</p>
+<h2 id="&#x5B9E;&#x4F8B;"><a href="#&#x5B9E;&#x4F8B;" class="headerlink" title="&#x5B9E;&#x4F8B;"></a>&#x5B9E;&#x4F8B;</h2><p>&#x5B9E;&#x4F8B;1&#xFF1A;&#x591A;&#x6838;CPU&#x76D1;&#x63A7;<br>^^^^^^^^^^^^^^^^^^^^^^^<br>&#x5728;top&#x57FA;&#x672C;&#x89C6;&#x56FE;&#x4E2D;&#xFF0C;&#x6309;&#x952E;&#x76D8;&#x6570;&#x5B57;&#x201C;1&#x201D;&#xFF0C;&#x53EF;&#x76D1;&#x63A7;&#x6BCF;&#x4E2A;&#x903B;&#x8F91;CPU&#x7684;&#x72B6;&#x51B5;&#xFF1B;<br>::</p>
+<pre><code>[rdtfr@bl685cb4-t ^]$ top
+top - 09:10:44 up 20 days, 16:51,  4 users,  load average: 3.82, 4.40, 4.40
+Tasks: 1201 total,  10 running, 1189 sleeping,   0 stopped,   2 zombie
+Cpu0  :  1.3%us,  2.3%sy,  0.0%ni, 96.4%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st
+Cpu1  :  1.3%us,  2.6%sy,  0.0%ni, 96.1%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st
+Cpu2  :  1.0%us,  2.0%sy,  0.0%ni, 92.5%id,  0.0%wa,  0.0%hi,  4.6%si,  0.0%st
+Cpu3  :  3.9%us,  7.8%sy,  0.0%ni, 83.2%id,  0.0%wa,  0.0%hi,  5.2%si,  0.0%st
+Cpu4  :  4.2%us, 10.4%sy,  0.0%ni, 63.8%id,  0.0%wa,  0.0%hi, 21.5%si,  0.0%st
+Cpu5  :  6.8%us, 12.7%sy,  0.0%ni, 80.5%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st
+Cpu6  :  2.9%us,  7.2%sy,  0.0%ni, 85.3%id,  0.0%wa,  0.0%hi,  4.6%si,  0.0%st
+Cpu7  :  6.2%us, 13.0%sy,  0.0%ni, 75.3%id,  0.0%wa,  0.0%hi,  5.5%si,  0.0%st
+Mem:  32943888k total, 32834216k used,   109672k free,   642704k buffers
+Swap: 35651576k total,  5761928k used, 29889648k free, 16611500k cached
+</code></pre><p>&#x5B9E;&#x4F8B;2&#xFF1A;&#x9AD8;&#x4EAE;&#x663E;&#x793A;&#x5F53;&#x524D;&#x8FD0;&#x884C;&#x8FDB;&#x7A0B;<br>^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^<br>::</p>
+<pre><code>&#x5728;top&#x57FA;&#x672C;&#x89C6;&#x56FE;&#x4E2D;,&#x6309;&#x952E;&#x76D8;&#x201C;b&#x201D;&#xFF08;&#x6253;&#x5F00;/&#x5173;&#x95ED;&#x52A0;&#x4EAE;&#x6548;&#x679C;&#xFF09;&#xFF1B;
+</code></pre><p>&#x5B9E;&#x4F8B;3&#xFF1A;&#x663E;&#x793A;&#x5B8C;&#x6574;&#x7684;&#x7A0B;&#x5E8F;&#x547D;&#x4EE4;<br>^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^<br>&#x547D;&#x4EE4;&#xFF1A;top -c<br>::</p>
+<pre><code>[rdtfr@bl685cb4-t ^]$ top -c
+top - 09:14:35 up 20 days, 16:55,  4 users,  load average: 5.77, 5.01, 4.64
+Tasks: 1200 total,   5 running, 1192 sleeping,   0 stopped,   3 zombie
+Cpu(s):  4.4%us,  6.0%sy,  0.0%ni, 83.8%id,  0.2%wa,  0.0%hi,  5.5%si,  0.0%st
+Mem:  32943888k total, 32842896k used,   100992k free,   591484k buffers
+Swap: 35651576k total,  5761808k used, 29889768k free, 16918824k cached
+PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND
+2013 apache    18   0  403m  88m 5304 S 25.0  0.3   6:37.44 /usr/sbin/httpd
+18335 pubtest   22   0 65576  996  728 R  7.8  0.0   0:00.24 netstat -naltp
+16499 rdtfare   15   0 13672 2080  824 R  2.6  0.0   0:00.38 top -c
+29684 rdtfare   15   0 1164m 837m  14m S  2.3  2.6 148:47.54 ./autodata data1.txt
+12976 pubtest   18   0  238m 9000 1932 S  1.6  0.0 439:28.44 tscagent -s TOEV_P
+</code></pre><p>&#x5B9E;&#x4F8B;4&#xFF1A;&#x663E;&#x793A;&#x6307;&#x5B9A;&#x7684;&#x8FDB;&#x7A0B;&#x4FE1;&#x606F;<br>^^^^^^^^^^^^^^^^^^^^^^^^^^^^<br>&#x547D;&#x4EE4;&#xFF1A;top -p pidid<br>::</p>
+<pre><code>/opt/app/tdv1/config#top -p 17265
+top - 09:17:34 up 455 days, 17:55,  2 users,  load average: 3.76, 4.56, 4.46
+Tasks:   1 total,   0 running,   1 sleeping,   0 stopped,   0 zombie
+Cpu(s):  7.8%us,  1.9%sy,  0.0%ni, 89.2%id,  0.0%wa,  0.1%hi,  1.0%si,  0.0%st
+Mem:   8175452k total,  8103988k used,    71464k free,   268716k buffers
+Swap:  6881272k total,  4275424k used,  2605848k free,  6338184k cached
+PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND
+17265 tdv1      15   0 56504  828  632 S  0.0  0.0 195:53.25 redis-server
+</code></pre><p>&#x6307;&#x5B9A;&#x8FDB;&#x7A0B;&#x4FE1;&#x606F;&#x6709;&#x591A;&#x4E2A;&#x65F6;&#xFF0C;&#x9700;&#x8981;&#x7ED3;&#x5408;&#x5176;&#x5B83;&#x5DE5;&#x5177;&#x5C06;&#x56DE;&#x8F66;&#x66FF;&#x6362;&#x4E3A;,&#xFF08;-p &#x652F;&#x6301;pid,pid,pid&#x8BED;&#x6CD5;&#xFF09;</p>
+<p>&#x547D;&#x4EE4;&#xFF1A;top -p <code>pgrep MULTI_PROCESS | tr &quot;\\n&quot; &quot;,&quot; | sed &apos;s/,$//&apos;</code></p>
+<p>::</p>
+<pre><code>/opt/app/tdv1$top -p `pgrep java | tr &quot;\\n&quot; &quot;,&quot; | sed &apos;s/,$//&apos;`
+top - 14:05:31 up 53 days,  2:43,  9 users,  load average: 0.29, 0.34, 0.22
+Tasks:   3 total,   0 running,   3 sleeping,   0 stopped,   0 zombie
+Cpu(s):  5.9%us,  8.2%sy,  0.0%ni, 86.0%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st
+Mem:  66082088k total, 29512860k used, 36569228k free,   756352k buffers
+Swap: 32767992k total,  1019900k used, 31748092k free, 15710284k cached
+
+  PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND                                          27855 rdtfare   20   0 4454m 1.3g 5300 S  0.7  2.0 338:31.37 java                         
+ 2034 jenkins   20   0 18.3g 5.2g 5284 S  0.3  8.2  56:02.38 java                                             12156 rdtfare   20   0 4196m 1.2g  12m S  0.3  2.0  86:34.62 java  
+</code></pre><h2 id="&#x66F4;&#x5F3A;&#x5927;&#x7684;&#x5DE5;&#x5177;"><a href="#&#x66F4;&#x5F3A;&#x5927;&#x7684;&#x5DE5;&#x5177;" class="headerlink" title="&#x66F4;&#x5F3A;&#x5927;&#x7684;&#x5DE5;&#x5177;"></a>&#x66F4;&#x5F3A;&#x5927;&#x7684;&#x5DE5;&#x5177;</h2><p>htop<br>^^^^^^^^^^^^^^^^^^^^<br>htop &#x662F;&#x4E00;&#x4E2A; Linux &#x4E0B;&#x7684;&#x4EA4;&#x4E92;&#x5F0F;&#x7684;&#x8FDB;&#x7A0B;&#x6D4F;&#x89C8;&#x5668;&#xFF0C;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x66FF;&#x6362;Linux&#x4E0B;&#x7684;top&#x547D;&#x4EE4;&#x3002;</p>
+<p>&#x4E0E;Linux&#x4F20;&#x7EDF;&#x7684;top&#x76F8;&#x6BD4;&#xFF0C;htop&#x66F4;&#x52A0;&#x4EBA;&#x6027;&#x5316;&#x3002;&#x5B83;&#x53EF;&#x8BA9;&#x7528;&#x6237;&#x4EA4;&#x4E92;&#x5F0F;&#x64CD;&#x4F5C;&#xFF0C;&#x652F;&#x6301;&#x989C;&#x8272;&#x4E3B;&#x9898;&#xFF0C;&#x53EF;&#x6A2A;&#x5411;&#x6216;&#x7EB5;&#x5411;&#x6EDA;&#x52A8;&#x6D4F;&#x89C8;&#x8FDB;&#x7A0B;&#x5217;&#x8868;&#xFF0C;&#x5E76;&#x652F;&#x6301;&#x9F20;&#x6807;&#x64CD;&#x4F5C;&#x3002;</p>
+<p>&#x4E0E;top&#x76F8;&#x6BD4;&#xFF0C;htop&#x6709;&#x4EE5;&#x4E0B;&#x4F18;&#x70B9;&#xFF1A;</p>
+<ul>
+<li>&#x53EF;&#x4EE5;&#x6A2A;&#x5411;&#x6216;&#x7EB5;&#x5411;&#x6EDA;&#x52A8;&#x6D4F;&#x89C8;&#x8FDB;&#x7A0B;&#x5217;&#x8868;&#xFF0C;&#x4EE5;&#x4FBF;&#x770B;&#x5230;&#x6240;&#x6709;&#x7684;&#x8FDB;&#x7A0B;&#x548C;&#x5B8C;&#x6574;&#x7684;&#x547D;&#x4EE4;&#x884C;&#x3002;</li>
+<li>&#x5728;&#x542F;&#x52A8;&#x4E0A;&#xFF0C;&#x6BD4;top &#x66F4;&#x5FEB;&#x3002;</li>
+<li>&#x6740;&#x8FDB;&#x7A0B;&#x65F6;&#x4E0D;&#x9700;&#x8981;&#x8F93;&#x5165;&#x8FDB;&#x7A0B;&#x53F7;&#x3002;</li>
+<li>htop &#x652F;&#x6301;&#x9F20;&#x6807;&#x64CD;&#x4F5C;&#x3002;</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+
+      
+        
+	  <!-- Gitment START! Deploy by Z4HD -->
+	<div id="comments"></div>
+		<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+		<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+		<script>
+		var gitment = new Gitment({
+			id: 'http://yoursite.com/2018/02/04/一文详解-Linux-系统常用监控工具/',
+			owner: 'JoeJoeyMa',
+ 			repo: 'JoeJoeyMa.github.io',
+			oauth: {
+				client_id: 'b16fd2b48371378f485f',
+				client_secret: 'a3d12c33716206b031ba0d95fade9927e31dbb46',
+			},
+		})
+		gitment.render('comments')
+		</script>
+		<!-- Gitment 自定义样式表 -->
+		<link rel="stylesheet" href="/css/comment-gitment.css">
+		<!-- Gitment END! -->
+	 
+
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/htop/">htop</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iftop/">iftop</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/top/">top</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/03/09/ES6来完成NodeJs/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Nuevo</strong>
+      <div class="article-nav-title">
+        
+          ES6来完成NodeJs
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/10/27/Django2-0/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Viejo</strong>
+      <div class="article-nav-title">Django2.0</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Inhalt</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#top-linux下的任务管理器"><span class="nav-number">1.</span> <span class="nav-text">top linux下的任务管理器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#top命令交互操作指令"><span class="nav-number">1.1.</span> <span class="nav-text">top命令交互操作指令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实例"><span class="nav-number">1.2.</span> <span class="nav-text">实例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更强大的工具"><span class="nav-number">1.3.</span> <span class="nav-text">更强大的工具</span></a></li></ol></li></ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Construido por <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/JoeJoeyMa/JoeJoeyMa.github.io" target="_blank">Hexo-theme-Joejoey</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2020 To change is to be better to change often is to change perfect All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				UV : <span id="busuanzi_value_site_uv"></span> |  
+				PV : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">About themes</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+    <a href="/book" class="mobile-nav-link">📓</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/scripts.js"></script>
+
+
+
+
+  <script src="/js/dialog.js"></script>
+
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-114383200-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            To change is to be better to change often is to change perfect
+          </div>
+          <div class="panel-body">
+            Copyright © 2020 To change is to be better to change often is to change perfect All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>

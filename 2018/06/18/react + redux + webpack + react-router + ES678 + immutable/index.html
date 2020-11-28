@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>react + redux + webpack + react-router + es6/7/8 + immutable | To change is to be better to change often is to change perfect</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="reactReduxwebpackreact-routerES6/7/8immutable" />
+  
+  
+    <meta name="google-site-verification" content="zeeMq378QFdIk20wn4KhRFwp7IhLaosjf7Kf7o9Zcfs" />
+  
+  
+  
+  <meta name="description" content="&amp;#x6280;&amp;#x672F;&amp;#x6808;&amp;#xFF1A;  react + redux + webpack + react-router + ES6/7/8 + immutable &amp;#x8FD0;&amp;#x884C;&amp;#x9879;&amp;#x76EE;&amp;#xFF08;nodejs 6.0+&amp;#xFF09;123456789git clone cd react-pxqnpm i npm start">
+<meta name="keywords" content="react,Redux,webpack,react-router,ES6&#x2F;7&#x2F;8,immutable">
+<meta property="og:type" content="article">
+<meta property="og:title" content="react + redux + webpack + react-router + ES6&#x2F;7&#x2F;8 + immutable">
+<meta property="og:url" content="http://yoursite.com/2018/06/18/react + redux + webpack + react-router + ES678 + immutable/index.html">
+<meta property="og:site_name" content="To change is to be better to change often is to change perfect">
+<meta property="og:description" content="&amp;#x6280;&amp;#x672F;&amp;#x6808;&amp;#xFF1A;  react + redux + webpack + react-router + ES6/7/8 + immutable &amp;#x8FD0;&amp;#x884C;&amp;#x9879;&amp;#x76EE;&amp;#xFF08;nodejs 6.0+&amp;#xFF09;123456789git clone cd react-pxqnpm i npm start">
+<meta property="og:image" content="https://github.com/bailicangdu/pxq/blob/master/screenshot/demo.png">
+<meta property="og:image" content="https://github.com/bailicangdu/pxq/blob/master/screenshot/diff.png">
+<meta property="og:image" content="https://github.com/bailicangdu/pxq/blob/master/screenshot/icon_class.png">
+<meta property="og:image" content="https://github.com/bailicangdu/pxq/blob/master/screenshot/react-lifecycle.png">
+<meta property="og:image" content="https://github.com/bailicangdu/pxq/blob/master/screenshot/simple_redux.jpg">
+<meta property="og:image" content="https://github.com/bailicangdu/pxq/blob/master/screenshot/all_redux.png">
+<meta property="og:image" content="https://github.com/bailicangdu/pxq/blob/master/screenshot/react_props.png">
+<meta property="og:updated_time" content="2020-11-25T12:52:29.030Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="react + redux + webpack + react-router + ES6&#x2F;7&#x2F;8 + immutable">
+<meta name="twitter:description" content="&amp;#x6280;&amp;#x672F;&amp;#x6808;&amp;#xFF1A;  react + redux + webpack + react-router + ES6/7/8 + immutable &amp;#x8FD0;&amp;#x884C;&amp;#x9879;&amp;#x76EE;&amp;#xFF08;nodejs 6.0+&amp;#xFF09;123456789git clone cd react-pxqnpm i npm start">
+<meta name="twitter:image" content="https://github.com/bailicangdu/pxq/blob/master/screenshot/demo.png">
+  
+    <link rel="alternate" href="/atom.xml" title="To change is to be better to change often is to change perfect" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/css/images/mylogo.jpg">
+  <link rel="apple-touch-icon" href="/css/images/mylogo.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery-3.1.1.min.js"></script>
+  <script src="/js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="/css/dialog.css">
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css" >
+  
+
+  
+  
+  
+
+</head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        
+
+<header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/mylogo.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">Startseite</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">Archive</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/categories">about themes</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/tags">Tags</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/about">About</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/book">📓</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Schreib etwas..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Beiträge',
+            PAGES: 'Seiten',
+            CATEGORIES: 'Kategorien',
+            TAGS: 'Tags',
+            UNTITLED: '(Unbenannt)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-react + redux + webpack + react-router + ES678 + immutable" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      react + redux + webpack + react-router + ES6/7/8 + immutable
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2018/06/18/react + redux + webpack + react-router + ES678 + immutable/" class="article-date">
+	  <time datetime="2018-06-18T13:26:00.000Z" itemprop="datePublished">2018-06-18</time>
+	</a>
+
+      
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		PV:<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="&#x6280;&#x672F;&#x6808;&#xFF1A;"><a href="#&#x6280;&#x672F;&#x6808;&#xFF1A;" class="headerlink" title="&#x6280;&#x672F;&#x6808;&#xFF1A;"></a>&#x6280;&#x672F;&#x6808;&#xFF1A;</h2><p>  react + redux + webpack + react-router + ES6/7/8 + immutable</p>
+<h2 id="&#x8FD0;&#x884C;&#x9879;&#x76EE;&#xFF08;nodejs-6-0-&#xFF09;"><a href="#&#x8FD0;&#x884C;&#x9879;&#x76EE;&#xFF08;nodejs-6-0-&#xFF09;" class="headerlink" title="&#x8FD0;&#x884C;&#x9879;&#x76EE;&#xFF08;nodejs 6.0+&#xFF09;"></a>&#x8FD0;&#x884C;&#x9879;&#x76EE;&#xFF08;nodejs 6.0+&#xFF09;</h2><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">clone</span> <span class="title"></span></span><br><span class="line"><span class="title"></span></span><br><span class="line"><span class="title">cd</span> react-pxq</span><br><span class="line"></span><br><span class="line">npm i</span><br><span class="line"> </span><br><span class="line">npm <span class="literal">start</span></span><br><span class="line"></span><br><span class="line">npm run build &#xFF08;&#x53D1;&#x5E03;&#xFF09;</span><br></pre></td></tr></table></figure>
+<h2 id="&#x8BF4;&#x660E;"><a href="#&#x8BF4;&#x660E;" class="headerlink" title="&#x8BF4;&#x660E;"></a>&#x8BF4;&#x660E;</h2><blockquote>
+<p> &#x672C;&#x9879;&#x76EE;&#x4E3B;&#x8981;&#x7528;&#x4E8E;&#x7406;&#x89E3; react &#x548C; redux &#x7684;&#x7F16;&#x8BD1;&#x65B9;&#x5F0F;&#xFF0C;&#x4EE5;&#x53CA; react + redux &#x4E4B;&#x95F4;&#x7684;&#x914D;&#x5408;&#x65B9;&#x5F0F;</p>
+</blockquote>
+<blockquote>
+<p> &#x5982;&#x679C;&#x89C9;&#x5F97;&#x4E0D;&#x9519;&#x7684;&#x8BDD;&#xFF0C;&#x60A8;&#x53EF;&#x4EE5;&#x70B9;&#x53F3;&#x4E0A;&#x89D2; &#x201C;Star&#x201D; &#x652F;&#x6301;&#x4E00;&#x4E0B; &#x8C22;&#x8C22;&#xFF01; ^_^</p>
+</blockquote>
+<blockquote>
+<p> &#x6216;&#x8005;&#x60A8;&#x53EF;&#x4EE5; &#x201C;follow&#x201D; &#x4E00;&#x4E0B;&#xFF0C;&#x6211;&#x4F1A;&#x4E0D;&#x65AD;&#x5F00;&#x6E90;&#x66F4;&#x591A;&#x7684;&#x6709;&#x8DA3;&#x7684;&#x9879;&#x76EE;</p>
+</blockquote>
+<blockquote>
+<p> &#x5982;&#x6709;&#x95EE;&#x9898;&#x8BF7;&#x76F4;&#x63A5;&#x5728; Issues &#x4E2D;&#x63D0;&#xFF0C;&#x6216;&#x8005;&#x60A8;&#x53D1;&#x73B0;&#x95EE;&#x9898;&#x5E76;&#x6709;&#x975E;&#x5E38;&#x597D;&#x7684;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#xFF0C;&#x6B22;&#x8FCE; PR &#x1F44D;</p>
+</blockquote>
+<blockquote>
+<p> &#x5F00;&#x53D1;&#x73AF;&#x5883; macOS 10.13.1  Chrome 63  nodejs 8.9.1</p>
+</blockquote>
+<blockquote>
+<p> &#x63A8;&#x8350;&#x4E00;&#x4E2A; vue2 + vuex &#x6784;&#x5EFA;&#x7684; 45 &#x4E2A;&#x9875;&#x9762;&#x7684;&#x5927;&#x578B;&#x5F00;&#x6E90;&#x9879;&#x76EE;&#x3002;<a href="https://github.com/bailicangdu/vue2-elm" target="_blank" rel="noopener">&#x5730;&#x5740;&#x5728;&#x8FD9;&#x91CC;</a></p>
+</blockquote>
+<blockquote>
+<p> &#x53E6;&#x5916;&#x4E00;&#x4E2A; vue2 + vuex &#x7684;&#x7B80;&#x5355;&#x9879;&#x76EE;&#xFF0C;&#x975E;&#x5E38;&#x9002;&#x5408;&#x5165;&#x95E8;&#x7EC3;&#x4E60;&#x3002;<a href="https://github.com/bailicangdu/vue2-happyfri" target="_blank" rel="noopener">&#x5730;&#x5740;&#x5728;&#x8FD9;&#x91CC;</a></p>
+</blockquote>
+<h2 id="&#x6F14;&#x793A;"><a href="#&#x6F14;&#x793A;" class="headerlink" title="&#x6F14;&#x793A;"></a>&#x6F14;&#x793A;</h2><p><a href="http://cangdu.org/pxq/" target="_blank" rel="noopener">&#x67E5;&#x770B;&#x6F14;&#x793A;&#x6548;&#x679C;</a>&#xFF08;&#x8BF7;&#x7528;chrome&#x7684;&#x624B;&#x673A;&#x6A21;&#x5F0F;&#x9884;&#x89C8;&#xFF09;</p>
+<h3 id="&#x79FB;&#x52A8;&#x7AEF;&#x626B;&#x63CF;&#x4E0B;&#x65B9;&#x4E8C;&#x7EF4;&#x7801;"><a href="#&#x79FB;&#x52A8;&#x7AEF;&#x626B;&#x63CF;&#x4E0B;&#x65B9;&#x4E8C;&#x7EF4;&#x7801;" class="headerlink" title="&#x79FB;&#x52A8;&#x7AEF;&#x626B;&#x63CF;&#x4E0B;&#x65B9;&#x4E8C;&#x7EF4;&#x7801;"></a>&#x79FB;&#x52A8;&#x7AEF;&#x626B;&#x63CF;&#x4E0B;&#x65B9;&#x4E8C;&#x7EF4;&#x7801;</h3><p><img src="https://github.com/bailicangdu/pxq/blob/master/screenshot/demo.png" alt=""></p>
+<h1 id="&#x4E2A;&#x4EBA;&#x611F;&#x609F;"><a href="#&#x4E2A;&#x4EBA;&#x611F;&#x609F;" class="headerlink" title="&#x4E2A;&#x4EBA;&#x611F;&#x609F;"></a>&#x4E2A;&#x4EBA;&#x611F;&#x609F;</h1><h2 id="&#x505A;React&#x9700;&#x8981;&#x4F1A;&#x4EC0;&#x4E48;&#xFF1F;"><a href="#&#x505A;React&#x9700;&#x8981;&#x4F1A;&#x4EC0;&#x4E48;&#xFF1F;" class="headerlink" title="&#x505A;React&#x9700;&#x8981;&#x4F1A;&#x4EC0;&#x4E48;&#xFF1F;"></a>&#x505A;React&#x9700;&#x8981;&#x4F1A;&#x4EC0;&#x4E48;&#xFF1F;</h2><p>react&#x7684;&#x529F;&#x80FD;&#x5176;&#x5B9E;&#x5F88;&#x5355;&#x4E00;&#xFF0C;&#x4E3B;&#x8981;&#x8D1F;&#x8D23;&#x6E32;&#x67D3;&#x7684;&#x529F;&#x80FD;&#xFF0C;&#x73B0;&#x6709;&#x7684;&#x6846;&#x67B6;&#xFF0C;&#x6BD4;&#x5982;angular&#x662F;&#x4E00;&#x4E2A;&#x5927;&#x800C;&#x5168;&#x7684;&#x6846;&#x67B6;&#xFF0C;&#x7528;&#x4E86;angular&#x51E0;&#x4E4E;&#x5C31;&#x4E0D;&#x9700;&#x8981;&#x7528;&#x5176;&#x4ED6;&#x5DE5;&#x5177;&#x8F85;&#x52A9;&#x914D;&#x5408;&#xFF0C;&#x4F46;&#x662F;react&#x4E0D;&#x4E00;&#x6837;&#xFF0C;&#x4ED6;&#x53EA;&#x8D1F;&#x8D23;ui&#x6E32;&#x67D3;&#xFF0C;&#x60F3;&#x8981;&#x505A;&#x597D;&#x4E00;&#x4E2A;&#x9879;&#x76EE;&#xFF0C;&#x5F80;&#x5F80;&#x9700;&#x8981;&#x5176;&#x4ED6;&#x5E93;&#x548C;&#x5DE5;&#x5177;&#x7684;&#x914D;&#x5408;&#xFF0C;&#x6BD4;&#x5982;&#x7528;redux&#x6765;&#x7BA1;&#x7406;&#x6570;&#x636E;&#xFF0C;react-router&#x7BA1;&#x7406;&#x8DEF;&#x7531;&#xFF0C;react&#x5DF2;&#x7ECF;&#x5168;&#x9762;&#x62E5;&#x62B1;es6&#xFF0C;&#x6240;&#x4EE5;es6&#x4E5F;&#x5F97;&#x638C;&#x63E1;&#xFF0C;webpack&#x5C31;&#x7B97;&#x662F;&#x4E0D;&#x4F1A;&#x914D;&#x7F6E;&#x4E5F;&#x8981;&#x4F1A;&#x7528;&#xFF0C;&#x8981;&#x60F3;&#x63D0;&#x9AD8;&#x6027;&#x80FD;&#xFF0C;&#x9700;&#x8981;&#x6309;&#x9700;&#x52A0;&#x8F7D;&#xFF0C;immutable.js&#x4E5F;&#x5F97;&#x7528;&#x4E0A;&#xFF0C;&#x8FD8;&#x6709;&#x5355;&#x5143;&#x6D4B;&#x8BD5;&#x3002;&#x3002;&#x3002;&#x3002;</p>
+<h2 id="React-&#x662F;&#x4EC0;&#x4E48;"><a href="#React-&#x662F;&#x4EC0;&#x4E48;" class="headerlink" title="React &#x662F;&#x4EC0;&#x4E48;"></a>React &#x662F;&#x4EC0;&#x4E48;</h2><p>&#x7528;&#x811A;&#x672C;&#x8FDB;&#x884C;DOM&#x64CD;&#x4F5C;&#x7684;&#x4EE3;&#x4EF7;&#x5F88;&#x6602;&#x8D35;&#x3002;&#x6709;&#x4E2A;&#x8D34;&#x5207;&#x7684;&#x6BD4;&#x55BB;&#xFF0C;&#x628A;DOM&#x548C;JavaScript&#x5404;&#x81EA;&#x60F3;&#x8C61;&#x4E3A;&#x4E00;&#x4E2A;&#x5C9B;&#x5C7F;&#xFF0C;&#x5B83;&#x4EEC;&#x4E4B;&#x95F4;&#x7528;&#x6536;&#x8D39;&#x6865;&#x6881;&#x8FDE;&#x63A5;&#xFF0C;js&#x6BCF;&#x6B21;&#x8BBF;&#x95EE;DOM&#xFF0C;&#x90FD;&#x8981;&#x9014;&#x5F84;&#x8FD9;&#x5EA7;&#x6865;&#xFF0C;&#x5E76;&#x4EA4;&#x7EB3;&#x201C;&#x8FC7;&#x6865;&#x8D39;&#x201D;,&#x8BBF;&#x95EE;DOM&#x7684;&#x6B21;&#x6570;&#x8D8A;&#x591A;&#xFF0C;&#x8D39;&#x7528;&#x4E5F;&#x5C31;&#x8D8A;&#x9AD8;&#x3002; &#x56E0;&#x6B64;&#xFF0C;&#x63A8;&#x8350;&#x7684;&#x505A;&#x6CD5;&#x662F;&#x5C3D;&#x91CF;&#x51CF;&#x5C11;&#x8FC7;&#x6865;&#x7684;&#x6B21;&#x6570;&#xFF0C;&#x52AA;&#x529B;&#x5F85;&#x5728;ECMAScript&#x5C9B;&#x4E0A;&#x3002;&#x56E0;&#x4E3A;&#x8FD9;&#x4E2A;&#x539F;&#x56E0;react&#x7684;&#x865A;&#x62DF;dom&#x5C31;&#x663E;&#x5F97;&#x96BE;&#x80FD;&#x53EF;&#x8D35;&#x4E86;&#xFF0C;&#x5B83;&#x521B;&#x9020;&#x4E86;&#x865A;&#x62DF;dom&#x5E76;&#x4E14;&#x5C06;&#x5B83;&#x4EEC;&#x50A8;&#x5B58;&#x8D77;&#x6765;&#xFF0C;&#x6BCF;&#x5F53;&#x72B6;&#x6001;&#x53D1;&#x751F;&#x53D8;&#x5316;&#x7684;&#x65F6;&#x5019;&#x5C31;&#x4F1A;&#x521B;&#x9020;&#x65B0;&#x7684;&#x865A;&#x62DF;&#x8282;&#x70B9;&#x548C;&#x4EE5;&#x524D;&#x7684;&#x8FDB;&#x884C;&#x5BF9;&#x6BD4;&#xFF0C;&#x8BA9;&#x53D8;&#x5316;&#x7684;&#x90E8;&#x5206;&#x8FDB;&#x884C;&#x6E32;&#x67D3;&#x3002;&#x6574;&#x4E2A;&#x8FC7;&#x7A0B;&#x6CA1;&#x6709;&#x5BF9;dom&#x8FDB;&#x884C;&#x83B7;&#x53D6;&#x548C;&#x64CD;&#x4F5C;&#xFF0C;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x6E32;&#x67D3;&#x7684;&#x8FC7;&#x7A0B;&#xFF0C;&#x6240;&#x4EE5;react&#x8BF4;&#x662F;&#x4E00;&#x4E2A;ui&#x6846;&#x67B6;&#x3002;</p>
+<h2 id="React&#x7684;&#x7EC4;&#x4EF6;&#x5316;"><a href="#React&#x7684;&#x7EC4;&#x4EF6;&#x5316;" class="headerlink" title="React&#x7684;&#x7EC4;&#x4EF6;&#x5316;"></a>React&#x7684;&#x7EC4;&#x4EF6;&#x5316;</h2><p>react&#x7684;&#x4E00;&#x4E2A;&#x7EC4;&#x4EF6;&#x5F88;&#x660E;&#x663E;&#x7684;&#x7531;dom&#x89C6;&#x56FE;&#x548C;state&#x6570;&#x636E;&#x7EC4;&#x6210;&#xFF0C;&#x4E24;&#x4E2A;&#x90E8;&#x5206;&#x6CFE;&#x6E2D;&#x5206;&#x660E;&#x3002;state&#x662F;&#x6570;&#x636E;&#x4E2D;&#x5FC3;&#xFF0C;&#x5B83;&#x7684;&#x72B6;&#x6001;&#x51B3;&#x5B9A;&#x7740;&#x89C6;&#x56FE;&#x7684;&#x72B6;&#x6001;&#x3002;&#x8FD9;&#x65F6;&#x5019;&#x53D1;&#x73B0;&#x4F3C;&#x4E4E;&#x548C;&#x6211;&#x4EEC;&#x4E00;&#x76F4;&#x63A8;&#x5D07;&#x7684;MVC&#x5F00;&#x53D1;&#x6A21;&#x5F0F;&#x6709;&#x70B9;&#x533A;&#x522B;&#xFF0C;&#x6CA1;&#x4E86;Controller&#x63A7;&#x5236;&#x5668;&#xFF0C;&#x90A3;&#x7528;&#x6237;&#x4EA4;&#x4E92;&#x600E;&#x4E48;&#x5904;&#x7406;&#xFF0C;&#x6570;&#x636E;&#x53D8;&#x5316;&#x8C01;&#x6765;&#x7BA1;&#x7406;&#xFF1F;&#x7136;&#x800C;&#x8FD9;&#x5E76;&#x4E0D;&#x662F;react&#x6240;&#x8981;&#x5173;&#x5FC3;&#x7684;&#x4E8B;&#x60C5;&#xFF0C;&#x5B83;&#x53EA;&#x8D1F;&#x8D23;ui&#x7684;&#x6E32;&#x67D3;&#x3002;&#x4E0E;&#x5176;&#x4ED6;&#x6846;&#x67B6;&#x76D1;&#x542C;&#x6570;&#x636E;&#x52A8;&#x6001;&#x6539;&#x53D8;dom&#x4E0D;&#x540C;&#xFF0C;react&#x91C7;&#x7528;setState&#x6765;&#x63A7;&#x5236;&#x89C6;&#x56FE;&#x7684;&#x66F4;&#x65B0;&#x3002;setState&#x4F1A;&#x81EA;&#x52A8;&#x8C03;&#x7528;render&#x51FD;&#x6570;&#xFF0C;&#x89E6;&#x53D1;&#x89C6;&#x56FE;&#x7684;&#x91CD;&#x65B0;&#x6E32;&#x67D3;&#xFF0C;&#x5982;&#x679C;&#x4EC5;&#x4EC5;&#x53EA;&#x662F;state&#x6570;&#x636E;&#x7684;&#x53D8;&#x5316;&#x800C;&#x6CA1;&#x6709;&#x8C03;&#x7528;setState&#xFF0C;&#x5E76;&#x4E0D;&#x4F1A;&#x89E6;&#x53D1;&#x66F4;&#x65B0;&#x3002; &#x7EC4;&#x4EF6;&#x5C31;&#x662F;&#x62E5;&#x6709;&#x72EC;&#x7ACB;&#x529F;&#x80FD;&#x7684;&#x89C6;&#x56FE;&#x6A21;&#x5757;&#xFF0C;&#x8BB8;&#x591A;&#x5C0F;&#x7684;&#x7EC4;&#x4EF6;&#x7EC4;&#x6210;&#x4E00;&#x4E2A;&#x5927;&#x7684;&#x7EC4;&#x4EF6;&#xFF0C;&#x6574;&#x4E2A;&#x9875;&#x9762;&#x5C31;&#x662F;&#x7531;&#x4E00;&#x4E2A;&#x4E2A;&#x7EC4;&#x4EF6;&#x7EC4;&#x5408;&#x800C;&#x6210;&#x3002;&#x5B83;&#x7684;&#x597D;&#x5904;&#x662F;&#x5229;&#x4E8E;&#x91CD;&#x590D;&#x5229;&#x7528;&#x548C;&#x7EF4;&#x62A4;&#x3002;</p>
+<h2 id="React&#x7684;-Diff&#x7B97;&#x6CD5;"><a href="#React&#x7684;-Diff&#x7B97;&#x6CD5;" class="headerlink" title="React&#x7684; Diff&#x7B97;&#x6CD5;"></a>React&#x7684; Diff&#x7B97;&#x6CD5;</h2><p>react&#x7684;diff&#x7B97;&#x6CD5;&#x7528;&#x5728;&#x4EC0;&#x4E48;&#x5730;&#x65B9;&#x5462;&#xFF1F;&#x5F53;&#x7EC4;&#x4EF6;&#x66F4;&#x65B0;&#x7684;&#x65F6;&#x5019;&#xFF0C;react&#x4F1A;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x865A;&#x62DF;dom&#x6811;&#x5E76;&#x4E14;&#x4F1A;&#x548C;&#x4E4B;&#x524D;&#x50A8;&#x5B58;&#x7684;dom&#x6811;&#x8FDB;&#x884C;&#x6BD4;&#x8F83;&#xFF0C;&#x8FD9;&#x4E2A;&#x6BD4;&#x8F83;&#x591A;&#x8FC7;&#x7A0B;&#x5C31;&#x7528;&#x5230;&#x4E86;diff&#x7B97;&#x6CD5;&#xFF0C;&#x6240;&#x4EE5;&#x7EC4;&#x4EF6;&#x521D;&#x59CB;&#x5316;&#x7684;&#x65F6;&#x5019;&#x662F;&#x7528;&#x4E0D;&#x5230;&#x7684;&#x3002;react&#x63D0;&#x51FA;&#x4E86;&#x4E00;&#x79CD;&#x5047;&#x8BBE;&#xFF0C;&#x76F8;&#x540C;&#x7684;&#x8282;&#x70B9;&#x5177;&#x6709;&#x7C7B;&#x4F3C;&#x7684;&#x7ED3;&#x6784;&#xFF0C;&#x800C;&#x4E0D;&#x540C;&#x7684;&#x8282;&#x70B9;&#x5177;&#x6709;&#x4E0D;&#x540C;&#x7684;&#x7ED3;&#x6784;&#x3002;&#x5728;&#x8FD9;&#x79CD;&#x5047;&#x8BBE;&#x4E4B;&#x4E0A;&#x8FDB;&#x884C;&#x9010;&#x5C42;&#x7684;&#x6BD4;&#x8F83;&#xFF0C;&#x5982;&#x679C;&#x53D1;&#x73B0;&#x5BF9;&#x5E94;&#x7684;&#x8282;&#x70B9;&#x662F;&#x4E0D;&#x540C;&#x7684;&#xFF0C;&#x90A3;&#x5C31;&#x76F4;&#x63A5;&#x5220;&#x9664;&#x65E7;&#x7684;&#x8282;&#x70B9;&#x4EE5;&#x53CA;&#x5B83;&#x6240;&#x5305;&#x542B;&#x7684;&#x6240;&#x6709;&#x5B50;&#x8282;&#x70B9;&#x7136;&#x540E;&#x66FF;&#x6362;&#x6210;&#x65B0;&#x7684;&#x8282;&#x70B9;&#x3002;&#x5982;&#x679C;&#x662F;&#x76F8;&#x540C;&#x7684;&#x8282;&#x70B9;&#xFF0C;&#x5219;&#x53EA;&#x8FDB;&#x884C;&#x5C5E;&#x6027;&#x7684;&#x66F4;&#x6539;&#x3002;</p>
+<p>&#x5BF9;&#x4E8E;&#x5217;&#x8868;&#x7684;diff&#x7B97;&#x6CD5;&#x7A0D;&#x6709;&#x4E0D;&#x540C;&#xFF0C;&#x56E0;&#x4E3A;&#x5217;&#x8868;&#x901A;&#x5E38;&#x5177;&#x6709;&#x76F8;&#x540C;&#x7684;&#x7ED3;&#x6784;&#xFF0C;&#x5728;&#x5BF9;&#x5217;&#x8868;&#x8282;&#x70B9;&#x8FDB;&#x884C;&#x5220;&#x9664;&#xFF0C;&#x63D2;&#x5165;&#xFF0C;&#x6392;&#x5E8F;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5355;&#x4E2A;&#x8282;&#x70B9;&#x7684;&#x6574;&#x4F53;&#x64CD;&#x4F5C;&#x8FDC;&#x6BD4;&#x4E00;&#x4E2A;&#x4E2A;&#x5BF9;&#x6BD4;&#x4E00;&#x4E2A;&#x4E2A;&#x66FF;&#x6362;&#x8981;&#x597D;&#x5F97;&#x591A;&#xFF0C;&#x6240;&#x4EE5;&#x5728;&#x521B;&#x5EFA;&#x5217;&#x8868;&#x7684;&#x65F6;&#x5019;&#x9700;&#x8981;&#x8BBE;&#x7F6E;key&#x503C;&#xFF0C;&#x8FD9;&#x6837;react&#x624D;&#x80FD;&#x5206;&#x6E05;&#x8C01;&#x662F;&#x8C01;&#x3002;&#x5F53;&#x7136;&#x4E0D;&#x5199;key&#x503C;&#x4E5F;&#x53EF;&#x4EE5;&#xFF0C;&#x4F46;&#x8FD9;&#x6837;&#x901A;&#x5E38;&#x4F1A;&#x62A5;&#x51FA;&#x8B66;&#x544A;&#xFF0C;&#x901A;&#x77E5;&#x6211;&#x4EEC;&#x52A0;&#x4E0A;key&#x503C;&#x4EE5;&#x63D0;&#x9AD8;react&#x7684;&#x6027;&#x80FD;&#x3002;</p>
+<p><img src="https://github.com/bailicangdu/pxq/blob/master/screenshot/diff.png" alt=""></p>
+<h2 id="React&#x7EC4;&#x4EF6;&#x662F;&#x600E;&#x4E48;&#x6765;&#x7684;"><a href="#React&#x7EC4;&#x4EF6;&#x662F;&#x600E;&#x4E48;&#x6765;&#x7684;" class="headerlink" title="React&#x7EC4;&#x4EF6;&#x662F;&#x600E;&#x4E48;&#x6765;&#x7684;"></a>React&#x7EC4;&#x4EF6;&#x662F;&#x600E;&#x4E48;&#x6765;&#x7684;</h2><p>&#x7EC4;&#x4EF6;&#x7684;&#x521B;&#x9020;&#x65B9;&#x6CD5;&#x4E3A;React.createClass() &#x2014;&#x2014;&#x521B;&#x9020;&#x4E00;&#x4E2A;&#x7C7B;&#xFF0C;react&#x7CFB;&#x7EDF;&#x5185;&#x90E8;&#x8BBE;&#x8BA1;&#x4E86;&#x4E00;&#x5957;&#x7C7B;&#x7CFB;&#x7EDF;&#xFF0C;&#x5229;&#x7528;&#x5B83;&#x6765;&#x521B;&#x9020;react&#x7EC4;&#x4EF6;&#x3002;&#x4F46;&#x8FD9;&#x5E76;&#x4E0D;&#x662F;&#x5FC5;&#x987B;&#x7684;&#xFF0C;&#x6211;&#x4EEC;&#x8FD8;&#x53EF;&#x4EE5;&#x7528;es6&#x7684;class&#x7C7B;&#x6765;&#x521B;&#x9020;&#x7EC4;&#x4EF6;,&#x8FD9;&#x4E5F;&#x662F;Facebook&#x5B98;&#x65B9;&#x63A8;&#x8350;&#x7684;&#x5199;&#x6CD5;&#x3002;</p>
+<p><img src="https://github.com/bailicangdu/pxq/blob/master/screenshot/icon_class.png" alt=""></p>
+<p>&#x8FD9;&#x4E24;&#x79CD;&#x5199;&#x6CD5;&#x5B9E;&#x73B0;&#x7684;&#x529F;&#x80FD;&#x4E00;&#x6837;&#x4F46;&#x662F;&#x539F;&#x7406;&#x5374;&#x662F;&#x4E0D;&#x540C;&#xFF0C;es6&#x7684;class&#x7C7B;&#x53EF;&#x4EE5;&#x770B;&#x4F5C;&#x662F;&#x6784;&#x9020;&#x51FD;&#x6570;&#x7684;&#x4E00;&#x4E2A;&#x8BED;&#x6CD5;&#x7CD6;&#xFF0C;&#x53EF;&#x4EE5;&#x628A;&#x5B83;&#x5F53;&#x6210;&#x6784;&#x9020;&#x51FD;&#x6570;&#x6765;&#x770B;&#xFF0C;extends&#x5B9E;&#x73B0;&#x4E86;&#x7C7B;&#x4E4B;&#x95F4;&#x7684;&#x7EE7;&#x627F; &#x2014;&#x2014; &#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x7C7B;Main &#x7EE7;&#x627F;React.Component&#x6240;&#x6709;&#x7684;&#x5C5E;&#x6027;&#x548C;&#x65B9;&#x6CD5;&#xFF0C;&#x7EC4;&#x4EF6;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;&#x51FD;&#x6570;&#x5C31;&#x662F;&#x4ECE;&#x8FD9;&#x6765;&#x7684;&#x3002;constructor&#x662F;&#x6784;&#x9020;&#x5668;&#xFF0C;&#x5728;&#x5B9E;&#x4F8B;&#x5316;&#x5BF9;&#x8C61;&#x65F6;&#x8C03;&#x7528;&#xFF0C;super&#x8C03;&#x7528;&#x4E86;&#x7236;&#x7C7B;&#x7684;constructor&#x521B;&#x9020;&#x4E86;&#x7236;&#x7C7B;&#x7684;&#x5B9E;&#x4F8B;&#x5BF9;&#x8C61;this&#xFF0C;&#x7136;&#x540E;&#x7528;&#x5B50;&#x7C7B;&#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;&#x8FDB;&#x884C;&#x4FEE;&#x6539;&#x3002;&#x8FD9;&#x548C;es5&#x7684;&#x539F;&#x578B;&#x7EE7;&#x627F;&#x662F;&#x4E0D;&#x540C;&#x7684;&#xFF0C;&#x539F;&#x578B;&#x7EE7;&#x627F;&#x662F;&#x5148;&#x521B;&#x9020;&#x4E00;&#x4E2A;&#x5B9E;&#x4F8B;&#x5316;&#x5BF9;&#x8C61;this&#xFF0C;&#x7136;&#x540E;&#x518D;&#x7EE7;&#x627F;&#x7236;&#x7EA7;&#x7684;&#x539F;&#x578B;&#x65B9;&#x6CD5;&#x3002;&#x4E86;&#x89E3;&#x4E86;&#x8FD9;&#x4E9B;&#x4E4B;&#x540E;&#x6211;&#x4EEC;&#x5728;&#x770B;&#x7EC4;&#x4EF6;&#x7684;&#x65F6;&#x5019;&#x5C31;&#x6E05;&#x695A;&#x5F88;&#x591A;&#x3002;</p>
+<p>&#x5F53;&#x6211;&#x4EEC;&#x4F7F;&#x7528;&#x7EC4;&#x4EF6;&lt; Main /&gt;&#x65F6;&#xFF0C;&#x5176;&#x5B9E;&#x662F;&#x5BF9;Main&#x7C7B;&#x7684;&#x5B9E;&#x4F8B;&#x5316;&#x2014;&#x2014;new Main&#xFF0C;&#x53EA;&#x4E0D;&#x8FC7;react&#x5BF9;&#x8FD9;&#x4E2A;&#x8FC7;&#x7A0B;&#x8FDB;&#x884C;&#x4E86;&#x5C01;&#x88C5;&#xFF0C;&#x8BA9;&#x5B83;&#x770B;&#x8D77;&#x6765;&#x66F4;&#x50CF;&#x662F;&#x4E00;&#x4E2A;&#x6807;&#x7B7E;&#x3002;</p>
+<p>&#x6709;&#x4E09;&#x70B9;&#x503C;&#x5F97;&#x6CE8;&#x610F;&#xFF1A;1&#x3001;&#x5B9A;&#x4E49;&#x7C7B;&#x540D;&#x5B57;&#x7684;&#x9996;&#x5B57;&#x6BCD;&#x5FC5;&#x987B;&#x5927;&#x5199; 2&#x3001;&#x56E0;&#x4E3A;class&#x53D8;&#x6210;&#x4E86;&#x5173;&#x952E;&#x5B57;&#xFF0C;&#x7C7B;&#x9009;&#x62E9;&#x5668;&#x9700;&#x8981;&#x7528;className&#x6765;&#x4EE3;&#x66FF;&#x3002; 3&#x3001;&#x7C7B;&#x548C;&#x6A21;&#x5757;&#x5185;&#x90E8;&#x9ED8;&#x8BA4;&#x4F7F;&#x7528;&#x4E25;&#x683C;&#x6A21;&#x5F0F;&#xFF0C;&#x6240;&#x4EE5;&#x4E0D;&#x9700;&#x8981;&#x7528;use strict&#x6307;&#x5B9A;&#x8FD0;&#x884C;&#x6A21;&#x5F0F;&#x3002;</p>
+<h2 id="&#x7EC4;&#x4EF6;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;"><a href="#&#x7EC4;&#x4EF6;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;" class="headerlink" title="&#x7EC4;&#x4EF6;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;"></a>&#x7EC4;&#x4EF6;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;</h2><p><img src="https://github.com/bailicangdu/pxq/blob/master/screenshot/react-lifecycle.png" alt=""></p>
+<p><strong>&#x7EC4;&#x4EF6;&#x5728;&#x521D;&#x59CB;&#x5316;&#x65F6;&#x4F1A;&#x89E6;&#x53D1;5&#x4E2A;&#x94A9;&#x5B50;&#x51FD;&#x6570;&#xFF1A;</strong></p>
+<p>  <strong>1&#x3001;getDefaultProps()</strong></p>
+<blockquote>
+<p>&#x8BBE;&#x7F6E;&#x9ED8;&#x8BA4;&#x7684;props&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x7528;dufaultProps&#x8BBE;&#x7F6E;&#x7EC4;&#x4EF6;&#x7684;&#x9ED8;&#x8BA4;&#x5C5E;&#x6027;&#x3002;</p>
+</blockquote>
+<p>  <strong>2&#x3001;getInitialState()</strong>  </p>
+<blockquote>
+<p>&#x5728;&#x4F7F;&#x7528;es6&#x7684;class&#x8BED;&#x6CD5;&#x65F6;&#x662F;&#x6CA1;&#x6709;&#x8FD9;&#x4E2A;&#x94A9;&#x5B50;&#x51FD;&#x6570;&#x7684;&#xFF0C;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x5728;constructor&#x4E2D;&#x5B9A;&#x4E49;this.state&#x3002;&#x6B64;&#x65F6;&#x53EF;&#x4EE5;&#x8BBF;&#x95EE;this.props&#x3002;</p>
+</blockquote>
+<p> <strong>3&#x3001;componentWillMount()</strong></p>
+<blockquote>
+<p>&#x7EC4;&#x4EF6;&#x521D;&#x59CB;&#x5316;&#x65F6;&#x53EA;&#x8C03;&#x7528;&#xFF0C;&#x4EE5;&#x540E;&#x7EC4;&#x4EF6;&#x66F4;&#x65B0;&#x4E0D;&#x8C03;&#x7528;&#xFF0C;&#x6574;&#x4E2A;&#x751F;&#x547D;&#x5468;&#x671F;&#x53EA;&#x8C03;&#x7528;&#x4E00;&#x6B21;&#xFF0C;&#x6B64;&#x65F6;&#x53EF;&#x4EE5;&#x4FEE;&#x6539;state&#x3002;</p>
+</blockquote>
+<p> <strong>4&#x3001; render()</strong></p>
+<blockquote>
+<p> react&#x6700;&#x91CD;&#x8981;&#x7684;&#x6B65;&#x9AA4;&#xFF0C;&#x521B;&#x5EFA;&#x865A;&#x62DF;dom&#xFF0C;&#x8FDB;&#x884C;diff&#x7B97;&#x6CD5;&#xFF0C;&#x66F4;&#x65B0;dom&#x6811;&#x90FD;&#x5728;&#x6B64;&#x8FDB;&#x884C;&#x3002;&#x6B64;&#x65F6;&#x5C31;&#x4E0D;&#x80FD;&#x66F4;&#x6539;state&#x4E86;&#x3002;</p>
+</blockquote>
+<p> <strong>5&#x3001;componentDidMount()</strong></p>
+<blockquote>
+<p>&#x7EC4;&#x4EF6;&#x6E32;&#x67D3;&#x4E4B;&#x540E;&#x8C03;&#x7528;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;this.getDOMNode()&#x83B7;&#x53D6;&#x548C;&#x64CD;&#x4F5C;dom&#x8282;&#x70B9;&#xFF0C;&#x53EA;&#x8C03;&#x7528;&#x4E00;&#x6B21;&#x3002;</p>
+</blockquote>
+<p><strong>&#x5728;&#x66F4;&#x65B0;&#x65F6;&#x4E5F;&#x4F1A;&#x89E6;&#x53D1;5&#x4E2A;&#x94A9;&#x5B50;&#x51FD;&#x6570;&#xFF1A;</strong></p>
+<p>  <strong>6&#x3001;componentWillReceivePorps(nextProps)</strong></p>
+<blockquote>
+<p>&#x7EC4;&#x4EF6;&#x521D;&#x59CB;&#x5316;&#x65F6;&#x4E0D;&#x8C03;&#x7528;&#xFF0C;&#x7EC4;&#x4EF6;&#x63A5;&#x53D7;&#x65B0;&#x7684;props&#x65F6;&#x8C03;&#x7528;&#x3002;</p>
+</blockquote>
+<p>  <strong>7&#x3001;shouldComponentUpdate(nextProps, nextState)</strong></p>
+<blockquote>
+<p>react&#x6027;&#x80FD;&#x4F18;&#x5316;&#x975E;&#x5E38;&#x91CD;&#x8981;&#x7684;&#x4E00;&#x73AF;&#x3002;&#x7EC4;&#x4EF6;&#x63A5;&#x53D7;&#x65B0;&#x7684;state&#x6216;&#x8005;props&#x65F6;&#x8C03;&#x7528;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;&#x5728;&#x6B64;&#x5BF9;&#x6BD4;&#x524D;&#x540E;&#x4E24;&#x4E2A;props&#x548C;state&#x662F;&#x5426;&#x76F8;&#x540C;&#xFF0C;&#x5982;&#x679C;&#x76F8;&#x540C;&#x5219;&#x8FD4;&#x56DE;false&#x963B;&#x6B62;&#x66F4;&#x65B0;&#xFF0C;&#x56E0;&#x4E3A;&#x76F8;&#x540C;&#x7684;&#x5C5E;&#x6027;&#x72B6;&#x6001;&#x4E00;&#x5B9A;&#x4F1A;&#x751F;&#x6210;&#x76F8;&#x540C;&#x7684;dom&#x6811;&#xFF0C;&#x8FD9;&#x6837;&#x5C31;&#x4E0D;&#x9700;&#x8981;&#x521B;&#x9020;&#x65B0;&#x7684;dom&#x6811;&#x548C;&#x65E7;&#x7684;dom&#x6811;&#x8FDB;&#x884C;diff&#x7B97;&#x6CD5;&#x5BF9;&#x6BD4;&#xFF0C;&#x8282;&#x7701;&#x5927;&#x91CF;&#x6027;&#x80FD;&#xFF0C;&#x5C24;&#x5176;&#x662F;&#x5728;dom&#x7ED3;&#x6784;&#x590D;&#x6742;&#x7684;&#x65F6;&#x5019;&#x3002;&#x4E0D;&#x8FC7;&#x8C03;&#x7528;this.forceUpdate&#x4F1A;&#x8DF3;&#x8FC7;&#x6B64;&#x6B65;&#x9AA4;&#x3002;</p>
+</blockquote>
+<p>  <strong>8&#x3001;componentWillUpdate(nextProps, nextState)</strong></p>
+<blockquote>
+<p>&#x7EC4;&#x4EF6;&#x521D;&#x59CB;&#x5316;&#x65F6;&#x4E0D;&#x8C03;&#x7528;&#xFF0C;&#x53EA;&#x6709;&#x5728;&#x7EC4;&#x4EF6;&#x5C06;&#x8981;&#x66F4;&#x65B0;&#x65F6;&#x624D;&#x8C03;&#x7528;&#xFF0C;&#x6B64;&#x65F6;&#x53EF;&#x4EE5;&#x4FEE;&#x6539;state</p>
+</blockquote>
+<p>  <strong>9&#x3001;render()</strong></p>
+<blockquote>
+<p>&#x4E0D;&#x591A;&#x8BF4;</p>
+</blockquote>
+<p>  <strong>10&#x3001;componentDidUpdate()</strong></p>
+<blockquote>
+<p>&#x7EC4;&#x4EF6;&#x521D;&#x59CB;&#x5316;&#x65F6;&#x4E0D;&#x8C03;&#x7528;&#xFF0C;&#x7EC4;&#x4EF6;&#x66F4;&#x65B0;&#x5B8C;&#x6210;&#x540E;&#x8C03;&#x7528;&#xFF0C;&#x6B64;&#x65F6;&#x53EF;&#x4EE5;&#x83B7;&#x53D6;dom&#x8282;&#x70B9;&#x3002;</p>
+</blockquote>
+<p>&#x8FD8;&#x6709;&#x4E00;&#x4E2A;&#x5378;&#x8F7D;&#x94A9;&#x5B50;&#x51FD;&#x6570;</p>
+<p>  <strong>11&#x3001;componentWillUnmount()</strong></p>
+<blockquote>
+<p>&#x7EC4;&#x4EF6;&#x5C06;&#x8981;&#x5378;&#x8F7D;&#x65F6;&#x8C03;&#x7528;&#xFF0C;&#x4E00;&#x4E9B;&#x4E8B;&#x4EF6;&#x76D1;&#x542C;&#x548C;&#x5B9A;&#x65F6;&#x5668;&#x9700;&#x8981;&#x5728;&#x6B64;&#x65F6;&#x6E05;&#x9664;&#x3002;</p>
+</blockquote>
+<p>&#x4EE5;&#x4E0A;&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#x6765;react&#x603B;&#x5171;&#x6709;10&#x4E2A;&#x5468;&#x671F;&#x51FD;&#x6570;&#xFF08;render&#x91CD;&#x590D;&#x4E00;&#x6B21;&#xFF09;&#xFF0C;&#x8FD9;&#x4E2A;10&#x4E2A;&#x51FD;&#x6570;&#x53EF;&#x4EE5;&#x6EE1;&#x8DB3;&#x6211;&#x4EEC;&#x6240;&#x6709;&#x5BF9;&#x7EC4;&#x4EF6;&#x64CD;&#x4F5C;&#x7684;&#x9700;&#x6C42;&#xFF0C;&#x5229;&#x7528;&#x7684;&#x597D;&#x53EF;&#x4EE5;&#x63D0;&#x9AD8;&#x5F00;&#x53D1;&#x6548;&#x7387;&#x548C;&#x7EC4;&#x4EF6;&#x6027;&#x80FD;&#x3002;</p>
+<h2 id="React-Router&#x8DEF;&#x7531;"><a href="#React-Router&#x8DEF;&#x7531;" class="headerlink" title="React-Router&#x8DEF;&#x7531;"></a>React-Router&#x8DEF;&#x7531;</h2><p>Router&#x5C31;&#x662F;React&#x7684;&#x4E00;&#x4E2A;&#x7EC4;&#x4EF6;&#xFF0C;&#x5B83;&#x5E76;&#x4E0D;&#x4F1A;&#x88AB;&#x6E32;&#x67D3;&#xFF0C;&#x53EA;&#x662F;&#x4E00;&#x4E2A;&#x521B;&#x5EFA;&#x5185;&#x90E8;&#x8DEF;&#x7531;&#x89C4;&#x5219;&#x7684;&#x914D;&#x7F6E;&#x5BF9;&#x8C61;&#xFF0C;&#x6839;&#x636E;&#x5339;&#x914D;&#x7684;&#x8DEF;&#x7531;&#x5730;&#x5740;&#x5C55;&#x73B0;&#x76F8;&#x5E94;&#x7684;&#x7EC4;&#x4EF6;&#x3002;Route&#x5219;&#x5BF9;&#x8DEF;&#x7531;&#x5730;&#x5740;&#x548C;&#x7EC4;&#x4EF6;&#x8FDB;&#x884C;&#x7ED1;&#x5B9A;&#xFF0C;Route&#x5177;&#x6709;&#x5D4C;&#x5957;&#x529F;&#x80FD;&#xFF0C;&#x8868;&#x793A;&#x8DEF;&#x7531;&#x5730;&#x5740;&#x7684;&#x5305;&#x6DB5;&#x5173;&#x7CFB;&#xFF0C;&#x8FD9;&#x548C;&#x7EC4;&#x4EF6;&#x4E4B;&#x95F4;&#x7684;&#x5D4C;&#x5957;&#x5E76;&#x6CA1;&#x6709;&#x76F4;&#x63A5;&#x8054;&#x7CFB;&#x3002;Route&#x53EF;&#x4EE5;&#x5411;&#x7ED1;&#x5B9A;&#x7684;&#x7EC4;&#x4EF6;&#x4F20;&#x9012;7&#x4E2A;&#x5C5E;&#x6027;&#xFF1A;children&#xFF0C;history&#xFF0C;location&#xFF0C;params&#xFF0C;route&#xFF0C;routeParams&#xFF0C;routes&#xFF0C;&#x6BCF;&#x4E2A;&#x5C5E;&#x6027;&#x90FD;&#x5305;&#x6DB5;&#x8DEF;&#x7531;&#x7684;&#x76F8;&#x5173;&#x7684;&#x4FE1;&#x606F;&#x3002;&#x6BD4;&#x8F83;&#x5E38;&#x7528;&#x7684;&#x6709;children&#xFF08;&#x4EE5;&#x8DEF;&#x7531;&#x7684;&#x5305;&#x6DB5;&#x5173;&#x7CFB;&#x4E3A;&#x533A;&#x5206;&#x7684;&#x7EC4;&#x4EF6;&#xFF09;&#xFF0C;location&#xFF08;&#x5305;&#x62EC;&#x5730;&#x5740;&#xFF0C;&#x53C2;&#x6570;&#xFF0C;&#x5730;&#x5740;&#x5207;&#x6362;&#x65B9;&#x5F0F;&#xFF0C;key&#x503C;&#xFF0C;hash&#x503C;&#xFF09;&#x3002;react-router&#x63D0;&#x4F9B;Link&#x6807;&#x7B7E;&#xFF0C;&#x8FD9;&#x53EA;&#x662F;&#x5BF9;a&#x6807;&#x7B7E;&#x7684;&#x5C01;&#x88C5;&#xFF0C;&#x503C;&#x5F97;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF0C;&#x70B9;&#x51FB;&#x94FE;&#x63A5;&#x8FDB;&#x884C;&#x7684;&#x8DF3;&#x8F6C;&#x5E76;&#x4E0D;&#x662F;&#x9ED8;&#x8BA4;&#x7684;&#x65B9;&#x5F0F;&#xFF0C;react-router&#x963B;&#x6B62;&#x4E86;a&#x6807;&#x7B7E;&#x7684;&#x9ED8;&#x8BA4;&#x884C;&#x4E3A;&#x5E76;&#x7528;pushState&#x8FDB;&#x884C;hash&#x503C;&#x7684;&#x8F6C;&#x53D8;&#x3002;&#x5207;&#x6362;&#x9875;&#x9762;&#x7684;&#x8FC7;&#x7A0B;&#x662F;&#x5728;&#x70B9;&#x51FB;Link&#x6807;&#x7B7E;&#x6216;&#x8005;&#x540E;&#x9000;&#x524D;&#x8FDB;&#x6309;&#x94AE;&#x65F6;&#xFF0C;&#x4F1A;&#x5148;&#x53D1;&#x751F;url&#x5730;&#x5740;&#x7684;&#x8F6C;&#x53D8;&#xFF0C;Router&#x76D1;&#x542C;&#x5230;&#x5730;&#x5740;&#x7684;&#x6539;&#x53D8;&#x6839;&#x636E;Route&#x7684;path&#x5C5E;&#x6027;&#x5339;&#x914D;&#x5230;&#x5BF9;&#x5E94;&#x7684;&#x7EC4;&#x4EF6;&#xFF0C;&#x5C06;state&#x503C;&#x6539;&#x6210;&#x5BF9;&#x5E94;&#x7684;&#x7EC4;&#x4EF6;&#x5E76;&#x8C03;&#x7528;setState&#x89E6;&#x53D1;render&#x51FD;&#x6570;&#x91CD;&#x65B0;&#x6E32;&#x67D3;dom&#x3002;</p>
+<p>&#x5F53;&#x9875;&#x9762;&#x6BD4;&#x8F83;&#x591A;&#x65F6;&#xFF0C;&#x9879;&#x76EE;&#x5C31;&#x4F1A;&#x53D8;&#x5F97;&#x8D8A;&#x6765;&#x8D8A;&#x5927;&#xFF0C;&#x5C24;&#x5176;&#x5BF9;&#x4E8E;&#x5355;&#x9875;&#x9762;&#x5E94;&#x7528;&#x6765;&#x8BF4;&#xFF0C;&#x521D;&#x6B21;&#x6E32;&#x67D3;&#x7684;&#x901F;&#x5EA6;&#x5C31;&#x4F1A;&#x5F88;&#x6162;&#xFF0C;&#x8FD9;&#x65F6;&#x5019;&#x5C31;&#x9700;&#x8981;&#x6309;&#x9700;&#x52A0;&#x8F7D;&#xFF0C;&#x53EA;&#x6709;&#x5207;&#x6362;&#x5230;&#x9875;&#x9762;&#x7684;&#x65F6;&#x5019;&#x624D;&#x53BB;&#x52A0;&#x8F7D;&#x5BF9;&#x5E94;&#x7684;js&#x6587;&#x4EF6;&#x3002;react&#x914D;&#x5408;webpack&#x8FDB;&#x884C;&#x6309;&#x9700;&#x52A0;&#x8F7D;&#x7684;&#x65B9;&#x6CD5;&#x5F88;&#x7B80;&#x5355;&#xFF0C;Route&#x7684;component&#x6539;&#x4E3A;getComponent&#xFF0C;&#x7EC4;&#x4EF6;&#x7528;require.ensure&#x7684;&#x65B9;&#x5F0F;&#x83B7;&#x53D6;&#xFF0C;&#x5E76;&#x5728;webpack&#x4E2D;&#x914D;&#x7F6E;chunkFilename&#x3002;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> chooseProducts = <span class="function">(<span class="params">location, cb</span>) =&gt;</span> {</span><br><span class="line">    <span class="built_in">require</span>.ensure([], <span class="built_in">require</span> =&gt; {</span><br><span class="line">        cb(<span class="literal">null</span>, <span class="built_in">require</span>(<span class="string">&apos;../Component/chooseProducts&apos;</span>).default)</span><br><span class="line">    },<span class="string">&apos;chooseProducts&apos;</span>)</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> helpCenter = <span class="function">(<span class="params">location, cb</span>) =&gt;</span> {</span><br><span class="line">    <span class="built_in">require</span>.ensure([], <span class="built_in">require</span> =&gt; {</span><br><span class="line">        cb(<span class="literal">null</span>, <span class="built_in">require</span>(<span class="string">&apos;../Component/helpCenter&apos;</span>).default)</span><br><span class="line">    },<span class="string">&apos;helpCenter&apos;</span>)</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> saleRecord = <span class="function">(<span class="params">location, cb</span>) =&gt;</span> {</span><br><span class="line">    <span class="built_in">require</span>.ensure([], <span class="built_in">require</span> =&gt; {</span><br><span class="line">        cb(<span class="literal">null</span>, <span class="built_in">require</span>(<span class="string">&apos;../Component/saleRecord&apos;</span>).default)</span><br><span class="line">    },<span class="string">&apos;saleRecord&apos;</span>)</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> RouteConfig = (</span><br><span class="line">    &lt;Router history={history}&gt;</span><br><span class="line">        &lt;Route path=<span class="string">&quot;/&quot;</span> component={Roots}&gt;</span><br><span class="line">            &lt;IndexRoute component={index} /&gt;<span class="comment">//&#x9996;&#x9875;</span></span><br><span class="line">            &lt;Route path=<span class="string">&quot;index&quot;</span> component={index} /&gt;</span><br><span class="line">            &lt;Route path=<span class="string">&quot;helpCenter&quot;</span> getComponent={helpCenter} /&gt;<span class="comment">//&#x5E2E;&#x52A9;&#x4E2D;&#x5FC3;</span></span><br><span class="line">            &lt;Route path=<span class="string">&quot;saleRecord&quot;</span> getComponent={saleRecord} /&gt;<span class="comment">//&#x9500;&#x552E;&#x8BB0;&#x5F55;</span></span><br><span class="line">            &lt;Redirect <span class="keyword">from</span>=<span class="string">&apos;*&apos;</span> to=<span class="string">&apos;/&apos;</span>  /&gt;</span><br><span class="line">        &lt;<span class="regexp">/Route&gt;</span></span><br><span class="line"><span class="regexp">    &lt;/</span>Router&gt;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<h2 id="&#x7EC4;&#x4EF6;&#x4E4B;&#x95F4;&#x7684;&#x901A;&#x4FE1;"><a href="#&#x7EC4;&#x4EF6;&#x4E4B;&#x95F4;&#x7684;&#x901A;&#x4FE1;" class="headerlink" title="&#x7EC4;&#x4EF6;&#x4E4B;&#x95F4;&#x7684;&#x901A;&#x4FE1;"></a>&#x7EC4;&#x4EF6;&#x4E4B;&#x95F4;&#x7684;&#x901A;&#x4FE1;</h2><p>react&#x63A8;&#x5D07;&#x7684;&#x662F;&#x5355;&#x5411;&#x6570;&#x636E;&#x6D41;&#xFF0C;&#x81EA;&#x4E0A;&#x800C;&#x4E0B;&#x8FDB;&#x884C;&#x6570;&#x636E;&#x7684;&#x4F20;&#x9012;&#xFF0C;&#x4F46;&#x662F;&#x7531;&#x4E0B;&#x800C;&#x4E0A;&#x6216;&#x8005;&#x4E0D;&#x5728;&#x4E00;&#x6761;&#x6570;&#x636E;&#x6D41;&#x4E0A;&#x7684;&#x7EC4;&#x4EF6;&#x4E4B;&#x95F4;&#x7684;&#x901A;&#x4FE1;&#x5C31;&#x4F1A;&#x53D8;&#x7684;&#x590D;&#x6742;&#x3002;&#x89E3;&#x51B3;&#x901A;&#x4FE1;&#x95EE;&#x9898;&#x7684;&#x65B9;&#x6CD5;&#x5F88;&#x591A;&#xFF0C;&#x5982;&#x679C;&#x53EA;&#x662F;&#x7236;&#x5B50;&#x7EA7;&#x5173;&#x7CFB;&#xFF0C;&#x7236;&#x7EA7;&#x53EF;&#x4EE5;&#x5C06;&#x4E00;&#x4E2A;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x5F53;&#x4F5C;&#x5C5E;&#x6027;&#x4F20;&#x9012;&#x7ED9;&#x5B50;&#x7EA7;&#xFF0C;&#x5B50;&#x7EA7;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x8C03;&#x7528;&#x51FD;&#x6570;&#x4ECE;&#x800C;&#x548C;&#x7236;&#x7EA7;&#x901A;&#x4FE1;&#x3002;</p>
+<p>&#x7EC4;&#x4EF6;&#x5C42;&#x7EA7;&#x5D4C;&#x5957;&#x5230;&#x6BD4;&#x8F83;&#x6DF1;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x4E0A;&#x4E0B;&#x6587;getChildContext&#x6765;&#x4F20;&#x9012;&#x4FE1;&#x606F;&#xFF0C;&#x8FD9;&#x6837;&#x5728;&#x4E0D;&#x9700;&#x8981;&#x5C06;&#x51FD;&#x6570;&#x4E00;&#x5C42;&#x5C42;&#x5F80;&#x4E0B;&#x4F20;&#xFF0C;&#x4EFB;&#x4F55;&#x4E00;&#x5C42;&#x7684;&#x5B50;&#x7EA7;&#x90FD;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;this.context&#x76F4;&#x63A5;&#x8BBF;&#x95EE;&#x3002;</p>
+<p>&#x5144;&#x5F1F;&#x5173;&#x7CFB;&#x7684;&#x7EC4;&#x4EF6;&#x4E4B;&#x95F4;&#x65E0;&#x6CD5;&#x76F4;&#x63A5;&#x901A;&#x4FE1;&#xFF0C;&#x5B83;&#x4EEC;&#x53EA;&#x80FD;&#x5229;&#x7528;&#x540C;&#x4E00;&#x5C42;&#x7684;&#x4E0A;&#x7EA7;&#x4F5C;&#x4E3A;&#x4E2D;&#x8F6C;&#x7AD9;&#x3002;&#x800C;&#x5982;&#x679C;&#x5144;&#x5F1F;&#x7EC4;&#x4EF6;&#x90FD;&#x662F;&#x6700;&#x9AD8;&#x5C42;&#x7684;&#x7EC4;&#x4EF6;&#xFF0C;&#x4E3A;&#x4E86;&#x80FD;&#x591F;&#x8BA9;&#x5B83;&#x4EEC;&#x8FDB;&#x884C;&#x901A;&#x4FE1;&#xFF0C;&#x5FC5;&#x987B;&#x5728;&#x5B83;&#x4EEC;&#x5916;&#x5C42;&#x518D;&#x5957;&#x4E00;&#x5C42;&#x7EC4;&#x4EF6;&#xFF0C;&#x8FD9;&#x4E2A;&#x5916;&#x5C42;&#x7684;&#x7EC4;&#x4EF6;&#x8D77;&#x7740;&#x4FDD;&#x5B58;&#x6570;&#x636E;&#xFF0C;&#x4F20;&#x9012;&#x4FE1;&#x606F;&#x7684;&#x4F5C;&#x7528;&#xFF0C;&#x8FD9;&#x5176;&#x5B9E;&#x5C31;&#x662F;redux&#x6240;&#x505A;&#x7684;&#x4E8B;&#x60C5;&#x3002;</p>
+<p>&#x7EC4;&#x4EF6;&#x4E4B;&#x95F4;&#x7684;&#x4FE1;&#x606F;&#x8FD8;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5168;&#x5C40;&#x4E8B;&#x4EF6;&#x6765;&#x4F20;&#x9012;&#x3002;&#x4E0D;&#x540C;&#x9875;&#x9762;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x53C2;&#x6570;&#x4F20;&#x9012;&#x6570;&#x636E;&#xFF0C;&#x4E0B;&#x4E2A;&#x9875;&#x9762;&#x53EF;&#x4EE5;&#x7528;location.param&#x6765;&#x83B7;&#x53D6;&#x3002;&#x5176;&#x5B9E;react&#x672C;&#x8EAB;&#x5F88;&#x7B80;&#x5355;&#xFF0C;&#x96BE;&#x7684;&#x5728;&#x4E8E;&#x5982;&#x4F55;&#x4F18;&#x96C5;&#x9AD8;&#x6548;&#x7684;&#x5B9E;&#x73B0;&#x7EC4;&#x4EF6;&#x4E4B;&#x95F4;&#x6570;&#x636E;&#x7684;&#x4EA4;&#x6D41;&#x3002;</p>
+<h2 id="Redux"><a href="#Redux" class="headerlink" title="Redux"></a>Redux</h2><p>&#x9996;&#x5148;&#xFF0C;redux&#x5E76;&#x4E0D;&#x662F;&#x5FC5;&#x987B;&#x7684;&#xFF0C;&#x5B83;&#x7684;&#x4F5C;&#x7528;&#x76F8;&#x5F53;&#x4E8E;&#x5728;&#x9876;&#x5C42;&#x7EC4;&#x4EF6;&#x4E4B;&#x4E0A;&#x53C8;&#x52A0;&#x4E86;&#x4E00;&#x4E2A;&#x7EC4;&#x4EF6;&#xFF0C;&#x4F5C;&#x7528;&#x662F;&#x8FDB;&#x884C;&#x903B;&#x8F91;&#x8FD0;&#x7B97;&#x3001;&#x50A8;&#x5B58;&#x6570;&#x636E;&#x548C;&#x5B9E;&#x73B0;&#x7EC4;&#x4EF6;&#x5C24;&#x5176;&#x662F;&#x9876;&#x5C42;&#x7EC4;&#x4EF6;&#x7684;&#x901A;&#x4FE1;&#x3002;&#x5982;&#x679C;&#x7EC4;&#x4EF6;&#x4E4B;&#x95F4;&#x7684;&#x4EA4;&#x6D41;&#x4E0D;&#x591A;&#xFF0C;&#x903B;&#x8F91;&#x4E0D;&#x590D;&#x6742;&#xFF0C;&#x53EA;&#x662F;&#x5355;&#x7EAF;&#x7684;&#x8FDB;&#x884C;&#x89C6;&#x56FE;&#x7684;&#x6E32;&#x67D3;&#xFF0C;&#x8FD9;&#x65F6;&#x5019;&#x7528;&#x56DE;&#x8C03;&#xFF0C;context&#x5C31;&#x884C;&#xFF0C;&#x6CA1;&#x5FC5;&#x8981;&#x7528;redux&#xFF0C;&#x7528;&#x4E86;&#x53CD;&#x800C;&#x5F71;&#x54CD;&#x5F00;&#x53D1;&#x901F;&#x5EA6;&#x3002;&#x4F46;&#x662F;&#x5982;&#x679C;&#x7EC4;&#x4EF6;&#x4EA4;&#x6D41;&#x7279;&#x522B;&#x9891;&#x7E41;&#xFF0C;&#x903B;&#x8F91;&#x5F88;&#x590D;&#x6742;&#xFF0C;&#x90A3;redux&#x7684;&#x4F18;&#x52BF;&#x5C31;&#x7279;&#x522B;&#x660E;&#x663E;&#x4E86;&#x3002;&#x6211;&#x7B2C;&#x4E00;&#x6B21;&#x505A;react&#x9879;&#x76EE;&#x7684;&#x65F6;&#x5019;&#x5E76;&#x6CA1;&#x6709;&#x7528;redux&#xFF0C;&#x6240;&#x6709;&#x7684;&#x903B;&#x8F91;&#x90FD;&#x662F;&#x5728;&#x7EC4;&#x4EF6;&#x5185;&#x90E8;&#x5B9E;&#x73B0;&#xFF0C;&#x5F53;&#x65F6;&#x4E3A;&#x4E86;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;&#x903B;&#x8F91;&#x6BD4;&#x8F83;&#x590D;&#x6742;&#x7684;&#x8D2D;&#x7269;&#x8F66;&#xFF0C;&#x6D0B;&#x6D0B;&#x6D12;&#x6D12;&#x5C45;&#x7136;&#x5199;&#x4E86;800&#x591A;&#x884C;&#x4EE3;&#x7801;&#xFF0C;&#x56DE;&#x5934;&#x4E00;&#x770B;&#x6211;&#x81EA;&#x5DF1;&#x90FD;&#x4E0D;&#x77E5;&#x9053;&#x5199;&#x7684;&#x662F;&#x5565;&#xFF0C;&#x753B;&#x9762;&#x592A;&#x611F;&#x4EBA;&#x3002;</p>
+<p>&#x5148;&#x7B80;&#x5355;&#x8BF4;&#x4E00;&#x4E0B;redux&#x548C;react&#x662F;&#x600E;&#x4E48;&#x914D;&#x5408;&#x7684;&#x3002;react-redux&#x63D0;&#x4F9B;&#x4E86;connect&#x548C;Provider&#x4E24;&#x4E2A;&#x597D;&#x57FA;&#x53CB;&#xFF0C;&#x5B83;&#x4EEC;&#x4E00;&#x4E2A;&#x5C06;&#x7EC4;&#x4EF6;&#x4E0E;redux&#x5173;&#x8054;&#x8D77;&#x6765;&#xFF0C;&#x4E00;&#x4E2A;&#x5C06;store&#x4F20;&#x7ED9;&#x7EC4;&#x4EF6;&#x3002;&#x7EC4;&#x4EF6;&#x901A;&#x8FC7;dispatch&#x53D1;&#x51FA;action&#xFF0C;store&#x6839;&#x636E;action&#x7684;type&#x5C5E;&#x6027;&#x8C03;&#x7528;&#x5BF9;&#x5E94;&#x7684;reducer&#x5E76;&#x4F20;&#x5165;state&#x548C;&#x8FD9;&#x4E2A;action&#xFF0C;reducer&#x5BF9;state&#x8FDB;&#x884C;&#x5904;&#x7406;&#x5E76;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x65B0;&#x7684;state&#x653E;&#x5165;store&#xFF0C;connect&#x76D1;&#x542C;&#x5230;store&#x53D1;&#x751F;&#x53D8;&#x5316;&#xFF0C;&#x8C03;&#x7528;setState&#x66F4;&#x65B0;&#x7EC4;&#x4EF6;&#xFF0C;&#x6B64;&#x65F6;&#x7EC4;&#x4EF6;&#x7684;props&#x4E5F;&#x5C31;&#x8DDF;&#x7740;&#x53D8;&#x5316;&#x3002;</p>
+<h4 id="&#x6D41;&#x7A0B;&#x662F;&#x8FD9;&#x4E2A;&#x6837;&#x5B50;&#x7684;&#xFF1A;"><a href="#&#x6D41;&#x7A0B;&#x662F;&#x8FD9;&#x4E2A;&#x6837;&#x5B50;&#x7684;&#xFF1A;" class="headerlink" title="&#x6D41;&#x7A0B;&#x662F;&#x8FD9;&#x4E2A;&#x6837;&#x5B50;&#x7684;&#xFF1A;"></a>&#x6D41;&#x7A0B;&#x662F;&#x8FD9;&#x4E2A;&#x6837;&#x5B50;&#x7684;&#xFF1A;</h4><p><img src="https://github.com/bailicangdu/pxq/blob/master/screenshot/simple_redux.jpg" alt=""></p>
+<p>&#x503C;&#x5F97;&#x6CE8;&#x610F;&#x7684;&#x662F;connect&#xFF0C;Provider&#xFF0C;mapStateToProps,mapDispatchToProps&#x662F;react-redux&#x63D0;&#x4F9B;&#x7684;&#xFF0C;redux&#x672C;&#x8EAB;&#x548C;react&#x6CA1;&#x6709;&#x534A;&#x6BDB;&#x94B1;&#x5173;&#x7CFB;&#xFF0C;&#x5B83;&#x53EA;&#x662F;&#x6570;&#x636E;&#x5904;&#x7406;&#x4E2D;&#x5FC3;&#xFF0C;&#x6CA1;&#x6709;&#x548C;react&#x4EA7;&#x751F;&#x4EFB;&#x4F55;&#x8026;&#x5408;&#xFF0C;&#x662F;react-redux&#x8BA9;&#x5B83;&#x4EEC;&#x8054;&#x7CFB;&#x5728;&#x4E00;&#x8D77;&#x3002;</p>
+<h4 id="&#x63A5;&#x4E0B;&#x6765;&#x5177;&#x4F53;&#x5206;&#x6790;&#x4E00;&#x4E0B;&#xFF0C;redux&#x4EE5;&#x53CA;react-redux&#x5230;&#x5E95;&#x662F;&#x600E;&#x4E48;&#x5B9E;&#x73B0;&#x7684;&#x3002;"><a href="#&#x63A5;&#x4E0B;&#x6765;&#x5177;&#x4F53;&#x5206;&#x6790;&#x4E00;&#x4E0B;&#xFF0C;redux&#x4EE5;&#x53CA;react-redux&#x5230;&#x5E95;&#x662F;&#x600E;&#x4E48;&#x5B9E;&#x73B0;&#x7684;&#x3002;" class="headerlink" title="&#x63A5;&#x4E0B;&#x6765;&#x5177;&#x4F53;&#x5206;&#x6790;&#x4E00;&#x4E0B;&#xFF0C;redux&#x4EE5;&#x53CA;react-redux&#x5230;&#x5E95;&#x662F;&#x600E;&#x4E48;&#x5B9E;&#x73B0;&#x7684;&#x3002;"></a>&#x63A5;&#x4E0B;&#x6765;&#x5177;&#x4F53;&#x5206;&#x6790;&#x4E00;&#x4E0B;&#xFF0C;redux&#x4EE5;&#x53CA;react-redux&#x5230;&#x5E95;&#x662F;&#x600E;&#x4E48;&#x5B9E;&#x73B0;&#x7684;&#x3002;</h4><h4 id="&#x5148;&#x4E0A;&#x4E00;&#x5F20;&#x56FE;"><a href="#&#x5148;&#x4E0A;&#x4E00;&#x5F20;&#x56FE;" class="headerlink" title="&#x5148;&#x4E0A;&#x4E00;&#x5F20;&#x56FE;"></a>&#x5148;&#x4E0A;&#x4E00;&#x5F20;&#x56FE;</h4><p><img src="https://github.com/bailicangdu/pxq/blob/master/screenshot/all_redux.png" alt=""></p>
+<p>&#x660E;&#x663E;&#x6BD4;&#x7B2C;&#x4E00;&#x5F20;&#x8981;&#x590D;&#x6742;&#xFF0C;&#x5176;&#x5B9E;&#x4E24;&#x5F20;&#x56FE;&#x8BF4;&#x7684;&#x662F;&#x540C;&#x4E00;&#x4EF6;&#x4E8B;&#x3002;&#x4ECE;&#x4E0A;&#x800C;&#x4E0B;&#x6162;&#x6162;&#x5206;&#x6790;&#xFF1A;</p>
+<h3 id="&#x5148;&#x8BF4;&#x8BF4;redux&#xFF1A;"><a href="#&#x5148;&#x8BF4;&#x8BF4;redux&#xFF1A;" class="headerlink" title="&#x5148;&#x8BF4;&#x8BF4;redux&#xFF1A;"></a>&#x5148;&#x8BF4;&#x8BF4;redux&#xFF1A;</h3><h4 id="redux&#x4E3B;&#x8981;&#x7531;&#x4E09;&#x90E8;&#x5206;&#x7EC4;&#x6210;&#xFF1A;store&#xFF0C;reducer&#xFF0C;action&#x3002;"><a href="#redux&#x4E3B;&#x8981;&#x7531;&#x4E09;&#x90E8;&#x5206;&#x7EC4;&#x6210;&#xFF1A;store&#xFF0C;reducer&#xFF0C;action&#x3002;" class="headerlink" title="redux&#x4E3B;&#x8981;&#x7531;&#x4E09;&#x90E8;&#x5206;&#x7EC4;&#x6210;&#xFF1A;store&#xFF0C;reducer&#xFF0C;action&#x3002;"></a>redux&#x4E3B;&#x8981;&#x7531;&#x4E09;&#x90E8;&#x5206;&#x7EC4;&#x6210;&#xFF1A;store&#xFF0C;reducer&#xFF0C;action&#x3002;</h4><p><strong>store</strong>&#x662F;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x5B83;&#x6709;&#x56DB;&#x4E2A;&#x4E3B;&#x8981;&#x7684;&#x65B9;&#x6CD5;&#xFF1A;</p>
+<p><strong>1&#x3001;dispatch:</strong></p>
+<blockquote>
+<p> &#x7528;&#x4E8E;action&#x7684;&#x5206;&#x53D1;&#x2014;&#x2014;&#x5728;createStore&#x4E2D;&#x53EF;&#x4EE5;&#x7528;middleware&#x4E2D;&#x95F4;&#x4EF6;&#x5BF9;dispatch&#x8FDB;&#x884C;&#x6539;&#x9020;&#xFF0C;&#x6BD4;&#x5982;&#x5F53;action&#x4F20;&#x5165;dispatch&#x4F1A;&#x7ACB;&#x5373;&#x89E6;&#x53D1;reducer&#xFF0C;&#x6709;&#x4E9B;&#x65F6;&#x5019;&#x6211;&#x4EEC;&#x4E0D;&#x5E0C;&#x671B;&#x5B83;&#x7ACB;&#x5373;&#x89E6;&#x53D1;&#xFF0C;&#x800C;&#x662F;&#x7B49;&#x5F85;&#x5F02;&#x6B65;&#x64CD;&#x4F5C;&#x5B8C;&#x6210;&#x4E4B;&#x540E;&#x518D;&#x89E6;&#x53D1;&#xFF0C;&#x8FD9;&#x65F6;&#x5019;&#x7528;redux-thunk&#x5BF9;dispatch&#x8FDB;&#x884C;&#x6539;&#x9020;&#xFF0C;&#x4EE5;&#x524D;&#x53EA;&#x80FD;&#x4F20;&#x5165;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x6539;&#x9020;&#x5B8C;&#x6210;&#x540E;&#x53EF;&#x4EE5;&#x4F20;&#x5165;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x5728;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x91CC;&#x6211;&#x4EEC;&#x624B;&#x52A8;dispatch&#x4E00;&#x4E2A;action&#x5BF9;&#x8C61;&#xFF0C;&#x8FD9;&#x4E2A;&#x8FC7;&#x7A0B;&#x662F;&#x53EF;&#x63A7;&#x7684;&#xFF0C;&#x5C31;&#x5B9E;&#x73B0;&#x4E86;&#x5F02;&#x6B65;&#x3002;</p>
+</blockquote>
+<p><strong>2&#x3001;subscribe&#xFF1A;</strong></p>
+<blockquote>
+<p>&#x76D1;&#x542C;state&#x7684;&#x53D8;&#x5316;&#x2014;&#x2014;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x5728;store&#x8C03;&#x7528;dispatch&#x65F6;&#x4F1A;&#x6CE8;&#x518C;&#x4E00;&#x4E2A;listener&#x76D1;&#x542C;state&#x53D8;&#x5316;&#xFF0C;&#x5F53;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x77E5;&#x9053;state&#x662F;&#x5426;&#x53D8;&#x5316;&#x65F6;&#x53EF;&#x4EE5;&#x8C03;&#x7528;&#xFF0C;&#x5B83;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x8C03;&#x7528;&#x8FD9;&#x4E2A;&#x8FD4;&#x56DE;&#x7684;&#x51FD;&#x6570;&#x53EF;&#x4EE5;&#x6CE8;&#x9500;&#x76D1;&#x542C;&#x3002;<br>let unsubscribe = store.subscribe(() =&gt; {console.log(&#x2018;state&#x53D1;&#x751F;&#x4E86;&#x53D8;&#x5316;&#x2019;)})</p>
+</blockquote>
+<p><strong>3&#x3001;getState&#xFF1A;</strong></p>
+<blockquote>
+<p>&#x83B7;&#x53D6;store&#x4E2D;&#x7684;state&#x2014;&#x2014;&#x5F53;&#x6211;&#x4EEC;&#x7528;action&#x89E6;&#x53D1;reducer&#x6539;&#x53D8;&#x4E86;state&#x65F6;&#xFF0C;&#x9700;&#x8981;&#x518D;&#x62FF;&#x5230;&#x65B0;&#x7684;state&#x91CC;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x6BD5;&#x7ADF;&#x6570;&#x636E;&#x624D;&#x662F;&#x6211;&#x4EEC;&#x60F3;&#x8981;&#x7684;&#x3002;getState&#x4E3B;&#x8981;&#x5728;&#x4E24;&#x4E2A;&#x5730;&#x65B9;&#x9700;&#x8981;&#x7528;&#x5230;&#xFF0C;&#x4E00;&#x662F;&#x5728;dispatch&#x62FF;&#x5230;action&#x540E;store&#x9700;&#x8981;&#x7528;&#x5B83;&#x6765;&#x83B7;&#x53D6;state&#x91CC;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x5E76;&#x628A;&#x8FD9;&#x4E2A;&#x6570;&#x636E;&#x4F20;&#x7ED9;reducer&#xFF0C;&#x8FD9;&#x4E2A;&#x8FC7;&#x7A0B;&#x662F;&#x81EA;&#x52A8;&#x6267;&#x884C;&#x7684;&#xFF0C;&#x4E8C;&#x662F;&#x5728;&#x6211;&#x4EEC;&#x5229;&#x7528;subscribe&#x76D1;&#x542C;&#x5230;state&#x53D1;&#x751F;&#x53D8;&#x5316;&#x540E;&#x8C03;&#x7528;&#x5B83;&#x6765;&#x83B7;&#x53D6;&#x65B0;&#x7684;state&#x6570;&#x636E;&#xFF0C;&#x5982;&#x679C;&#x505A;&#x5230;&#x8FD9;&#x4E00;&#x6B65;&#xFF0C;&#x8BF4;&#x660E;&#x6211;&#x4EEC;&#x5DF2;&#x7ECF;&#x6210;&#x529F;&#x4E86;&#x3002;</p>
+</blockquote>
+<p><strong>4&#x3001;replaceReducer:</strong></p>
+<blockquote>
+<p>&#x66FF;&#x6362;reducer&#xFF0C;&#x6539;&#x53D8;state&#x4FEE;&#x6539;&#x7684;&#x903B;&#x8F91;&#x3002;</p>
+</blockquote>
+<p>store&#x53EF;&#x4EE5;&#x901A;&#x8FC7;createStore()&#x65B9;&#x6CD5;&#x521B;&#x5EFA;&#xFF0C;&#x63A5;&#x53D7;&#x4E09;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x7ECF;&#x8FC7;combineReducers&#x5408;&#x5E76;&#x7684;reducer&#x548C;state&#x7684;&#x521D;&#x59CB;&#x72B6;&#x6001;&#x4EE5;&#x53CA;&#x6539;&#x53D8;dispatch&#x7684;&#x4E2D;&#x95F4;&#x4EF6;&#xFF0C;&#x540E;&#x4E24;&#x4E2A;&#x53C2;&#x6570;&#x5E76;&#x4E0D;&#x662F;&#x5FC5;&#x987B;&#x7684;&#x3002;store&#x7684;&#x4E3B;&#x8981;&#x4F5C;&#x7528;&#x662F;&#x5C06;action&#x548C;reducer&#x8054;&#x7CFB;&#x8D77;&#x6765;&#x5E76;&#x6539;&#x53D8;state&#x3002;</p>
+<p><strong>action:</strong></p>
+<blockquote>
+<p>action&#x662F;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x5176;&#x4E2D;type&#x5C5E;&#x6027;&#x662F;&#x5FC5;&#x987B;&#x7684;&#xFF0C;&#x540C;&#x65F6;&#x53EF;&#x4EE5;&#x4F20;&#x5165;&#x4E00;&#x4E9B;&#x6570;&#x636E;&#x3002;action&#x53EF;&#x4EE5;&#x7528;actionCreactor&#x8FDB;&#x884C;&#x521B;&#x9020;&#x3002;dispatch&#x5C31;&#x662F;&#x628A;action&#x5BF9;&#x8C61;&#x53D1;&#x9001;&#x51FA;&#x53BB;&#x3002;</p>
+</blockquote>
+<p><strong>reducer:</strong></p>
+<blockquote>
+<p>reducer&#x662F;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x5B83;&#x63A5;&#x53D7;&#x4E00;&#x4E2A;state&#x548C;&#x4E00;&#x4E2A;action&#xFF0C;&#x6839;&#x636E;action&#x7684;type&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x65B0;&#x7684;state&#x3002;&#x6839;&#x636E;&#x4E1A;&#x52A1;&#x903B;&#x8F91;&#x53EF;&#x4EE5;&#x5206;&#x4E3A;&#x5F88;&#x591A;&#x4E2A;reducer&#xFF0C;&#x7136;&#x540E;&#x901A;&#x8FC7;combineReducers&#x5C06;&#x5B83;&#x4EEC;&#x5408;&#x5E76;&#xFF0C;state&#x6811;&#x4E2D;&#x6709;&#x5F88;&#x591A;&#x5BF9;&#x8C61;&#xFF0C;&#x6BCF;&#x4E2A;state&#x5BF9;&#x8C61;&#x5BF9;&#x5E94;&#x4E00;&#x4E2A;reducer&#xFF0C;state&#x5BF9;&#x8C61;&#x7684;&#x540D;&#x5B57;&#x53EF;&#x4EE5;&#x5728;&#x5408;&#x5E76;&#x65F6;&#x5B9A;&#x4E49;&#x3002;</p>
+</blockquote>
+<p>&#x50CF;&#x8FD9;&#x4E2A;&#x6837;&#x5B50;&#xFF1A;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> reducer = combineReducers({</span><br><span class="line">     a: doSomethingWithA,</span><br><span class="line">     b: processB,</span><br><span class="line">     c: c</span><br><span class="line">})</span><br></pre></td></tr></table></figure></p>
+<p><strong>combineReducers:</strong></p>
+<blockquote>
+<p>&#x5176;&#x5B9E;&#x5B83;&#x4E5F;&#x662F;&#x4E00;&#x4E2A;reducer&#xFF0C;&#x5B83;&#x63A5;&#x53D7;&#x6574;&#x4E2A;state&#x548C;&#x4E00;&#x4E2A;action&#xFF0C;&#x7136;&#x540E;&#x5C06;&#x6574;&#x4E2A;state&#x62C6;&#x5206;&#x53D1;&#x9001;&#x7ED9;&#x5BF9;&#x5E94;&#x7684;reducer&#x8FDB;&#x884C;&#x5904;&#x7406;&#xFF0C;&#x6240;&#x6709;&#x7684;reducer&#x4F1A;&#x6536;&#x5230;&#x76F8;&#x540C;&#x7684;action&#xFF0C;&#x4E0D;&#x8FC7;&#x5B83;&#x4EEC;&#x4F1A;&#x6839;&#x636E;action&#x7684;type&#x8FDB;&#x884C;&#x5224;&#x65AD;&#xFF0C;&#x6709;&#x8FD9;&#x4E2A;type&#x5C31;&#x8FDB;&#x884C;&#x5904;&#x7406;&#x7136;&#x540E;&#x8FD4;&#x56DE;&#x65B0;&#x7684;state&#xFF0C;&#x6CA1;&#x6709;&#x5C31;&#x8FD4;&#x56DE;&#x9ED8;&#x8BA4;&#x503C;&#xFF0C;&#x7136;&#x540E;&#x8FD9;&#x4E9B;&#x5206;&#x6563;&#x7684;state&#x53C8;&#x4F1A;&#x6574;&#x5408;&#x5728;&#x4E00;&#x8D77;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x65B0;&#x7684;state&#x6811;&#x3002;</p>
+</blockquote>
+<p>&#x63A5;&#x4E0B;&#x6765;&#x5206;&#x6790;&#x4E00;&#x4E0B;&#x6574;&#x4F53;&#x7684;&#x6D41;&#x7A0B;&#xFF0C;&#x9996;&#x5148;&#x8C03;&#x7528;store.dispatch&#x5C06;action&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#x4F20;&#x5165;&#xFF0C;&#x540C;&#x65F6;&#x7528;getState&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x7684;&#x72B6;&#x6001;&#x6811;state&#x5E76;&#x6CE8;&#x518C;subscribe&#x7684;listener&#x76D1;&#x542C;state&#x53D8;&#x5316;&#xFF0C;&#x518D;&#x8C03;&#x7528;combineReducers&#x5E76;&#x5C06;&#x83B7;&#x53D6;&#x7684;state&#x548C;action&#x4F20;&#x5165;&#x3002;combineReducers&#x4F1A;&#x5C06;&#x4F20;&#x5165;&#x7684;state&#x548C;action&#x4F20;&#x7ED9;&#x6240;&#x6709;reducer&#xFF0C;&#x5E76;&#x6839;&#x636E;action&#x7684;type&#x8FD4;&#x56DE;&#x65B0;&#x7684;state&#xFF0C;&#x89E6;&#x53D1;state&#x6811;&#x7684;&#x66F4;&#x65B0;&#xFF0C;&#x6211;&#x4EEC;&#x8C03;&#x7528;subscribe&#x76D1;&#x542C;&#x5230;state&#x53D1;&#x751F;&#x53D8;&#x5316;&#x540E;&#x7528;getState&#x83B7;&#x53D6;&#x65B0;&#x7684;state&#x6570;&#x636E;&#x3002;</p>
+<p>redux&#x7684;state&#x548C;react&#x7684;state&#x4E24;&#x8005;&#x5B8C;&#x5168;&#x6CA1;&#x6709;&#x5173;&#x7CFB;&#xFF0C;&#x9664;&#x4E86;&#x540D;&#x5B57;&#x4E00;&#x6837;&#x3002;</p>
+<p><strong>&#x4E0A;&#x9762;&#x5206;&#x6790;&#x4E86;redux&#x7684;&#x4E3B;&#x8981;&#x529F;&#x80FD;&#xFF0C;&#x90A3;&#x4E48;react-redux&#x5230;&#x5E95;&#x505A;&#x4E86;&#x4EC0;&#x4E48;&#xFF1F;</strong></p>
+<h2 id="React-Redux"><a href="#React-Redux" class="headerlink" title="React-Redux"></a>React-Redux</h2><p>&#x5982;&#x679C;&#x53EA;&#x4F7F;&#x7528;redux&#xFF0C;&#x90A3;&#x4E48;&#x6D41;&#x7A0B;&#x662F;&#x8FD9;&#x6837;&#x7684;&#xFF1A;</p>
+<blockquote>
+<p>component &#x2013;&gt; dispatch(action) &#x2013;&gt; reducer &#x2013;&gt; subscribe &#x2013;&gt; getState &#x2013;&gt; component</p>
+</blockquote>
+<p>&#x7528;&#x4E86;react-redux&#x4E4B;&#x540E;&#x6D41;&#x7A0B;&#x662F;&#x8FD9;&#x6837;&#x7684;&#xFF1A;</p>
+<blockquote>
+<p>component &#x2013;&gt; actionCreator(data) &#x2013;&gt; reducer &#x2013;&gt; component</p>
+</blockquote>
+<p>store&#x7684;&#x4E09;&#x5927;&#x529F;&#x80FD;&#xFF1A;dispatch&#xFF0C;subscribe&#xFF0C;getState&#x90FD;&#x4E0D;&#x9700;&#x8981;&#x624B;&#x52A8;&#x6765;&#x5199;&#x4E86;&#x3002;react-redux&#x5E2E;&#x6211;&#x4EEC;&#x505A;&#x4E86;&#x8FD9;&#x4E9B;&#xFF0C;&#x540C;&#x65F6;&#x5B83;&#x63D0;&#x4F9B;&#x4E86;&#x4E24;&#x4E2A;&#x597D;&#x57FA;&#x53CB;Provider&#x548C;connect&#x3002;</p>
+<p><strong>Provider</strong>&#x662F;&#x4E00;&#x4E2A;&#x7EC4;&#x4EF6;&#xFF0C;&#x5B83;&#x63A5;&#x53D7;store&#x4F5C;&#x4E3A;props&#xFF0C;&#x7136;&#x540E;&#x901A;&#x8FC7;context&#x5F80;&#x4E0B;&#x4F20;&#xFF0C;&#x8FD9;&#x6837;react&#x4E2D;&#x4EFB;&#x4F55;&#x7EC4;&#x4EF6;&#x90FD;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;context&#x83B7;&#x53D6;store&#x3002;&#x4E5F;&#x5C31;&#x610F;&#x5473;&#x7740;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5728;&#x4EFB;&#x4F55;&#x4E00;&#x4E2A;&#x7EC4;&#x4EF6;&#x91CC;&#x5229;&#x7528;dispatch(action)&#x6765;&#x89E6;&#x53D1;reducer&#x6539;&#x53D8;state&#xFF0C;&#x5E76;&#x7528;subscribe&#x76D1;&#x542C;state&#x7684;&#x53D8;&#x5316;&#xFF0C;&#x7136;&#x540E;&#x7528;getState&#x83B7;&#x53D6;&#x53D8;&#x5316;&#x540E;&#x7684;&#x503C;&#x3002;&#x4F46;&#x662F;&#x5E76;&#x4E0D;&#x63A8;&#x8350;&#x8FD9;&#x6837;&#x505A;&#xFF0C;&#x5B83;&#x4F1A;&#x8BA9;&#x6570;&#x636E;&#x6D41;&#x53D8;&#x7684;&#x6DF7;&#x4E71;&#xFF0C;&#x8FC7;&#x5EA6;&#x7684;&#x8026;&#x5408;&#x4E5F;&#x4F1A;&#x5F71;&#x54CD;&#x7EC4;&#x4EF6;&#x7684;&#x590D;&#x7528;&#xFF0C;&#x7EF4;&#x62A4;&#x8D77;&#x6765;&#x4E5F;&#x66F4;&#x9EBB;&#x70E6;&#x3002;</p>
+<p><strong>connect &#x2013;connect(mapStateToProps, mapDispatchToProps, mergeProps, options)</strong> &#x662F;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x5B83;&#x63A5;&#x53D7;&#x56DB;&#x4E2A;&#x53C2;&#x6570;&#x5E76;&#x4E14;&#x518D;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x2013;wrapWithConnect&#xFF0C;wrapWithConnect&#x63A5;&#x53D7;&#x4E00;&#x4E2A;&#x7EC4;&#x4EF6;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;wrapWithConnect(component)&#xFF0C;&#x5B83;&#x5185;&#x90E8;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x65B0;&#x7EC4;&#x4EF6;Connect(&#x5BB9;&#x5668;&#x7EC4;&#x4EF6;)&#x5E76;&#x5C06;&#x4F20;&#x5165;&#x7684;&#x7EC4;&#x4EF6;(ui&#x7EC4;&#x4EF6;)&#x4F5C;&#x4E3A;Connect&#x7684;&#x5B50;&#x7EC4;&#x4EF6;&#x7136;&#x540E;return&#x51FA;&#x53BB;&#x3002;</p>
+<p>&#x6240;&#x4EE5;&#x5B83;&#x7684;&#x5B8C;&#x6574;&#x5199;&#x6CD5;&#x662F;&#x8FD9;&#x6837;&#x7684;&#xFF1A;connect(mapStateToProps, mapDispatchToProps, mergeProps, options)(component)</p>
+<p><strong>mapStateToProps(state, [ownProps])&#xFF1A;</strong></p>
+<blockquote>
+<p>mapStateToProps &#x63A5;&#x53D7;&#x4E24;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;store&#x7684;state&#x548C;&#x81EA;&#x5B9A;&#x4E49;&#x7684;props&#xFF0C;&#x5E76;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;&#x4F1A;&#x4F5C;&#x4E3A;props&#x7684;&#x4E00;&#x90E8;&#x5206;&#x4F20;&#x5165;ui&#x7EC4;&#x4EF6;&#x3002;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x6839;&#x636E;&#x7EC4;&#x4EF6;&#x6240;&#x9700;&#x8981;&#x7684;&#x6570;&#x636E;&#x81EA;&#x5B9A;&#x4E49;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x3002;ownProps&#x7684;&#x53D8;&#x5316;&#x4E5F;&#x4F1A;&#x89E6;&#x53D1;mapStateToProps</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">mapStateToProps</span>(<span class="params">state</span>) </span>{</span><br><span class="line">   <span class="keyword">return</span> { <span class="attr">todos</span>: state.todos };</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p><strong>mapDispatchToProps(dispatch, [ownProps])&#xFF1A;</strong></p>
+<blockquote>
+<p>mapDispatchToProps&#x5982;&#x679C;&#x662F;&#x5BF9;&#x8C61;&#xFF0C;&#x90A3;&#x4E48;&#x4F1A;&#x548C;store&#x7ED1;&#x5B9A;&#x4F5C;&#x4E3A;props&#x7684;&#x4E00;&#x90E8;&#x5206;&#x4F20;&#x5165;ui&#x7EC4;&#x4EF6;&#x3002;&#x5982;&#x679C;&#x662F;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x5B83;&#x63A5;&#x53D7;&#x4E24;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;bindActionCreators&#x4F1A;&#x5C06;action&#x548C;dispatch&#x7ED1;&#x5B9A;&#x5E76;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;&#x4F1A;&#x548C;ownProps&#x4E00;&#x8D77;&#x4F5C;&#x4E3A;props&#x7684;&#x4E00;&#x90E8;&#x5206;&#x4F20;&#x5165;ui&#x7EC4;&#x4EF6;&#x3002;&#x6240;&#x4EE5;&#x4E0D;&#x8BBA;mapDispatchToProps&#x662F;&#x5BF9;&#x8C61;&#x8FD8;&#x662F;&#x51FD;&#x6570;&#xFF0C;&#x5B83;&#x6700;&#x7EC8;&#x90FD;&#x4F1A;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x5982;&#x679C;&#x662F;&#x51FD;&#x6570;&#xFF0C;&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;&#x7684;key&#x503C;&#x662F;&#x53EF;&#x4EE5;&#x81EA;&#x5B9A;&#x4E49;&#x7684;</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">mapDispatchToProps</span>(<span class="params">dispatch</span>) </span>{</span><br><span class="line">   <span class="keyword">return</span> {</span><br><span class="line">      todoActions: bindActionCreators(todoActionCreators, dispatch),</span><br><span class="line">      counterActions: bindActionCreators(counterActionCreators, dispatch)</span><br><span class="line">   };</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>mapDispatchToProps&#x8FD4;&#x56DE;&#x7684;&#x5BF9;&#x8C61;&#x5176;&#x5C5E;&#x6027;&#x5176;&#x5B9E;&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x4E2A;actionCreator&#xFF0C;&#x56E0;&#x4E3A;&#x5DF2;&#x7ECF;&#x548C;dispatch&#x7ED1;&#x5B9A;&#xFF0C;&#x6240;&#x4EE5;&#x5F53;&#x8C03;&#x7528;actionCreator&#x65F6;&#x4F1A;&#x7ACB;&#x5373;&#x53D1;&#x9001;action&#xFF0C;&#x800C;&#x4E0D;&#x7528;&#x624B;&#x52A8;dispatch&#x3002;ownProps&#x7684;&#x53D8;&#x5316;&#x4E5F;&#x4F1A;&#x89E6;&#x53D1;mapDispatchToProps&#x3002;</p>
+<p><strong>mergeProps(stateProps, dispatchProps, ownProps)&#xFF1A;</strong></p>
+<blockquote>
+<p>&#x5C06;mapStateToProps() &#x4E0E; mapDispatchToProps()&#x8FD4;&#x56DE;&#x7684;&#x5BF9;&#x8C61;&#x548C;&#x7EC4;&#x4EF6;&#x81EA;&#x8EAB;&#x7684;props&#x5408;&#x5E76;&#x6210;&#x65B0;&#x7684;props&#x5E76;&#x4F20;&#x5165;&#x7EC4;&#x4EF6;&#x3002;&#x9ED8;&#x8BA4;&#x8FD4;&#x56DE; Object.assign({}, ownProps, stateProps, dispatchProps) &#x7684;&#x7ED3;&#x679C;&#x3002;</p>
+</blockquote>
+<p><strong>options&#xFF1A;</strong></p>
+<blockquote>
+<p>pure = true &#x8868;&#x793A;Connect&#x5BB9;&#x5668;&#x7EC4;&#x4EF6;&#x5C06;&#x5728;shouldComponentUpdate&#x4E2D;&#x5BF9;store&#x7684;state&#x548C;ownProps&#x8FDB;&#x884C;&#x6D45;&#x5BF9;&#x6BD4;&#xFF0C;&#x5224;&#x65AD;&#x662F;&#x5426;&#x53D1;&#x751F;&#x53D8;&#x5316;&#xFF0C;&#x4F18;&#x5316;&#x6027;&#x80FD;&#x3002;&#x4E3A;false&#x5219;&#x4E0D;&#x5BF9;&#x6BD4;&#x3002;</p>
+</blockquote>
+<p>&#x5176;&#x5B9E;connect&#x51FD;&#x6570;&#x5E76;&#x6CA1;&#x6709;&#x505A;&#x4EC0;&#x4E48;&#xFF0C;&#x5927;&#x90E8;&#x5206;&#x7684;&#x903B;&#x8F91;&#x90FD;&#x662F;&#x5728;&#x5B83;&#x8FD4;&#x56DE;&#x7684;wrapWithConnect&#x51FD;&#x6570;&#x5185;&#x5B9E;&#x73B0;&#x7684;&#xFF0C;&#x786E;&#x5207;&#x7684;&#x8BF4;&#x662F;&#x5728;wrapWithConnect&#x5185;&#x5B9A;&#x4E49;&#x7684;Connect&#x7EC4;&#x4EF6;&#x91CC;&#x5B9E;&#x73B0;&#x7684;&#x3002;</p>
+<h3 id="&#x4E0B;&#x9762;&#x662F;&#x4E00;&#x4E2A;&#x5B8C;&#x6574;&#x7684;-react-&#x2013;-gt-redux-&#x2013;-gt-react-&#x6D41;&#x7A0B;&#xFF1A;"><a href="#&#x4E0B;&#x9762;&#x662F;&#x4E00;&#x4E2A;&#x5B8C;&#x6574;&#x7684;-react-&#x2013;-gt-redux-&#x2013;-gt-react-&#x6D41;&#x7A0B;&#xFF1A;" class="headerlink" title="&#x4E0B;&#x9762;&#x662F;&#x4E00;&#x4E2A;&#x5B8C;&#x6574;&#x7684; react &#x2013;&gt; redux &#x2013;&gt; react &#x6D41;&#x7A0B;&#xFF1A;"></a>&#x4E0B;&#x9762;&#x662F;&#x4E00;&#x4E2A;&#x5B8C;&#x6574;&#x7684; react &#x2013;&gt; redux &#x2013;&gt; react &#x6D41;&#x7A0B;&#xFF1A;</h3><p>&#x4E00;&#x3001;Provider&#x7EC4;&#x4EF6;&#x63A5;&#x53D7;redux&#x7684;store&#x4F5C;&#x4E3A;props&#xFF0C;&#x7136;&#x540E;&#x901A;&#x8FC7;context&#x5F80;&#x4E0B;&#x4F20;&#x3002;</p>
+<p>&#x4E8C;&#x3001;connect&#x51FD;&#x6570;&#x5728;&#x521D;&#x59CB;&#x5316;&#x7684;&#x65F6;&#x5019;&#x4F1A;&#x5C06;mapDispatchToProps&#x5BF9;&#x8C61;&#x7ED1;&#x5B9A;&#x5230;store&#xFF0C;&#x5982;&#x679C;mapDispatchToProps&#x662F;&#x51FD;&#x6570;&#x5219;&#x5728;Connect&#x7EC4;&#x4EF6;&#x83B7;&#x5F97;store&#x540E;&#xFF0C;&#x6839;&#x636E;&#x4F20;&#x5165;&#x7684;store.dispatch&#x548C;action&#x901A;&#x8FC7;bindActionCreators&#x8FDB;&#x884C;&#x7ED1;&#x5B9A;&#xFF0C;&#x518D;&#x5C06;&#x8FD4;&#x56DE;&#x7684;&#x5BF9;&#x8C61;&#x7ED1;&#x5B9A;&#x5230;store&#xFF0C;connect&#x51FD;&#x6570;&#x4F1A;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;wrapWithConnect&#x51FD;&#x6570;&#xFF0C;&#x540C;&#x65F6;wrapWithConnect&#x4F1A;&#x88AB;&#x8C03;&#x7528;&#x4E14;&#x4F20;&#x5165;&#x4E00;&#x4E2A;ui&#x7EC4;&#x4EF6;&#xFF0C;wrapWithConnect&#x5185;&#x90E8;&#x4F7F;&#x7528;class Connect extends Component&#x5B9A;&#x4E49;&#x4E86;&#x4E00;&#x4E2A;Connect&#x7EC4;&#x4EF6;&#xFF0C;&#x4F20;&#x5165;&#x7684;ui&#x7EC4;&#x4EF6;&#x5C31;&#x662F;Connect&#x7684;&#x5B50;&#x7EC4;&#x4EF6;&#xFF0C;&#x7136;&#x540E;Connect&#x7EC4;&#x4EF6;&#x4F1A;&#x901A;&#x8FC7;context&#x83B7;&#x5F97;store&#xFF0C;&#x5E76;&#x901A;&#x8FC7;store.getState&#x83B7;&#x5F97;&#x5B8C;&#x6574;&#x7684;state&#x5BF9;&#x8C61;&#xFF0C;&#x5C06;state&#x4F20;&#x5165;mapStateToProps&#x8FD4;&#x56DE;stateProps&#x5BF9;&#x8C61;&#x3001;mapDispatchToProps&#x5BF9;&#x8C61;&#x6216;mapDispatchToProps&#x51FD;&#x6570;&#x4F1A;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;dispatchProps&#x5BF9;&#x8C61;&#xFF0C;stateProps&#x3001;dispatchProps&#x4EE5;&#x53CA;Connect&#x7EC4;&#x4EF6;&#x7684;props&#x4E09;&#x8005;&#x901A;&#x8FC7;Object.assign()&#xFF0C;&#x6216;&#x8005;mergeProps&#x5408;&#x5E76;&#x4E3A;props&#x4F20;&#x5165;ui&#x7EC4;&#x4EF6;&#x3002;&#x7136;&#x540E;&#x5728;ComponentDidMount&#x4E2D;&#x8C03;&#x7528;store.subscribe&#xFF0C;&#x6CE8;&#x518C;&#x4E86;&#x4E00;&#x4E2A;&#x56DE;&#x8C03;&#x51FD;&#x6570;handleChange&#x76D1;&#x542C;state&#x7684;&#x53D8;&#x5316;&#x3002;</p>
+<p>&#x4E09;&#x3001;&#x6B64;&#x65F6;ui&#x7EC4;&#x4EF6;&#x5C31;&#x53EF;&#x4EE5;&#x5728;props&#x4E2D;&#x627E;&#x5230;actionCreator&#xFF0C;&#x5F53;&#x6211;&#x4EEC;&#x8C03;&#x7528;actionCreator&#x65F6;&#x4F1A;&#x81EA;&#x52A8;&#x8C03;&#x7528;dispatch&#xFF0C;&#x5728;dispatch&#x4E2D;&#x4F1A;&#x8C03;&#x7528;getState&#x83B7;&#x53D6;&#x6574;&#x4E2A;state&#xFF0C;&#x540C;&#x65F6;&#x6CE8;&#x518C;&#x4E00;&#x4E2A;listener&#x76D1;&#x542C;state&#x7684;&#x53D8;&#x5316;&#xFF0C;store&#x5C06;&#x83B7;&#x5F97;&#x7684;state&#x548C;action&#x4F20;&#x7ED9;combineReducers&#xFF0C;combineReducers&#x4F1A;&#x5C06;state&#x4F9D;&#x636E;state&#x7684;key&#x503C;&#x5206;&#x522B;&#x4F20;&#x7ED9;&#x5B50;reducer&#xFF0C;&#x5E76;&#x5C06;action&#x4F20;&#x7ED9;&#x5168;&#x90E8;&#x5B50;reducer&#xFF0C;reducer&#x4F1A;&#x88AB;&#x4F9D;&#x6B21;&#x6267;&#x884C;&#x8FDB;&#x884C;action.type&#x7684;&#x5224;&#x65AD;&#xFF0C;&#x5982;&#x679C;&#x6709;&#x5219;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x65B0;&#x7684;state&#xFF0C;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x5219;&#x8FD4;&#x56DE;&#x9ED8;&#x8BA4;&#x3002;combineReducers&#x518D;&#x6B21;&#x5C06;&#x5B50;reducer&#x8FD4;&#x56DE;&#x7684;&#x5355;&#x4E2A;state&#x8FDB;&#x884C;&#x5408;&#x5E76;&#x6210;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x5B8C;&#x6574;&#x7684;state&#x3002;&#x6B64;&#x65F6;state&#x53D1;&#x751F;&#x4E86;&#x53D8;&#x5316;&#x3002;dispatch&#x5728;state&#x8FD4;&#x56DE;&#x65B0;&#x7684;&#x503C;&#x4E4B;&#x540E;&#x4F1A;&#x8C03;&#x7528;&#x6240;&#x6709;&#x6CE8;&#x518C;&#x7684;listener&#x51FD;&#x6570;&#x5176;&#x4E2D;&#x5305;&#x62EC;handleChange&#x51FD;&#x6570;&#xFF0C;handleChange&#x51FD;&#x6570;&#x5185;&#x90E8;&#x9996;&#x5148;&#x8C03;&#x7528;getState&#x83B7;&#x53D6;&#x65B0;&#x7684;state&#x503C;&#x5E76;&#x5BF9;&#x65B0;&#x65E7;&#x4E24;&#x4E2A;state&#x8FDB;&#x884C;&#x6D45;&#x5BF9;&#x6BD4;&#xFF0C;&#x5982;&#x679C;&#x76F8;&#x540C;&#x76F4;&#x63A5;return&#xFF0C;&#x5982;&#x679C;&#x4E0D;&#x540C;&#x5219;&#x8C03;&#x7528;mapStateToProps&#x83B7;&#x53D6;stateProps&#x5E76;&#x5C06;&#x65B0;&#x65E7;&#x4E24;&#x4E2A;stateProps&#x8FDB;&#x884C;&#x6D45;&#x5BF9;&#x6BD4;&#xFF0C;&#x5982;&#x679C;&#x76F8;&#x540C;&#xFF0C;&#x76F4;&#x63A5;return&#x7ED3;&#x675F;&#xFF0C;&#x4E0D;&#x8FDB;&#x884C;&#x540E;&#x7EED;&#x64CD;&#x4F5C;&#x3002;&#x5982;&#x679C;&#x4E0D;&#x76F8;&#x540C;&#x5219;&#x8C03;&#x7528;this.setState()&#x89E6;&#x53D1;Connect&#x7EC4;&#x4EF6;&#x7684;&#x66F4;&#x65B0;&#xFF0C;&#x4F20;&#x5165;ui&#x7EC4;&#x4EF6;&#xFF0C;&#x89E6;&#x53D1;ui&#x7EC4;&#x4EF6;&#x7684;&#x66F4;&#x65B0;&#xFF0C;&#x6B64;&#x65F6;ui&#x7EC4;&#x4EF6;&#x83B7;&#x5F97;&#x65B0;&#x7684;props&#xFF0C;react &#x2013;&gt; redux &#x2013;&gt; react &#x7684;&#x4E00;&#x6B21;&#x6D41;&#x7A0B;&#x7ED3;&#x675F;&#x3002;</p>
+<p><strong>&#x4E0A;&#x9762;&#x7684;&#x6709;&#x70B9;&#x590D;&#x6742;&#xFF0C;&#x7B80;&#x5316;&#x7248;&#x7684;&#x6D41;&#x7A0B;&#x662F;&#xFF1A;</strong></p>
+<p>&#x4E00;&#x3001;Provider&#x7EC4;&#x4EF6;&#x63A5;&#x53D7;redux&#x7684;store&#x4F5C;&#x4E3A;props&#xFF0C;&#x7136;&#x540E;&#x901A;&#x8FC7;context&#x5F80;&#x4E0B;&#x4F20;&#x3002;</p>
+<p>&#x4E8C;&#x3001;connect&#x51FD;&#x6570;&#x6536;&#x5230;Provider&#x4F20;&#x51FA;&#x7684;store&#xFF0C;&#x7136;&#x540E;&#x63A5;&#x53D7;&#x4E09;&#x4E2A;&#x53C2;&#x6570;mapStateToProps&#xFF0C;mapDispatchToProps&#x548C;&#x7EC4;&#x4EF6;&#xFF0C;&#x5E76;&#x5C06;state&#x548C;actionCreator&#x4EE5;props&#x4F20;&#x5165;&#x7EC4;&#x4EF6;&#xFF0C;&#x8FD9;&#x65F6;&#x7EC4;&#x4EF6;&#x5C31;&#x53EF;&#x4EE5;&#x8C03;&#x7528;actionCreator&#x51FD;&#x6570;&#x6765;&#x89E6;&#x53D1;reducer&#x51FD;&#x6570;&#x8FD4;&#x56DE;&#x65B0;&#x7684;state&#xFF0C;connect&#x76D1;&#x542C;&#x5230;state&#x53D8;&#x5316;&#x8C03;&#x7528;setState&#x66F4;&#x65B0;&#x7EC4;&#x4EF6;&#x5E76;&#x5C06;&#x65B0;&#x7684;state&#x4F20;&#x5165;&#x7EC4;&#x4EF6;&#x3002;</p>
+<p>connect&#x53EF;&#x4EE5;&#x5199;&#x7684;&#x975E;&#x5E38;&#x7B80;&#x6D01;&#xFF0C;mapStateToProps&#xFF0C;mapDispatchToProps&#x53EA;&#x4E0D;&#x8FC7;&#x662F;&#x4F20;&#x5165;&#x7684;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#xFF0C;connect&#x51FD;&#x6570;&#x5728;&#x5FC5;&#x8981;&#x7684;&#x65F6;&#x5019;&#x4F1A;&#x8C03;&#x7528;&#x5B83;&#x4EEC;&#xFF0C;&#x540D;&#x5B57;&#x4E0D;&#x662F;&#x56FA;&#x5B9A;&#x7684;&#xFF0C;&#x751A;&#x81F3;&#x53EF;&#x4EE5;&#x4E0D;&#x5199;&#x540D;&#x5B57;&#x3002;</p>
+<p>&#x7B80;&#x5316;&#x7248;&#x672C;&#xFF1A;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">connect(<span class="function"><span class="params">state</span> =&gt;</span> state, action)(Component);</span><br></pre></td></tr></table></figure></p>
+<h2 id="&#x9879;&#x76EE;&#x642D;&#x5EFA;"><a href="#&#x9879;&#x76EE;&#x642D;&#x5EFA;" class="headerlink" title="&#x9879;&#x76EE;&#x642D;&#x5EFA;"></a>&#x9879;&#x76EE;&#x642D;&#x5EFA;</h2><p>&#x4E0A;&#x9762;&#x8BF4;&#x4E86;react&#xFF0C;react-router&#x548C;redux&#x7684;&#x77E5;&#x8BC6;&#x70B9;&#x3002;&#x4F46;&#x662F;&#x600E;&#x4E48;&#x6837;&#x5C06;&#x5B83;&#x4EEC;&#x6574;&#x5408;&#x8D77;&#x6765;&#xFF0C;&#x642D;&#x5EFA;&#x4E00;&#x4E2A;&#x5B8C;&#x6574;&#x7684;&#x9879;&#x76EE;&#x3002;</p>
+<p>1&#x3001;&#x5148;&#x5F15;&#x7528; react.js&#xFF0C;redux&#xFF0C;react-router &#x7B49;&#x57FA;&#x672C;&#x6587;&#x4EF6;&#xFF0C;&#x5EFA;&#x8BAE;&#x7528;npm&#x5B89;&#x88C5;&#xFF0C;&#x76F4;&#x63A5;&#x5728;&#x6587;&#x4EF6;&#x4E2D;&#x5F15;&#x7528;&#x3002;</p>
+<p>2&#x3001;&#x4ECE; react.js&#xFF0C;redux&#xFF0C;react-router &#x4E2D;&#x5F15;&#x5165;&#x6240;&#x9700;&#x8981;&#x7684;&#x5BF9;&#x8C61;&#x548C;&#x65B9;&#x6CD5;&#x3002;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, {Component, PropTypes} <span class="keyword">from</span> <span class="string">&apos;react&apos;</span>;</span><br><span class="line"><span class="keyword">import</span> ReactDOM, {render} <span class="keyword">from</span> <span class="string">&apos;react-dom&apos;</span>;</span><br><span class="line"><span class="keyword">import</span> {Provider, connect} <span class="keyword">from</span> <span class="string">&apos;react-redux&apos;</span>;</span><br><span class="line"><span class="keyword">import</span> {createStore, combineReducers, applyMiddleware} <span class="keyword">from</span> <span class="string">&apos;redux&apos;</span>;</span><br><span class="line"><span class="keyword">import</span> { Router, Route, Redirect, IndexRoute, browserHistory, hashHistory } <span class="keyword">from</span> <span class="string">&apos;react-router&apos;</span>;</span><br></pre></td></tr></table></figure></p>
+<p>3&#x3001;&#x6839;&#x636E;&#x9700;&#x6C42;&#x521B;&#x5EFA;&#x9876;&#x5C42;ui&#x7EC4;&#x4EF6;&#xFF0C;&#x6BCF;&#x4E2A;&#x9876;&#x5C42;ui&#x7EC4;&#x4EF6;&#x5BF9;&#x5E94;&#x4E00;&#x4E2A;&#x9875;&#x9762;&#x3002;</p>
+<p>4&#x3001;&#x521B;&#x5EFA;actionCreators&#x548C;reducers&#xFF0C;&#x5E76;&#x7528;combineReducers&#x5C06;&#x6240;&#x6709;&#x7684;reducer&#x5408;&#x5E76;&#x6210;&#x4E00;&#x4E2A;&#x5927;&#x7684;reduer&#x3002;&#x5229;&#x7528;createStore&#x521B;&#x5EFA;store&#x5E76;&#x5F15;&#x5165;combineReducers&#x548C;applyMiddleware&#x3002;</p>
+<p>5&#x3001;&#x5229;&#x7528;connect&#x5C06;actionCreator&#xFF0C;reuder&#x548C;&#x9876;&#x5C42;&#x7684;ui&#x7EC4;&#x4EF6;&#x8FDB;&#x884C;&#x5173;&#x8054;&#x5E76;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x7EC4;&#x4EF6;&#x3002;</p>
+<p>6&#x3001;&#x5229;&#x7528;connect&#x8FD4;&#x56DE;&#x7684;&#x65B0;&#x7684;&#x7EC4;&#x4EF6;&#x914D;&#x5408;react-router&#x8FDB;&#x884C;&#x8DEF;&#x7531;&#x7684;&#x90E8;&#x7F72;&#xFF0C;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x8DEF;&#x7531;&#x7EC4;&#x4EF6;Router&#x3002;</p>
+<p>7&#x3001;&#x5C06;Router&#x653E;&#x5165;&#x6700;&#x9876;&#x5C42;&#x7EC4;&#x4EF6;Provider&#xFF0C;&#x5F15;&#x5165;store&#x4F5C;&#x4E3A;Provider&#x7684;&#x5C5E;&#x6027;&#x3002;</p>
+<p>8&#x3001;&#x8C03;&#x7528;render&#x6E32;&#x67D3;Provider&#x7EC4;&#x4EF6;&#x4E14;&#x653E;&#x5165;&#x9875;&#x9762;&#x7684;&#x6807;&#x7B7E;&#x4E2D;&#x3002;</p>
+<p>&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x9876;&#x5C42;&#x7684;ui&#x7EC4;&#x4EF6;&#x5176;&#x5B9E;&#x88AB;&#x5957;&#x4E86;&#x56DB;&#x5C42;&#x7EC4;&#x4EF6;&#xFF0C;Provider&#xFF0C;Router&#xFF0C;Route&#xFF0C;Connect&#xFF0C;&#x8FD9;&#x56DB;&#x4E2A;&#x7EC4;&#x4EF6;&#x5E76;&#x4E0D;&#x4F1A;&#x5728;&#x89C6;&#x56FE;&#x4E0A;&#x6539;&#x53D8;react&#xFF0C;&#x5B83;&#x4EEC;&#x53EA;&#x662F;&#x529F;&#x80FD;&#x6027;&#x7684;&#x3002;</p>
+<p>&#x901A;&#x5E38;&#x6211;&#x4EEC;&#x5728;&#x9876;&#x5C42;&#x7684;ui&#x7EC4;&#x4EF6;&#x6253;&#x5370;props&#x65F6;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x4E00;&#x5806;&#x5C5E;&#x6027;&#xFF1A;</p>
+<p><img src="https://github.com/bailicangdu/pxq/blob/master/screenshot/react_props.png" alt=""></p>
+<p>&#x4E0A;&#x56FE;&#x7684;&#x9876;&#x5C42;ui&#x7EC4;&#x4EF6;&#x5C5E;&#x6027;&#x603B;&#x5171;&#x6709;18&#x4E2A;&#xFF0C;&#x5982;&#x679C;&#x521A;&#x521A;&#x63A5;&#x89E6;react&#xFF0C;&#x53EF;&#x80FD;&#x5BF9;&#x8FD9;&#x4E9B;&#x5C5E;&#x6027;&#x600E;&#x4E48;&#x6765;&#x7684;&#x611F;&#x5230;&#x56F0;&#x60D1;&#xFF0C;&#x5176;&#x5B9E;&#x8FD9;&#x4E9B;&#x5C5E;&#x6027;&#x6765;&#x81EA;&#x4E94;&#x4E2A;&#x5730;&#x65B9;&#xFF1A;</p>
+<p>&#x7EC4;&#x4EF6;&#x81EA;&#x5B9A;&#x4E49;&#x5C5E;&#x6027;1&#x4E2A;&#xFF0C;actionCreator&#x8FD4;&#x56DE;&#x7684;&#x5BF9;&#x8C61;6&#x4E2A;&#xFF0C;reducer&#x8FD4;&#x56DE;&#x7684;state4&#x4E2A;&#xFF0C;Connect&#x7EC4;&#x4EF6;&#x5C5E;&#x6027;0&#x4E2A;&#xFF0C;&#x4EE5;&#x53CA;Router&#x6CE8;&#x5165;&#x7684;&#x5C5E;&#x6027;7&#x4E2A;&#x3002;</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+
+      
+        
+	  <!-- Gitment START! Deploy by Z4HD -->
+	<div id="comments"></div>
+		<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+		<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+		<script>
+		var gitment = new Gitment({
+			id: 'http://yoursite.com/2018/06/18/react + redux + webpack + react-router + ES678 + immutable/',
+			owner: 'JoeJoeyMa',
+ 			repo: 'JoeJoeyMa.github.io',
+			oauth: {
+				client_id: 'b16fd2b48371378f485f',
+				client_secret: 'a3d12c33716206b031ba0d95fade9927e31dbb46',
+			},
+		})
+		gitment.render('comments')
+		</script>
+		<!-- Gitment 自定义样式表 -->
+		<link rel="stylesheet" href="/css/comment-gitment.css">
+		<!-- Gitment END! -->
+	 
+
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ES6-7-8/">ES6/7/8</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Redux/">Redux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/immutable/">immutable</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react/">react</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react-router/">react-router</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/webpack/">webpack</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/12/22/笔记/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Nuevo</strong>
+      <div class="article-nav-title">
+        
+          笔记
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/04/24/快速破解各种散列hash [ hashcat入门篇 ]/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Viejo</strong>
+      <div class="article-nav-title">快速破解各种散列hash [ hashcat入门篇 ]</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Inhalt</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#技术栈："><span class="nav-number">1.</span> <span class="nav-text">技术栈：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运行项目（nodejs-6-0-）"><span class="nav-number">2.</span> <span class="nav-text">运行项目（nodejs 6.0+）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#说明"><span class="nav-number">3.</span> <span class="nav-text">说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#演示"><span class="nav-number">4.</span> <span class="nav-text">演示</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#移动端扫描下方二维码"><span class="nav-number">4.1.</span> <span class="nav-text">移动端扫描下方二维码</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#个人感悟"><span class="nav-number"></span> <span class="nav-text">个人感悟</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#做React需要会什么？"><span class="nav-number">1.</span> <span class="nav-text">做React需要会什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#React-是什么"><span class="nav-number">2.</span> <span class="nav-text">React 是什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#React的组件化"><span class="nav-number">3.</span> <span class="nav-text">React的组件化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#React的-Diff算法"><span class="nav-number">4.</span> <span class="nav-text">React的 Diff算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#React组件是怎么来的"><span class="nav-number">5.</span> <span class="nav-text">React组件是怎么来的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#组件的生命周期"><span class="nav-number">6.</span> <span class="nav-text">组件的生命周期</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#React-Router路由"><span class="nav-number">7.</span> <span class="nav-text">React-Router路由</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#组件之间的通信"><span class="nav-number">8.</span> <span class="nav-text">组件之间的通信</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redux"><span class="nav-number">9.</span> <span class="nav-text">Redux</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#流程是这个样子的："><span class="nav-number">9.0.1.</span> <span class="nav-text">流程是这个样子的：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#接下来具体分析一下，redux以及react-redux到底是怎么实现的。"><span class="nav-number">9.0.2.</span> <span class="nav-text">接下来具体分析一下，redux以及react-redux到底是怎么实现的。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#先上一张图"><span class="nav-number">9.0.3.</span> <span class="nav-text">先上一张图</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#先说说redux："><span class="nav-number">9.1.</span> <span class="nav-text">先说说redux：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#redux主要由三部分组成：store，reducer，action。"><span class="nav-number">9.1.1.</span> <span class="nav-text">redux主要由三部分组成：store，reducer，action。</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#React-Redux"><span class="nav-number">10.</span> <span class="nav-text">React-Redux</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#下面是一个完整的-react-–-gt-redux-–-gt-react-流程："><span class="nav-number">10.1.</span> <span class="nav-text">下面是一个完整的 react –&gt; redux –&gt; react 流程：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#项目搭建"><span class="nav-number">11.</span> <span class="nav-text">项目搭建</span></a></li></ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Construido por <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/JoeJoeyMa/JoeJoeyMa.github.io" target="_blank">Hexo-theme-Joejoey</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2020 To change is to be better to change often is to change perfect All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				UV : <span id="busuanzi_value_site_uv"></span> |  
+				PV : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">About themes</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+    <a href="/book" class="mobile-nav-link">📓</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/scripts.js"></script>
+
+
+
+
+  <script src="/js/dialog.js"></script>
+
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-114383200-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            To change is to be better to change often is to change perfect
+          </div>
+          <div class="panel-body">
+            Copyright © 2020 To change is to be better to change often is to change perfect All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>

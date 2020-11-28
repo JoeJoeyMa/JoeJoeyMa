@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>闭包简介 | To change is to be better to change often is to change perfect</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="CSS前端JavaScript" />
+  
+  
+    <meta name="google-site-verification" content="zeeMq378QFdIk20wn4KhRFwp7IhLaosjf7Kf7o9Zcfs" />
+  
+  
+  
+  <meta name="description" content="&amp;#x95ED;&amp;#x5305;&amp;#x7B80;&amp;#x4ECB;&amp;#x95ED;&amp;#x5305;&amp;#x662F;JavaScript&amp;#x7684;&amp;#x91CD;&amp;#x8981;&amp;#x7279;&amp;#x6027;&amp;#xFF0C;&amp;#x90A3;&amp;#x4E48;&amp;#x4EC0;&amp;#x4E48;&amp;#x662F;&amp;#x95ED;&amp;#x5305;&amp;#xFF1F;   &amp;#x300A;JavaScript&amp;">
+<meta name="keywords" content="CSS,前端,JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="闭包简介">
+<meta property="og:url" content="http://yoursite.com/2016/03/11/闭包简介/index.html">
+<meta property="og:site_name" content="To change is to be better to change often is to change perfect">
+<meta property="og:description" content="&amp;#x95ED;&amp;#x5305;&amp;#x7B80;&amp;#x4ECB;&amp;#x95ED;&amp;#x5305;&amp;#x662F;JavaScript&amp;#x7684;&amp;#x91CD;&amp;#x8981;&amp;#x7279;&amp;#x6027;&amp;#xFF0C;&amp;#x90A3;&amp;#x4E48;&amp;#x4EC0;&amp;#x4E48;&amp;#x662F;&amp;#x95ED;&amp;#x5305;&amp;#xFF1F;   &amp;#x300A;JavaScript&amp;">
+<meta property="og:image" content="http://yoursite.com/2016/03/11/闭包简介/2017030601.png">
+<meta property="og:image" content="http://yoursite.com/2016/03/11/闭包简介/2017030602.png">
+<meta property="og:updated_time" content="2020-11-25T12:52:29.049Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="闭包简介">
+<meta name="twitter:description" content="&amp;#x95ED;&amp;#x5305;&amp;#x7B80;&amp;#x4ECB;&amp;#x95ED;&amp;#x5305;&amp;#x662F;JavaScript&amp;#x7684;&amp;#x91CD;&amp;#x8981;&amp;#x7279;&amp;#x6027;&amp;#xFF0C;&amp;#x90A3;&amp;#x4E48;&amp;#x4EC0;&amp;#x4E48;&amp;#x662F;&amp;#x95ED;&amp;#x5305;&amp;#xFF1F;   &amp;#x300A;JavaScript&amp;">
+<meta name="twitter:image" content="http://yoursite.com/2016/03/11/闭包简介/2017030601.png">
+  
+    <link rel="alternate" href="/atom.xml" title="To change is to be better to change often is to change perfect" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/css/images/mylogo.jpg">
+  <link rel="apple-touch-icon" href="/css/images/mylogo.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery-3.1.1.min.js"></script>
+  <script src="/js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="/css/dialog.css">
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css" >
+  
+
+  
+  
+  
+
+</head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        
+
+<header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/mylogo.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">Startseite</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">Archive</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/categories">about themes</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/tags">Tags</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/about">About</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/book">📓</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Schreib etwas..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Beiträge',
+            PAGES: 'Seiten',
+            CATEGORIES: 'Kategorien',
+            TAGS: 'Tags',
+            UNTITLED: '(Unbenannt)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-闭包简介" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      闭包简介
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2016/03/11/闭包简介/" class="article-date">
+	  <time datetime="2016-03-11T05:57:40.000Z" itemprop="datePublished">2016-03-11</time>
+	</a>
+
+      
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		PV:<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="&#x95ED;&#x5305;&#x7B80;&#x4ECB;"><a href="#&#x95ED;&#x5305;&#x7B80;&#x4ECB;" class="headerlink" title="&#x95ED;&#x5305;&#x7B80;&#x4ECB;"></a>&#x95ED;&#x5305;&#x7B80;&#x4ECB;</h2><p>&#x95ED;&#x5305;&#x662F;JavaScript&#x7684;&#x91CD;&#x8981;&#x7279;&#x6027;&#xFF0C;&#x90A3;&#x4E48;&#x4EC0;&#x4E48;&#x662F;&#x95ED;&#x5305;&#xFF1F;  </p>
+<p>&#x300A;JavaScript&#x9AD8;&#x7EA7;&#x7A0B;&#x5E8F;&#x8BBE;&#x8BA1;(&#x7B2C;3&#x7248;)&#x300B;&#x4E2D;&#x95ED;&#x5305;&#x7684;&#x5B9A;&#x4E49;&#xFF1A;</p>
+<blockquote>
+<p>&#x95ED;&#x5305;&#x5C31;&#x662F;&#x6307;&#x6709;&#x6743;&#x8BBF;&#x95EE;&#x53E6;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x4E2D;&#x7684;&#x53D8;&#x91CF;&#x7684;&#x51FD;&#x6570;&#x3002;  </p>
+</blockquote>
+<p>&#x300A;JavaScript&#x6743;&#x5A01;&#x6307;&#x5357;(&#x7B2C;6&#x7248;)&#x300B;&#x4E2D;&#x95ED;&#x5305;&#x7684;&#x5B9A;&#x4E49;&#xFF1A;</p>
+<blockquote>
+<p>&#x51FD;&#x6570;&#x5BF9;&#x8C61;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x4F5C;&#x7528;&#x57DF;&#x94FE;&#x76F8;&#x4E92;&#x5173;&#x8054;&#x8D77;&#x6765;&#xFF0C;&#x51FD;&#x6570;&#x4F53;&#x5185;&#x90E8;&#x7684;&#x53D8;&#x91CF;&#x90FD;&#x53EF;&#x4EE5;&#x4FDD;&#x5B58;&#x5728;&#x51FD;&#x6570;&#x4F5C;&#x7528;&#x57DF;&#x5185;&#xFF0C;&#x8FD9;&#x79CD;&#x7279;&#x6027;&#x5728;&#x8BA1;&#x7B97;&#x673A;&#x79D1;&#x5B66;&#x6587;&#x732E;&#x4E2D;&#x6210;&#x4E3A;&#x201C;&#x95ED;&#x5305;&#x201D;&#x3002;</p>
+</blockquote>
+<p>&#x7B80;&#x5355;&#x6765;&#x8BF4;&#xFF0C;&#x5728;JavaScript&#x4E2D;&#xFF0C;&#x51FD;&#x6570;&#x662F;&#x5BF9;&#x8C61;&#xFF0C;&#x5BF9;&#x8C61;&#x662F;&#x5C5E;&#x6027;&#x7684;&#x96C6;&#x5408;&#xFF0C;&#x5C5E;&#x6027;&#x7684;&#x503C;&#x4E5F;&#x53EF;&#x4EE5;&#x662F;&#x5BF9;&#x8C61;&#xFF0C;&#x5728;&#x51FD;&#x6570;&#x5185;&#x5B9A;&#x4E49;&#x51FD;&#x6570;&#x5C31;&#x6210;&#x4E3A;&#x4E00;&#x79CD;&#x5E38;&#x89C1;&#x7684;&#x60C5;&#x51B5;&#xFF0C;&#x5728;&#x51FD;&#x6570;&#x5185;&#x90E8;&#x58F0;&#x660E;&#x51FD;&#x6570;innerFunction&#xFF0C;&#x5728;innerFunction&#x5185;&#x90E8;&#x6709;&#x6743;&#x8BBF;&#x95EE;&#x5916;&#x90E8;&#x51FD;&#x6570;&#x7684;&#x53D8;&#x91CF;&#x5BF9;&#x8C61;&#xFF0C;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x5C31;&#x662F;&#x6211;&#x4EEC;&#x6240;&#x8BF4;&#x7684;&#x95ED;&#x5305;&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x6765;&#x770B;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x4F8B;&#x5B50;&#xFF1A;<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkScope</span><span class="params">()</span></span>{</span><br><span class="line">    <span class="keyword">var</span> scope = <span class="string">&quot;local scope&quot;</span>;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">f</span><span class="params">()</span> </span>{ <span class="keyword">return</span> scope; }</span><br><span class="line">    <span class="keyword">return</span> f();</span><br><span class="line">}</span><br><span class="line">checkScope();<span class="comment">//&#x8F93;&#x51FA;&#x4E3A;&#x201C;local scope&#x201D;</span></span><br></pre></td></tr></table></figure></p>
+<p>&#x5F53;&#x51FD;&#x6570;&#x7B2C;&#x4E00;&#x6B21;&#x88AB;&#x8C03;&#x7528;&#x65F6;&#xFF0C;&#x4F1A;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x6267;&#x884C;&#x73AF;&#x5883;&#x4EE5;&#x53CA;&#x76F8;&#x5E94;&#x7684;&#x4F5C;&#x7528;&#x57DF;&#x94FE;&#xFF0C;&#x4F5C;&#x7528;&#x57DF;&#x94FE;&#x7684;&#x524D;&#x7AEF;&#xFF0C;&#x59CB;&#x7EC8;&#x90FD;&#x662F;&#x5F53;&#x524D;&#x6267;&#x884C;&#x4EE3;&#x7801;&#x6240;&#x5728;&#x73AF;&#x5883;&#x7684;&#x53D8;&#x91CF;&#x5BF9;&#x8C61;&#xFF0C;&#x4F5C;&#x7528;&#x57DF;&#x94FE;&#x4E2D;&#x7684;&#x4E0B;&#x4E00;&#x4E2A;&#x53D8;&#x91CF;&#x5BF9;&#x8C61;&#x6765;&#x81EA;&#x5305;&#x542B;&#x5916;&#x90E8;&#x73AF;&#x5883;&#xFF0C;&#x4E0B;&#x4E00;&#x4E2A;&#x53D8;&#x91CF;&#x5219;&#x6765;&#x81EA;&#x4E0B;&#x4E00;&#x4E2A;&#x5916;&#x90E8;&#x73AF;&#x5883;&#xFF0C;&#x8FD9;&#x6837;&#x4E00;&#x76F4;&#x5EF6;&#x7EED;&#x5230;&#x5168;&#x5C40;&#x6267;&#x884C;&#x73AF;&#x5883;&#x3002;</p>
+<p>&#x5728;&#x4E0A;&#x8FB9;&#x7684;&#x4F8B;&#x5B50;&#x4E2D;&#xFF0C;&#x8BBF;&#x95EE;scope&#x65F6;&#xFF0C;&#x5185;&#x90E8;&#x7684;f()&#x51FD;&#x6570;&#x53EF;&#x4EE5;&#x8BBF;&#x95EE;f()&#x5916;&#x90E8;&#x7684;&#x53D8;&#x91CF;scope&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x5728;&#x4F5C;&#x7528;&#x57DF;&#x94FE;&#x4E2D;&#x4E00;&#x7EA7;&#x4E00;&#x7EA7;&#x5F80;&#x4E0A;&#x627E;&#x7684;&#x65F6;&#x5019;&#x53EF;&#x4EE5;&#x627E;&#x5230;scope&#x53D8;&#x91CF;&#x3002;</p>
+<h2 id="&#x95ED;&#x5305;&#x7684;&#x4F5C;&#x7528;"><a href="#&#x95ED;&#x5305;&#x7684;&#x4F5C;&#x7528;" class="headerlink" title="&#x95ED;&#x5305;&#x7684;&#x4F5C;&#x7528;"></a>&#x95ED;&#x5305;&#x7684;&#x4F5C;&#x7528;</h2><p>&#x4E00;&#x3001; &#x6A21;&#x62DF;&#x79C1;&#x6709;&#x53D8;&#x91CF;&#x3002;&#x5728;&#x51FD;&#x6570;&#x5185;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x95ED;&#x5305;&#xFF0C;&#x95ED;&#x5305;&#x5C31;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x81EA;&#x5DF1;&#x7684;&#x4F5C;&#x7528;&#x57DF;&#x94FE;&#x8BBF;&#x95EE;&#x51FD;&#x6570;&#x5185;&#x90E8;&#x7684;&#x53D8;&#x91CF;&#xFF0C;&#x53EF;&#x4EE5;&#x521B;&#x5EFA;&#x7528;&#x4E8E;&#x8BBF;&#x95EE;&#x79C1;&#x6709;&#x53D8;&#x91CF;&#x7684;&#x65B9;&#x6CD5;&#x3002;&#x8BBF;&#x95EE;&#x79C1;&#x6709;&#x53D8;&#x91CF;&#x548C;&#x79C1;&#x6709;&#x51FD;&#x6570;&#x7684;&#x65B9;&#x6CD5;&#x88AB;&#x79F0;&#x4E3A;&#x7279;&#x6743;&#x65B9;&#x6CD5;&#x3002;</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">MyObject</span><span class="params">()</span></span>{</span><br><span class="line">    <span class="keyword">var</span> privateVariable = <span class="number">10</span>;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">privateFunction</span><span class="params">()</span> </span>{</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    }</span><br><span class="line">    <span class="comment">//&#x7279;&#x6743;&#x65B9;&#x6CD5;</span></span><br><span class="line">    <span class="keyword">this</span>.publicFunction = <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{</span><br><span class="line">        privateVariable++;</span><br><span class="line">        <span class="keyword">return</span> privateFunction();</span><br><span class="line">    };</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>&#x4E8C;&#x3001; &#x6A21;&#x4EFF;&#x5757;&#x7EA7;&#x4F5C;&#x7528;&#x57DF;&#x3002;<br>JavaScript&#x4E2D;&#x6CA1;&#x6709;&#x5757;&#x7EA7;&#x4F5C;&#x7528;&#x57DF;&#x7684;&#x6982;&#x5FF5;&#xFF0C;&#x8FD9;&#x610F;&#x5473;&#x7740;&#x5728;&#x5757;&#x8BED;&#x53E5;&#x4E2D;&#x5B9A;&#x4E49;&#x7684;&#x53D8;&#x91CF;&#xFF0C;&#x5B9E;&#x9645;&#x4E0A;&#x662F;&#x5305;&#x542B;&#x5728;&#x51FD;&#x6570;&#x4E2D;&#x7684;&#x3002;&#x5982;&#x679C;&#x4E34;&#x65F6;&#x9700;&#x8981;&#x4E00;&#x4E9B;&#x53D8;&#x91CF;&#xFF0C;&#x4F7F;&#x7528;&#x79C1;&#x6709;&#x4F5C;&#x7528;&#x57DF;&#x3002;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">block</span>(<span class="params"></span>) </span>{</span><br><span class="line">    <span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">var</span> b = <span class="number">2</span>;</span><br><span class="line">    (<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{</span><br><span class="line">        <span class="keyword">var</span> a = <span class="number">3</span>;<span class="comment">//&#x8986;&#x76D6;&#x4E86;&#x7236;&#x4F5C;&#x7528;&#x57DF;&#x4E2D;&#x7684;&#x53D8;&#x91CF;a</span></span><br><span class="line">        <span class="keyword">var</span> c = <span class="number">4</span>;</span><br><span class="line">        <span class="comment">//&#x8BBF;&#x95EE;&#x5230;&#x4E86;&#x5F53;&#x524D;&#x4F5C;&#x7528;&#x57DF;&#x4E2D;&#x7684;&#x53D8;&#x91CF;</span></span><br><span class="line">        <span class="built_in">console</span>.log(a);<span class="comment">//3</span></span><br><span class="line">        <span class="comment">//&#x8BBF;&#x95EE;&#x4E86;&#x7236;&#x4F5C;&#x7528;&#x57DF;&#x4E2D;&#x7684;&#x53D8;&#x91CF;</span></span><br><span class="line">        <span class="built_in">console</span>.log(b);<span class="comment">//2</span></span><br><span class="line">        <span class="comment">//&#x8BBF;&#x95EE;&#x5F53;&#x524D;&#x4F5C;&#x7528;&#x57DF;&#x4E2D;&#x7684;&#x53D8;&#x91CF;</span></span><br><span class="line">        <span class="built_in">console</span>.log(c);<span class="comment">//4</span></span><br><span class="line">    })()</span><br><span class="line">    <span class="comment">//&#x8BBF;&#x95EE;&#x5757;&#x7EA7;&#x4F5C;&#x7528;&#x57DF;&#x4E2D;&#x7684;&#x53D8;&#x91CF;</span></span><br><span class="line">    <span class="built_in">console</span>.log(c);<span class="comment">//c is not defined</span></span><br><span class="line">}</span><br></pre></td></tr></table></figure></p>
+<p>&#x8FD9;&#x79CD;&#x6280;&#x672F;&#x7ECF;&#x5E38;&#x5728;&#x5168;&#x5C40;&#x4F5C;&#x7528;&#x57DF;&#x4E2D;&#x88AB;&#x7528;&#x5728;&#x51FD;&#x6570;&#x5916;&#x90E8;&#xFF0C;&#x4ECE;&#x800C;&#x9650;&#x5236;&#x5411;&#x5168;&#x5C40;&#x4F5C;&#x7528;&#x57DF;&#x4E2D;&#x6DFB;&#x52A0;&#x8FC7;&#x591A;&#x7684;&#x53D8;&#x91CF;&#x548C;&#x51FD;&#x6570;&#x3002;</p>
+<h2 id="&#x5FAA;&#x73AF;&#x4E2D;&#x7684;&#x95ED;&#x5305;"><a href="#&#x5FAA;&#x73AF;&#x4E2D;&#x7684;&#x95ED;&#x5305;" class="headerlink" title="&#x5FAA;&#x73AF;&#x4E2D;&#x7684;&#x95ED;&#x5305;"></a>&#x5FAA;&#x73AF;&#x4E2D;&#x7684;&#x95ED;&#x5305;</h2><p>&#x4F7F;&#x7528;&#x95ED;&#x5305;&#x65F6;&#x4E00;&#x79CD;&#x5E38;&#x89C1;&#x7684;&#x9519;&#x8BEF;&#x60C5;&#x51B5;&#x662F;&#x5FAA;&#x73AF;&#x4E2D;&#x7684;&#x95ED;&#x5305;&#xFF0C;&#x5F88;&#x591A;&#x521D;&#x5B66;&#x8005;&#x90FD;&#x9047;&#x5230;&#x4E86;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x3002;&#x5F88;&#x5E38;&#x89C1;&#x7684;&#x4E00;&#x79CD;&#x60C5;&#x51B5;&#x5C31;&#x662F;&#x7ED9;&#x9875;&#x9762;&#x4E2D;&#x7684;&#x591A;&#x4E2A;&#x6309;&#x94AE;&#x7ED1;&#x5B9A;&#x70B9;&#x51FB;&#x4E8B;&#x4EF6;&#xFF0C;JavaScript&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#x6240;&#x793A;&#xFF1A;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line"> &#xA0; &#xA0;<span class="keyword">var</span> inputs = <span class="built_in">document</span>.getElementsByTagName(<span class="string">&apos;input&apos;</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; inputs.length; i++){</span><br><span class="line">        inputs[i].onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">            <span class="built_in">console</span>.log(i);<span class="comment">//&#x5E0C;&#x671B;&#x8F93;&#x51FA;0,1,2,3,4...</span></span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure></p>
+<p>&#x9875;&#x9762;&#x4E2D;&#x6709;5&#x4E2A;&#x6309;&#x94AE;&#xFF0C;&#x6839;&#x636E;&#x4E0A;&#x8FB9;&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x7684;&#x662F;&#x4F9D;&#x6B21;&#x70B9;&#x51FB;&#x6309;&#x94AE;&#x65F6;&#xFF0C;&#x63A7;&#x5236;&#x53F0;&#x5206;&#x522B;&#x6253;&#x5370;&#x51FA;0&#xFF0C;1&#xFF0C;2&#xFF0C;3&#xFF0C;4&#xFF0C;&#x800C;&#x5B9E;&#x9645;&#x4E0A;&#xFF0C;&#x63A7;&#x5236;&#x53F0;&#x6253;&#x5370;&#x51FA;&#x6765;&#x7684;&#xFF0C;&#x5982;&#x4E0B;&#x56FE;&#x6240;&#x793A;&#xFF1A;</p>
+<img src="/2016/03/11/&#x95ED;&#x5305;&#x7B80;&#x4ECB;/2017030601.png">
+<p>&#x8FD9;&#x662F;&#x4E3A;&#x4EC0;&#x4E48;&#x5462;&#xFF0C;&#x5F53;for&#x5FAA;&#x73AF;&#x6267;&#x884C;&#x5B8C;&#x4E4B;&#x540E;&#xFF0C;i&#x5DF2;&#x7ECF;&#x53D8;&#x6210;&#x4E86;&#x6309;&#x94AE;&#x7684;&#x4E2A;&#x6570;5&#x4E86;&#xFF0C;&#x800C;&#x6240;&#x6709;&#x70B9;&#x51FB;&#x51FD;&#x6570;&#x7ED1;&#x5B9A;&#x7684;&#x90FD;&#x662F;&#x540C;&#x4E00;&#x4E2A;i&#xFF0C;&#x70B9;&#x51FB;&#x6309;&#x94AE;&#x65F6;&#xFF0C;&#x6253;&#x5370;&#x51FA;&#x6765;&#x7684;i&#x4E5F;&#x90FD;&#x53D8;&#x6210;&#x4E86;5&#x4E86;&#x3002;</p>
+<p>&#x8FD9;&#x4E00;&#x90E8;&#x5206;&#x7406;&#x89E3;&#x4E5F;&#x53EF;&#x4EE5;&#x53C2;&#x8003;<a href="http://www.cnblogs.com/qieguo/p/5457040.html&#x3002;" target="_blank" rel="noopener">http://www.cnblogs.com/qieguo/p/5457040.html&#x3002;</a></p>
+<p>&#x90A3;&#x4E48;&#x6211;&#x4EEC;&#x4E3A;&#x4E86;&#x5F97;&#x5230;&#x60F3;&#x8981;&#x7684;&#x7ED3;&#x679C;&#xFF0C;&#x9700;&#x8981;&#x5728;&#x6BCF;&#x6B21;&#x5FAA;&#x73AF;&#x4E2D;&#x521B;&#x5EFA;&#x53D8;&#x91CF;i&#x7684;&#x62F7;&#x8D1D;&#xFF0C;&#x4E0B;&#x9762;&#x63D0;&#x4F9B;&#x4E09;&#x79CD;&#x65B9;&#x6CD5;&#x3002;</p>
+<p>&#x7B2C;&#x4E00;&#x3001;&#x4F7F;&#x7528;&#x533F;&#x540D;&#x5305;&#x88C5;&#x5668;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{</span><br><span class="line">    <span class="keyword">var</span> inputs = <span class="built_in">document</span>.getElementsByTagName(<span class="string">&apos;input&apos;</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; inputs.length; i++) {</span><br><span class="line">        (<span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>{</span><br><span class="line">            inputs[i].onclick = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{</span><br><span class="line">                <span class="built_in">console</span>.log(e);</span><br><span class="line">            }</span><br><span class="line">        })(i);</span><br><span class="line"></span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>&#x4F9D;&#x6B21;&#x70B9;&#x51FB;&#x6309;&#x94AE;&#xFF0C;&#x63A7;&#x5236;&#x53F0;&#x8F93;&#x51FA;&#x5982;&#x4E0B;&#xFF1A;</p>
+<img src="/2016/03/11/&#x95ED;&#x5305;&#x7B80;&#x4ECB;/2017030602.png">
+<p>&#x7B2C;&#x4E8C;&#x3001;&#x4ECE;&#x533F;&#x540D;&#x5305;&#x88C5;&#x5668;&#x4E2D;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#xFF1A;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{</span><br><span class="line">    <span class="keyword">var</span> inputs = <span class="built_in">document</span>.getElementsByTagName(<span class="string">&apos;input&apos;</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; inputs.length; i++) {</span><br><span class="line">        inputs[i].onclick = <span class="function"><span class="keyword">function</span> (<span class="params">num</span>) </span>{</span><br><span class="line">            <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{</span><br><span class="line">                <span class="built_in">console</span>.log(num);</span><br><span class="line">            };</span><br><span class="line">        } (i);</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure></p>
+<p>&#x9996;&#x5148;&#xFF0C;&#x5B9A;&#x4E49;&#x4E86;&#x533F;&#x540D;&#x51FD;&#x6570;&#xFF0C;&#x5E76;&#x5C06;&#x7ACB;&#x5373;&#x6267;&#x884C;&#x8BE5;&#x533F;&#x540D;&#x51FD;&#x6570;&#x7684;&#x7ED3;&#x679C;&#x8D4B;&#x503C;&#x7ED9;&#x6570;&#x7EC4;&#xFF0C;&#x533F;&#x540D;&#x51FD;&#x6570;&#x6709;&#x4E00;&#x4E2A;&#x53C2;&#x6570;num&#xFF0C;&#x5728;&#x8C03;&#x7528;&#x6BCF;&#x4E2A;&#x51FD;&#x6570;&#x65F6;&#xFF0C;&#x6211;&#x4EEC;&#x4F20;&#x5165;&#x4E86;&#x53D8;&#x91CF;i&#xFF0C;&#x51FD;&#x6570;&#x6309;&#x503C;&#x4F20;&#x9012;&#xFF0C;&#x5C31;&#x5C06;&#x53D8;&#x91CF;i&#x7684;&#x5F53;&#x524D;&#x503C;&#x590D;&#x5236;&#x7ED9;&#x53C2;&#x6570;num&#x3002;&#x800C;&#x5728;&#x8FD9;&#x4E2A;&#x533F;&#x540D;&#x51FD;&#x6570;&#x5185;&#x90E8;&#xFF0C;&#x53C8;&#x521B;&#x5EFA;&#x5E76;&#x8FD4;&#x56DE;&#x4E86;&#x4E00;&#x4E2A;&#x8BBF;&#x95EE;num&#x7684;&#x95ED;&#x5305;&#xFF0C;&#x8FD9;&#x6837;&#x4E00;&#x6765;&#xFF0C;&#x6BCF;&#x4E2A;&#x6309;&#x94AE;&#x70B9;&#x51FB;&#x51FD;&#x6570;&#x90FD;&#x6709;&#x81EA;&#x5DF1;num&#x53D8;&#x91CF;&#x7684;&#x4E00;&#x4E2A;&#x526F;&#x672C;&#xFF0C;&#x56E0;&#x6B64;&#x53EF;&#x4EE5;&#x8F93;&#x51FA;&#x5404;&#x81EA;&#x4E0D;&#x540C;&#x7684;&#x6570;&#x503C;&#x4E86;&#x3002;</p>
+<p>&#x7B2C;&#x4E09;&#x3001;&#x5728;&#x5FAA;&#x73AF;&#x4E2D;&#x4F7F;&#x7528;let</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{</span><br><span class="line">    <span class="keyword">var</span> inputs = <span class="built_in">document</span>.getElementsByTagName(<span class="string">&apos;input&apos;</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; inputs.length; i++) {</span><br><span class="line">        inputs[i].onclick = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{</span><br><span class="line">            <span class="built_in">console</span>.log(i);</span><br><span class="line">        };</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>let&#x662F;ES6&#x65B0;&#x589E;&#x7684;&#x547D;&#x4EE4;&#xFF0C;&#x7528;&#x6CD5;&#x7C7B;&#x4F3C;&#x4E8E;var&#xFF0C;&#x4F46;&#x662F;&#x6240;&#x58F0;&#x660E;&#x7684;&#x53D8;&#x91CF;&#x53EA;&#x80FD;&#x5728;let&#x547D;&#x4EE4;&#x6240;&#x5728;&#x4EE3;&#x7801;&#x5757;&#x5185;&#x6709;&#x6548;&#x3002;&#x4E0A;&#x8FF0;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;&#x53D8;&#x91CF;i&#x662F;let&#x58F0;&#x660E;&#x7684;&#xFF0C;&#x5F53;&#x524D;&#x7684;i&#x53EA;&#x5728;&#x672C;&#x8F6E;&#x5FAA;&#x73AF;&#x6709;&#x6548;&#x3002;&#x6240;&#x4EE5;&#x6BCF;&#x4E00;&#x6B21;&#x5FAA;&#x73AF;&#x7684;i&#x5176;&#x5B9E;&#x90FD;&#x662F;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x53D8;&#x91CF;&#x3002;&#x5173;&#x4E8E;let&#x7684;&#x7528;&#x6CD5;&#x53EF;&#x53C2;&#x8003;<a href="http://es6.ruanyifeng.com/#docs/let" target="_blank" rel="noopener">&#x300A;ECMAScript 6 &#x5165;&#x95E8;&#x300B;&#x4E2D;&#x7B2C;&#x4E8C;&#x7AE0;</a>&#x3002;</p>
+<h2 id="&#x5185;&#x5B58;&#x6CC4;&#x6F0F;"><a href="#&#x5185;&#x5B58;&#x6CC4;&#x6F0F;" class="headerlink" title="&#x5185;&#x5B58;&#x6CC4;&#x6F0F;"></a>&#x5185;&#x5B58;&#x6CC4;&#x6F0F;</h2><p>&#x4EA7;&#x751F;&#x5185;&#x5B58;&#x6CC4;&#x6F0F;&#x7684;&#x539F;&#x56E0;&#x662F;IE9&#x4E4B;&#x524D;&#x7684;&#x7248;&#x672C;&#x5BF9;JScript&#x5BF9;&#x8C61;&#x548C;COM&#x5BF9;&#x8C61;&#x4F7F;&#x7528;&#x4E0D;&#x540C;&#x7684;&#x5783;&#x573E;&#x6536;&#x96C6;&#x4F8B;&#x7A0B;&#xFF0C;&#x56E0;&#x6B64;&#x95ED;&#x5305;&#x5728;IE&#x7684;&#x8FD9;&#x4E9B;&#x7248;&#x672C;&#x4E2D;&#x4F1A;&#x5BFC;&#x81F4;&#x4E00;&#x4E9B;&#x95EE;&#x9898;&#x3002;(JavaScript&#x5783;&#x573E;&#x6536;&#x96C6;&#x673A;&#x5236;&#x53EF;&#x53C2;&#x8003;&#x300A;JavaScript&#x9AD8;&#x7EA7;&#x7A0B;&#x5E8F;&#x8BBE;&#x8BA1;(&#x7B2C;3&#x7248;)&#x300B;4.3)<br>&#x4F8B;&#x5982;&#xFF1A;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">assignHandle</span>(<span class="params"></span>) </span>{</span><br><span class="line">    <span class="keyword">var</span> element = <span class="built_in">document</span>.getElementById(<span class="string">&apos;elementId&apos;</span>);</span><br><span class="line"> &#xA0; &#xA0;element.onclick = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{  <span class="comment">// element&#x7684;onclick&#x5F15;&#x7528;&#x4E86;&#x51FD;&#x6570;funciton&#xFF0C;function&#x901A;&#x8FC7;&#x95ED;&#x5305;&#x5F15;&#x7528;&#x4E86;element&#xFF0C;&#x9020;&#x6210;&#x5FAA;&#x73AF;&#x5F15;&#x7528;</span></span><br><span class="line">        <span class="built_in">console</span>.log(element.id);</span><br><span class="line">    };</span><br><span class="line">}</span><br></pre></td></tr></table></figure></p>
+<p>&#x8FD9;&#x4E2A;&#x4F8B;&#x5B50;&#x4E2D;&#xFF0C;&#x5FAA;&#x73AF;&#x5F15;&#x7528;&#x5BFC;&#x81F4;&#x4E86;element&#x5F15;&#x7528;&#x6570;&#x81F3;&#x5C11;&#x4E3A;1&#xFF0C;element&#x6240;&#x5360;&#x5185;&#x5B58;&#x5C31;&#x6C38;&#x8FDC;&#x4E0D;&#x4F1A;&#x88AB;&#x56DE;&#x6536;&#xFF0C;&#x4ECE;&#x800C;&#x5BFC;&#x81F4;&#x4E86;&#x5185;&#x5B58;&#x6CC4;&#x6F0F;&#x95EE;&#x9898;&#x3002;&#x8981;&#x89E3;&#x51B3;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#xFF0C;&#x5C31;&#x9700;&#x8981;&#x89E3;&#x9664;&#x5BF9;DOM&#x5BF9;&#x8C61;&#x7684;&#x5F15;&#x7528;&#xFF0C;&#x51CF;&#x5C11;&#x5F15;&#x7528;&#x6570;&#xFF0C;&#x786E;&#x4FDD;&#x6B63;&#x5E38;&#x56DE;&#x6536;&#x5176;&#x6240;&#x5360;&#x7528;&#x7684;&#x5185;&#x5B58;&#x3002;</p>
+<blockquote>
+<p>&#x5F15;&#x7528;&#x8BA1;&#x6570;&#x7684;&#x542B;&#x4E49;&#x662F;&#x8DDF;&#x8E2A;&#x8BB0;&#x5F55;&#x6BCF;&#x4E2A;&#x503C;&#x88AB;&#x5F15;&#x7528;&#x7684;&#x6B21;&#x6570;&#x3002;&#x5F53;&#x58F0;&#x660E;&#x4E86;&#x4E00;&#x4E2A;&#x53D8;&#x91CF;&#x5E76;&#x5C06;&#x4E00;&#x4E2A;&#x5F15;&#x7528;&#x7C7B;&#x578B;&#x503C;&#x8D4B;&#x7ED9;&#x8BE5;&#x53D8;&#x91CF;&#x65F6;&#xFF0C;&#x5219;&#x8FD9;&#x4E2A;&#x503C;&#x7684;&#x5F15;&#x7528;&#x6B21;&#x6570;&#x5C31;&#x662F;1&#x3002;&#x5982;&#x679C;&#x540C;&#x4E00;&#x4E2A;&#x503C;&#x53C8;&#x88AB;&#x8D4B;&#x7ED9;&#x53E6;&#x4E00;&#x4E2A;&#x53D8;&#x91CF;&#xFF0C;&#x5219;&#x8BE5;&#x503C;&#x7684;&#x5F15;&#x7528;&#x6B21;&#x6570;&#x52A0;1&#x3002;&#x76F8;&#x53CD;&#xFF0C;&#x5982;&#x679C;&#x5305;&#x542B;&#x5BF9;&#x8FD9;&#x4E2A;&#x503C;&#x5F15;&#x7528;&#x7684;&#x53D8;&#x91CF;&#x53C8;&#x53D6;&#x5F97;&#x4E86;&#x53E6;&#x5916;&#x4E00;&#x4E2A;&#x503C;&#xFF0C;&#x5219;&#x8FD9;&#x4E2A;&#x503C;&#x7684;&#x5F15;&#x7528;&#x6B21;&#x6570;&#x51CF;1&#x3002;&#x5F53;&#x8FD9;&#x4E2A;&#x503C;&#x7684;&#x5F15;&#x7528;&#x6B21;&#x6570;&#x53D8;&#x6210;0&#x65F6;&#xFF0C;&#x5219;&#x8BF4;&#x660E;&#x6CA1;&#x6709;&#x529E;&#x6CD5;&#x518D;&#x6B21;&#x8BBF;&#x95EE;&#x8FD9;&#x4E2A;&#x503C;&#x4E86;&#xFF0C;&#x56E0;&#x800C;&#x5C31;&#x53EF;&#x4EE5;&#x5C06;&#x5176;&#x5360;&#x7528;&#x7684;&#x5185;&#x5B58;&#x7A7A;&#x95F4;&#x56DE;&#x6536;&#x56DE;&#x6765;&#x3002;</p>
+</blockquote>
+<p>&#x5728;&#x91C7;&#x7528;&#x5F15;&#x7528;&#x8BA1;&#x6570;&#x7B56;&#x7565;&#x7684;&#x5B9E;&#x73B0;&#x4E2D;&#xFF0C;&#x51FA;&#x73B0;&#x5FAA;&#x73AF;&#x5F15;&#x7528;&#x65F6;&#xFF0C;&#x7531;&#x4E8E;&#x53D8;&#x91CF;&#x7684;&#x5F15;&#x7528;&#x6B21;&#x6570;&#x6C38;&#x8FDC;&#x4E0D;&#x4F1A;&#x662F;0&#xFF0C;&#x51FD;&#x6570;&#x88AB;&#x591A;&#x6B21;&#x8C03;&#x7528;&#x65F6;&#xFF0C;&#x5C31;&#x4F1A;&#x5BFC;&#x81F4;&#x5927;&#x91CF;&#x5185;&#x5B58;&#x5F97;&#x4E0D;&#x5230;&#x56DE;&#x6536;&#x3002;<br>&#x8FD9;&#x4E00;&#x90E8;&#x5206;&#x7406;&#x89E3;&#x53EF;&#x4EE5;&#x53C2;&#x8003;<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Memory_Management" target="_blank" rel="noopener">MDN&#x4E2D;JavaScript&#x5185;&#x5B58;&#x7BA1;&#x7406;</a>&#x3002;</p>
+<h2 id="&#x7ED3;&#x8BED;"><a href="#&#x7ED3;&#x8BED;" class="headerlink" title="&#x7ED3;&#x8BED;"></a>&#x7ED3;&#x8BED;</h2><p>JavaScript&#x95ED;&#x5305;&#x662F;&#x6781;&#x5176;&#x6709;&#x7528;&#x7684;&#x7279;&#x6027;&#xFF0C;&#x4F46;&#x662F;&#x7531;&#x4E8E;&#x95ED;&#x5305;&#x4F1A;&#x643A;&#x5E26;&#x5305;&#x542B;&#x5B83;&#x7684;&#x51FD;&#x6570;&#x7684;&#x4F5C;&#x7528;&#x57DF;&#xFF0C;&#x5360;&#x7528;&#x66F4;&#x591A;&#x5185;&#x5B58;&#xFF0C;&#x8FC7;&#x591A;&#x4F7F;&#x7528;&#x95ED;&#x5305;&#x53EF;&#x80FD;&#x4F1A;&#x5BFC;&#x81F4;&#x5185;&#x5B58;&#x5360;&#x7528;&#x8FC7;&#x591A;&#x3002;  </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+
+      
+        
+	  <!-- Gitment START! Deploy by Z4HD -->
+	<div id="comments"></div>
+		<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+		<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+		<script>
+		var gitment = new Gitment({
+			id: 'http://yoursite.com/2016/03/11/闭包简介/',
+			owner: 'JoeJoeyMa',
+ 			repo: 'JoeJoeyMa.github.io',
+			oauth: {
+				client_id: 'b16fd2b48371378f485f',
+				client_secret: 'a3d12c33716206b031ba0d95fade9927e31dbb46',
+			},
+		})
+		gitment.render('comments')
+		</script>
+		<!-- Gitment 自定义样式表 -->
+		<link rel="stylesheet" href="/css/comment-gitment.css">
+		<!-- Gitment END! -->
+	 
+
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/03/12/React-vue/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Nuevo</strong>
+      <div class="article-nav-title">
+        
+          React/vue
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/03/09/ES6/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Viejo</strong>
+      <div class="article-nav-title">ES6</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Inhalt</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#闭包简介"><span class="nav-number">1.</span> <span class="nav-text">闭包简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#闭包的作用"><span class="nav-number">2.</span> <span class="nav-text">闭包的作用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#循环中的闭包"><span class="nav-number">3.</span> <span class="nav-text">循环中的闭包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内存泄漏"><span class="nav-number">4.</span> <span class="nav-text">内存泄漏</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结语"><span class="nav-number">5.</span> <span class="nav-text">结语</span></a></li></ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Construido por <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/JoeJoeyMa/JoeJoeyMa.github.io" target="_blank">Hexo-theme-Joejoey</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2020 To change is to be better to change often is to change perfect All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				UV : <span id="busuanzi_value_site_uv"></span> |  
+				PV : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">About themes</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+    <a href="/book" class="mobile-nav-link">📓</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/scripts.js"></script>
+
+
+
+
+  <script src="/js/dialog.js"></script>
+
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-114383200-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            To change is to be better to change often is to change perfect
+          </div>
+          <div class="panel-body">
+            Copyright © 2020 To change is to be better to change often is to change perfect All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>

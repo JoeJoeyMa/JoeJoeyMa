@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>es6 | To change is to be better to change often is to change perfect</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="CSS前端JavaScriptES6" />
+  
+  
+    <meta name="google-site-verification" content="zeeMq378QFdIk20wn4KhRFwp7IhLaosjf7Kf7o9Zcfs" />
+  
+  
+  
+  <meta name="description" content="&amp;#x8FD1;&amp;#x5E74;&amp;#x6765;&amp;#xFF0C;&amp;#x968F;&amp;#x7740;JavaScript&amp;#x793E;&amp;#x533A;&amp;#x7684;&amp;#x4E0D;&amp;#x65AD;&amp;#x53D1;&amp;#x5C55;&amp;#xFF0C;JavaScript&amp;#x8BED;&amp;#x8A00;&amp;#x6709;&amp;#x4E86;&amp;#x5F88;&amp;#x591A;&amp;#x65B0;&amp;#x7684;&amp;#x7">
+<meta name="keywords" content="CSS,前端,JavaScript,ES6">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ES6">
+<meta property="og:url" content="http://yoursite.com/2016/03/09/ES6/index.html">
+<meta property="og:site_name" content="To change is to be better to change often is to change perfect">
+<meta property="og:description" content="&amp;#x8FD1;&amp;#x5E74;&amp;#x6765;&amp;#xFF0C;&amp;#x968F;&amp;#x7740;JavaScript&amp;#x793E;&amp;#x533A;&amp;#x7684;&amp;#x4E0D;&amp;#x65AD;&amp;#x53D1;&amp;#x5C55;&amp;#xFF0C;JavaScript&amp;#x8BED;&amp;#x8A00;&amp;#x6709;&amp;#x4E86;&amp;#x5F88;&amp;#x591A;&amp;#x65B0;&amp;#x7684;&amp;#x7">
+<meta property="og:updated_time" content="2020-11-25T12:52:29.007Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ES6">
+<meta name="twitter:description" content="&amp;#x8FD1;&amp;#x5E74;&amp;#x6765;&amp;#xFF0C;&amp;#x968F;&amp;#x7740;JavaScript&amp;#x793E;&amp;#x533A;&amp;#x7684;&amp;#x4E0D;&amp;#x65AD;&amp;#x53D1;&amp;#x5C55;&amp;#xFF0C;JavaScript&amp;#x8BED;&amp;#x8A00;&amp;#x6709;&amp;#x4E86;&amp;#x5F88;&amp;#x591A;&amp;#x65B0;&amp;#x7684;&amp;#x7">
+  
+    <link rel="alternate" href="/atom.xml" title="To change is to be better to change often is to change perfect" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/css/images/mylogo.jpg">
+  <link rel="apple-touch-icon" href="/css/images/mylogo.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery-3.1.1.min.js"></script>
+  <script src="/js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="/css/dialog.css">
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css" >
+  
+
+  
+  
+  
+
+</head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        
+
+<header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/mylogo.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">Startseite</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">Archive</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/categories">about themes</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/tags">Tags</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/about">About</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/book">📓</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Schreib etwas..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Beiträge',
+            PAGES: 'Seiten',
+            CATEGORIES: 'Kategorien',
+            TAGS: 'Tags',
+            UNTITLED: '(Unbenannt)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="javascript-ES6" style="width: 75%; float:left;" class="article article-type-javascript" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      ES6
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2016/03/09/ES6/" class="article-date">
+	  <time datetime="2016-03-09T06:21:52.000Z" itemprop="datePublished">2016-03-09</time>
+	</a>
+
+      
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		PV:<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>&#x8FD1;&#x5E74;&#x6765;&#xFF0C;&#x968F;&#x7740;JavaScript&#x793E;&#x533A;&#x7684;&#x4E0D;&#x65AD;&#x53D1;&#x5C55;&#xFF0C;JavaScript&#x8BED;&#x8A00;&#x6709;&#x4E86;&#x5F88;&#x591A;&#x65B0;&#x7684;&#x7279;&#x6027;&#x3002;&#x5176;&#x4E2D;&#x7684;&#x4E00;&#x4E2A;&#x597D;&#x7684;&#x65B9;&#x9762;&#x5C31;&#x662F;&#x901A;&#x8FC7;Node.js&#x6E17;&#x900F;&#x4E86;&#x670D;&#x52A1;&#x7AEF;&#x5F00;&#x53D1;&#xFF0C;&#x8FD9;&#x53EF;&#x4EE5;&#x8BA9;JavaScript&#x5F00;&#x53D1;&#x8005;&#x66F4;&#x4E3A;&#x5F3A;&#x5927;&#x3002;</p>
+<p>&#x4ECA;&#x5929;&#xFF0C;&#x6211;&#x5E0C;&#x671B;&#x8BA8;&#x8BBA;&#x7684;&#x662F;ECMA2015&#xFF08;ES6&#xFF09;&#x89C4;&#x8303;&#x4E2D;&#x7684;&#x4E09;&#x4E2A;&#x7279;&#x6027;&#xFF0C;&#x5E0C;&#x671B;&#x53EF;&#x4EE5;&#x8BA9;&#x4F60;&#x5F00;&#x59CB;&#x4F7F;&#x7528;ES6&#x3002;</p>
+<p>&#x672C;&#x6587;&#x4E0D;&#x662F;ES6&#x7279;&#x6027;&#x7684;&#x8BE6;&#x7EC6;&#x4ECB;&#x7ECD;&#x6307;&#x5357;&#xFF0C;&#x5B83;&#x662F;&#x5BF9;&#x8FD9;&#x4E9B;&#x7279;&#x6027;&#x7684;&#x4E66;&#x9762;&#x4ECB;&#x7ECD;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x672C;&#x6587;&#x4E0D;&#x4F1A;&#x6DF1;&#x5165;&#x4ECB;&#x7ECD;&#x8FD9;&#x4E9B;&#x7279;&#x6027;&#xFF0C;&#x4E5F;&#x4E0D;&#x4F1A;&#x5217;&#x51FA;&#x6BCF;&#x4E2A;&#x7279;&#x6027;&#x7684;&#x4F18;&#x70B9;&#x4E0E;&#x7F3A;&#x70B9;&#x3002;</p>
+<h2 id="&#x7BAD;&#x5934;&#x51FD;&#x6570;"><a href="#&#x7BAD;&#x5934;&#x51FD;&#x6570;" class="headerlink" title="&#x7BAD;&#x5934;&#x51FD;&#x6570;"></a>&#x7BAD;&#x5934;&#x51FD;&#x6570;</h2><p>&#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;JavaScript&#x5F00;&#x53D1;&#x4EBA;&#x5458;&#xFF0C;&#x4F60;&#x4E00;&#x5B9A;&#x77E5;&#x9053;&#x539F;&#x6765;&#x7684;&#x51FD;&#x6570;&#x58F0;&#x660E;&#x65B9;&#x5F0F;&#x3002;</p>
+<p>&#x4E0B;&#x9762;&#x662F;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x4F8B;&#x5B50;&#xFF0C;&#x5B83;&#x5C06;&#x65F6;&#x95F4;&#x6233;&#x8F6C;&#x6362;&#x6210;&#x53EF;&#x8BFB;&#x7684;&#x5F62;&#x5F0F;&#x3002;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">dateFromTimeStamp</span>(<span class="params">timeStamp</span>) </span>{</span><br><span class="line">  <span class="keyword">var</span> humanReadableDate = <span class="keyword">new</span> <span class="built_in">Date</span>(timeStamp);</span><br><span class="line">    <span class="keyword">return</span> humanReadableDate;</span><br><span class="line">}</span><br><span class="line">dateFromTimeStamp(<span class="number">1489957823485</span>); <span class="comment">////Sun Mar 19 2017 22:10:23 GMT+0100 (WAT)</span></span><br></pre></td></tr></table></figure>
+<p>ES2015&#x4E2D;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> dateFromTimeStamp = <span class="function"><span class="params">timeStamp</span> =&gt;</span> <span class="keyword">new</span> <span class="built_in">Date</span>(timeStamp);</span><br><span class="line">dateFromTimeStamp(<span class="number">1489957823485</span>); <span class="comment">////Sun Mar 19 2017 22:10:23 GMT+0100 (WAT)</span></span><br></pre></td></tr></table></figure>
+<p>&#x4F60;&#x53EF;&#x4EE5;&#x70B9;&#x51FB;<a href="http://wesbos.com/arrow-functions/" target="_blank" rel="noopener">&#x8FD9;&#x91CC;</a>&#x5B66;&#x4E60;&#x66F4;&#x591A;&#x5173;&#x4E8E;&#x7BAD;&#x5934;&#x51FD;&#x6570;&#x7684;&#x5185;&#x5BB9;&#x3002;</p>
+<h2 id="&#x6A21;&#x677F;&#x5B57;&#x7B26;&#x4E32;"><a href="#&#x6A21;&#x677F;&#x5B57;&#x7B26;&#x4E32;" class="headerlink" title="&#x6A21;&#x677F;&#x5B57;&#x7B26;&#x4E32;"></a>&#x6A21;&#x677F;&#x5B57;&#x7B26;&#x4E32;</h2><p>&#x5BF9;&#x6211;&#x800C;&#x8A00;&#xFF0C;&#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x6700;&#x91CD;&#x8981;&#x7684;&#x7279;&#x5F81;&#xFF0C;&#x5B83;&#x4F7F;&#x5F97;&#x6211;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x66F4;&#x6613;&#x7406;&#x89E3;&#x548C;&#x63A5;&#x53D7;&#x3002;</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> friendOne = <span class="string">&apos;Smith&apos;</span>;</span><br><span class="line"><span class="keyword">var</span> friendTwo = <span class="string">&apos;Olawale&apos;</span>;</span><br><span class="line"><span class="keyword">var</span> friendThree = <span class="string">&apos;Victor&apos;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> allOfThem = <span class="string">&apos;The three friends are &apos;</span> + friendOne + <span class="string">&apos;, &apos;</span> + friendTwo + <span class="string">&apos;, and&apos;</span> + friendThree; </span><br><span class="line"><span class="comment">//Output:  &apos;The three friends are Smith, Olawale, andVictor&apos;</span></span><br></pre></td></tr></table></figure>
+<p>ES2015&#x4E2D;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> friendOne = <span class="string">&apos;Smith&apos;</span>;</span><br><span class="line"><span class="keyword">var</span> friendTwo = <span class="string">&apos;Olawale&apos;</span>;</span><br><span class="line"><span class="keyword">var</span> friendThree = <span class="string">&apos;Victor&apos;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> allOfThem = <span class="string">`The three friends are <span class="subst">${friendOne}</span>, <span class="subst">${friendTwo}</span> and <span class="subst">${friendThree}</span>`</span>;</span><br><span class="line"><span class="comment">//Output:  &apos;The three friends are Smith, Olawale and Victor&apos;</span></span><br></pre></td></tr></table></figure>
+<p>&#x4ECE;&#x4E0A;&#x8FB9;&#x8FD9;&#x4E2A;&#x4F8B;&#x5B50;&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#xFF0C;&#x4F7F;&#x7528;ES6&#x6A21;&#x677F;&#x5B57;&#x7B26;&#x4E32;&#x8BA9;&#x7F16;&#x7801;&#x66F4;&#x8F7B;&#x677E;&#xFF0C;&#x4EE3;&#x7801;&#x66F4;&#x7B80;&#x6D01;&#x3002;&#x6211;&#x76F8;&#x4FE1;&#x6211;&#x4E0D;&#x662F;&#x552F;&#x4E00;&#x4E00;&#x4E2A;&#x8BA4;&#x4E3A;&#x65E7;&#x7684;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#x50CF;&#x662F;hack&#x3002;&#x53E6;&#x4E00;&#x4E2A;&#x597D;&#x5904;&#x662F;&#xFF0C;&#x6A21;&#x677F;&#x652F;&#x6301;&#x591A;&#x884C;&#x6587;&#x5B57;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x5199;&#x591A;&#x884C;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x5982;&#x679C;&#x4F60;&#x6362;&#x884C;&#xFF0C;JavaScript&#x4F1A;&#x81EA;&#x52A8;&#x52A0;&#x4E0A;\n&#x3002;<br>&#x4F8B;&#x5982;&#xFF1A;</p>
+<figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> author = <span class="string">&apos;Olawale&apos;</span>;</span><br><span class="line"><span class="keyword">var</span> poem = `</span><br><span class="line">I am ${author}, <span class="keyword">this</span> <span class="keyword">is</span> my poem</span><br><span class="line">There isn<span class="string">&apos;t much to say</span></span><br><span class="line"><span class="string">And here is my last line</span></span><br><span class="line"><span class="string">`;</span></span><br><span class="line"><span class="string">//Output: &apos;</span><span class="string">\nI</span> am Olawale, <span class="keyword">this</span> <span class="keyword">is</span> my poem<span class="string">\nThere</span> isn<span class="string">\&apos;t</span> much <span class="keyword">to</span> say<span class="string">\nAnd</span> here <span class="keyword">is</span> my last line<span class="string">\n&apos;</span></span><br></pre></td></tr></table></figure>
+<p>&#x4F60;&#x53EF;&#x4EE5;&#x70B9;&#x51FB;<a href="http://exploringjs.com/es6/ch_template-literals.html" target="_blank" rel="noopener">&#x8FD9;&#x91CC;</a>&#x5B66;&#x4E60;&#x66F4;&#x591A;&#x5173;&#x4E8E;&#x6A21;&#x677F;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x5185;&#x5BB9;&#x3002;</p>
+<h2 id="&#x9ED8;&#x8BA4;&#x53C2;&#x6570;"><a href="#&#x9ED8;&#x8BA4;&#x53C2;&#x6570;" class="headerlink" title="&#x9ED8;&#x8BA4;&#x53C2;&#x6570;"></a>&#x9ED8;&#x8BA4;&#x53C2;&#x6570;</h2><p>&#x5728;ES2015&#x4E4B;&#x524D;&#xFF0C;&#x5982;&#x679C;&#x4F60;&#x60F3;&#x8981;&#x5728;&#x51FD;&#x6570;&#x4E2D;&#x6307;&#x5B9A;&#x9ED8;&#x8BA4;&#x53C2;&#x6570;&#xFF0C;&#x4F60;&#x5FC5;&#x987B;&#x50CF;&#x5728;&#x4E0B;&#x8FB9;&#x8FD9;&#x4E2A;&#x4F8B;&#x5B50;&#x4E2D;&#x8FD9;&#x6837;&#xFF1A;</p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title">greetHuman</span>(name) {</span><br><span class="line">name = name || &apos;human&apos;;</span><br><span class="line"><span class="keyword">return</span> <span class="type">&apos;Hello</span> &apos; + name + &apos;, we come <span class="keyword">in</span> peace&apos;; </span><br><span class="line">}</span><br><span class="line">greetHuman(); // <span class="symbol">&apos;Hello</span> human, we come <span class="keyword">in</span> peace&apos;</span><br><span class="line">greetHuman(<span class="symbol">&apos;Olawale</span>&apos;); // <span class="symbol">&apos;Hello</span> Olawale, we come <span class="keyword">in</span> peace&apos;</span><br></pre></td></tr></table></figure>
+<p>&#x901A;&#x8FC7;ES6&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x518D;&#x51FD;&#x6570;&#x5934;&#x5904;&#x5B9E;&#x73B0;&#xFF0C;&#x4E0D;&#x9700;&#x8981;&#x5728;&#x51FD;&#x6570;&#x4F53;&#x5185;&#x68C0;&#x67E5;&#x53C2;&#x6570;&#x3002;</p>
+<p>&#x8BA9;&#x6211;&#x4EEC;&#x6765;&#x770B;&#x4E0B;&#x9762;&#x8FD9;&#x4E2A;&#x4F8B;&#x5B50;&#xFF0C;&#x8FD9;&#x4E2A;&#x4F8B;&#x5B50;&#x7528;&#x5230;&#x4E86;&#x7BAD;&#x5934;&#x51FD;&#x6570;&#x3001;&#x6A21;&#x677F;&#x5B57;&#x7B26;&#x4E32;&#x548C;&#x9ED8;&#x8BA4;&#x53C2;&#x6570;&#xFF1A;</p>
+<figure class="highlight sml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const greetHuman = (name = <span class="symbol">&apos;human&apos;</span>) =&gt; <span class="symbol">&apos;Hello</span> ${human}, we come <span class="keyword">in</span> peace&apos;;</span><br><span class="line">greetHuman(<span class="symbol">&apos;Olawale&apos;</span>); <span class="symbol">&apos;Hello</span> <span class="type">Olawale</span>, we come <span class="keyword">in</span> peace&apos;</span><br><span class="line">greetHuman<span class="literal">()</span>; <span class="symbol">&apos;Hello</span> human, we come <span class="keyword">in</span> peace&apos;</span><br></pre></td></tr></table></figure>
+<p>&#x4F60;&#x53EF;&#x4EE5;&#x70B9;&#x51FB;<a href="http://exploringjs.com/es6/" target="_blank" rel="noopener">&#x8FD9;&#x91CC;</a>&#x5B66;&#x4E60;&#x66F4;&#x591A;&#x7684;ES6&#x7279;&#x6027;&#x3002;&#x4EE5;&#x4E0B;&#x662F;&#x5176;&#x4ED6;&#x7684;&#x5B66;&#x4E60;ECMA(ES6)&#x7684;&#x8D44;&#x6E90;&#xFF1A;</p>
+<ul>
+<li><a href="https://www.codementor.io/javascript/tutorial/learn-ecmascript6" target="_blank" rel="noopener">How to Get Started with learning ES6</a></li>
+<li><a href="https://www.codementor.io/javascript/tutorial/qa-es6-vs-typescript-debugging-workflow" target="_blank" rel="noopener">Introduction to ES6</a></li>
+<li><a href="https://www.codementor.io/johnnyb/javascript-cheatsheet-fb54lz08k" target="_blank" rel="noopener">The Ultimate JavaScript Cheat Sheet</a></li>
+</ul>
+<p>&#x539F;&#x6587;&#x94FE;&#x63A5;&#xFF1A;<a href="https://www.codementor.io/brainyfarm/javascript-es6-3-cool-features-you-should-be-using-6bntdqk5p" target="_blank" rel="noopener">Javascript ES6: 3 Cool Features You Should Be Using</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+
+      
+        
+	  <!-- Gitment START! Deploy by Z4HD -->
+	<div id="comments"></div>
+		<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+		<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+		<script>
+		var gitment = new Gitment({
+			id: 'http://yoursite.com/2016/03/09/ES6/',
+			owner: 'JoeJoeyMa',
+ 			repo: 'JoeJoeyMa.github.io',
+			oauth: {
+				client_id: 'b16fd2b48371378f485f',
+				client_secret: 'a3d12c33716206b031ba0d95fade9927e31dbb46',
+			},
+		})
+		gitment.render('comments')
+		</script>
+		<!-- Gitment 自定义样式表 -->
+		<link rel="stylesheet" href="/css/comment-gitment.css">
+		<!-- Gitment END! -->
+	 
+
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ES6/">ES6</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/03/11/闭包简介/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Nuevo</strong>
+      <div class="article-nav-title">
+        
+          闭包简介
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/03/09/JavaScript原型/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Viejo</strong>
+      <div class="article-nav-title">JavaScript原型</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Inhalt</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#箭头函数"><span class="nav-number">1.</span> <span class="nav-text">箭头函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模板字符串"><span class="nav-number">2.</span> <span class="nav-text">模板字符串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#默认参数"><span class="nav-number">3.</span> <span class="nav-text">默认参数</span></a></li></ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Construido por <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/JoeJoeyMa/JoeJoeyMa.github.io" target="_blank">Hexo-theme-Joejoey</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2020 To change is to be better to change often is to change perfect All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				UV : <span id="busuanzi_value_site_uv"></span> |  
+				PV : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">About themes</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+    <a href="/book" class="mobile-nav-link">📓</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/scripts.js"></script>
+
+
+
+
+  <script src="/js/dialog.js"></script>
+
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-114383200-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            To change is to be better to change often is to change perfect
+          </div>
+          <div class="panel-body">
+            Copyright © 2020 To change is to be better to change often is to change perfect All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>

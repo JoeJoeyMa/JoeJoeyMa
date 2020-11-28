@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>笔记 | To change is to be better to change often is to change perfect</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="DjangoVPS后端PythonRailMVC笔记" />
+  
+  
+    <meta name="google-site-verification" content="zeeMq378QFdIk20wn4KhRFwp7IhLaosjf7Kf7o9Zcfs" />
+  
+  
+  
+  <meta name="description" content="&amp;#x8FD9;&amp;#x662F;&amp;#x4EC0;&amp;#x4E48;&amp;#x5730;&amp;#x65B9; &amp;#x7406;&amp;#x89E3;&amp;#x9700;&amp;#x8981;&amp;#x66F4;&amp;#x4FBF;&amp;#x6377;&amp;#x66F4;&amp;#x9AD8;&amp;#x6548;&amp;#x7684;&amp;#x5DE5;&amp;#x5177;&amp;#x6216;&amp;#x8005;&amp;#x6709;&amp;#x65F6;&amp;#x9700;&amp;#x8981">
+<meta name="keywords" content="Django,VPS,后端,Python,Rail,MVC,笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="笔记">
+<meta property="og:url" content="http://yoursite.com/2018/12/22/笔记/index.html">
+<meta property="og:site_name" content="To change is to be better to change often is to change perfect">
+<meta property="og:description" content="&amp;#x8FD9;&amp;#x662F;&amp;#x4EC0;&amp;#x4E48;&amp;#x5730;&amp;#x65B9; &amp;#x7406;&amp;#x89E3;&amp;#x9700;&amp;#x8981;&amp;#x66F4;&amp;#x4FBF;&amp;#x6377;&amp;#x66F4;&amp;#x9AD8;&amp;#x6548;&amp;#x7684;&amp;#x5DE5;&amp;#x5177;&amp;#x6216;&amp;#x8005;&amp;#x6709;&amp;#x65F6;&amp;#x9700;&amp;#x8981">
+<meta property="og:image" content="https://travis-ci.org/shadowsocksr/shadowsocksr.svg?branch=manyuser">
+<meta property="og:updated_time" content="2020-11-25T12:52:29.049Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="笔记">
+<meta name="twitter:description" content="&amp;#x8FD9;&amp;#x662F;&amp;#x4EC0;&amp;#x4E48;&amp;#x5730;&amp;#x65B9; &amp;#x7406;&amp;#x89E3;&amp;#x9700;&amp;#x8981;&amp;#x66F4;&amp;#x4FBF;&amp;#x6377;&amp;#x66F4;&amp;#x9AD8;&amp;#x6548;&amp;#x7684;&amp;#x5DE5;&amp;#x5177;&amp;#x6216;&amp;#x8005;&amp;#x6709;&amp;#x65F6;&amp;#x9700;&amp;#x8981">
+<meta name="twitter:image" content="https://travis-ci.org/shadowsocksr/shadowsocksr.svg?branch=manyuser">
+  
+    <link rel="alternate" href="/atom.xml" title="To change is to be better to change often is to change perfect" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/css/images/mylogo.jpg">
+  <link rel="apple-touch-icon" href="/css/images/mylogo.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery-3.1.1.min.js"></script>
+  <script src="/js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="/css/dialog.css">
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css" >
+  
+
+  
+  
+  
+
+</head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        
+
+<header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/mylogo.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">Startseite</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">Archive</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/categories">about themes</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/tags">Tags</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/about">About</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/book">📓</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Schreib etwas..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Beiträge',
+            PAGES: 'Seiten',
+            CATEGORIES: 'Kategorien',
+            TAGS: 'Tags',
+            UNTITLED: '(Unbenannt)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-笔记" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      笔记
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2018/12/22/笔记/" class="article-date">
+	  <time datetime="2018-12-22T04:28:26.000Z" itemprop="datePublished">2018-12-22</time>
+	</a>
+
+      
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		PV:<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="&#x8FD9;&#x662F;&#x4EC0;&#x4E48;&#x5730;&#x65B9;"><a href="#&#x8FD9;&#x662F;&#x4EC0;&#x4E48;&#x5730;&#x65B9;" class="headerlink" title="&#x8FD9;&#x662F;&#x4EC0;&#x4E48;&#x5730;&#x65B9;"></a>&#x8FD9;&#x662F;&#x4EC0;&#x4E48;&#x5730;&#x65B9;</h1><hr>
+<p>&#x7406;&#x89E3;&#x9700;&#x8981;&#x66F4;&#x4FBF;&#x6377;&#x66F4;&#x9AD8;&#x6548;&#x7684;&#x5DE5;&#x5177;&#x6216;&#x8005;&#x6709;&#x65F6;&#x9700;&#x8981;&#x8BB0;&#x5F55;&#x601D;&#x60F3;&#xFF0C;&#x6574;&#x7406;&#x7B14;&#x8BB0;&#x3001;&#x77E5;&#x8BC6;&#xFF0C;&#x5E76;&#x5C06;&#x5176;&#x4E2D;&#x627F;&#x8F7D;&#x7684;&#x4EF7;&#x503C;&#x4F20;&#x64AD;&#x7ED9;&#x4ED6;&#x4EBA;&#xFF0C;<strong>Joey</strong> &#x662F;&#x6211;&#x4E2A;&#x4EBA;&#x5206;&#x4EAB;&#x7684;&#x5730;&#x65B9; &#x2014;&#x2014; &#x4E3A;&#x8BB0;&#x5F55;&#x601D;&#x60F3;&#x548C;&#x5206;&#x4EAB;&#x77E5;&#x8BC6;&#x63D0;&#x4F9B;&#x66F4;&#x4E13;&#x4E1A;&#x7684;&#x5DE5;&#x5177;&#x3002;</p>
+<blockquote>
+<ul>
+<li>&#x6574;&#x7406;&#x77E5;&#x8BC6;&#xFF0C;&#x5B66;&#x4E60;&#x7B14;&#x8BB0;</li>
+<li>&#x53D1;&#x5E03;&#x65E5;&#x8BB0;&#xFF0C;&#x6742;&#x6587;&#xFF0C;&#x6240;&#x89C1;&#x6240;&#x60F3;</li>
+<li>&#x64B0;&#x5199;&#x53D1;&#x5E03;&#x6280;&#x672F;&#x6587;&#x7A3F;&#xFF08;&#x4EE3;&#x7801;&#x652F;&#x6301;&#xFF09;</li>
+<li>&#x64B0;&#x5199;&#x53D1;&#x5E03;&#x5B66;&#x672F;&#x8BBA;&#x6587;&#xFF08;LaTeX &#x516C;&#x5F0F;&#x652F;&#x6301;&#xFF09;</li>
+<li>&#x5907;&#x4EFD;&#x6587;&#x6863;</li>
+<li>&#x4E2A;&#x4EBA;&#x5C0F;&#x811A;&#x672C;</li>
+</ul>
+</blockquote>
+<h3 id="SS-SSR-Python&#x5907;&#x4EFD;&#x6587;&#x6863;"><a href="#SS-SSR-Python&#x5907;&#x4EFD;&#x6587;&#x6863;" class="headerlink" title="SS/SSR Python&#x5907;&#x4EFD;&#x6587;&#x6863;"></a><a href="https://github.com/JoeJoeyMa/joey" target="_blank" rel="noopener">SS/SSR Python&#x5907;&#x4EFD;&#x6587;&#x6863;</a></h3><blockquote>
+<p>&#x5185;&#x7F6E;&#x6587;&#x4EF6;&#x5305;&#x542B;&#x4E00;&#x4E9B;&#x811A;&#x672C;(other)&#x548C;&#x4E2A;&#x4EBA;&#x5206;&#x4EAB;</p>
+</blockquote>
+<hr>
+<h2 id="&#x4EC0;&#x4E48;&#x662F;-qrencode"><a href="#&#x4EC0;&#x4E48;&#x662F;-qrencode" class="headerlink" title="&#x4EC0;&#x4E48;&#x662F; qrencode"></a>&#x4EC0;&#x4E48;&#x662F; qrencode</h2><p>qrencode &#x662F;&#x4E00;&#x79CD;&#x65B9;&#x4FBF;&#x5C55;&#x793A;&#x628A;ss/ssr&#x94FE;&#x63A5;&#x5728;shell&#x7EC8;&#x7AEF;&#x751F;&#x6210;&#x4E8C;&#x7EF4;&#x7801;&#x7684;&#x5DE5;&#x5177;&#x3002;&#x5F53;&#x7136;&#x4F60;&#x7528;&#x5B83;&#x751F;&#x6210;&#x4EFB;&#x4F55;&#x5F62;&#x5F0F;&#x7684;&#x4E8C;&#x7EF4;&#x7801;&#xFF08;&#x65E0;&#x8BBA;&#x662F;&#x4E2A;&#x4EBA;&#x94FE;&#x63A5;&#x6216;&#x8005;&#x662F;&#x652F;&#x4ED8;&#x4E8C;&#x7EF4;&#x7801;&#xFF09;</p>
+<h3 id="1-&#x5982;&#x4F55;&#x5B89;&#x88C5;-qrencode"><a href="#1-&#x5982;&#x4F55;&#x5B89;&#x88C5;-qrencode" class="headerlink" title="1. &#x5982;&#x4F55;&#x5B89;&#x88C5; qrencode"></a>1. &#x5982;&#x4F55;&#x5B89;&#x88C5; <a href="https://github.com/fukuchi/libqrencode" target="_blank" rel="noopener">qrencode</a></h3><ul>
+<li style="list-style: none"><input type="checkbox"> Fedora: sudo dnf install qrencode</li>
+<li style="list-style: none"><input type="checkbox"> Centos: yum install qrencode</li>
+<li style="list-style: none"><input type="checkbox"> Debian: Almost same Centos</li>
+<li style="list-style: none"><input type="checkbox" checked> &#x652F;&#x6301;&#x5728;shell&#x7EC8;&#x7AEF;&#x751F;&#x6210;&#x4E8C;&#x7EF4;&#x7801;&#x5E76;&#x5C55;&#x793A;</li>
+<li style="list-style: none"><input type="checkbox" checked> &#x53EF;&#x4EE5;&#x751F;&#x6210;&#x51E0;&#x4E4E;&#x6240;&#x6709;&#x5F62;&#x5F0F;&#x7684;&#x4E8C;&#x7EF4;&#x7801;</li>
+<li style="list-style: none"><input type="checkbox" checked> &#x53EF;&#x96C6;&#x6210;&#x4E8E;&#x5176;&#x4ED6;&#x9879;&#x76EE;&#x4E2D;&#x4E00;&#x8D77;&#x4F7F;&#x7528;</li>
+</ul>
+<h3 id="2-other&#x6587;&#x4EF6;&#x5185;&#x7684;&#x4E2A;&#x4EBA;&#x811A;&#x672C;"><a href="#2-other&#x6587;&#x4EF6;&#x5185;&#x7684;&#x4E2A;&#x4EBA;&#x811A;&#x672C;" class="headerlink" title="2. other&#x6587;&#x4EF6;&#x5185;&#x7684;&#x4E2A;&#x4EBA;&#x811A;&#x672C;"></a>2. other&#x6587;&#x4EF6;&#x5185;&#x7684;&#x4E2A;&#x4EBA;&#x811A;&#x672C;</h3><p><a href="https://github.com/JoeJoeyMa/joey/tree/master/other" target="_blank" rel="noopener">https://github.com/JoeJoeyMa/joey/tree/master/other</a>.</p>
+<h3 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h3><p>Debian / Ubuntu /Centos:</p>
+<pre><code>wget -N --no-check-certificate https://raw.githubusercontent.com/JoeJoeyMa/joey/master/other/ssr.sh &amp;&amp; chmod +x ssr.sh &amp;&amp; bash ssr.sh
+&#x4E00;&#x952E;&#x811A;&#x672C;&#x5B89;&#x88C5;&#x591A;&#x7528;&#x6237;&#x53EF;&#x63A7;SS/SSR
+</code></pre><p>&#x652F;&#x6301; &#x9650;&#x5236; &#x7528;&#x6237;&#x901F;&#x5EA6;</p>
+<p>&#x652F;&#x6301; &#x9650;&#x5236; &#x7528;&#x6237;&#x8BBE;&#x5907;&#x6570;</p>
+<p>&#x652F;&#x6301; &#x9650;&#x5236; &#x7528;&#x6237;&#x603B;&#x6D41;&#x91CF;</p>
+<p>&#x652F;&#x6301; &#x5B9A;&#x65F6; &#x6D41;&#x91CF;&#x6E05;&#x96F6;</p>
+<p>&#x652F;&#x6301; &#x663E;&#x793A; &#x5F53;&#x524D;&#x8FDE;&#x63A5;IP</p>
+<p>&#x652F;&#x6301; &#x663E;&#x793A; SS/SSR&#x8FDE;&#x63A5;+&#x4E8C;&#x7EF4;&#x7801;</p>
+<p>&#x652F;&#x6301; &#x81EA;&#x5B9A;&#x4E49;&#x8D26;&#x53F7;IP&#x6216;&#x57DF;&#x540D;</p>
+<p>&#x652F;&#x6301; &#x76D1;&#x63A7;SSR&#x670D;&#x52A1;&#x7AEF;&#x8FD0;&#x884C;&#x72B6;&#x6001;</p>
+<h3 id="&#x7ED8;&#x5236;&#x8868;&#x683C;"><a href="#&#x7ED8;&#x5236;&#x8868;&#x683C;" class="headerlink" title="&#x7ED8;&#x5236;&#x8868;&#x683C;"></a>&#x7ED8;&#x5236;&#x8868;&#x683C;</h3><table>
+<thead>
+<tr>
+<th>&#x9879;&#x76EE;</th>
+<th style="text-align:right">&#x9879;&#x76EE;&#x5730;&#x5740;</th>
+<th style="text-align:center">&#x7B80;&#x4ECB;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Blog</td>
+<td style="text-align:right"><a href="https://github.com/JoeJoeyMa/Django2.0-Blog" target="_blank" rel="noopener">https://github.com/JoeJoeyMa/Django2.0-Blog</a></td>
+<td style="text-align:center">&#x4E2A;&#x4EBA;&#x57FA;&#x4E8E;Django&#x642D;&#x5EFA;blog</td>
+</tr>
+<tr>
+<td>Joey</td>
+<td style="text-align:right"><a href="https://github.com/JoeJoeyMa/joey" target="_blank" rel="noopener">https://github.com/JoeJoeyMa/joey</a></td>
+<td style="text-align:center">&#x4E2A;&#x4EBA;&#x6587;&#x6863;</td>
+</tr>
+<tr>
+<td>other</td>
+<td style="text-align:right">other</td>
+<td style="text-align:center">other</td>
+</tr>
+</tbody>
+</table>
+<h1 id="ShadowsocksR"><a href="#ShadowsocksR" class="headerlink" title="ShadowsocksR"></a>ShadowsocksR</h1><p><a href="https://travis-ci.org/shadowsocksr/shadowsocksr" target="_blank" rel="noopener"><img src="https://travis-ci.org/shadowsocksr/shadowsocksr.svg?branch=manyuser" alt="Build Status"></a></p>
+<p>A fast tunnel proxy that helps you bypass firewalls.</p>
+<h2 id="Server"><a href="#Server" class="headerlink" title="Server"></a>Server</h2><h3 id="Install-1"><a href="#Install-1" class="headerlink" title="Install"></a>Install</h3><p>Debian / Ubuntu:</p>
+<pre><code>apt-get install git
+git clone https://github.com/shadowsocksr/shadowsocksr.git
+</code></pre><p>CentOS:</p>
+<pre><code>yum install git
+git clone https://github.com/shadowsocksr/shadowsocksr.git
+</code></pre><p>Windows:</p>
+<pre><code>git clone https://github.com/shadowsocksr/shadowsocksr.git
+</code></pre><h3 id="Usage-for-single-user-on-linux-platform"><a href="#Usage-for-single-user-on-linux-platform" class="headerlink" title="Usage for single user on linux platform"></a>Usage for single user on linux platform</h3><p>If you clone it into &#x201C;~/shadowsocksr&#x201D;<br>move to &#x201C;~/shadowsocksr&#x201D;, then run:</p>
+<pre><code>bash initcfg.sh
+</code></pre><p>move to &#x201C;~/shadowsocksr/shadowsocks&#x201D;, then run:</p>
+<pre><code>python server.py -p 443 -k password -m aes-128-cfb -O auth_aes128_md5 -o tls1.2_ticket_auth_compatible
+</code></pre><p>Check all the options via <code>-h</code>.</p>
+<p>You can also use a configuration file instead (recommend), move to &#x201C;~/shadowsocksr&#x201D; and edit the file &#x201C;user-config.json&#x201D;, then move to &#x201C;~/shadowsocksr/shadowsocks&#x201D; again, just run:</p>
+<pre><code>python server.py
+</code></pre><p>To run in the background:</p>
+<pre><code>./logrun.sh
+</code></pre><p>To stop:</p>
+<pre><code>./stop.sh
+</code></pre><p>To monitor the log:</p>
+<pre><code>./tail.sh
+</code></pre><h2 id="Client"><a href="#Client" class="headerlink" title="Client"></a>Client</h2><ul>
+<li><a href="https://github.com/shadowsocksr/shadowsocksr-csharp" target="_blank" rel="noopener">Windows</a> / <a href="https://github.com/shadowsocksr/ShadowsocksX-NG" target="_blank" rel="noopener">macOS</a></li>
+<li><a href="https://github.com/shadowsocksr/shadowsocksr-android" target="_blank" rel="noopener">Android</a> / <a href="https://github.com/shadowsocks/shadowsocks-iOS/wiki/Help" target="_blank" rel="noopener">iOS</a></li>
+<li><a href="https://github.com/shadowsocks/openwrt-shadowsocks" target="_blank" rel="noopener">OpenWRT</a></li>
+</ul>
+<p>Use GUI clients on your local PC/phones. Check the README of your client<br>for more information.</p>
+<h2 id="Documentation"><a href="#Documentation" class="headerlink" title="Documentation"></a>Documentation</h2><p>You can find all the documentation in the <a href="https://github.com/breakwa11/shadowsocks-rss/wiki" target="_blank" rel="noopener">Wiki</a>.</p>
+<h2 id="License"><a href="#License" class="headerlink" title="License"></a>License</h2><p>Copyright 2015 clowwindy</p>
+<p>Licensed under the Apache License, Version 2.0 (the &#x201C;License&#x201D;); you may<br>not use this file except in compliance with the License. You may obtain<br>a copy of the License at</p>
+<pre><code>http://www.apache.org/licenses/LICENSE-2.0
+</code></pre><p>Unless required by applicable law or agreed to in writing, software<br>distributed under the License is distributed on an &#x201C;AS IS&#x201D; BASIS, WITHOUT<br>WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the<br>License for the specific language governing permissions and limitations<br>under the License.</p>
+<h2 id="Bugs-and-Issues"><a href="#Bugs-and-Issues" class="headerlink" title="Bugs and Issues"></a>Bugs and Issues</h2><ul>
+<li><a href="https://github.com/shadowsocksr/shadowsocksr/issues?state=open" target="_blank" rel="noopener">Issue Tracker</a></li>
+</ul>
+<p>Fedora:<br>sudo dnf install qrencode </p>
+<p>Centos:<br>yum install qrencode </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+
+      
+        
+	  <!-- Gitment START! Deploy by Z4HD -->
+	<div id="comments"></div>
+		<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+		<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+		<script>
+		var gitment = new Gitment({
+			id: 'http://yoursite.com/2018/12/22/笔记/',
+			owner: 'JoeJoeyMa',
+ 			repo: 'JoeJoeyMa.github.io',
+			oauth: {
+				client_id: 'b16fd2b48371378f485f',
+				client_secret: 'a3d12c33716206b031ba0d95fade9927e31dbb46',
+			},
+		})
+		gitment.render('comments')
+		</script>
+		<!-- Gitment 自定义样式表 -->
+		<link rel="stylesheet" href="/css/comment-gitment.css">
+		<!-- Gitment END! -->
+	 
+
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Django/">Django</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MVC/">MVC</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Rail/">Rail</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VPS/">VPS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/后端/">后端</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/笔记/">笔记</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/10/22/HexoForGit/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Nuevo</strong>
+      <div class="article-nav-title">
+        
+          HexoForGit
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/06/18/react + redux + webpack + react-router + ES678 + immutable/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Viejo</strong>
+      <div class="article-nav-title">react + redux + webpack + react-router + ES6/7/8 + immutable</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Inhalt</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#这是什么地方"><span class="nav-number">1.</span> <span class="nav-text">这是什么地方</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#SS-SSR-Python备份文档"><span class="nav-number">1.0.1.</span> <span class="nav-text">SS/SSR Python备份文档</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是-qrencode"><span class="nav-number">1.1.</span> <span class="nav-text">什么是 qrencode</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-如何安装-qrencode"><span class="nav-number">1.1.1.</span> <span class="nav-text">1. 如何安装 qrencode</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-other文件内的个人脚本"><span class="nav-number">1.1.2.</span> <span class="nav-text">2. other文件内的个人脚本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Install"><span class="nav-number">1.1.3.</span> <span class="nav-text">Install</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#绘制表格"><span class="nav-number">1.1.4.</span> <span class="nav-text">绘制表格</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ShadowsocksR"><span class="nav-number">2.</span> <span class="nav-text">ShadowsocksR</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Server"><span class="nav-number">2.1.</span> <span class="nav-text">Server</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Install-1"><span class="nav-number">2.1.1.</span> <span class="nav-text">Install</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Usage-for-single-user-on-linux-platform"><span class="nav-number">2.1.2.</span> <span class="nav-text">Usage for single user on linux platform</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Client"><span class="nav-number">2.2.</span> <span class="nav-text">Client</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Documentation"><span class="nav-number">2.3.</span> <span class="nav-text">Documentation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#License"><span class="nav-number">2.4.</span> <span class="nav-text">License</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Bugs-and-Issues"><span class="nav-number">2.5.</span> <span class="nav-text">Bugs and Issues</span></a></li></ol></li></ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Construido por <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/JoeJoeyMa/JoeJoeyMa.github.io" target="_blank">Hexo-theme-Joejoey</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2020 To change is to be better to change often is to change perfect All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				UV : <span id="busuanzi_value_site_uv"></span> |  
+				PV : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">About themes</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+    <a href="/book" class="mobile-nav-link">📓</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/scripts.js"></script>
+
+
+
+
+  <script src="/js/dialog.js"></script>
+
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-114383200-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            To change is to be better to change often is to change perfect
+          </div>
+          <div class="panel-body">
+            Copyright © 2020 To change is to be better to change often is to change perfect All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>
