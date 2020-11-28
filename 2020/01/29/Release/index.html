@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>kali linux 2020.1 release | To change is to be better to change often is to change perfect</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="LinuxKali2020Vmwareisosystem" />
+  
+  
+    <meta name="google-site-verification" content="zeeMq378QFdIk20wn4KhRFwp7IhLaosjf7Kf7o9Zcfs" />
+  
+  
+  
+  <meta name="description" content="ali as your Main OSSo with this, should you use Kali as your daily driver, as the primary OS? It&amp;#x2019;s up to you.There wasn&amp;#x2019;t anything really stopping you before, we just don&amp;#x2019;t encour">
+<meta name="keywords" content="Linux,Kali,2020,Vmware,iso,system">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kali Linux 2020.1 Release">
+<meta property="og:url" content="http://yoursite.com/2020/01/29/Release/index.html">
+<meta property="og:site_name" content="To change is to be better to change often is to change perfect">
+<meta property="og:description" content="ali as your Main OSSo with this, should you use Kali as your daily driver, as the primary OS? It&amp;#x2019;s up to you.There wasn&amp;#x2019;t anything really stopping you before, we just don&amp;#x2019;t encour">
+<meta property="og:updated_time" content="2020-11-28T12:05:37.082Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Kali Linux 2020.1 Release">
+<meta name="twitter:description" content="ali as your Main OSSo with this, should you use Kali as your daily driver, as the primary OS? It&amp;#x2019;s up to you.There wasn&amp;#x2019;t anything really stopping you before, we just don&amp;#x2019;t encour">
+  
+    <link rel="alternate" href="/atom.xml" title="To change is to be better to change often is to change perfect" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/css/images/mylogo.jpg">
+  <link rel="apple-touch-icon" href="/css/images/mylogo.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery-3.1.1.min.js"></script>
+  <script src="/js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="/css/dialog.css">
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css" >
+  
+
+  
+  
+  
+
+</head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        
+
+<header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/mylogo.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">Startseite</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">Archive</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/categories">about themes</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/tags">Tags</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/about">About</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/book">📓</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Schreib etwas..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Beiträge',
+            PAGES: 'Seiten',
+            CATEGORIES: 'Kategorien',
+            TAGS: 'Tags',
+            UNTITLED: '(Unbenannt)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-Release" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      Kali Linux 2020.1 Release
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2020/01/29/Release/" class="article-date">
+	  <time datetime="2020-01-29T13:26:00.000Z" itemprop="datePublished">2020-01-29</time>
+	</a>
+
+      
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		PV:<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>ali as your Main OS<br>So with this, should you use Kali as your daily driver, as the primary OS? It&#x2019;s up to you.<br>There wasn&#x2019;t anything really stopping you before, we just don&#x2019;t encourage it. We still don&#x2019;t. But its a helping hand for the people who are familiar with Kali enough.</p>
+<p>Why do we not recommend it?<br>Because we are unable to test for that usage pattern and we don&#x2019;t want the influx of bug reports that would come with it.<br>If you are brave enough to try it, you may wish to switch the branch from &#x201C;rolling&#x201D; to &#x201C;kali-last-snapshot&#x201D; to try and be more stable.</p>
+<p>Kali Single Installer Image<br>We took a good hard look at the usage of Kali, what images are actually downloaded, how they are put to use, and so on. With this information in hand, we decided to completely restructure and simplify the images we release. Going forward, we will have an installer image, a live image, and a network installer image.</p>
+<p>These changes should allow for easier selection of the right image for you to download, while increasing flexibility on installation and further reducing download sizes.</p>
+<p>Our Installer Image</p>
+<p>This is what we recommend for most users that want to install Kali on their system<br>Doesn&#x2019;t require a network connection (aka offline install) for the default package selection<br>Able to select desktop environment to install (Previously there was a separate image for each DE: XFCE, GNOME, KDE, etc.)<br>Able to select tools to install at install time<br>Can&#x2019;t be used to boot a live system. This is just an installer image.<br>Filename:<br>kali-linux-2020.1-installer-&lt;amd64|i386&gt;.iso<br>We are no longer offering separate images for every desktop environment (DE). Instead, we now have a single image with the option to pick your DE during installation. This means there isn&#x2019;t a download link for Xfce (which is our default option since 2019.4), GNOME, KDE, MATE or LXDE DEs. Just one image to rule them all.</p>
+<p>At install time, you may select the tools included with Kali (or none at all)! This gives you more control over what you want. We understand that Kali comes with more tools than some people use, or they have their own select tools they use. Now they can install Kali without any metapackages, giving them a bare Kali installation, so they can individually select what tools they want (rather than groups).</p>
+<p>The default image contains the kali-desktop-xfce and kali-tools-default packages, allowing for an offline installation of Kali (as it always has been). Selecting any non-default tools will require a network connection.</p>
+<p>Note: &#x201C;Kali Live&#x201D; is not included in this image. If you wish to use live mode, you&#x2019;ll need the live image.</p>
+<p>Kali Setup Screen</p>
+<p>Network Install Image</p>
+<p>Smallest image to download<br>This requires a network connection to install<br>During setup, it will download the latest packages every time it&#x2019;s used<br>Able to select desktop environment to install<br>Able to select tools to install<br>Can&#x2019;t be used to boot a live system. This is just an installer image.<br>Filename:<br>kali-linux-2020.1-installer-netinst-&lt;amd64|i386&gt;.iso<br>It&#x2019;s a very small image, containing only enough to install the base system, but behaving exactly like the full installer image, allowing you to install everything that Kali offers, provided that you have enabled network connectivity.</p>
+<p>Live Image</p>
+<p>Its primary use is to be able to run Kali, without installing it<br>But it also contains an installer, behaving like the &#x201C;Network Install Image&#x201D; described above<br>Filename:<br>kali-linux-2020.1-live-&lt;amd64|i386&gt;.iso<br>&#x201C;Kali Live&#x201D; hasn&#x2019;t been forgotten about &#x2013; it&#x2019;s just moved to its own image. This allows you to try Kali without installing it and is perfect for running off a USB stick. You can install from this image, however, it will require a network connection (this is why we suggest the stand-alone install image for most users).</p>
+<p>Alternatively, you can generate your own image, in particular if you want to use another desktop environment instead of our default Xfce. It&#x2019;s not as hard as it sounds!.</p>
+<p>ARM Images<br>You will probably notice a bit of a change in the ARM images starting with our 2020.1 release. There are fewer images available for download, due to both manpower and hardware constraints, some images won&#x2019;t be posted without community assistance.<br>The scripts are still updated, so if an image doesn&#x2019;t exist for a machine you use, you will have to create it by running the build script on a Kali machine.</p>
+<p>ARM images for 2020.1 will still run as root by default.</p>
+<p>The sad news that a lot of people didn&#x2019;t want to hear&#x2026; an image for the Pinebook Pro isn&#x2019;t included in the 2020.1 release. We are still working on getting it added, and as soon as it is ready we will post it.</p>
+<p>NetHunter Images<br>Our mobile pen-testing platform, Kali NetHunter, has also had some new improvements. You are now no longer required to root your phone in order to run Kali NetHunter, but that does come with some limitations.</p>
+<p>To suit everybody&#x2019;s needs, Kali NetHunter now comes in the following three editions:</p>
+<p>NetHunter &#x2013; Needs rooted devices with custom recovery and patched kernel. Has no restrictions. Device specific images are available here.<br>NetHunter Light &#x2013; Needs rooted devices with custom recovery but no custom kernel. Has minor restrictions, i.e. no WiFi injection or HID support. Architecture specific images are available here.<br>NetHunter Rootless &#x2013; Installable on all stock standard, unmodified devices using Termux. Some limitations, like lack of db support in Metasploit and no root permissions. Installation instruction is available here.<br>The NetHunter documentation page includes a more detailed comparison.<br>Each NetHunter edition comes with both the new &#x201C;kali&#x201D; user as well as root. KeX now supports multiple sessions so you can opt to run your pentest in one whilst writing a report in another.</p>
+<p>Please note that due to how Samsung Galaxy devices function, the non-root user might not be able to run sudo but has to use su -c instead.</p>
+<p>One of the peculiarities of the new &#x201C;NetHunter Rootless&#x201D; edition is that the default non-root user has almost full privileges in the chroot due to how proot containers work.</p>
+<p>Kali Nethunter Kex Manager</p>
+<p>Theming<br>With our last release, we made a major change switching from GNOME to Xfce. That wasn&#x2019;t the end for us; we have kept on going with the design work, and have more updates:</p>
+<p>GNOME There is now a new theme for GNOME users and as an additional bonus, there is a light and dark theme!</p>
+<p>Shell Overview</p>
+<p>Light Theme</p>
+<p>Dark Theme</p>
+<p>Tools We are giving the tools that you are very fond of a makeover too! We are slowly working through our collection, refreshing them and adding in new icons.</p>
+<p>Kali Tools Icons</p>
+<p>Menu Eagle-eyed users may also notice the icons used in the menu have also been replaced.</p>
+<p>Kali Menu</p>
+<p>Setup And if you opt to use the graphical installer of Kali, it&#x2019;s also been updated (Before and after shots)</p>
+<p>Kali Setup Options</p>
+<p>Kali-Undercover<br>We were not expecting the community&#x2019;s overwhelming response to kali-undercover. So carrying on from Kali 2019.4 release, Kali-undercover now starts to feel even more like Windows to help blend in.</p>
+<p>Kali Undercover</p>
+<p>New Packages<br>Kali Linux is a rolling distribution, so it gets updates as soon as they are available, rather than waiting for &#x201C;the next release&#x201D;. So since the last release, we have the normal tool upgrades as well as a few new tools added, such as: cloud-enum, emailharvester, phpggc, sherlock, splinter.</p>
+<p>We have a few new (kali-community-wallpapers) and old (kali-legacy-wallpapers) wallpapers to offer up if you want to customize or are feeling a little a little nostalgic.</p>
+<p>Python 2 End Of Life<br>As a reminder, Python 2 has reached &#x201C;end of life&#x201D; on the 1st of January 2020. What this means is, we are removing tools that depend on Python 2. Why? Because they are no longer being maintained, they are not receiving updates, and they need replacing. The pentesting landscape is a dynamic field that is forever changing. It&#x2019;s time to keep up. We will be doing our best to find alternatives that are actively worked upon.</p>
+<p>Giving A Helping Hand<br>If you want to contribute to Kali please do! If you have an area, idea of something YOU would like to work on, please dig in. If you want to help, but don&#x2019;t know where to start, please see our docs page. If you have a suggestion for a feature, please record it on the bug tracker.</p>
+<p>Note: the bug tracker is for bugs &amp; suggestions. Its not a place to get help or support &#x2013; that&#x2019;s for the forums.</p>
+<p>Download Kali Linux 2020.1<br>Fresh images Why are you waiting? Start downloading now!</p>
+<p>Existing Upgrades If you already have an existing Kali installation, remember you can always do a quick update:</p>
+<p>kali@kali:~$ cat &lt;&lt;EOF | sudo tee /etc/apt/sources.list<br>deb <a href="http://http.kali.org/kali" target="_blank" rel="noopener">http://http.kali.org/kali</a> kali-rolling main non-free contrib<br>EOF<br>kali@kali:~$<br>kali@kali:~$ sudo apt update &amp;&amp; sudo apt -y full-upgrade<br>kali@kali:~$<br>kali@kali:~$ [ -f /var/run/reboot-required ] &amp;&amp; sudo reboot -f<br>kali@kali:~$<br>You should now be on Kali Linux 2020.1. We can do a quick check by doing:</p>
+<p>kali@kali:~$ grep VERSION /etc/os-release<br>VERSION=&#x201D;2020.1&#x201D;<br>VERSION_ID=&#x201D;2020.1&#x201D;<br>VERSION_CODENAME=&#x201D;kali-rolling&#x201D;<br>kali@kali:~$<br>kali@kali:~$ uname -v</p>
+<p>#1 SMP Debian 5.4.13-1kali1 (2020-01-20)<br>kali@kali:~$<br>kali@kali:~$ uname -r<br>5.4.0-kali3-amd64<br>kali@kali:~$<br>NOTE: The output of uname -r may be different depending on architecture.</p>
+<p>As always, should you come across any bugs in Kali, please submit a report on our bug tracker. We&#x2019;ll never be able to fix what we don&#x2019;t know is broken.</p>
+<h2 id="Setting-up-the-root-account-on-Kali-2020"><a href="#Setting-up-the-root-account-on-Kali-2020" class="headerlink" title="Setting up the root account on Kali 2020"></a>Setting up the root account on Kali 2020</h2><p>If you would like to use root instead of the none superuser account kali, here are the instructions to do so:</p>
+<p>Issue command &#x201C;sudo su&#x201D;</p>
+<enter the="" password="" for="" kali="" user="" account="">
+
+<p>Issue command &#x201C;passwd root&#x201D;</p>
+<enter new="" password="" and="" retype="" that="">
+
+<p>At this point you can log-off and re log-in or you can just switch the user and log in as root.</p>
+<p>Let me know if this helped you.</p>
+<h2 id="apt-get-update"><a href="#apt-get-update" class="headerlink" title="apt-get update"></a>apt-get update</h2><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">gedit /etc/apt/sources.<span class="keyword">list</span></span><br><span class="line"><span class="keyword">deb</span> http://http.kali.org/kali kali main non-free contrib</span><br><span class="line"><span class="keyword">deb</span>-src http://http.kali.org/kali kali main non-free contrib</span><br><span class="line"><span class="keyword">deb</span> http://security.kali.org/kali-security kali/updates main contrib non-free</span><br><span class="line"><span class="keyword">deb</span> http://ftp.sjtu.edu.<span class="keyword">cn</span>/debian wheezy main non-free contrib</span><br><span class="line"><span class="keyword">deb</span>-src http://ftp.sjtu.edu.<span class="keyword">cn</span>/debian wheezy main non-free contrib</span><br><span class="line"><span class="keyword">deb</span> http://ftp.sjtu.edu.<span class="keyword">cn</span>/debian wheezy-proposed-updates main non-free contrib</span><br><span class="line"><span class="keyword">deb</span>-src http://ftp.sjtu.edu.<span class="keyword">cn</span>/debian wheezy-proposed-updates main non-free contrib</span><br><span class="line"><span class="keyword">deb</span> http://ftp.sjtu.edu.<span class="keyword">cn</span>/debian-security wheezy/updates main non-free contrib</span><br><span class="line"><span class="keyword">deb</span>-src http://ftp.sjtu.edu.<span class="keyword">cn</span>/debian-security wheezy/updates main non-free contrib</span><br><span class="line"><span class="keyword">deb</span> http://mirrors.<span class="number">163</span>.<span class="keyword">com</span>/debian wheezy main non-free contrib</span><br><span class="line"><span class="keyword">deb</span>-src http://mirrors.<span class="number">163</span>.<span class="keyword">com</span>/debian wheezy main non-free contrib</span><br><span class="line"><span class="keyword">deb</span> http://mirrors.<span class="number">163</span>.<span class="keyword">com</span>/debian wheezy-proposed-updates main non-free contrib</span><br><span class="line"><span class="keyword">deb</span>-src http://mirrors.<span class="number">163</span>.<span class="keyword">com</span>/debian wheezy-proposed-updates main non-free contrib</span><br><span class="line"><span class="keyword">deb</span>-src http://mirrors.<span class="number">163</span>.<span class="keyword">com</span>/debian-security wheezy/updates main non-free contrib</span><br><span class="line"><span class="keyword">deb</span> http://mirrors.<span class="number">163</span>.<span class="keyword">com</span>/debian-security wheezy/updates main non-free contrib</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">root@kali:~# apt-<span class="built_in">get</span> <span class="keyword">update</span></span><br><span class="line">Ge<span class="variable">t:1</span> http://mirrors.aliyun.<span class="keyword">com</span>/kali kali-rolling InRelease [<span class="number">30.5</span> kB]</span><br><span class="line">Ge<span class="variable">t:2</span> http://mirrors.aliyun.<span class="keyword">com</span>/kali kali-rolling/contrib Sources [<span class="number">59.9</span> kB]</span><br><span class="line">Ge<span class="variable">t:3</span> http://mirrors.aliyun.<span class="keyword">com</span>/kali kali-rolling/non-free Sources [<span class="number">127</span> kB]</span><br><span class="line">Ge<span class="variable">t:4</span> http://mirrors.aliyun.<span class="keyword">com</span>/kali kali-rolling/main Sources [<span class="number">12.9</span> MB]</span><br><span class="line">Ge<span class="variable">t:5</span> http://mirrors.aliyun.<span class="keyword">com</span>/kali kali-rolling/main amd64 Packages [<span class="number">16.5</span> MB]</span><br><span class="line">Ge<span class="variable">t:6</span> http://mirrors.aliyun.<span class="keyword">com</span>/kali kali-rolling/non-free amd64 Packages [<span class="number">200</span> kB]                                                                        </span><br><span class="line">Ge<span class="variable">t:7</span> http://mirrors.aliyun.<span class="keyword">com</span>/kali kali-rolling/contrib amd64 Packages [<span class="number">96.4</span> kB]                                                                        </span><br><span class="line">Fetched <span class="number">29.9</span> MB in <span class="number">13</span>s (<span class="number">2</span>,<span class="number">219</span> kB/s)                                                                                                                   </span><br><span class="line">Reading package lists... Done</span><br></pre></td></tr></table></figure>
+<h2 id="apt-get-install-ttf-wqy-zenhei"><a href="#apt-get-install-ttf-wqy-zenhei" class="headerlink" title="apt-get install ttf-wqy-zenhei"></a>apt-get install ttf-wqy-zenhei</h2><figure class="highlight vhdl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">root@kali:~# apt-get install ttf-wqy-zenhei</span><br><span class="line">Reading <span class="keyword">package</span> lists... Done</span><br><span class="line">Building dependency tree       </span><br><span class="line">Reading state information... Done</span><br><span class="line"><span class="literal">Note</span>, selecting <span class="symbol">&apos;fonts</span>-wqy-zenhei&apos; instead <span class="keyword">of</span> <span class="symbol">&apos;ttf</span>-wqy-zenhei&apos;</span><br><span class="line">The following <span class="keyword">NEW</span> packages will be installed:</span><br><span class="line">  fonts-wqy-zenhei</span><br><span class="line"><span class="number">0</span> upgraded, <span class="number">1</span> newly installed, <span class="number">0</span> <span class="keyword">to</span> remove <span class="keyword">and</span> <span class="number">418</span> <span class="keyword">not</span> upgraded.</span><br><span class="line">Need <span class="keyword">to</span> get <span class="number">7</span>,<span class="number">472</span> kB <span class="keyword">of</span> archives.</span><br><span class="line"><span class="keyword">After</span> this operation, <span class="number">16.8</span> MB <span class="keyword">of</span> additional disk space will be used.</span><br><span class="line">Get:<span class="number">1</span> http://mirrors.aliyun.com/kali kali-rolling/main amd64 fonts-wqy-zenhei <span class="keyword">all</span> <span class="number">0.9</span>.<span class="number">45</span>-<span class="number">7</span> [<span class="number">7</span>,<span class="number">472</span> kB]</span><br><span class="line">Fetched <span class="number">7</span>,<span class="number">472</span> kB <span class="keyword">in</span> <span class="number">4</span>s (<span class="number">1</span>,<span class="number">893</span> kB/s)           ^[[B^[[B^[[B</span><br><span class="line">Selecting previously unselected <span class="keyword">package</span> fonts-wqy-zenhei.</span><br><span class="line">(Reading database ... <span class="number">255564</span> files <span class="keyword">and</span> directories currently installed.)</span><br><span class="line">Preparing <span class="keyword">to</span> unpack .../fonts-wqy-zenhei_0.<span class="number">9.45</span>-<span class="number">7_</span><span class="keyword">all</span>.deb ...</span><br><span class="line">Unpacking fonts-wqy-zenhei (<span class="number">0.9</span>.<span class="number">45</span>-<span class="number">7</span>) ...</span><br><span class="line">Setting up fonts-wqy-zenhei (<span class="number">0.9</span>.<span class="number">45</span>-<span class="number">7</span>) ...</span><br><span class="line">Processing triggers <span class="keyword">for</span> fontconfig (<span class="number">2.13</span>.<span class="number">1</span>-<span class="number">2</span>+b1) ...</span><br></pre></td></tr></table></figure>
+<h2 id="dpkg-reconfigure-locales"><a href="#dpkg-reconfigure-locales" class="headerlink" title="dpkg-reconfigure locales"></a>dpkg-reconfigure locales</h2><h2 id="apt-get-install-fcitx-googlepinyin"><a href="#apt-get-install-fcitx-googlepinyin" class="headerlink" title="apt-get install fcitx-googlepinyin"></a>apt-get install fcitx-googlepinyin</h2><h2 id="im-config"><a href="#im-config" class="headerlink" title="im-config"></a>im-config</h2><p>Kali Linux 2020.4 Release<br>November 18, 2020<br>g0tmi1k<br>Kali Linux News, Kali Linux Releases<br>We find ourselves in the 4th quarter of 2020, and we are ecstatic to announce the release of Kali Linux 2020.4, which is ready for immediate download or updating.</p>
+<p>What&#x2019;s different with this release since 2020.3 in August 2020 is:</p>
+<p>ZSH is the new default shell &#x2013; We said it was happening last time, Now it has. ZSH. Is. Now. Default.<br>Bash shell makeover &#x2013; It may not function like ZSH, but now Bash looks like ZSH.<br>Partnership with tools authors &#x2013; We are teaming up with byt3bl33d3r.<br>Message at login &#x2013; Proactively pointing users to resources.<br>AWS image refresh &#x2013; Now on GovCloud. Includes Kali&#x2019;s default (command line) tools again. And there is a new URL.<br>Packaging Guides &#x2013; Want to start getting your tool inside of Kali? This should help.<br>New Tools &amp; Updates &#x2013; New Kernel and various new tools and updates for existing ones, as well as setting Proxychains 4 as default.<br>NetHunter Updates &#x2013; New NetHunter settings menu, select from different boot animations, and persistent Magisk.<br>Win-KeX 2.5 &#x2013; New &#x201C;Enhanced Session Mode&#x201D; brings Win-KeX to ARM devices<br>Vagrant &amp; VMware &#x2013; We now support VMware users who use Vagrant.<br>ZSH Shell By Default<br>In our previous quarterly release, 2020.3, we gave a heads up that we will be switching from Bash to ZSH as our default shell going forwards (where possible). We are happy to announce that after testing and feedback from users, the switch has now happened. Say hello to ZSH.</p>
+<p>&#x250C;&#x2500;&#x2500;(kali&#x327F;kali)-[~]<br>&#x2514;&#x2500;$ echo Hello World. I&#x2019;m $0<br>Hello World. I&#x2019;m zsh</p>
+<p>&#x250C;&#x2500;&#x2500;(kali&#x327F;kali)-[~]<br>&#x2514;&#x2500;$<br>Thank you to everyone who provided positive and constructive feedback. We are happy with it, and hope you are too. With that said, we know we cannot please everyone with it (so if you wish to revert back to Bash, please do: chsh -s /bin/bash).</p>
+<p>ZSH will be the default shell on our desktop images (amd64/i386), and cloud. For the time being, other platforms (e.g. ARM, containers, NetHunter, WSL) will still use Bash. We hope to switch more over in later versions. If you use adduser, regardless of the platform, it will also default to Bash for the time being (to avoid some edge cases of items breaking). In time, this will be changed as well.</p>
+<p>How do I get it? Good question! If you:</p>
+<p>Do a fresh install of Kali Linux 2020.4 or later, it will &#x201C;just happen&#x201D; during the setup.<br>If you are updating Kali, you will need to switch each user to ZSH (e.g. non-root &amp; root since Kali Linux does not use the root account since 2020.1).<br>I need to switch. How do I? This can be done by applying our default zshrc file. If you are not already using ZSH, you can simply copy it over. If you are, you will need to overwrite (make sure to backup first).</p>
+<p>kali@kali:~$ [ -e ~/.zshrc ] &amp;&amp; cp -i .zshrc{,.bak}<br>kali@kali:~$<br>kali@kali:~$ cp -i /etc/skel/.zshrc ~/<br>kali@kali:~$<br>kali@kali:~$ chsh -s /bin/zsh<br>kali@kali:~$<br>kali@kali:~$ zsh<br>If you&#x2019;re reading this, you may also be the type of person who likes Easter eggs &#x2013; our prompts contain a few! If you go looking you may find a few gems (e.g. new_line_before_prompt &amp; root vs non-root)._</p>
+<p>Bash Shell Makeover<br>Kali Linux now has a universal, cross-shell theme.</p>
+<p>Whilst we were tweaking ZSH, we also updated our Bash prompt ($PS1), to make it feel similar (but not act similar) to our ZSH prompt. We started playing with the Bash prompt in Kali Linux 2020.3, when the colors changed for non-root users, from red to blue. Before then, we had not changed it since Kali Linux was first released.</p>
+<p>How do I get it? Another good question! Very similar answer to ZSH, but this time using .bashrc instead. If you are doing:</p>
+<p>A fresh installation of Kali Linux 2020.4 or later, it&#x2019;s already applied.<br>If you are updating Kali, you will need to configure each user (e.g. non-root &amp; root)<br>If you have made any alterations to ~/.bashrc, make sure to back it up before replacing it.</p>
+<p>kali@kali:~$ cp -i .bashrc{,.bak}<br>kali@kali:~$<br>kali@kali:~$ cp -i /etc/skel/.bashrc ~/<br>kali@kali:~$<br>kali@kali:~$ source ~/.bashrc<br>&#x250C;&#x2500;&#x2500;(kali&#x327F;kali)-[~]<br>&#x2514;&#x2500;$ echo Hello World. I&#x2019;m $0<br>Hello World. I&#x2019;m bash<br>&#x250C;&#x2500;&#x2500;(kali&#x327F;kali)-[~]<br>&#x2514;&#x2500;$<br>If you look &amp; edit the contents of .bashrc, you can switch to the red &#x201C;BackTrack-Linux&#x201D; prompt to be nostalgic.</p>
+<p>Partnership with tools authors: byt3bl33d3r&#x2019;s CrackMapExec (CME)<br>Kali Linux is part of the greater community and we want to support tool authors where possible. If you have not heard of CrackMapExec (a.k.a CME), you may be missing a trick (or three) when it comes to doing infrastructure assessments (especially involving Active Directory).</p>
+<p>We noticed that byt3bl33d3r made the decision to move to a sponsorware model. You may or may not agree with his decision, but we understand his reasoning. The tools which he makes are highly valuable and relied upon by many. We want to support him and our Kali Linux users. After various calls and email exchanges, we are delighted to reveal Kali has partnered with byt3bl33d3r.</p>
+<p>What does this mean for me? The Kali package of CME is now pulling from a private source, allowing Kali Linux users to get access to the newest changes in CME 30 days before the tool is made public to everyone else. If you don&#x2019;t use Kali, you either need to sponsor directly or wait for it to be released after 30 days.</p>
+<p>Why are you doing this? Because we believe in open source and the community as a whole. This way, everyone benefits; both authors and users.</p>
+<p>Kali is open source. What is stopping me from stealing/ripping/cloning from you? The code will be distributed with a banner saying something along the lines of, &#x201C;for Kali users only&#x201D;. Removing/altering the code will break the software license thus breaking copyright law. Do not be that guy.</p>
+<p>Is that it? Yes! Kali Linux is open source. We understand and respect software licenses, and by doing so we hope to keep everything open source as much as possible. Putting checks &amp; protection in place, you may be happy using someone else&#x2019;s cracked/pirated software (warez) &#x2013; but do you know what has been altered under the hood?</p>
+<p>But Kali Linux being open source, has to respect other people license agreements, as do any other respectable organizations. This also includes when tools which have their license agreements changed in software updates, as a result, we have removed them from Kali.</p>
+<p>We have more to announce about direction step in a 2021.x release (as well as looking for other authors to sponsor with). Stay tuned for more information!</p>
+<p>Message At Login<br>We have noticed there being a large uprise of the amount of people saying &#x201C;Kali Linux is missing &#x2018;XYZ&#x2019;&#x201D; or &#x201C;XYZ feature is broken&#x201D;, when this is not always the case. We have done our best to write up various issues on our docs pages, however it appears they are not always being read. We also know that not everyone has a unix beard as long as @elwood-offsec, but hope you still are an experienced Linux user. There is always a reason why something is the way it is, but it may require more than the usual basic troubleshooting.</p>
+<p>With all of that said, we are wanting to improve our communications going forwards. Most of the actions in Kali are done by the command line. So now, upon logging into a Kali terminal or console, you may be presented with a mixture of the following (depending on the configuration of your system, as it is dynamic):</p>
+<p>% ssh <a href="mailto:kali@172.16.13.37" target="_blank" rel="noopener">kali@172.16.13.37</a><br>Last login: Thu Nov 12 15:12:29 2020 from 172.16.13.1<br>&#x250F;&#x2501;(Message from Kali developers)<br>&#x2503;<br>&#x2503; This is a minimal installation of Kali Linux, you likely<br>&#x2503; want to install supplementary tools. Learn how:<br>&#x2503; &#x21D2; <a href="https://www.kali.org/docs/troubleshooting/common-minimum-setup/" target="_blank" rel="noopener">https://www.kali.org/docs/troubleshooting/common-minimum-setup/</a><br>&#x2503;<br>&#x2503; This is a cloud installation of Kali Linux. Learn more about<br>&#x2503; the specificities of the various cloud images:<br>&#x2503; &#x21D2; <a href="https://www.kali.org/docs/troubleshooting/common-cloud-setup/" target="_blank" rel="noopener">https://www.kali.org/docs/troubleshooting/common-cloud-setup/</a><br>&#x2503;<br>&#x2503; We have kept /usr/bin/python pointing to Python 2 for backwards<br>&#x2503; compatibility. Learn how to change this and avoid this message:<br>&#x2503; &#x21D2; <a href="https://www.kali.org/docs/general-use/python3-transition/" target="_blank" rel="noopener">https://www.kali.org/docs/general-use/python3-transition/</a><br>&#x2503;<br>&#x2517;&#x2501;(Run &#x201C;touch ~/.hushlogin&#x201D;<br>&#x250C;&#x2500;&#x2500;(kali&#x327F;kali)-[~]<br>&#x2514;&#x2500;$<br>We hope this helps various common problems to be quickly fixed, but at the same time, not feel intrusive. Each of the issues have a link to our documentation page in order to correct the issue. After its been addressed, the message should not be displayed again. For whatever reason (unable or do not want to), you can permanently hide any messages from us being displayed by doing: touch ~/.hushlogin (per user) or touch /etc/kali-motd/disable-all (for a global setting).</p>
+<p>We have a few other things in the works to help communicate items out planned for 2021.x. Stay tuned!</p>
+<p>AWS EC2 Cloud Image Refresh<br>Kali Linux has been on AWS since 1.0.6. Over the years, we have done various refreshes of our build-scripts to produce the cloud images. Finally with Kali 2020.2, we have a fully automated system in place. However during the changeover, we were shipping the image without any GUI or any tools by default. This was to give the cleanest, smallest image as possible. In hindsight, we didn&#x2019;t communicate this change over well, and a lot of you noticed &#x201C;tools missing&#x201D; (as kali-linux-default was not included). However, in 2020.4, we have created a new metapackage, kali-linux-headless, and included it which only has the default set of command line tools.</p>
+<p>Upon doing the refresh, we have worked with AWS to get Kali Linux added to &#x201C;GovCloud&#x201C;. Which may be useful to a certain audience. With how the accounts were setup, we have had to start from fresh. As a result, we have a new marketplace entry.</p>
+<p>What does this mean for people who are using the old entry? As Kali Linux is a rolling distribution, not a lot! You can still keep updating Kali Linux as usual. However, you will no longer be able to spin up the latest version using the latest instance. For that, you will need to switch to the new entry.</p>
+<p>Note: We have tried to say it as many different places as possible, but putting it here is not going to hurt. The default login for AWS EC2 username is &#x201C;kali&#x201D; (not the standard &#x201C;ec2-user&#x201D;).</p>
+<p>Kali Docs &amp; Packaging Guides<br>In 2019.4, we moved <a href="https://docs.kali.org/" target="_blank" rel="noopener">https://docs.kali.org/</a> from a WordPress solution to <a href="https://www.kali.org/docs/" target="_blank" rel="noopener">https://www.kali.org/docs/</a> using Hugo. In September, we finished (for now) tweaking the theme, making it easier to use, super fast at loading and easier to anyone to edit.</p>
+<p>We have started to go though all the pages and refreshing them, bringing them all up-to-date, and adding more in. We are doing it section by section, and so far have completed the first three (so we still have a way to go! After it is completed, it will be easier to keep them up-to-date, making it an on-going task. For the sections that are missing or lacking content, we have been generating issues to help track. If you want to help get involved with Kali Linux, this is an easy place to start.</p>
+<p>We have also created various new pages, all about our packaging process:</p>
+<p>Setting Up A System For Packaging<br>Introduction to Packaging (Instaloader&#x200B;)<br>Intermediate Packaging (Photon)<br>Advanced Packaging (FinalRecon &amp; Python-icmplib)<br>We have also the pages from our login messages:</p>
+<p>Common Cloud Based Setup Information<br>Everything you need to know about the switch to Python 3<br>Minimum Install Setup Information<br>And various other pages created:</p>
+<p>AWS<br>Kali inside VirtualBox (Guest VM)<br>Using EoL Python Versions on Kali<br>Win-KeX v2<br>Win-KeX SL<br>Win-KeX Win<br>New Tools &amp; Updates<br>As with every Kali release, there are new tools and updates. The kernel got an upgrade to 5.9, so you benefit with all the loveliness that that brings. We have switched to &#x201C;proxychains4&#x201D; (aka ProxyChains-NG) as the default (everything from v3 should still work: same flags and configuration files &amp; folder locations for legacy users, else the paths will reflect the version if starting from fresh). Also, GNOME was updated to 3.38 &amp; KDE to 5.19.</p>
+<p>New tools in Kali Linux:</p>
+<p>Apple bleee<br>CertGraph<br>dnscat2<br>FinalRecon<br>goDoH<br>hostapd-mana<br>Metasploit Framework v6<br>Whatmask<br>One last thing. We have tweaked how we handle our wallpaper packages:</p>
+<p>kali-wallpapers-all ~ Give me all the wallpapers<br>kali-wallpapers-2019.4 ~ Default for Kali Linux between 2019.4 and 2020.3<br>kali-wallpapers-2020.4 ~ Default for Kali Linux between 2020.4 and onwards<br>kali-wallpapers-legacy ~ Nostalgic value<br>Kali NetHunter<br>@yesimxev has added a new settings menu, allowing for easy back up and restore of configuration files. It also allows you to change the Kali NetHunter boot animation. How is this as a teaser?</p>
+<p>Call on all boot animation devs out there: We&#x2019;d love to hear from you. If you have a cool boot animation you&#x2019;d like to share, please submit a merge request to our Kali NetHunter boot animation repository .</p>
+<p>The new images also contain a &#x201C;Magisk persistence&#x201D; module, so we no longer have to flash Magisk again after we installed Kali NetHunter.</p>
+<p>Win-KeX 2.5<br>Win-KeX 2.5 includes a new &#x201C;Enhanced Session Mode (&#x2013;esm)&#x201D;, which works like the &#x201C;Window&#x201D; mode but uses the Remote Deskop Protocol (RDP) &amp; client native to Windows. This mode will allow users of &#x201C;Windows on ARM&#x201D; devices to use Win-KeX and it adds sharpness to Win-KeX on HiDPI devices.</p>
+<p>We have also added a &#x201C;&#x2013;ip&#x201D; option to address a bug in WoA causing massive packet losses when using &#x201C;localhost&#x201D;. To start Win-KeX with sound on arm devices, just type:</p>
+<p>kali@kali:~$ kex &#x2013;esm &#x2013;ip &#x2013;sound<br>The &#x201C;&#x2013;ip&#x201D; parameter has one little downside though: Win-KeX asks for the Kali Linux user password when launched for the first time and stores it in the Windows credentials store. Since the IP address changes after every reboot, you will be prompted again. This is a known WSL2 bug and we&#x2019;ll expect it to be fixed soon so that we can drop the &#x201C;&#x2013;ip&#x201D; parameter and we&#x2019;ll never have to enter the password again.</p>
+<p>Kali Vagrant &amp; VMware<br>We have had a Vagrant image since Kali Linux 2018.3. However, it&#x2019;s always been for VirtualBox. Until now. We are now also producing a VMware Vagrant image!</p>
+<p>Note, you will need to have a separate license for both VMware and Vagrant for this to work, as it is a paid-for plugin.<br>For more information, you can see here and here.</p>
+<p>Kali ARM devices<br>We have been working away on our ARM images as usual, and this release is no exception. We have reduced the amount of pre-generated images (now 14) as there has not been the demand for these other devices. We have left their build scripts (now up to 43 devices supported), in case you wish to generate the images yourself.</p>
+<p>Community Shoutouts<br>Following on from last time, these are people from the public who have helped Kali and the team for the last release. We are super grateful and want to praise them for their work (giving credit where due!):</p>
+<p>@1y for generating a ARM build script for a new device, imx6-ull-evk<br>@dracode for the awesome work on Nethunter, in particular the GPS fixes.<br>@mirivan for all the amazing additions and fixes to NetHunter as well as helping out with the issue tracker.<br>@TheMMcOfficial for his continued help with NetHunter and DuckHunter<br>@Martinvlba for his great contributions to NetHunter, especially hostapd<br>@s133py for all the tireless work on NetHunter and helping with issues<br>Not a community member per se, but we do want to give an honorable mention to GitLab. Kali Linux is now a Open-Source Partner (different to their Open-Source Program). We made the switch middle of 2019, and we could not have been happier. Thank you GitLab for supporting us, and for everything you do for the open-source communities as a whole!</p>
+<p>And on the subject, Kali Linux is apart of Docker&#x2019;s Open Source Community.</p>
+<p>Download Kali Linux 2020.4<br>Fresh Images: So what are you waiting for? Start downloading already!</p>
+<p>Seasoned Kali Linux users are already aware of this, but for the ones who are not, we do also produce weekly builds that you can use as well. If you cannot wait for our next release and you want the latest packages when you download the image, you can just use the weekly image instead. This way you&#x2019;ll have fewer updates to do. Just know that these are automated builds that we do not QA like we do our standard release images. But we gladly take bug reports about those images because we want any issues to be fixed before our next release.</p>
+<p>Existing Upgrades: If you already have an existing Kali Linux installation, remember you can always do a quick update, followed by setting the default shell to ZSH. If you&#x2019;re already using ZSH, and want our new configuration, you can do the following:</p>
+<p>kali@kali:~$ echo &#x201C;deb <a href="http://http.kali.org/kali" target="_blank" rel="noopener">http://http.kali.org/kali</a> kali-rolling main non-free contrib&#x201D; | sudo tee /etc/apt/sources.list<br>kali@kali:~$<br>kali@kali:~$ sudo apt update &amp;&amp; sudo apt -y full-upgrade<br>kali@kali:~$<br>kali@kali:~$ cp -i /etc/skel/.bashrc ~/<br>kali@kali:~$<br>kali@kali:~$ cp -i /etc/skel/.zshrc ~/<br>kali@kali:~$<br>kali@kali:~$ chsh -s /bin/zsh<br>kali@kali:~$<br>kali@kali:~$ [ -f /var/run/reboot-required ] &amp;&amp; sudo reboot -f<br>kali@kali:~$<br>You should now be on Kali Linux 2020.4. We can do a quick check by doing:</p>
+<p>kali@kali:~$ grep VERSION /etc/os-release<br>VERSION=&#x201D;2020.4&#x201D;<br>VERSION_ID=&#x201D;2020.4&#x201D;<br>VERSION_CODENAME=&#x201D;kali-rolling&#x201D;<br>kali@kali:~$<br>kali@kali:~$ uname -v</p>
+<p>#1 SMP Debian 5.9.1-1kali2 (2020-10-29)<br>kali@kali:~$<br>kali@kali:~$ uname -r<br>5.9.0-kali1-amd64<br>kali@kali:~$<br>NOTE: The output of uname -r may be different depending on the system architecture.</p>
+<p>As always, should you come across any bugs in Kali, please submit a report on our bug tracker. We&#x2019;ll never be able to fix what we do not know is broken! And Twitter is not a Bug Tracker!</p>
+<p>Win-KeX Version 2.0<br>September 18, 2020<br>re4son<br>Kali Linux News<br>We have been humbled by the amazing response to our recent launch of Win-KeX. After its initial release, we asked ourselves if that is truly the limit of what we can achieve or could we pull off something incredible to mark the 25th anniversary of Hackers? What about &#x201C;a second concurrent session as root&#x201D;, &#x201C;seamless desktop integration with Windows&#x201D;, or &#x2013; dare we dream &#x2013; &#x201C;sound&#x201D;?</p>
+<p>With no further further ado, we are thrilled to present to you Win-KeX v2.0 with the following features:</p>
+<p>Win-KeX SL (Seamless Edition) &#x2013; bye bye borders<br>Sound support<br>Multi-session support<br>KeX sessions can be run as root<br>Able to launch &#x201C;kex&#x201D; from anywhere &#x2013; no more cd-ing into the Kali filesystem required<br>Shared clipboard &#x2013; cut and paste content between Kali and Windows apps<br>iWin-KeX v2.0</p>
+<p>The installation of Win-KeX is as easy as always:</p>
+<p>sudo apt upgrade &amp;&amp; sudo apt install -y kali-win-kex (in a Kali WSL installation)</p>
+<p>Win-KeX now supports two dedicated modes:</p>
+<p>Win-KeX Window mode is the classic Win-KeX look and feel with one dedicated window for the Kali Linux desktop. To launch Win-KeX in Window mode with sound support, type:<br>kex &#x2013;win -s<br>Win-KeX SL mode provides a seamless integration of Kali Linux into the Windows desktop with the Windows Start menu at the bottom and the Kali panel at the top of the screen. All applications are launched in their own windows sharing the same desktop as Windows applications.<br>kex &#x2013;sl &#x2013;s<br>To enable sound:<br>Start Win-KeX with the &#x2013;sound or -s command line parameter. We&#x2019;ve been watching Blu-rays in Win-KeX SL without problems. Why you ask? Because &#x2013; now we can ;-)</p>
+<p>Win-KeX now supports concurrent sessions<br>Win-KeX as unprivileged user<br>Win-KeX as root user<br>Win-KeX SL<br>Windows Firewall<br>Both SL mode and sound support require access through the Windows Defender firewall. When prompted, tick &#x201C;Public networks&#x201D;. You can later go to the firewall settings and restrict the scope to the WSL network (usually 172.3x.xxx.0/20)</p>
+<p>Manpage<br>Forgotten that lifesaving parameter? Try:</p>
+<p>kex &#x2013;help<br>for a quick overview, or consult the manual page for a detailed manual:</p>
+<p>man kex<br>Win-KeX Manpage</p>
+<p>Big shout-out to the authors of the following components without which there would be no Win-KeX:<br>Win-KeX Win is brought to you by TigerVNC<br>Win-KeX SL utilizes VcXsr Windows X Server<br>Sound support is achieved through the integration of PulseAudio.<br>Further Information:<br>More information can be found on our documentation site.</p>
+<p>We hope you enjoy Win-KeX as much as we do and we&#x2019;d love to see you around in the Kali Forums</p>
+</enter></enter>
+      
+    </div>
+    <footer class="article-footer">
+      
+
+      
+        
+	  <!-- Gitment START! Deploy by Z4HD -->
+	<div id="comments"></div>
+		<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+		<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+		<script>
+		var gitment = new Gitment({
+			id: 'http://yoursite.com/2020/01/29/Release/',
+			owner: 'JoeJoeyMa',
+ 			repo: 'JoeJoeyMa.github.io',
+			oauth: {
+				client_id: 'b16fd2b48371378f485f',
+				client_secret: 'a3d12c33716206b031ba0d95fade9927e31dbb46',
+			},
+		})
+		gitment.render('comments')
+		</script>
+		<!-- Gitment 自定义样式表 -->
+		<link rel="stylesheet" href="/css/comment-gitment.css">
+		<!-- Gitment END! -->
+	 
+
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/2020/">2020</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kali/">Kali</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vmware/">Vmware</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iso/">iso</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/system/">system</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2020/01/02/HexoForGit/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">HexoForGit</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Inhalt</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Setting-up-the-root-account-on-Kali-2020"><span class="nav-number">1.</span> <span class="nav-text">Setting up the root account on Kali 2020</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#apt-get-update"><span class="nav-number">2.</span> <span class="nav-text">apt-get update</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#apt-get-install-ttf-wqy-zenhei"><span class="nav-number">3.</span> <span class="nav-text">apt-get install ttf-wqy-zenhei</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#dpkg-reconfigure-locales"><span class="nav-number">4.</span> <span class="nav-text">dpkg-reconfigure locales</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#apt-get-install-fcitx-googlepinyin"><span class="nav-number">5.</span> <span class="nav-text">apt-get install fcitx-googlepinyin</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#im-config"><span class="nav-number">6.</span> <span class="nav-text">im-config</span></a></li></ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/JoeJoeyMa/JoeJoeyMa.github.io" target="_blank">Hexo-theme-Joejoey</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2020 To change is to be better to change often is to change perfect All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				UV : <span id="busuanzi_value_site_uv"></span> |  
+				PV : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">About themes</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+    <a href="/book" class="mobile-nav-link">📓</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/scripts.js"></script>
+
+
+
+
+  <script src="/js/dialog.js"></script>
+
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-114383200-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            To change is to be better to change often is to change perfect
+          </div>
+          <div class="panel-body">
+            Copyright © 2020 To change is to be better to change often is to change perfect All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>
