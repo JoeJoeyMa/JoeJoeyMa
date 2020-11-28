@@ -1,6 +1,6 @@
 ---
 title: HexoForGit
-date: 2020-10-22 12:27:27
+date: 2020-1-2 12:27:27
 tags:
 - Django
 - VPS
@@ -23,11 +23,11 @@ tags:
 
 ## 一、关于搭建的流程
 
-1. 创建仓库，http://CrazyMilk.github.io；
+1. 创建仓库，http://xxxx.github.io；
 2. 创建两个分支：master 与 hexo；
 3. 设置hexo为默认分支（因为我们只需要手动管理这个分支上的Hexo网站文件）；
-4. 使用git clone git@github.com:CrazyMilk/CrazyMilk.github.io.git拷贝仓库；
-5. 在本地http://CrazyMilk.github.io文件夹下通过Git bash依次执行npm install hexo、hexo init、npm install 和 npm install hexo-deployer-git（此时当前分支应显示为hexo）;
+4. 使用git clone git@github.com:xxxx/xxxx.github.io.git拷贝仓库；
+5. 在本地http://xxxx.github.io文件夹下通过Git bash依次执行npm install hexo、hexo init、npm install 和 npm install hexo-deployer-git（此时当前分支应显示为hexo）;
 6. 修改_config.yml中的deploy参数，分支应为master；
 7. 依次执行git add .、git commit -m "..."、git push origin hexo提交网站相关的文件；
 8. 执行hexo g -d生成网站并部署到GitHub上。
@@ -49,6 +49,6 @@ tags:
 
 当重装电脑之后，或者想在其他电脑上修改博客，可以使用下列步骤：
 
-1. 使用git clone git@github.com:CrazyMilk/CrazyMilk.github.io.git拷贝仓库（默认分支为hexo）；
-2. 在本地新拷贝的http://CrazyMilk.github.io文件夹下通过Git bash依次执行下列指令：npm install hexo、npm install、npm install hexo-deployer-git（记得，不需要hexo init这条指令）。
+1. 使用git clone git@github.com:xxxx/CrazyMilk.github.io.git拷贝仓库（默认分支为hexo）；
+2. 在本地新拷贝的http://xxxx.github.io文件夹下通过Git bash依次执行下列指令：npm install hexo、npm install、npm install hexo-deployer-git（记得，不需要hexo init这条指令）。
 ------
