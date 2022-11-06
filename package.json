@@ -8,7 +8,7 @@
   "dependencies": {
     "bower": "^1.8.2",
     "cnpm": "^5.2.0",
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.2",
     "hexo": "^3.5.0",
     "hexo-article-emoji": "git+https://github.com/frapples/hexo-article-emoji.git",
     "hexo-deployer-git": "^0.3.1",
